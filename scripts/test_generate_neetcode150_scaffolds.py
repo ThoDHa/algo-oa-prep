@@ -879,7 +879,7 @@ def test_emit_scaffolds_records_premium_flag(tmp_path, monkeypatch):
 
 
 # ---------------------------------------------------------------------------
-# Home-page index section and mkdocs nav group
+# Home-page ownership and mkdocs nav group
 # ---------------------------------------------------------------------------
 
 
@@ -918,50 +918,16 @@ def sample_manifest(n=3):
     ][:n]
 
 
-def test_render_index_section_emits_track_table_rows():
-    text = gen.render_index_section(sample_manifest())
-    assert text.startswith(gen.INDEX_SECTION_START)
-    assert text.rstrip().endswith(gen.INDEX_SECTION_END)
-    assert "## NeetCode 150" in text
-    assert "| # | Problem | Difficulty | Section |" in text
-    row = [line for line in text.splitlines() if "contains-duplicate" in line][0]
-    assert row == (
-        "| [1](https://leetcode.com/problems/contains-duplicate/) "
-        "| [Contains Duplicate](problems/contains_duplicate.md) | Easy | Arrays & Hashing |"
-    )
-
-
-def test_render_index_section_rows_are_in_track_order():
-    text = gen.render_index_section(sample_manifest())
-    rows = [line for line in text.splitlines() if line.startswith("| [")]
-    assert len(rows) == 3
-    assert "two-sum-ii-input-array-is-sorted" in rows[-1]
-
-
-def test_write_index_section_splices_between_markers(tmp_path):
-    index_path = tmp_path / "index.md"
-    index_path.write_text(
-        "# Home\n\n## Problem List\n\n| a |\n|---|\n| b |\n\n## Pattern Intuition\n\nProse.\n",
-        encoding="utf-8",
-    )
-    changed = gen.write_index_section(sample_manifest(), index_path=index_path)
-    assert changed is True
-    text = index_path.read_text(encoding="utf-8")
-    assert text.index("## Problem List") < text.index("## NeetCode 150")
-    assert text.index("## NeetCode 150") < text.index("## Pattern Intuition")
-    first = text
-
-    # Idempotent regeneration replaces the bounded section, byte-stable.
-    changed = gen.write_index_section(sample_manifest(), index_path=index_path)
-    assert changed is False
-    assert index_path.read_text(encoding="utf-8") == first
-
-
-def test_write_index_section_requires_a_landing_spot(tmp_path):
-    index_path = tmp_path / "index.md"
-    index_path.write_text("# Home\n\nNo table here.\n", encoding="utf-8")
-    with pytest.raises(SystemExit, match="Pattern Intuition"):
-        gen.write_index_section(sample_manifest(), index_path=index_path)
+def test_the_docs_index_tables_are_owned_by_the_index_tables_generator():
+    # The neet150 marker section was superseded by the unified table
+    # (scripts/generate_index_tables.py); the index ownership must not
+    # creep back into this generator.
+    source = (SCRIPTS_DIR / "generate_neetcode150_scaffolds.py").read_text(encoding="utf-8")
+    assert "INDEX_PATH" not in source
+    assert not hasattr(gen, "render_index_section")
+    assert not hasattr(gen, "write_index_section")
+    assert not hasattr(gen, "INDEX_PATH")
+    assert not hasattr(gen, "INDEX_SECTION_START")
 
 
 def test_ensure_nav_group_inserts_nested_group_after_problems(tmp_path):
@@ -1040,7 +1006,7 @@ def test_main_check_mode_does_not_rewrite_the_manifest(tmp_path, monkeypatch):
 
     monkeypatch.setattr(gen, "load_manifest", spy)
     monkeypatch.setattr(gen, "check", lambda entries: 0)
-    monkeypatch.setattr(gen, "check_site_integration", lambda manifest, delta: 0)
+    monkeypatch.setattr(gen, "check_site_integration", lambda delta: 0)
     assert gen.main(["--check"]) == 0
     assert len(reads) == 1
 
@@ -1064,8 +1030,6 @@ def test_main_runs_the_full_pipeline_shape(tmp_path, monkeypatch, capsys):
 
 
 def test_check_site_integration_flags_extra_nav_entries(tmp_path, monkeypatch):
-    index_path = tmp_path / "index.md"
-    index_path.write_text("x", encoding="utf-8")
     mkdocs_path = tmp_path / "mkdocs.yml"
     mkdocs_path.write_text("nav:\n  - Problems:\n", encoding="utf-8")
     delta = [dict(sample_manifest()[-1], parse_status="parsed-with-cases")]
@@ -1078,21 +1042,15 @@ def test_check_site_integration_flags_extra_nav_entries(tmp_path, monkeypatch):
         '      - "Two Sum": problems/two_sum.md\n',
     )
     mkdocs_path.write_text(text, encoding="utf-8")
-    monkeypatch.setattr(gen, "INDEX_PATH", index_path)
     monkeypatch.setattr(gen, "MKDOCS_PATH", mkdocs_path)
-    monkeypatch.setattr(gen, "render_index_section", lambda manifest: "")
-    assert gen.check_site_integration(sample_manifest(), delta) == 1
+    assert gen.check_site_integration(delta) == 1
 
 
 def test_check_site_integration_flags_missing_nav_group(tmp_path, monkeypatch):
-    index_path = tmp_path / "index.md"
-    index_path.write_text("x", encoding="utf-8")
     mkdocs_path = tmp_path / "mkdocs.yml"
     mkdocs_path.write_text("nav:\n  - Problems:\n", encoding="utf-8")
-    monkeypatch.setattr(gen, "INDEX_PATH", index_path)
     monkeypatch.setattr(gen, "MKDOCS_PATH", mkdocs_path)
-    monkeypatch.setattr(gen, "render_index_section", lambda manifest: "")
-    assert gen.check_site_integration(sample_manifest(), [sample_manifest()[0]]) == 1
+    assert gen.check_site_integration([dict(sample_manifest()[0], parse_status="parsed-with-cases")]) == 1
 
 
 def test_nav_group_entries_reads_the_group_in_order():
@@ -1106,10 +1064,6 @@ def test_nav_group_entries_reads_the_group_in_order():
     )
     assert gen.nav_group_entries(mkdocs_text) == ["a", "b"]
     assert gen.nav_group_entries("nav:\n  - Home: index.md\n") == []
-
-
-def test_overlap_count_constant_matches_the_track_split():
-    assert gen.OVERLAP_COUNT == gen.TRACK_SIZE - 91
 
 
 def test_emit_scaffolds_premium_note_lands_in_the_writeup(tmp_path, monkeypatch):

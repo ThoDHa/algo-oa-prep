@@ -10,9 +10,10 @@ Pipeline:
        - practice/<dirSlug>/solution.py    (NotSolved stub)
        - practice/<dirSlug>/cases.json     (parseable examples, else [])
        - practice/<dirSlug>/test_<dirSlug>.py (harness-driven tests)
-  3. Once every delta problem is scaffolded, regenerate the marker-bounded
-     `## NeetCode 150` section on docs/index.md (the 150-row track table)
-     and the nested NeetCode 150 group inside the mkdocs.yml Problems nav.
+  3. Once every delta problem is scaffolded, add the nested NeetCode 150
+      group inside the mkdocs.yml Problems nav. The docs/index.md tables
+      are owned by scripts/generate_index_tables.py, which merges this
+      track with the Grind 75 rows into one unified table.
 
 Overlap problems (already in the bank) keep their single write-up and
 practice folder and are never scaffolded or modified.
@@ -50,7 +51,6 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 MANIFEST_PATH = REPO_ROOT / "scripts" / "neetcode150_manifest.json"
 DOCS_DIR = REPO_ROOT / "docs" / "problems"
 PRACTICE_DIR = REPO_ROOT / "practice"
-INDEX_PATH = REPO_ROOT / "docs" / "index.md"
 MKDOCS_PATH = REPO_ROOT / "mkdocs.yml"
 
 METADATA_URL = "https://neetcode.io/api/getProblemMetadataFunctionHttp"
@@ -68,9 +68,6 @@ TEMPLATE_LINK = "_TEMPLATE.md"
 
 TRACK_SIZE = 150
 DIFFICULTY_TOTALS = {"Easy": 28, "Medium": 101, "Hard": 21}
-# Track problems that keep their existing write-up (the shared LeetCode
-# universe): 150 total minus the 91 delta scaffolds.
-OVERLAP_COUNT = 59
 SECTION_COUNTS = {
     "Arrays & Hashing": 9,
     "Two Pointers": 5,
@@ -102,9 +99,6 @@ MANIFEST_FIELDS = (
     "leetcodePremium",
 )
 
-INDEX_SECTION_START = "<!-- neet150:start -->"
-INDEX_SECTION_END = "<!-- neet150:end -->"
-INDEX_LANDING_ANCHOR = "## Pattern Intuition"
 NAV_GROUP_MARKER = "  - Problems:\n"
 NAV_GROUP_HEADER = '    - "NeetCode 150":\n'
 
@@ -1236,74 +1230,6 @@ def emit_scaffolds(entries: Sequence[dict], fetch: bool = True) -> dict:
 # ---------------------------------------------------------------------------
 
 
-def render_index_section(entries: Sequence[dict]) -> str:
-    """Render the marker-bounded `## NeetCode 150` section for docs/index.md.
-
-    Table shape `| # | Problem | Difficulty | Section |` per the Decision
-    Log: `#` links the LeetCode problem, `Problem` links the write-up
-    (existing for overlap, scaffolded for delta), `Section` names the
-    NeetCode section. No Time column: NeetCode publishes no per-problem
-    minutes.
-    """
-    lines = [
-        INDEX_SECTION_START,
-        "## NeetCode 150",
-        "",
-        "The [NeetCode 150](https://neetcode.io/practice/practice/neetcode150)"
-        " study track. All credit for the curated list goes to the"
-        f" [NeetCode](https://neetcode.io/) team; {OVERLAP_COUNT} of the"
-        " 150 share their write-up with the Grind 75 list above.",
-        "",
-        "| # | Problem | Difficulty | Section |",
-        "|---|---------|------------|---------|",
-    ]
-    for entry in entries:
-        number = f"[{entry['order']}]({LC_PROBLEM_URL_TEMPLATE.format(slug=entry['lcSlug'])})"
-        problem = f"[{entry['title']}](problems/{entry['dirSlug']}.md)"
-        lines.append(
-            f"| {number} | {problem} | {entry['difficulty']} | {entry['section']} |"
-        )
-    lines.append(INDEX_SECTION_END)
-    return "\n".join(lines) + "\n"
-
-
-def write_index_section(entries: Sequence[dict], index_path: Optional[Path] = None) -> bool:
-    """Regenerate the marker-bounded NeetCode 150 section on docs/index.md.
-
-    The section lands after the Grind 75 Problem List, before the Pattern
-    Intuition heading, and only the marker-bounded span is ever rewritten.
-
-    Args:
-        entries: All 150 manifest entries in track order.
-        index_path: Overrides the docs/index.md path (default: module constant).
-
-    Returns:
-        True when the file was modified, False when it already matched.
-
-    Raises:
-        SystemExit: When the index has no landing anchor to splice against.
-    """
-    index_path = index_path if index_path is not None else INDEX_PATH
-    text = index_path.read_text(encoding="utf-8")
-    section = render_index_section(entries)
-    start_at = text.find(INDEX_SECTION_START)
-    if start_at != -1:
-        end_at = text.index(INDEX_SECTION_END, start_at) + len(INDEX_SECTION_END)
-        updated = text[:start_at] + section.rstrip() + text[end_at:]
-    else:
-        anchor_at = text.find(INDEX_LANDING_ANCHOR)
-        if anchor_at == -1:
-            raise SystemExit(
-                f"{index_path} has neither {INDEX_SECTION_START!r} markers nor a "
-                f"{INDEX_LANDING_ANCHOR!r} anchor to splice the NeetCode 150 section against"
-            )
-        updated = text[:anchor_at] + section + "\n" + text[anchor_at:]
-    if updated == text:
-        return False
-    index_path.write_text(updated, encoding="utf-8")
-    return True
-
-
 def ensure_nav_group(entries: Sequence[dict], mkdocs_path: Optional[Path] = None) -> bool:
     """Insert the nested NeetCode 150 group inside the mkdocs.yml Problems nav.
 
@@ -1401,33 +1327,21 @@ def nav_group_entries(mkdocs_text: str) -> List[str]:
     return entries
 
 
-def check_site_integration(manifest: Sequence[dict], delta: Sequence[dict]) -> int:
-    """Extend `check` with the index section and nav group idempotency.
+def check_site_integration(delta: Sequence[dict]) -> int:
+    """Extend `check` with the mkdocs nav group idempotency.
 
     The nav group is compared exactly against the delta set: extra entries
-    (overlap duplicates) and missing entries are both drift.
+    (overlap duplicates) and missing entries are both drift. The
+    docs/index.md tables are owned by scripts/generate_index_tables.py and
+    are not checked here.
 
     Args:
-        manifest: All 150 manifest entries.
         delta: The delta entries (nav group membership).
 
     Returns:
         A process exit code: 0 when the site files match, 1 otherwise.
     """
     stale: List[str] = []
-    index_path = INDEX_PATH
-    if not index_path.exists():
-        stale.append("docs/index.md (missing)")
-    else:
-        text = index_path.read_text(encoding="utf-8")
-        expected_section = render_index_section(manifest).rstrip()
-        start_at = text.find(INDEX_SECTION_START)
-        if start_at == -1:
-            stale.append("docs/index.md (no neet150 markers)")
-        else:
-            end_at = text.index(INDEX_SECTION_END, start_at) + len(INDEX_SECTION_END)
-            if text[start_at:end_at] != expected_section:
-                stale.append("docs/index.md (neet150 section differs)")
     mkdocs_text = (
         MKDOCS_PATH.read_text(encoding="utf-8") if MKDOCS_PATH.exists() else ""
     )
@@ -1481,14 +1395,15 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     if args.check:
         # --check is read-only verification: it never fetches or writes.
         # The scaffold check covers the generated problems; the site check
-        # covers index/nav (trivially absent when scaffolding is incomplete).
+        # covers the mkdocs nav (trivially absent when scaffolding is
+        # incomplete); docs/index.md is owned by generate_index_tables.py.
         code = check(delta[: args.limit] if args.limit else delta)
         if code != 0 or args.limit is not None:
             return code
         scaffolded_delta = [
             entry for entry in manifest if entry.get("parse_status") is not None
         ]
-        return check_site_integration(manifest, scaffolded_delta)
+        return check_site_integration(scaffolded_delta)
 
     entries = delta[: args.limit] if args.limit else delta
     stats = emit_scaffolds(entries, fetch=not args.no_fetch)
@@ -1514,7 +1429,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         # Every delta problem is scaffolded: the site integration may land.
         # The nav group carries exactly the delta entries (the scaffolds this
         # run or a previous run emitted); overlap entries exist already.
-        write_index_section(manifest)
+        # docs/index.md is owned by generate_index_tables.py.
         ensure_nav_group(
             [entry for entry in manifest if entry.get("parse_status") is not None]
         )

@@ -1,0 +1,618 @@
+[
+  {
+    "number": 1,
+    "slug": "two-sum",
+    "title": "Two Sum",
+    "difficulty": "Easy",
+    "category": "Array, Hash Table",
+    "time": "15 minutes"
+  },
+  {
+    "number": 2,
+    "slug": "valid-parentheses",
+    "title": "Valid Parentheses",
+    "difficulty": "Easy",
+    "category": "Stack, String",
+    "time": "20 minutes"
+  },
+  {
+    "number": 3,
+    "slug": "merge-two-sorted-lists",
+    "title": "Merge Two Sorted Lists",
+    "difficulty": "Easy",
+    "category": "Linked List",
+    "time": "20 minutes"
+  },
+  {
+    "number": 4,
+    "slug": "best-time-to-buy-and-sell-stock",
+    "title": "Best Time to Buy and Sell Stock",
+    "difficulty": "Easy",
+    "category": "Array",
+    "time": "20 minutes"
+  },
+  {
+    "number": 5,
+    "slug": "valid-palindrome",
+    "title": "Valid Palindrome",
+    "difficulty": "Easy",
+    "category": "String",
+    "time": "15 minutes"
+  },
+  {
+    "number": 6,
+    "slug": "invert-binary-tree",
+    "title": "Invert Binary Tree",
+    "difficulty": "Easy",
+    "category": "Tree",
+    "time": "15 minutes"
+  },
+  {
+    "number": 7,
+    "slug": "valid-anagram",
+    "title": "Valid Anagram",
+    "difficulty": "Easy",
+    "category": "String",
+    "time": "15 minutes"
+  },
+  {
+    "number": 8,
+    "slug": "binary-search",
+    "title": "Binary Search",
+    "difficulty": "Easy",
+    "category": "Binary Search",
+    "time": "15 minutes"
+  },
+  {
+    "number": 9,
+    "slug": "flood-fill",
+    "title": "Flood Fill",
+    "difficulty": "Easy",
+    "category": "Graph, DFS",
+    "time": "20 minutes"
+  },
+  {
+    "number": 10,
+    "slug": "lowest-common-ancestor-of-a-binary-search-tree",
+    "title": "Lowest Common Ancestor of a BST",
+    "difficulty": "Medium",
+    "category": "Tree",
+    "time": "20 minutes"
+  },
+  {
+    "number": 11,
+    "slug": "balanced-binary-tree",
+    "title": "Balanced Binary Tree",
+    "difficulty": "Easy",
+    "category": "Tree",
+    "time": "15 minutes"
+  },
+  {
+    "number": 12,
+    "slug": "linked-list-cycle",
+    "title": "Linked List Cycle",
+    "difficulty": "Easy",
+    "category": "Linked List",
+    "time": "20 minutes"
+  },
+  {
+    "number": 13,
+    "slug": "implement-queue-using-stacks",
+    "title": "Implement Queue using Stacks",
+    "difficulty": "Easy",
+    "category": "Stack",
+    "time": "20 minutes"
+  },
+  {
+    "number": 14,
+    "slug": "first-bad-version",
+    "title": "First Bad Version",
+    "difficulty": "Easy",
+    "category": "Binary Search",
+    "time": "20 minutes"
+  },
+  {
+    "number": 15,
+    "slug": "ransom-note",
+    "title": "Ransom Note",
+    "difficulty": "Easy",
+    "category": "Hash Table",
+    "time": "15 minutes"
+  },
+  {
+    "number": 16,
+    "slug": "climbing-stairs",
+    "title": "Climbing Stairs",
+    "difficulty": "Easy",
+    "category": "Dynamic Programming",
+    "time": "20 minutes"
+  },
+  {
+    "number": 17,
+    "slug": "longest-palindrome",
+    "title": "Longest Palindrome",
+    "difficulty": "Easy",
+    "category": "String",
+    "time": "20 minutes"
+  },
+  {
+    "number": 18,
+    "slug": "reverse-linked-list",
+    "title": "Reverse Linked List",
+    "difficulty": "Easy",
+    "category": "Linked List",
+    "time": "20 minutes"
+  },
+  {
+    "number": 19,
+    "slug": "majority-element",
+    "title": "Majority Element",
+    "difficulty": "Easy",
+    "category": "Array",
+    "time": "20 minutes"
+  },
+  {
+    "number": 20,
+    "slug": "add-binary",
+    "title": "Add Binary",
+    "difficulty": "Easy",
+    "category": "String",
+    "time": "15 minutes"
+  },
+  {
+    "number": 21,
+    "slug": "diameter-of-binary-tree",
+    "title": "Diameter of Binary Tree",
+    "difficulty": "Easy",
+    "category": "Tree",
+    "time": "30 minutes"
+  },
+  {
+    "number": 22,
+    "slug": "middle-of-the-linked-list",
+    "title": "Middle of the Linked List",
+    "difficulty": "Easy",
+    "category": "Linked List",
+    "time": "20 minutes"
+  },
+  {
+    "number": 23,
+    "slug": "maximum-depth-of-binary-tree",
+    "title": "Maximum Depth of Binary Tree",
+    "difficulty": "Easy",
+    "category": "Tree",
+    "time": "15 minutes"
+  },
+  {
+    "number": 24,
+    "slug": "contains-duplicate",
+    "title": "Contains Duplicate",
+    "difficulty": "Easy",
+    "category": "Array",
+    "time": "15 minutes"
+  },
+  {
+    "number": 25,
+    "slug": "maximum-subarray",
+    "title": "Maximum Subarray",
+    "difficulty": "Medium",
+    "category": "Array, Dynamic Programming",
+    "time": "20 minutes"
+  },
+  {
+    "number": 26,
+    "slug": "insert-interval",
+    "title": "Insert Interval",
+    "difficulty": "Medium",
+    "category": "Array",
+    "time": "25 minutes"
+  },
+  {
+    "number": 27,
+    "slug": "01-matrix",
+    "title": "01 Matrix",
+    "difficulty": "Medium",
+    "category": "BFS",
+    "time": "30 minutes"
+  },
+  {
+    "number": 28,
+    "slug": "k-closest-points-to-origin",
+    "title": "K Closest Points to Origin",
+    "difficulty": "Medium",
+    "category": "Heap",
+    "time": "30 minutes"
+  },
+  {
+    "number": 29,
+    "slug": "longest-substring-without-repeating-characters",
+    "title": "Longest Substring Without Repeating Characters",
+    "difficulty": "Medium",
+    "category": "String",
+    "time": "30 minutes"
+  },
+  {
+    "number": 30,
+    "slug": "3sum",
+    "title": "3Sum",
+    "difficulty": "Medium",
+    "category": "Array",
+    "time": "30 minutes"
+  },
+  {
+    "number": 31,
+    "slug": "binary-tree-level-order-traversal",
+    "title": "Binary Tree Level Order Traversal",
+    "difficulty": "Medium",
+    "category": "Tree",
+    "time": "20 minutes"
+  },
+  {
+    "number": 32,
+    "slug": "clone-graph",
+    "title": "Clone Graph",
+    "difficulty": "Medium",
+    "category": "Graph",
+    "time": "25 minutes"
+  },
+  {
+    "number": 33,
+    "slug": "evaluate-reverse-polish-notation",
+    "title": "Evaluate Reverse Polish Notation",
+    "difficulty": "Medium",
+    "category": "Stack",
+    "time": "30 minutes"
+  },
+  {
+    "number": 34,
+    "slug": "course-schedule",
+    "title": "Course Schedule",
+    "difficulty": "Medium",
+    "category": "Graph",
+    "time": "30 minutes"
+  },
+  {
+    "number": 35,
+    "slug": "implement-trie-prefix-tree",
+    "title": "Implement Trie (Prefix Tree)",
+    "difficulty": "Medium",
+    "category": "Trie",
+    "time": "35 minutes"
+  },
+  {
+    "number": 36,
+    "slug": "coin-change",
+    "title": "Coin Change",
+    "difficulty": "Medium",
+    "category": "Dynamic Programming",
+    "time": "25 minutes"
+  },
+  {
+    "number": 37,
+    "slug": "product-of-array-except-self",
+    "title": "Product of Array Except Self",
+    "difficulty": "Medium",
+    "category": "Array",
+    "time": "30 minutes"
+  },
+  {
+    "number": 38,
+    "slug": "min-stack",
+    "title": "Minimum Stack",
+    "difficulty": "Medium",
+    "category": "Stack",
+    "time": "20 minutes"
+  },
+  {
+    "number": 39,
+    "slug": "validate-binary-search-tree",
+    "title": "Validate Binary Search Tree",
+    "difficulty": "Medium",
+    "category": "Tree",
+    "time": "20 minutes"
+  },
+  {
+    "number": 40,
+    "slug": "number-of-islands",
+    "title": "Number of Islands",
+    "difficulty": "Medium",
+    "category": "Graph",
+    "time": "25 minutes"
+  },
+  {
+    "number": 41,
+    "slug": "rotting-oranges",
+    "title": "Rotting Oranges",
+    "difficulty": "Medium",
+    "category": "BFS",
+    "time": "30 minutes"
+  },
+  {
+    "number": 42,
+    "slug": "search-in-rotated-sorted-array",
+    "title": "Search in Rotated Sorted Array",
+    "difficulty": "Medium",
+    "category": "Binary Search",
+    "time": "30 minutes"
+  },
+  {
+    "number": 43,
+    "slug": "combination-sum",
+    "title": "Combination Sum",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "time": "30 minutes"
+  },
+  {
+    "number": 44,
+    "slug": "permutations",
+    "title": "Permutations",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "time": "30 minutes"
+  },
+  {
+    "number": 45,
+    "slug": "merge-intervals",
+    "title": "Merge Intervals",
+    "difficulty": "Medium",
+    "category": "Sorting",
+    "time": "30 minutes"
+  },
+  {
+    "number": 46,
+    "slug": "lowest-common-ancestor-of-a-binary-tree",
+    "title": "Lowest Common Ancestor of a Binary Tree",
+    "difficulty": "Medium",
+    "category": "Tree",
+    "time": "25 minutes"
+  },
+  {
+    "number": 47,
+    "slug": "time-based-key-value-store",
+    "title": "Time Based Key-Value Store",
+    "difficulty": "Medium",
+    "category": "Binary Search",
+    "time": "35 minutes"
+  },
+  {
+    "number": 48,
+    "slug": "accounts-merge",
+    "title": "Accounts Merge",
+    "difficulty": "Medium",
+    "category": "Graph",
+    "time": "30 minutes"
+  },
+  {
+    "number": 49,
+    "slug": "sort-colors",
+    "title": "Sort Colors",
+    "difficulty": "Medium",
+    "category": "Array",
+    "time": "25 minutes"
+  },
+  {
+    "number": 50,
+    "slug": "word-break",
+    "title": "Word Break",
+    "difficulty": "Medium",
+    "category": "Dynamic Programming",
+    "time": "30 minutes"
+  },
+  {
+    "number": 51,
+    "slug": "partition-equal-subset-sum",
+    "title": "Partition Equal Subset Sum",
+    "difficulty": "Medium",
+    "category": "Dynamic Programming",
+    "time": "30 minutes"
+  },
+  {
+    "number": 52,
+    "slug": "string-to-integer-atoi",
+    "title": "String to Integer (atoi)",
+    "difficulty": "Medium",
+    "category": "String",
+    "time": "25 minutes"
+  },
+  {
+    "number": 53,
+    "slug": "spiral-matrix",
+    "title": "Spiral Matrix",
+    "difficulty": "Medium",
+    "category": "Array",
+    "time": "25 minutes"
+  },
+  {
+    "number": 54,
+    "slug": "subsets",
+    "title": "Subsets",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "time": "30 minutes"
+  },
+  {
+    "number": 55,
+    "slug": "binary-tree-right-side-view",
+    "title": "Binary Tree Right Side View",
+    "difficulty": "Medium",
+    "category": "Tree",
+    "time": "20 minutes"
+  },
+  {
+    "number": 56,
+    "slug": "longest-palindromic-substring",
+    "title": "Longest Palindromic Substring",
+    "difficulty": "Medium",
+    "category": "String",
+    "time": "25 minutes"
+  },
+  {
+    "number": 57,
+    "slug": "unique-paths",
+    "title": "Unique Paths",
+    "difficulty": "Medium",
+    "category": "Dynamic Programming",
+    "time": "20 minutes"
+  },
+  {
+    "number": 58,
+    "slug": "construct-binary-tree-from-preorder-and-inorder-traversal",
+    "title": "Construct Binary Tree from Preorder and Inorder Traversal",
+    "difficulty": "Medium",
+    "category": "Tree",
+    "time": "25 minutes"
+  },
+  {
+    "number": 59,
+    "slug": "container-with-most-water",
+    "title": "Container With Most Water",
+    "difficulty": "Medium",
+    "category": "Array",
+    "time": "35 minutes"
+  },
+  {
+    "number": 60,
+    "slug": "letter-combinations-of-a-phone-number",
+    "title": "Letter Combinations of a Phone Number",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "time": "30 minutes"
+  },
+  {
+    "number": 61,
+    "slug": "word-search",
+    "title": "Word Search",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "time": "30 minutes"
+  },
+  {
+    "number": 62,
+    "slug": "find-all-anagrams-in-a-string",
+    "title": "Find All Anagrams in a String",
+    "difficulty": "Medium",
+    "category": "String",
+    "time": "30 minutes"
+  },
+  {
+    "number": 63,
+    "slug": "minimum-height-trees",
+    "title": "Minimum Height Trees",
+    "difficulty": "Medium",
+    "category": "Graph",
+    "time": "30 minutes"
+  },
+  {
+    "number": 64,
+    "slug": "task-scheduler",
+    "title": "Task Scheduler",
+    "difficulty": "Medium",
+    "category": "Heap",
+    "time": "35 minutes"
+  },
+  {
+    "number": 65,
+    "slug": "lru-cache",
+    "title": "LRU Cache",
+    "difficulty": "Medium",
+    "category": "Linked List",
+    "time": "30 minutes"
+  },
+  {
+    "number": 66,
+    "slug": "kth-smallest-element-in-a-bst",
+    "title": "Kth Smallest Element in a BST",
+    "difficulty": "Medium",
+    "category": "Tree",
+    "time": "25 minutes"
+  },
+  {
+    "number": 67,
+    "slug": "minimum-window-substring",
+    "title": "Minimum Window Substring",
+    "difficulty": "Hard",
+    "category": "String",
+    "time": "30 minutes"
+  },
+  {
+    "number": 68,
+    "slug": "serialize-and-deserialize-binary-tree",
+    "title": "Serialize and Deserialize Binary Tree",
+    "difficulty": "Hard",
+    "category": "Tree",
+    "time": "40 minutes"
+  },
+  {
+    "number": 69,
+    "slug": "trapping-rain-water",
+    "title": "Trapping Rain Water",
+    "difficulty": "Hard",
+    "category": "Stack",
+    "time": "35 minutes"
+  },
+  {
+    "number": 70,
+    "slug": "find-median-from-data-stream",
+    "title": "Find Median from Data Stream",
+    "difficulty": "Hard",
+    "category": "Heap",
+    "time": "30 minutes"
+  },
+  {
+    "number": 71,
+    "slug": "word-ladder",
+    "title": "Word Ladder",
+    "difficulty": "Hard",
+    "category": "BFS",
+    "time": "45 minutes"
+  },
+  {
+    "number": 72,
+    "slug": "basic-calculator",
+    "title": "Basic Calculator",
+    "difficulty": "Hard",
+    "category": "Stack",
+    "time": "40 minutes"
+  },
+  {
+    "number": 73,
+    "slug": "maximum-profit-in-job-scheduling",
+    "title": "Maximum Profit in Job Scheduling",
+    "difficulty": "Hard",
+    "category": "Binary Search",
+    "time": "45 minutes"
+  },
+  {
+    "number": 74,
+    "slug": "merge-k-sorted-lists",
+    "title": "Merge k Sorted Lists",
+    "difficulty": "Hard",
+    "category": "Linked List",
+    "time": "30 minutes"
+  },
+  {
+    "number": 75,
+    "slug": "largest-rectangle-in-histogram",
+    "title": "Largest Rectangle in Histogram",
+    "difficulty": "Hard",
+    "category": "Stack",
+    "time": "35 minutes"
+  },
+  {
+    "number": null,
+    "slug": "binary-tree-maximum-path-sum",
+    "title": "Binary Tree Maximum Path Sum",
+    "difficulty": "-",
+    "category": "-",
+    "time": "-"
+  },
+  {
+    "number": null,
+    "slug": "maximum-frequency-stack",
+    "title": "Maximum Frequency Stack",
+    "difficulty": "-",
+    "category": "-",
+    "time": "-"
+  }
+]
