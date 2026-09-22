@@ -1,8 +1,8 @@
-site_name: Grind75 Solutions
-site_description: Solution write-ups for the Grind75 LeetCode study guide
-site_url: https://thodha.github.io/grind75/
-repo_url: https://github.com/ThoDHa/grind75
-repo_name: ThoDHa/grind75
+site_name: Algo OA Prep Solutions
+site_description: Solution write-ups for the Grind 75, NeetCode 150, and Amazon OA problem banks
+site_url: https://thodha.github.io/algo-oa-prep/
+repo_url: https://github.com/ThoDHa/algo-oa-prep
+repo_name: ThoDHa/algo-oa-prep
 edit_uri: edit/solutions/docs/
 docs_dir: docs
 exclude_docs: |

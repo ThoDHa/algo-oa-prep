@@ -1,14 +1,14 @@
-# Grind75 Solutions
+# Algo OA Prep Solutions
 
-A study guide for the [Grind75](https://www.techinterviewhandbook.org/grind75) LeetCode list. Each problem page covers the statement, examples, and constraints. The [pattern intuition guides](patterns/index.md) explain the mental models behind the recurring algorithm patterns, and the [`practice/`](https://github.com/ThoDHa/grind75/tree/main/practice) workspace lets you implement and test each solution yourself.
+A study guide spanning three curated problem banks: the [Grind 75](https://www.techinterviewhandbook.org/grind75) LeetCode list, the [NeetCode 150](https://neetcode.io/practice/practice/neetcode150) track, and the [Amazon OA](problems/amazon_oa/index.md) bank. Each problem page covers the statement and examples, with constraints where available. The Grind 75 table below lists the first track in study order, followed by the generated NeetCode 150 table; the Amazon OA problems have their own index. The [pattern intuition guides](patterns/index.md) explain the mental models behind the recurring algorithm patterns, and the [`practice/`](https://github.com/ThoDHa/algo-oa-prep/tree/main/practice) workspace lets you implement and test each solution yourself.
 
-All credit for the curated problem list goes to the [Tech Interview Handbook](https://www.techinterviewhandbook.org/) team.
+All credit for the curated problem lists goes to the [Tech Interview Handbook](https://www.techinterviewhandbook.org/), [NeetCode](https://neetcode.io/), and [Tech-OA-Interview-Questions](https://github.com/perixtar/Tech-OA-Interview-Questions) teams.
 
 !!! tip "New to algorithms or interviews?"
 
     Start with the [Foundations](foundations/index.md) section. It teaches the prerequisites the problem pages assume, Big-O notation, recursion, the core data structures, and a method for approaching any problem, all from zero. For the plan around the problems, time budgeting, and the non-coding rounds, see the [Interview Prep](interview_prep/index.md) section.
 
-Use the navigation sidebar (in canonical Grind75 order) or the table below.
+Use the navigation sidebar or the tables below.
 
 ## Problem List
 
@@ -257,4 +257,4 @@ The [pattern intuition guides](patterns/index.md) explain the *why* behind each 
 
 ## Practice Workspace
 
-The [`practice/`](https://github.com/ThoDHa/grind75/tree/main/practice) directory is a `pytest` workspace for solving the problems yourself. Each problem has a `solution.py` to implement plus two test sets that mirror LeetCode's Run (the examples) and Submit (a full corner-case gauntlet). See its [README](https://github.com/ThoDHa/grind75/blob/main/practice/README.md) for setup and the practice loop.
+The [`practice/`](https://github.com/ThoDHa/algo-oa-prep/tree/main/practice) directory is a `pytest` workspace for solving the problems yourself. Each problem has a `solution.py` to implement plus two test sets that mirror LeetCode's Run (the examples) and Submit (a full corner-case gauntlet). See its [README](https://github.com/ThoDHa/algo-oa-prep/blob/main/practice/README.md) for setup and the practice loop.

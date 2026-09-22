@@ -1,13 +1,22 @@
-# LeetCode Grind75 Study Guide
+# Algo OA Prep
 
-This repository is a structured study guide for algorithmic problem solving based on the popular [Grind75](https://www.techinterviewhandbook.org/grind75) list of LeetCode questions developed by the team at [Tech Interview Handbook](https://www.techinterviewhandbook.org/). All credit for the curated problem list goes to them for their excellent work in creating this focused interview preparation resource.
+This repository is a structured study guide for algorithmic problem solving built on three curated problem banks: the [Grind 75](https://www.techinterviewhandbook.org/grind75) list of LeetCode questions from the [Tech Interview Handbook](https://www.techinterviewhandbook.org/) team, the [NeetCode 150](https://neetcode.io/practice/practice/neetcode150) track from the [NeetCode](https://neetcode.io/) team, and an [Amazon OA](docs/problems/amazon_oa/index.md) bank collected from the [Tech-OA-Interview-Questions](https://github.com/perixtar/Tech-OA-Interview-Questions) repository. All credit for the curated problem lists goes to them for their excellent work in creating these focused interview preparation resources.
 
-**Read it as a website:** the full guide, including complete solution write-ups for every problem, is published at [thodha.github.io/grind75](https://thodha.github.io/grind75/).
+**Read it as a website:** the full guide, including complete solution write-ups for every Grind 75 problem (write-ups for the newer banks are in progress), is published at [thodha.github.io/algo-oa-prep](https://thodha.github.io/algo-oa-prep/).
+
+## The three problem banks
+
+- **Grind 75** is the core track: the canonical 75 problems in study order (plus two bonus problems), listed in the table below and mirrored on the site's home page.
+- **NeetCode 150** extends the bank to 150 problems in NeetCode's section order; 59 of them overlap with Grind 75 and share their write-ups. Its table is generated into a marker-bounded section of the home page.
+- **Amazon OA** is a growing bank of Amazon-tagged online-assessment questions with its own [index page](docs/problems/amazon_oa/index.md), most recently updated first, and practice stubs under `practice/amazon_oa/`.
+
+Every problem, regardless of track, has the same core page structure (statement and examples, with constraints where available) and a matching practice folder under `practice/` with stubs and tests; Grind 75 pages also link the **Pattern** guide behind the technique.
 
 ## How this repository is organized
 
 - The `main` branch is the study environment: problem statements, pattern guides, foundations, interview prep planning, system design material, and the `practice/` workspace with unsolved stubs. Solution write-ups are deliberately absent here so you can attempt problems without spoilers.
-- The `solutions` branch adds the full multi-approach solution write-ups to every problem page. The published site is built from it, so read solutions on the website (or that branch) when you are ready to compare answers.
+- The `solutions` branch adds the full multi-approach solution write-ups to every Grind 75 problem page; the NeetCode 150 and Amazon OA write-ups land there later. The published site is built from it, so read solutions on the website (or that branch) when you are ready to compare answers.
+- The `scripts/` directory holds the generators that maintain the generated tracks: `generate_neetcode150_scaffolds.py` rebuilds the NeetCode 150 statement pages, practice stubs, and the home-page table from `scripts/neetcode150_manifest.json`, and `generate_amazon_oa_scaffolds.py` does the same for the Amazon OA bank from `scripts/amazon_oa_manifest.json`. Both are manifest-driven: the generated files are not edited by hand, and changes are validated with `cd practice && uv run pytest ../scripts/`.
 
 ## First time here?
 
@@ -21,7 +30,7 @@ New to algorithms or interview prep? Start with the [Foundations](docs/foundatio
 
 Then work the problems in order, reading each one's linked **Pattern** guide for the *why* behind the technique. For the plan around the problems, how to budget your time, and what the non-coding rounds require, see the [Interview Prep](docs/interview_prep/index.md) section.
 
-## Problem List
+## Grind 75 Problem List
 
 The canonical 75 problems in study order (for real progress tracking, use the [practice progress tracker](#practice-workspace) instead of editing this table):
 
@@ -109,7 +118,7 @@ The [8-week schedule](docs/interview_prep/study_plan.md#the-8-week-schedule) org
 
 ## Pattern Intuition
 
-Beyond the individual problems, the guide includes [algorithm pattern intuition guides](docs/patterns/index.md) covering the recurring patterns these problems share (sliding window, two pointers, binary search, backtracking, dynamic programming, graph traversal, and more). Each guide explains *why* the pattern works, when it applies, and the invariant that makes it correct, then maps the pattern to the Grind75 problems that use it. The guides are adapted from the [NeetCode practice framework](https://lufftw.github.io/neetcode/).
+Beyond the individual problems, the guide includes [algorithm pattern intuition guides](docs/patterns/index.md) covering the recurring patterns these problems share (sliding window, two pointers, binary search, backtracking, dynamic programming, graph traversal, and more). Each guide explains *why* the pattern works, when it applies, and the invariant that makes it correct, then maps the pattern to the Grind 75 problems that use it. The guides are adapted from the [NeetCode practice framework](https://lufftw.github.io/neetcode/).
 
 ## System Design
 
@@ -119,9 +128,9 @@ Coding rounds are only half the interview loop. The [System Design section](docs
 
 The [`practice/`](practice/) directory is a `pytest` workspace for solving the problems yourself rather than just reading them. Each problem has its own folder with a `solution.py` to implement, two test sets that mirror LeetCode's Run (the examples) and Submit (a full corner-case gauntlet), and a `__main__` block for stepping through a single case in a debugger. An unsolved `solution.py` raises `NotSolved` so its tests skip until you fill it in. A progress tracker (`practice/progress.py`) derives solved status from the test suite, records your confidence per problem, and maintains a spaced-repetition review queue. See [`practice/README.md`](practice/README.md) for setup and the full workflow.
 
-## Creating a PDF with Pandoc
+## Creating a PDF of the Grind 75 Track with Pandoc
 
-You can generate a compiled PDF of these problems using the included configuration:
+You can generate a compiled PDF of the Grind 75 track problems using the included configuration:
 
 ### Prerequisites
 
@@ -144,7 +153,7 @@ pandoc --defaults grind75.yaml
 This will:
 
 - Read configuration from `grind75.yaml`
-- Combine the specified markdown files (`two_sum.md`, `valid_parentheses.md`, etc.)
+- Combine the Grind 75 track markdown files (`two_sum.md`, `valid_parentheses.md`, etc.)
 - Create a table of contents
 - Generate a PDF file named `grind75.pdf` using the XeLaTeX engine
 
