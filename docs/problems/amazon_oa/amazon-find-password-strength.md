@@ -3,30 +3,30 @@
 **Medium** | **NN minutes** | **String, Hash Table**
 
 Hello! Did you navigate here from my sister question Password Strength 🐣?
-    
 
 
-    Another check pwd strength question you might be interested in:
-    
+
+Another check pwd strength question you might be interested in:
 
 
-    Find the password strength for a given password. For example, if the password is "good", 
-    then iterate over all substrings and find the distinct character counts:
-    
+
+Find the password strength for a given password. For example, if the password is "good", 
+then iterate over all substrings and find the distinct character counts:
 
 
-      g = 1,
-      o = 1,
-      o = 1,
-      d = 1,
-      go = 2,
-      oo = 1,
-      od = 2,
-      goo = 2,
-      ood = 2,
-      good = 3
-    
-    At the end, add all the distinct character counts to determine the password strength. In this case, the password strength is 16.
+
+g = 1,
+o = 1,
+o = 1,
+d = 1,
+go = 2,
+oo = 1,
+od = 2,
+goo = 2,
+ood = 2,
+good = 3
+
+At the end, add all the distinct character counts to determine the password strength. In this case, the password strength is 16.
 
 ## Examples
 
@@ -38,20 +38,20 @@ Hello! Did you navigate here from my sister question Password Strength 🐣?
 
 **Explanation:** Iterate over all substrings and find the distinct character counts:
 
-      
 
 
-        g = 1,
-        o = 1,
-        o = 1,
-        d = 1,
-        go = 2,
-        oo = 1,
-        od = 2,
-        goo = 2,
-        ood = 2,
-        good = 3
-      
+
+g = 1,
+o = 1,
+o = 1,
+d = 1,
+go = 2,
+oo = 1,
+od = 2,
+goo = 2,
+ood = 2,
+good = 3
+
 
 The total strength is the sum of all distinct character counts: 1 + 1 + 1 + 1 + 2 + 1 + 2 + 2 + 2 + 3 = 16.
 

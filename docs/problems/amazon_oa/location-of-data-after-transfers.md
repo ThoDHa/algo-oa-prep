@@ -3,15 +3,15 @@
 **Easy** | **NN minutes** | **Hash Table, Sorting**
 
 X stores its data on different servers at different locations. From time to time, due to several factors, X needs to move its data from one location to another. This challenge involved keeping track of the locations of X's data and report them at the end of the year.
-  
 
 
-  At the start of the year, X's data was located at n different locations. Over the course of the year, X's data was moved from one server to another m times. Precisely, in the ith operation, the data was moved from movedFrom[i] to movedTo[i]. Find the locations of the data after all m moving operations. Return the locations in ascending order.
-  
+
+At the start of the year, X's data was located at n different locations. Over the course of the year, X's data was moved from one server to another m times. Precisely, in the ith operation, the data was moved from movedFrom[i] to movedTo[i]. Find the locations of the data after all m moving operations. Return the locations in ascending order.
 
 
-    Note:
-      
+
+Note:
+
 
 It is guaranteed that for any movement of data :
 
@@ -28,7 +28,7 @@ There is data at movedFrom[i].There is no data at movedTo[i].int[]: the location
 **Explanation:** Data begins at locations listed in locations. Over the course of the year, the data was moved three times.
 
 Data was first moved from movedFrom[0] to movedTo[0], from 1 to 2. Next, it is moved from 7 to 9, and finally from location 2 to 5.
-      
+
 In the end, the locations where data is present are [5,6,8,9] in ascending order.
 
 ### Example 2

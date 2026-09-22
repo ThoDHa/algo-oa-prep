@@ -3,23 +3,23 @@
 **Hard** | **NN minutes** | **String, Binary Search, Prefix Sum**
 
 Given two strings s1 and s2, find till how many days is s2 a subsequence of s1 if on every day we delete all the strings in s1 from start to end inclusive.
-    
+
 
 Function Description 
-      Complete the function findDaysS2SubsequenceOfS1 in the editor.
-      
+Complete the function findDaysS2SubsequenceOfS1 in the editor.
 
 
-      findDaysS2SubsequenceOfS1 has the following parameters:
-        
+
+findDaysS2SubsequenceOfS1 has the following parameters:
 
 
-          1. String s1: the original string
-          2. String s2: the subsequence to find
-          3. int[] start: the start indices
-          4. int[] end: the end indices
-        Returns 
-        int: the number of days s2 is a subsequence of s1
+
+1. String s1: the original string
+2. String s2: the subsequence to find
+3. int[] start: the start indices
+4. int[] end: the end indices
+Returns 
+int: the number of days s2 is a subsequence of s1
 
 ## Examples
 
@@ -31,12 +31,12 @@ Function Description
 
 **Explanation:** An educated guess 🐹~~ 
 
-      On day 1, deleting from index 0 to 1, the string becomes "cdefghabc" and "abc" is still a subsequence.
-      On day 2, deleting from index 0 to 2, the string becomes "defghabc" and "abc" is still a subsequence.
-      On day 3, deleting from index 1 to 3, the string becomes "dghabc" and "abc" is still a subsequence.
-      On day 4, deleting from index 2 to 3, the string becomes "dhabc" and "abc" is still a subsequence.
-      On day 5, deleting from index 9 to 10, the string becomes "dh" and "abc" is no longer a subsequence.
-      Therefore, the answer is 4 days.
+On day 1, deleting from index 0 to 1, the string becomes "cdefghabc" and "abc" is still a subsequence.
+On day 2, deleting from index 0 to 2, the string becomes "defghabc" and "abc" is still a subsequence.
+On day 3, deleting from index 1 to 3, the string becomes "dghabc" and "abc" is still a subsequence.
+On day 4, deleting from index 2 to 3, the string becomes "dhabc" and "abc" is still a subsequence.
+On day 5, deleting from index 9 to 10, the string becomes "dh" and "abc" is no longer a subsequence.
+Therefore, the answer is 4 days.
 
 ## Constraints
 

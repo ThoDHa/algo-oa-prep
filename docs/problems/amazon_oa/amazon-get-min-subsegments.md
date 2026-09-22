@@ -41,11 +41,11 @@ Hence answer is 2.
 **Output:** `1`
 
 **Explanation:** Flip the first 0 to 1. So, frames = "110110".
- 
+
 ~~ Again flip the first 0 to 1. So, frames = "111110".
-    
+
 ~~ At last, again flip the first 0 to 1. So, frames = "111111".
-     
+
 Hence, the length of the only segment formed is even. So, the minimum number of subsegments that s can be divided to make it fine is 1 with minimum flips of 3. Hence, the answer is 1.
 
 ## Constraints

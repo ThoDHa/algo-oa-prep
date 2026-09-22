@@ -17,8 +17,8 @@ Amazon Technical Academy (ATA) provides in-demand, technical training to current
 ## Constraints
 
 - `1 <= n <= 105
-  1 <- levels[i] <= 109 for every i (where 0 <= i <= n - 1)
-  0 <= maxSpread <= 109`
+1 <- levels[i] <= 109 for every i (where 0 <= i <= n - 1)
+0 <= maxSpread <= 109`
 
 ## Solutions
 

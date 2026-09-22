@@ -3,22 +3,22 @@
 **Medium** | **NN minutes** | **Greedy, Sorting, Binary Search**
 
 Amazon Prime Video has movies in category 'comedy' or 'drama'. Determine the earliest time you can finish at least one movie from each category. The release schedule and duration of the movies are provided.
-  
 
 
-      You can start watching a movie at the time it is release or later.
-      If you begin a movie at time t, it ends at t + duration.
-      If a movie ends at time t + duration , the second movie can start at that time, t+ duration, or later.
-      The movies can be watched in any order.
-    
-  Complete the function minimumTimeSpent which has the following parameters:
-  
+
+You can start watching a movie at the time it is release or later.
+If you begin a movie at time t, it ends at t + duration.
+If a movie ends at time t + duration , the second movie can start at that time, t+ duration, or later.
+The movies can be watched in any order.
+
+Complete the function minimumTimeSpent which has the following parameters:
 
 
-      int comedyReleaseTime[n]: release times
-      int comedyDuration[n]: durations
-      int dramaReleaseTime[m]: release times
-      int dramaDuration[m]: durations
+
+int comedyReleaseTime[n]: release times
+int comedyDuration[n]: durations
+int dramaReleaseTime[m]: release times
+int dramaDuration[m]: durations
 
 ## Examples
 
@@ -33,7 +33,7 @@ Amazon Prime Video has movies in category 'comedy' or 'drama'. Determine the ear
 Two of the best ways to finish watching one movie from each category at the earliest time are as follows:
 
 - Start watching comedy movie1 at time t = 1 and until t = 1 + 3 = 4. Then, watch the drama movie1 from time t = 4 to t = 4 + 2 = 6.
-        
+
 - Start watching a comedy movie2 at time t = 2 and until t = 2 + 2 = 4. Then, watch the drama movie1 from time t = 4 to t = 4 + 2 = 6.
 
 The earliest finish time and also answer is 6.

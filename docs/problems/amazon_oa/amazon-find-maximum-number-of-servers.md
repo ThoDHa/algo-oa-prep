@@ -27,96 +27,96 @@ A subsequence is a sequence that can be derived from the given sequence by delet
 **Explanation:** Source update (July 2, 2026) ᕙ( •̀ ᗜ •́ )ᕗ : I found an official source image that includes the example illustration.
 
 Example source illustration
-    
-      
-
-  
-
-  
-  
-  
-  
-  
-
-  4
-
-      
-
-  
-
-  
-  
-  
-  
-  
-
-  3
-
-      
-
-  
-
-  
-  
-  
-  
-  
-
-  5
-
-      
-        
-
-  
-
-  
-  
-  
-  
-  
-
-  1
 
 
-  
-
-  
-  
-  
-  
-  
-
-  2
 
 
-  
-
-  
-  
-  
-  
-  
-
-  2
 
 
-  
 
-  
-  
-  
-  
-  
 
-  1
 
-      
-    
-    
-      selected subsequence
-      Highlighted values form [3, 1, 2, 2, 1].
-    
-  
+
+
+4
+
+
+
+
+
+
+
+
+
+
+
+3
+
+
+
+
+
+
+
+
+
+
+
+5
+
+
+
+
+
+
+
+
+
+
+
+
+1
+
+
+
+
+
+
+
+
+
+
+2
+
+
+
+
+
+
+
+
+
+
+2
+
+
+
+
+
+
+
+
+
+
+1
+
+
+
+
+selected subsequence
+Highlighted values form [3, 1, 2, 2, 1].
+
+
 
 
 

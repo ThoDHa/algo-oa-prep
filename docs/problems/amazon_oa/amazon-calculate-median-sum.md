@@ -3,30 +3,30 @@
 **Medium** | **NN minutes** | **Sorting, Greedy**
 
 You are given a list of packets of varying sizes and there are n channels.
-    
+
 
 Each of the n channel must have a single packetEach packet can only be on a single channel
-    The quality of a channel is described as the median of the packet sizes on that channel. The total quality
-    is defined as sum of the quality of all channels (round to integer in case of float).
-    
+The quality of a channel is described as the median of the packet sizes on that channel. The total quality
+is defined as sum of the quality of all channels (round to integer in case of float).
 
 
-    Given the packet sizes and num of channels, find the maximum quality.
-    
+
+Given the packet sizes and num of channels, find the maximum quality.
+
 
 Function Description 
-      Complete the function calculateMedianSum in the editor.
-      
+Complete the function calculateMedianSum in the editor.
 
 
-      calculateMedianSum has the following parameters:
-        
+
+calculateMedianSum has the following parameters:
 
 
-          int[] packets: an array of integers
-          int n: the number of channels
-        Returns 
-        int: the sum of the medians of each channel
+
+int[] packets: an array of integers
+int n: the number of channels
+Returns 
+int: the sum of the medians of each channel
 
 ## Examples
 

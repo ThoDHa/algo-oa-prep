@@ -525,6 +525,9 @@ def html_to_markdown(fragment: str) -> str:
     text = re.sub(r"<br\s*/?>", "\n", text)
     text = re.sub(r"</?(p|code|pre|strong|em|b|i|ul|li|sup)[^>]*>", "", text)
     text = re.sub(r"<[^>]+>", "", text)
+    # Source indentation after a blank line would render as markdown code
+    # blocks; statement prose always sits at the left margin.
+    text = re.sub(r"(?m)^[ \t]+", "", text)
     return html.unescape(text).strip()
 
 
@@ -820,10 +823,14 @@ def emit_scaffolds(entries: Sequence[dict], fetch: bool = True) -> dict:
         "parse_failures": [],
         "skipped_no_cache": [],
     }
+    DOCS_DIR.mkdir(parents=True, exist_ok=True)
+    PRACTICE_DIR.mkdir(parents=True, exist_ok=True)
     for entry in entries:
         slug = entry["slug"]
         cached = has_cached_page(slug)
         if not fetch and not cached:
+            # The entry was not emitted; its existing parse_status (from a
+            # previous full generation) stays authoritative.
             stats["skipped_no_cache"].append(slug)
             continue
         page_html = fetch_problem_page(slug, delay=fetch, network=fetch)
@@ -832,13 +839,9 @@ def emit_scaffolds(entries: Sequence[dict], fetch: bool = True) -> dict:
         if problem is None:
             stats["parse_failures"].append(slug)
         statement_html = resolve_statement(problem, page_html)
-        DOCS_DIR.mkdir(parents=True, exist_ok=True)
         (PRACTICE_DIR / slug).mkdir(parents=True, exist_ok=True)
         for path, content in render_all(entry, problem, parsed_cases, statement_html).items():
             path.write_text(content, encoding="utf-8")
-        entry["parse_status"] = (
-            "parsed" if problem else "page-unparseable"
-        )
         if parsed_cases.cases:
             entry["parse_status"] = "parsed-with-cases"
             stats["cases_parsed"] += 1

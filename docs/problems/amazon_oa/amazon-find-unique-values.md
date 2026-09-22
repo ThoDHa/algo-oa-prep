@@ -3,20 +3,20 @@
 **Easy** | **NN minutes** | **Sorting, Hash Table**
 
 There are n developers working at Amazon where the ith developer has the experience points experience[i]. The company decided to pair the developers by iteratively pairing the developers with the highest and lowest remaining experience points for a hackathon. The combined experience of a pair is the average of the experience points of the two developers. Find the number of unique values among the combined experience of the pairs formed.
-    
+
 
 Function Description 
-      Complete the function findUniqueValues in the editor below.
-      
+Complete the function findUniqueValues in the editor below.
 
 
-      findUniqueValues has the following parameter:
-        
+
+findUniqueValues has the following parameter:
 
 
-          int experience[n]: the experience points for each developer
-        Returns 
-        int: the number of unique values among the combined experience points of the pairs formed
+
+int experience[n]: the experience points for each developer
+Returns 
+int: the number of unique values among the combined experience points of the pairs formed
 
 ## Examples
 

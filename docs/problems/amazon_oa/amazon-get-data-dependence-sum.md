@@ -3,10 +3,10 @@
 **Hard** | **NN minutes** | **Math**
 
 Data analysts at Amazon are analyzing time-series data. It was concluded that the data of the nth item was dependent on the data of some xth day if there is a positive integer k such that floor(n / k) = x where floor() represents the largest integer less than or equal to z.
-    
 
 
-    Given n, find the sum of all the days' numbers on which the data of the xth (0 ≤ x < n) will be dependent.
+
+Given n, find the sum of all the days' numbers on which the data of the xth (0 ≤ x < n) will be dependent.
 
 ## Examples
 

@@ -3,24 +3,24 @@
 **Medium** | **NN minutes** | **Intervals, Dynamic Programming, Sorting**
 
 AMZ Interval Collection (A group of problems focused on operations involving intervals :) - 
-    
 
 
-    Get Maximum Sum Find Overlapping Times (Full-Time)
-    
-    Find Overlapping Times (Intern)
-    
-    Merge Intervals (Intern, NG)
-    
-    Task Scheduler (Full-Time)
-    
-    Optimal Interval Difference
-    
-    Given 3 arrays - 
-    
+
+Get Maximum Sum Find Overlapping Times (Full-Time)
+
+Find Overlapping Times (Intern)
+
+Merge Intervals (Intern, NG)
+
+Task Scheduler (Full-Time)
+
+Optimal Interval Difference
+
+Given 3 arrays - 
+
 
 Array 1 = Start timesArray 2 = DurationsArray 3 = Costs
-    Some intervals might overlap. Find the maximum sum of Non-Overlapping intervals.
+Some intervals might overlap. Find the maximum sum of Non-Overlapping intervals.
 
 ## Examples
 

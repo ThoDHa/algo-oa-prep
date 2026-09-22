@@ -3,10 +3,10 @@
 **Easy** | **NN minutes** | **Array, Greedy**
 
 Amazon Prime Games is designing a game. The player needs to pass n rounds sequentially in this game. Rules of play are as follows:
-    
+
 
 The player loses power[i] health to complete round i.The player's health must be greater than 0 at all times.The player can choose to use armor in any one round. The armor will prevent damage of min(armor, power[i]).
-    Determine the minimum starting health for a player to win the game.
+Determine the minimum starting health for a player to win the game.
 
 ## Examples
 
@@ -17,25 +17,25 @@ The player loses power[i] health to complete round i.The player's health must be
 **Output:** `12`
 
 **Explanation:** Give the player 12 units of health at the beginning of the game. One of the optimal strategies is to use the armor in the third round and only lose 1 unit instead of 6. The health of the player after each round is:
-      
 
 
-        Round 1: 12
-        Round 2: 11
-        Round 3: 9
-        Round 4: 8
-        Final: 1
-      
-      Round, health
-      
+
+Round 1: 12
+Round 2: 11
+Round 3: 9
+Round 4: 8
+Final: 1
+
+Round, health
 
 
-        0. 12
-        1. 12 - power[0] = 12 - 1 = 11
-        2. 11 - power[1] = 11 - 2 = 9
-        3. 9 - power[2] + armor = 9 - 6 + 5 = 8
-        4. 8 - power[3] = 8 - 7 = 1
-      No lower starting health will allow a win.
+
+0. 12
+1. 12 - power[0] = 12 - 1 = 11
+2. 11 - power[1] = 11 - 2 = 9
+3. 9 - power[2] + armor = 9 - 6 + 5 = 8
+4. 8 - power[3] = 8 - 7 = 1
+No lower starting health will allow a win.
 
 ## Constraints
 

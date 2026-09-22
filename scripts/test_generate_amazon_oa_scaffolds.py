@@ -409,6 +409,15 @@ def test_html_to_markdown_renders_paragraph_breaks_and_strips_comments():
     assert gen.html_to_markdown("<p>One</p><p>Two</p><!-- x -->") == "One\n\nTwo"
 
 
+def test_html_to_markdown_strips_leading_indentation_from_every_line():
+    rendered = gen.html_to_markdown(
+        "<div class=\"wrap\"><p>First paragraph</p><p>  Second paragraph\n"
+        "        continues on an indented source line</p></div>"
+    )
+    assert not any(line.startswith("    ") for line in rendered.splitlines())
+    assert rendered == "First paragraph\n\nSecond paragraph\ncontinues on an indented source line"
+
+
 def test_resolve_statement_recovers_statement_from_rendered_page():
     record = {"problemStatement": "$23"}
     page = (
@@ -505,9 +514,27 @@ def test_emit_scaffolds_skips_uncached_slugs_without_overwriting(tmp_path, monke
 
     stats = gen.emit_scaffolds([cached_entry, uncached_entry], fetch=False)
     assert stats["skipped_no_cache"] == ["amazon-uncached"]
+    assert "parse_status" not in uncached_entry
     assert stats["generated"] == 1
     assert json.loads((practice_dir / "amazon-uncached" / "cases.json").read_text()) == good_cases
     assert json.loads((practice_dir / "amazon-cached" / "cases.json").read_text()) != []
+
+
+def test_emit_scaffolds_total_cache_loss_preserves_manifest_parse_status(tmp_path, monkeypatch):
+    docs_dir = tmp_path / "docs" / "problems" / "amazon_oa"
+    practice_dir = tmp_path / "practice" / "amazon_oa"
+    monkeypatch.setattr(gen, "DOCS_DIR", docs_dir)
+    monkeypatch.setattr(gen, "PRACTICE_DIR", practice_dir)
+    monkeypatch.setattr(gen, "FASTPREP_CACHE_DIR", tmp_path / "cache")
+
+    entries = [
+        {"slug": "amazon-a", "title": "A", "url": "https://x/a", "companies": ["Amazon"], "updated": "2026-09-19", "parse_status": "parsed-with-cases"},
+        {"slug": "amazon-b", "title": "B", "url": "https://x/b", "companies": ["Amazon"], "updated": "2026-09-19", "parse_status": "page-unparseable"},
+    ]
+    stats = gen.emit_scaffolds(entries, fetch=False)
+    assert stats["generated"] == 0
+    assert stats["skipped_no_cache"] == ["amazon-a", "amazon-b"]
+    assert [entry["parse_status"] for entry in entries] == ["parsed-with-cases", "page-unparseable"]
 
 
 def test_emit_scaffolds_records_parse_status_on_entries(tmp_path, monkeypatch):

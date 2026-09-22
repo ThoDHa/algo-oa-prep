@@ -3,14 +3,14 @@
 **Hard** | **NN minutes** | **Sorting, Greedy**
 
 Given one unsorted array of size n and integer k.
-    
 
 
-    From subsequences of size n-k, find the max of consecutive element dfferences in the sorted subsequences AND from these max differences return the min difference.
-    
+
+From subsequences of size n-k, find the max of consecutive element dfferences in the sorted subsequences AND from these max differences return the min difference.
 
 
-    A subsequence is any combination of integers.
+
+A subsequence is any combination of integers.
 
 ## Examples
 

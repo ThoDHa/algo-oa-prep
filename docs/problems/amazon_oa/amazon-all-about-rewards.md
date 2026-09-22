@@ -3,38 +3,38 @@
 **Medium** | **NN minutes** | **Array, Sorting**
 
 SDE II
-  
 
 
-  Amazon Shopping is running a reward collection event for its customers.
-  
+
+Amazon Shopping is running a reward collection event for its customers.
 
 
-  There are n customers and the i-th customer has collected initialRewards[i] points so far.
-  
+
+There are n customers and the i-th customer has collected initialRewards[i] points so far.
 
 
-  One final tournament is to take place where:
-  
+
+One final tournament is to take place where:
+
 
 The champion earns n additional pointsThe second place earns n - 1 pointsThe third place earns n - 2 points… and the last place earns 1 point
-  Given an integer array initialRewards of length n, representing the initial reward points of the customers before the final tournament:
-  
+Given an integer array initialRewards of length n, representing the initial reward points of the customers before the final tournament:
 
 
-  Find the number of customers i (1 ≤ i ≤ n) such that, if the i-th customer wins the final tournament, they would have the highest total points.
-  
+
+Find the number of customers i (1 ≤ i ≤ n) such that, if the i-th customer wins the final tournament, they would have the highest total points.
 
 
-  Note -
-  
+
+Note -
 
 
-  The total points = initialRewards[i] + n (if they win).
 
-  Other customers also get points in the tournament depending on their ranks (from n - 1 to 1).
+The total points = initialRewards[i] + n (if they win).
 
-  You must check if the i-th customer, upon winning, ends up with the highest total score, regardless of how others place.
+Other customers also get points in the tournament depending on their ranks (from n - 1 to 1).
+
+You must check if the i-th customer, upon winning, ends up with the highest total score, regardless of how others place.
 
 ## Examples
 

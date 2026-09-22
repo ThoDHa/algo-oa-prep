@@ -3,28 +3,28 @@
 **Easy** | **NN minutes** | **Hash Table, Greedy**
 
 There were a large number of orders placed on Amazon Prime Day. The orders are packed and are at the warehouse ready to be delivered. The delivery agent needs to deliver them in as few trips as possible.
-    
 
 
-    In a single trip, the delivery agent can choose packages following either of two rules:
-    
+
+In a single trip, the delivery agent can choose packages following either of two rules:
+
 
 Choose two packages with the same weightChoose three packages with the same weight
-    Determine the minimum number of trips required to deliver the packages. If it is not possible to deliver all of them, return -1.
-    
+Determine the minimum number of trips required to deliver the packages. If it is not possible to deliver all of them, return -1.
+
 
 Function Description 
-      Complete the function findMinTrips in the editor.
-      
+Complete the function findMinTrips in the editor.
 
 
-      findMinTrips has the following parameter:
-      
+
+findMinTrips has the following parameter:
 
 
-        int packageweight[n]: the weights of each package
-      Returns 
-        int: the minimum number of trips required or -1 if it is not possible to deliver them all
+
+int packageweight[n]: the weights of each package
+Returns 
+int: the minimum number of trips required or -1 if it is not possible to deliver them all
 
 ## Examples
 

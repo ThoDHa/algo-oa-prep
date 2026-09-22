@@ -5,23 +5,23 @@
 Special thanks: 𓇼 ⋆.˚Manyy Manyyy thanks to Nachos and spike!𓆝 𓆡⋆.˚ 𓇼
 
 
-    In an Amazon inventory management, an operations analyst is dealing with a set of initial product identifiers represented by strings. The type of a product identifier is determined by the first and last letters in the identifier string, for example, the type of the identifier string "abddac" is "ac".
-    
+In an Amazon inventory management, an operations analyst is dealing with a set of initial product identifiers represented by strings. The type of a product identifier is determined by the first and last letters in the identifier string, for example, the type of the identifier string "abddac" is "ac".
 
 
-    The analyst wants to optimize the product identifiers by performing a series of operations on the string to maximize the number of operations between the final and initial types.
-    
+
+The analyst wants to optimize the product identifiers by performing a series of operations on the string to maximize the number of operations between the final and initial types.
 
 
-    Given a product identifier string s, the analyst can perform one operation at a time, involving the removal of either the first or last letter from the string.
-    
+
+Given a product identifier string s, the analyst can perform one operation at a time, involving the removal of either the first or last letter from the string.
 
 
-    Find the maximum number of operations they can perform on the string while ensuring that its type aligns with the initial string's type.
-    
+
+Find the maximum number of operations they can perform on the string while ensuring that its type aligns with the initial string's type.
 
 
-    Note: The type of an empty string is "", and the type of a string with a single character, like "a", is "aa".
+
+Note: The type of an empty string is "", and the type of a string with a single character, like "a", is "aa".
 
 ## Examples
 

@@ -3,14 +3,14 @@
 **Easy** | **NN minutes** | **Array, Prefix Sum**
 
 Alexa is Amazon's virtual AI assistant. It makes it easy to set up your Alexa-enabled devices, listen to music, get weather updates, and much more. The team is working on a new feature that evaluates the aggregate temperature change for a period based on the changes in temperature of previous and upcoming days.
-    
 
 
-    Taking the change in temperature data of n days, the aggregate temperature change evaluated on the ith day is the maximum of the sum of the changes in temperatures until the ith day, and the sum of the change in temperatures in the next (n - i) days, with the ith day temperature change included in both.
-    
+
+Taking the change in temperature data of n days, the aggregate temperature change evaluated on the ith day is the maximum of the sum of the changes in temperatures until the ith day, and the sum of the change in temperatures in the next (n - i) days, with the ith day temperature change included in both.
 
 
-    Given the temperature data of n days, find the maximum aggregate temperature change evaluated among all the days.
+
+Given the temperature data of n days, find the maximum aggregate temperature change evaluated among all the days.
 
 ## Examples
 

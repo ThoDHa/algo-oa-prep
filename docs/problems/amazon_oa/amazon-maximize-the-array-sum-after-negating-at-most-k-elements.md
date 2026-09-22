@@ -3,8 +3,8 @@
 **Medium** | **NN minutes** | **Array, Greedy, Prefix Sum**
 
 Given an array A with only positive numbers. We are allowed to negate any entries in the array, 
-    (i.e set A[i] = -A[i]). What is the maximum number of entries you can negate in the array such 
-    that every prefix sum after the negate operations is positive.
+(i.e set A[i] = -A[i]). What is the maximum number of entries you can negate in the array such 
+that every prefix sum after the negate operations is positive.
 
 ## Examples
 
