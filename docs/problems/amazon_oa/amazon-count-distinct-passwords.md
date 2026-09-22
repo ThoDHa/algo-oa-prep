@@ -1,0 +1,37 @@
+# [Count Distinct Passwords](https://www.fastprep.io/problems/amazon-count-distinct-passwords)
+
+**Hard** | **NN minutes** | **String, Hash Table**
+
+$23
+
+## Examples
+
+### Example 1
+
+**Input:** `password = "abc"`
+
+**Output:** `4`
+
+**Explanation:** The following strings can be formed from password = 'abc':
+
+        Reversing any substring of length 1 gives the original string "abc".Reversing the substring "ab" gives a new string "bac".Reversing the substring "bc" gives a new string "acb".Reversing the substring "abc" gives a new string "cba".
+ 
+There are 4 distinct password strings that can be obtained from password. Return 4.
+
+### Example 2
+
+**Input:** `password = "abaa"`
+
+**Output:** `4`
+
+**Explanation:** The strings that can be formed are "abaa", "aaba", "baaa" and "aaab".
+
+## Constraints
+
+- `All characters in password are lowercase English letters ascii[a-z]1 ≤ length of password ≤ 10^5`
+
+## Solutions
+
+<!-- Scaffold placeholder: the worked derivation and solutions land
+     on the solutions branch later. See ../_TEMPLATE.md for the
+     expected layout, naming, and ordering conventions. -->

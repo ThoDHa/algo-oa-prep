@@ -1,0 +1,9 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      "swiss"
+    ],
+    "expected": "w"
+  }
+]

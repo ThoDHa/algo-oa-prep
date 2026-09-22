@@ -1,0 +1,36 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      [
+        "code",
+        "coder"
+      ],
+      [
+        "co*d",
+        "co*er"
+      ]
+    ],
+    "expected": [
+      "NO",
+      "YES"
+    ]
+  },
+  {
+    "id": "example_2",
+    "args": [
+      [
+        "hackerrank",
+        "hackerrnak"
+      ],
+      [
+        "hac*rank",
+        "hac*rank"
+      ]
+    ],
+    "expected": [
+      "YES",
+      "NO"
+    ]
+  }
+]

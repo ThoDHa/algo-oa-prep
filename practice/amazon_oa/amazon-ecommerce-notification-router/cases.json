@@ -1,0 +1,69 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      [
+        "EMAIL",
+        "SMS",
+        "PUSH"
+      ],
+      [
+        "NORMAL",
+        "URGENT",
+        "NORMAL"
+      ]
+    ],
+    "expected": [
+      [
+        "EMAIL"
+      ],
+      [
+        "EMAIL",
+        "SMS",
+        "PUSH"
+      ],
+      [
+        "PUSH"
+      ]
+    ]
+  },
+  {
+    "id": "example_2",
+    "args": [
+      [
+        "PUSH"
+      ],
+      [
+        "URGENT"
+      ]
+    ],
+    "expected": [
+      [
+        "EMAIL",
+        "SMS",
+        "PUSH"
+      ]
+    ]
+  },
+  {
+    "id": "example_3",
+    "args": [
+      [
+        "SMS",
+        "EMAIL"
+      ],
+      [
+        "NORMAL",
+        "NORMAL"
+      ]
+    ],
+    "expected": [
+      [
+        "SMS"
+      ],
+      [
+        "EMAIL"
+      ]
+    ]
+  }
+]

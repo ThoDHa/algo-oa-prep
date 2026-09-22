@@ -1,0 +1,54 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      "myhousehavecat",
+      [
+        "my",
+        "house",
+        "have",
+        "cat"
+      ]
+    ],
+    "expected": [
+      "my",
+      "house",
+      "have",
+      "cat"
+    ]
+  },
+  {
+    "id": "example_2",
+    "args": [
+      "aaaa",
+      [
+        "a",
+        "aa"
+      ]
+    ],
+    "expected": [
+      "a",
+      "a",
+      "a",
+      "a"
+    ]
+  },
+  {
+    "id": "example_3",
+    "args": [
+      "catsanddog",
+      [
+        "cats",
+        "dog",
+        "sand",
+        "and",
+        "cat"
+      ]
+    ],
+    "expected": [
+      "cat",
+      "sand",
+      "dog"
+    ]
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      [
+        "eat",
+        "tea",
+        "tan",
+        "ate",
+        "nat",
+        "bat"
+      ]
+    ],
+    "expected": [
+      [
+        "ate",
+        "eat",
+        "tea"
+      ],
+      [
+        "bat"
+      ],
+      [
+        "nat",
+        "tan"
+      ]
+    ]
+  },
+  {
+    "id": "example_2",
+    "args": [
+      [
+        ""
+      ]
+    ],
+    "expected": [
+      [
+        ""
+      ]
+    ]
+  }
+]

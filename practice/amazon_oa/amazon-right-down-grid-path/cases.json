@@ -1,0 +1,56 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      [
+        "OOO",
+        "OXO",
+        "OOO"
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "example_2",
+    "args": [
+      [
+        "OX",
+        "XO"
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "expected": false
+  },
+  {
+    "id": "example_3",
+    "args": [
+      [
+        "OOO"
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "expected": false
+  }
+]

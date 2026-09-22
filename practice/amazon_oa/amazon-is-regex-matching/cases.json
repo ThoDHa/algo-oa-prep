@@ -1,0 +1,32 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      "ab(e.r)*e",
+      [
+        "abbeere",
+        "abefretre"
+      ]
+    ],
+    "expected": [
+      "NO",
+      "YES"
+    ]
+  },
+  {
+    "id": "example_2",
+    "args": [
+      "..()*e*",
+      [
+        "code",
+        "abeee",
+        "cd"
+      ]
+    ],
+    "expected": [
+      "NO",
+      "YES",
+      "YES"
+    ]
+  }
+]

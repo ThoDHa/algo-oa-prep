@@ -1,0 +1,51 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      "catsanddog",
+      [
+        "cat",
+        "cats",
+        "and",
+        "sand",
+        "dog"
+      ]
+    ],
+    "expected": [
+      "cat sand dog",
+      "cats and dog"
+    ]
+  },
+  {
+    "id": "example_2",
+    "args": [
+      "pineapplepenapple",
+      [
+        "apple",
+        "pen",
+        "applepen",
+        "pine",
+        "pineapple"
+      ]
+    ],
+    "expected": [
+      "pine apple pen apple",
+      "pine applepen apple",
+      "pineapple pen apple"
+    ]
+  },
+  {
+    "id": "example_3",
+    "args": [
+      "catsandog",
+      [
+        "cats",
+        "dog",
+        "sand",
+        "and",
+        "cat"
+      ]
+    ],
+    "expected": []
+  }
+]

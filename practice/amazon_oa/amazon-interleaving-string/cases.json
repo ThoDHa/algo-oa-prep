@@ -1,0 +1,29 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      "aabcc",
+      "dbbca",
+      "aadbbcbcac"
+    ],
+    "expected": true
+  },
+  {
+    "id": "example_2",
+    "args": [
+      "aabcc",
+      "dbbca",
+      "aadbbbaccc"
+    ],
+    "expected": false
+  },
+  {
+    "id": "example_3",
+    "args": [
+      "",
+      "",
+      ""
+    ],
+    "expected": true
+  }
+]

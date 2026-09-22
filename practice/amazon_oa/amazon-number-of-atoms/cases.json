@@ -1,0 +1,16 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      "H2O"
+    ],
+    "expected": "H2O"
+  },
+  {
+    "id": "example_2",
+    "args": [
+      "Mg(OH)2"
+    ],
+    "expected": "H2MgO2"
+  }
+]

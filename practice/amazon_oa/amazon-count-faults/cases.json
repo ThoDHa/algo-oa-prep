@@ -1,0 +1,17 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      2,
+      [
+        "s1 error",
+        "s1 error",
+        "s2 error",
+        "s1 error",
+        "s1 error",
+        "s2 success"
+      ]
+    ],
+    "expected": 1
+  }
+]

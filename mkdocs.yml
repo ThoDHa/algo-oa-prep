@@ -131,6 +131,7 @@ nav:
       - Chat System: system_design/case_studies/chat_system.md
       - Web Crawler: system_design/case_studies/web_crawler.md
   - Problems:
+    - "Amazon OA": problems/amazon_oa/index.md
     - "Two Sum": problems/two_sum.md
     - "Valid Parentheses": problems/valid_parentheses.md
     - "Merge Two Sorted Lists": problems/merge_two_sorted_lists.md

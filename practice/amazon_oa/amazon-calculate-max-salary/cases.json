@@ -1,0 +1,9 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      "ABCDEEDCBA"
+    ],
+    "expected": 31000
+  }
+]

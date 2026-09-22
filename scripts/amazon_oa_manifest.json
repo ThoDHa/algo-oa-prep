@@ -1,0 +1,3152 @@
+[
+  {
+    "slug": "amazon-maximize-adjacent-difference-with-one-reversal",
+    "title": "Maximize Adjacent Difference With One Reversal",
+    "url": "https://www.fastprep.io/problems/amazon-maximize-adjacent-difference-with-one-reversal",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-19"
+  },
+  {
+    "slug": "amazon-shortest-grid-path-with-one-wall-break",
+    "title": "Shortest Grid Path With One Wall Break",
+    "url": "https://www.fastprep.io/problems/amazon-shortest-grid-path-with-one-wall-break",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-19"
+  },
+  {
+    "slug": "amazon-course-order-and-cycle",
+    "title": "Course Order and Cycle",
+    "url": "https://www.fastprep.io/problems/amazon-course-order-and-cycle",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-18"
+  },
+  {
+    "slug": "amazon-inventory-allocation",
+    "title": "Inventory Allocation",
+    "url": "https://www.fastprep.io/problems/amazon-inventory-allocation",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-18"
+  },
+  {
+    "slug": "amazon-lru-query-result-cache",
+    "title": "LRU Cache for Query Results",
+    "url": "https://www.fastprep.io/problems/amazon-lru-query-result-cache",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-18"
+  },
+  {
+    "slug": "amazon-minimum-stick-connection-cost",
+    "title": "Minimum Stick Connection Cost",
+    "url": "https://www.fastprep.io/problems/amazon-minimum-stick-connection-cost",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-18"
+  },
+  {
+    "slug": "amazon-first-non-repeating-character",
+    "title": "First Non-Repeating Character",
+    "url": "https://www.fastprep.io/problems/amazon-first-non-repeating-character",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-14"
+  },
+  {
+    "slug": "amazon-root-to-leaf-target-sum-paths",
+    "title": "Root-to-Leaf Paths with a Target Sum",
+    "url": "https://www.fastprep.io/problems/amazon-root-to-leaf-target-sum-paths",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-14"
+  },
+  {
+    "slug": "amazon-aggressive-cows",
+    "title": "Aggressive Cows",
+    "url": "https://www.fastprep.io/problems/amazon-aggressive-cows",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-anagram-start-indices",
+    "title": "All Anagram Start Indices",
+    "url": "https://www.fastprep.io/problems/amazon-anagram-start-indices",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-basic-calculator",
+    "title": "Basic Calculator",
+    "url": "https://www.fastprep.io/problems/amazon-basic-calculator",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-binary-strings-bounded-subset",
+    "title": "Largest Binary-String Subset Within Bit Budgets",
+    "url": "https://www.fastprep.io/problems/amazon-binary-strings-bounded-subset",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-binary-tree-cameras",
+    "title": "Binary Tree Cameras",
+    "url": "https://www.fastprep.io/problems/amazon-binary-tree-cameras",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-binary-tree-right-view",
+    "title": "Binary Tree Right View",
+    "url": "https://www.fastprep.io/problems/amazon-binary-tree-right-view",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-calculate-beauty-values",
+    "title": "Calculate Beauty Values",
+    "url": "https://www.fastprep.io/problems/amazon-calculate-beauty-values",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-capacity-to-ship-packages-within-d-days",
+    "title": "Capacity To Ship Packages Within D Days",
+    "url": "https://www.fastprep.io/problems/amazon-capacity-to-ship-packages-within-d-days",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-cheapest-flights-within-k-stops",
+    "title": "Cheapest Flights Within K Stops",
+    "url": "https://www.fastprep.io/problems/amazon-cheapest-flights-within-k-stops",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-construct-tree-level-inorder",
+    "title": "Construct a Tree from Level-Order and Inorder Traversals",
+    "url": "https://www.fastprep.io/problems/amazon-construct-tree-level-inorder",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-container-with-most-water",
+    "title": "Container With Most Water",
+    "url": "https://www.fastprep.io/problems/amazon-container-with-most-water",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-count-stepping-numbers-in-range",
+    "title": "Count Stepping Numbers In Range",
+    "url": "https://www.fastprep.io/problems/amazon-count-stepping-numbers-in-range",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-count-univalued-subtrees",
+    "title": "Count Uni-Valued Subtrees",
+    "url": "https://www.fastprep.io/problems/amazon-count-univalued-subtrees",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-course-schedule",
+    "title": "Course Schedule",
+    "url": "https://www.fastprep.io/problems/amazon-course-schedule",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-course-schedule-ii",
+    "title": "Course Schedule II",
+    "url": "https://www.fastprep.io/problems/amazon-course-schedule-ii",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-currency-conversion-rate",
+    "title": "Currency Conversion Rate",
+    "url": "https://www.fastprep.io/problems/amazon-currency-conversion-rate",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-decode-encoded-string",
+    "title": "Decode an Encoded String",
+    "url": "https://www.fastprep.io/problems/amazon-decode-encoded-string",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-distance-between-tree-nodes",
+    "title": "Distance Between Two Tree Nodes",
+    "url": "https://www.fastprep.io/problems/amazon-distance-between-tree-nodes",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-ecommerce-notification-router",
+    "title": "E-commerce Notification Router",
+    "url": "https://www.fastprep.io/problems/amazon-ecommerce-notification-router",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-employee-ratings-data-structure",
+    "title": "Employee Ratings Management System",
+    "url": "https://www.fastprep.io/problems/amazon-employee-ratings-data-structure",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-find-median-from-data-stream",
+    "title": "Find Median from Data Stream",
+    "url": "https://www.fastprep.io/problems/amazon-find-median-from-data-stream",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-find-safest-path-in-grid",
+    "title": "Find the Safest Path in a Grid",
+    "url": "https://www.fastprep.io/problems/amazon-find-safest-path-in-grid",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-first-missing-positive",
+    "title": "First Missing Positive",
+    "url": "https://www.fastprep.io/problems/amazon-first-missing-positive",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-first-unique-character-stream",
+    "title": "First Unique Character in a Stream",
+    "url": "https://www.fastprep.io/problems/amazon-first-unique-character-stream",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-indexed-bit-after-binary-expansion",
+    "title": "Bit at an Index After Repeated Binary Expansion",
+    "url": "https://www.fastprep.io/problems/amazon-indexed-bit-after-binary-expansion",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-islands-eight-direction",
+    "title": "Count Islands with Eight-Direction Adjacency",
+    "url": "https://www.fastprep.io/problems/amazon-islands-eight-direction",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-k-closest-elements-in-sorted-array",
+    "title": "K Closest Elements in a Sorted Array",
+    "url": "https://www.fastprep.io/problems/amazon-k-closest-elements-in-sorted-array",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-kth-smallest-row-sum",
+    "title": "Kth Smallest Sum from Sorted Matrix Rows",
+    "url": "https://www.fastprep.io/problems/amazon-kth-smallest-row-sum",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-largest-lexicographic-unique-letters",
+    "title": "Remove Duplicate Letters for the Largest Result",
+    "url": "https://www.fastprep.io/problems/amazon-largest-lexicographic-unique-letters",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-longest-common-subsequence-length",
+    "title": "Longest Common Subsequence Length",
+    "url": "https://www.fastprep.io/problems/amazon-longest-common-subsequence-length",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-longest-happy-prefix",
+    "title": "Longest Happy Prefix",
+    "url": "https://www.fastprep.io/problems/amazon-longest-happy-prefix",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-longest-increasing-subsequence-bounded-difference",
+    "title": "Longest Increasing Subsequence With Bounded Adjacent Difference",
+    "url": "https://www.fastprep.io/problems/amazon-longest-increasing-subsequence-bounded-difference",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-max-consecutive-ones-iii",
+    "title": "Max Consecutive Ones III",
+    "url": "https://www.fastprep.io/problems/amazon-max-consecutive-ones-iii",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-maximize-distance-to-closest-person",
+    "title": "Maximize Distance to the Closest Occupied Seat",
+    "url": "https://www.fastprep.io/problems/amazon-maximize-distance-to-closest-person",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-maximum-non-adjacent-house-value",
+    "title": "Maximum Non-Adjacent House Value",
+    "url": "https://www.fastprep.io/problems/amazon-maximum-non-adjacent-house-value",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-maximum-profit-job-scheduling",
+    "title": "Maximum Profit in Job Scheduling",
+    "url": "https://www.fastprep.io/problems/amazon-maximum-profit-job-scheduling",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-maximum-sum-bst",
+    "title": "Maximum Sum BST in a Binary Tree",
+    "url": "https://www.fastprep.io/problems/amazon-maximum-sum-bst",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-meeting-room-scheduler",
+    "title": "Meeting Room Scheduler",
+    "url": "https://www.fastprep.io/problems/amazon-meeting-room-scheduler",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-merge-intervals",
+    "title": "Merge Intervals",
+    "url": "https://www.fastprep.io/problems/amazon-merge-intervals",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-merge-k-sorted-lists",
+    "title": "Merge k Sorted Lists",
+    "url": "https://www.fastprep.io/problems/amazon-merge-k-sorted-lists",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-middle-stack-operations",
+    "title": "Stack with Constant-Time Middle Queries",
+    "url": "https://www.fastprep.io/problems/amazon-middle-stack-operations",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-minimize-malware-facility-network",
+    "title": "Minimize Malware Spread in a Facility Network",
+    "url": "https://www.fastprep.io/problems/amazon-minimize-malware-facility-network",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-minimum-window-substring",
+    "title": "Minimum Window Substring",
+    "url": "https://www.fastprep.io/problems/amazon-minimum-window-substring",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-nary-tree-nodes-at-level",
+    "title": "Nodes at a Given N-ary Tree Level",
+    "url": "https://www.fastprep.io/problems/amazon-nary-tree-nodes-at-level",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-next-palindromic-time",
+    "title": "Next Palindromic Time",
+    "url": "https://www.fastprep.io/problems/amazon-next-palindromic-time",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-next-permutation",
+    "title": "Next Permutation",
+    "url": "https://www.fastprep.io/problems/amazon-next-permutation",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-product-array-except-self",
+    "title": "Product of Array Except Self",
+    "url": "https://www.fastprep.io/problems/amazon-product-array-except-self",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-reorganize-string",
+    "title": "Reorganize a String",
+    "url": "https://www.fastprep.io/problems/amazon-reorganize-string",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-right-down-grid-path",
+    "title": "Path Through an O/X Grid Using Only Right and Down",
+    "url": "https://www.fastprep.io/problems/amazon-right-down-grid-path",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-rotting-oranges-variation",
+    "title": "Minimum Time to Spread Through a Grid",
+    "url": "https://www.fastprep.io/problems/amazon-rotting-oranges-variation",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-running-delivery-time-medians",
+    "title": "Running Delivery Time Medians",
+    "url": "https://www.fastprep.io/problems/amazon-running-delivery-time-medians",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-search-rotated-sorted-array",
+    "title": "Search in a Rotated Sorted Array",
+    "url": "https://www.fastprep.io/problems/amazon-search-rotated-sorted-array",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-task-scheduler",
+    "title": "Task Scheduler",
+    "url": "https://www.fastprep.io/problems/amazon-task-scheduler",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-three-sum-closest",
+    "title": "Three Sum Closest",
+    "url": "https://www.fastprep.io/problems/amazon-three-sum-closest",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-train-route-fare",
+    "title": "Fare Between Stops on a Train Route",
+    "url": "https://www.fastprep.io/problems/amazon-train-route-fare",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-transfer-chain-endpoints",
+    "title": "Initial and Final Accounts in a Transfer Chain",
+    "url": "https://www.fastprep.io/problems/amazon-transfer-chain-endpoints",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-trapping-rain-water",
+    "title": "Trapping Rain Water",
+    "url": "https://www.fastprep.io/problems/amazon-trapping-rain-water",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-two-knights-minimum-meeting-moves",
+    "title": "Minimum Moves for Two Knights to Meet",
+    "url": "https://www.fastprep.io/problems/amazon-two-knights-minimum-meeting-moves",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-unique-pairs-2d-target",
+    "title": "Unique Pairs in a 2D Matrix Summing to Target",
+    "url": "https://www.fastprep.io/problems/amazon-unique-pairs-2d-target",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-unique-string-permutations",
+    "title": "Unique String Permutations",
+    "url": "https://www.fastprep.io/problems/amazon-unique-string-permutations",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-validate-two-color-chessboard",
+    "title": "Validate a Two-Color Chessboard",
+    "url": "https://www.fastprep.io/problems/amazon-validate-two-color-chessboard",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-woodcut-saw-height",
+    "title": "Maximum Saw Height for At Least M Cut Length",
+    "url": "https://www.fastprep.io/problems/amazon-woodcut-saw-height",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-word-break",
+    "title": "Word Break",
+    "url": "https://www.fastprep.io/problems/amazon-word-break",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-word-break-ii",
+    "title": "Word Break II",
+    "url": "https://www.fastprep.io/problems/amazon-word-break-ii",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-13"
+  },
+  {
+    "slug": "amazon-get-min-amount",
+    "title": "Get Minimum Amount",
+    "url": "https://www.fastprep.io/problems/amazon-get-min-amount",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-12"
+  },
+  {
+    "slug": "amazon-interleaving-string",
+    "title": "Interleaving String",
+    "url": "https://www.fastprep.io/problems/amazon-interleaving-string",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-12"
+  },
+  {
+    "slug": "amazon-prefix-search-collection",
+    "title": "Dynamic Prefix Search Collection",
+    "url": "https://www.fastprep.io/problems/amazon-prefix-search-collection",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-12"
+  },
+  {
+    "slug": "amazon-word-search-ii",
+    "title": "Word Search II",
+    "url": "https://www.fastprep.io/problems/amazon-word-search-ii",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-12"
+  },
+  {
+    "slug": "amazon-ad-click-counts-sliding-window",
+    "title": "Recent Advertisement Click Counts",
+    "url": "https://www.fastprep.io/problems/amazon-ad-click-counts-sliding-window",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-10"
+  },
+  {
+    "slug": "amazon-consecutive-website-visit-pattern",
+    "title": "Most Frequent Consecutive Website Pattern",
+    "url": "https://www.fastprep.io/problems/amazon-consecutive-website-visit-pattern",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-10"
+  },
+  {
+    "slug": "amazon-longest-substring-without-repeating-characters",
+    "title": "Longest Substring Without Repeating Characters",
+    "url": "https://www.fastprep.io/problems/amazon-longest-substring-without-repeating-characters",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-10"
+  },
+  {
+    "slug": "amazon-sliding-window-rate-limiter",
+    "title": "Sliding-Window Rate Limiter",
+    "url": "https://www.fastprep.io/problems/amazon-sliding-window-rate-limiter",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-10"
+  },
+  {
+    "slug": "amazon-find-minimum-cost",
+    "title": "Find Minimum Cost",
+    "url": "https://www.fastprep.io/problems/amazon-find-minimum-cost",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-09"
+  },
+  {
+    "slug": "amazon-maximum-capacity",
+    "title": "Maximum System Memory Capacity",
+    "url": "https://www.fastprep.io/problems/amazon-maximum-capacity",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-08"
+  },
+  {
+    "slug": "amazon-meeting-rooms-ii",
+    "title": "Meeting Rooms II",
+    "url": "https://www.fastprep.io/problems/amazon-meeting-rooms-ii",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-08"
+  },
+  {
+    "slug": "amazon-minimum-merge-conflicts",
+    "title": "Minimum Merge Conflicts",
+    "url": "https://www.fastprep.io/problems/amazon-minimum-merge-conflicts",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-08"
+  },
+  {
+    "slug": "amazon-next-smaller-ticket-price",
+    "title": "Next Smaller Ticket Price",
+    "url": "https://www.fastprep.io/problems/amazon-next-smaller-ticket-price",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-08"
+  },
+  {
+    "slug": "amazon-remove-k-digits",
+    "title": "Remove K Digits",
+    "url": "https://www.fastprep.io/problems/amazon-remove-k-digits",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-08"
+  },
+  {
+    "slug": "amazon-get-distinct-pairs",
+    "title": "Get Distinct Pairs",
+    "url": "https://www.fastprep.io/problems/amazon-get-distinct-pairs",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-05"
+  },
+  {
+    "slug": "amazon-minimum-adjacent-swaps-binary-groups",
+    "title": "Minimum Adjacent Swaps to Group Binary Values",
+    "url": "https://www.fastprep.io/problems/amazon-minimum-adjacent-swaps-binary-groups",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-02"
+  },
+  {
+    "slug": "amazon-maximum-frequency-stack",
+    "title": "Maximum Frequency Stack",
+    "url": "https://www.fastprep.io/problems/amazon-maximum-frequency-stack",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-09-01"
+  },
+  {
+    "slug": "amazon-linked-list-queue-operations",
+    "title": "Linked-List Queue with Delete and Deduplication",
+    "url": "https://www.fastprep.io/problems/amazon-linked-list-queue-operations",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-08-31"
+  },
+  {
+    "slug": "amazon-minimum-grid-inconvenience",
+    "title": "Minimum Grid Inconvenience",
+    "url": "https://www.fastprep.io/problems/amazon-minimum-grid-inconvenience",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-08-28"
+  },
+  {
+    "slug": "amazon-single-element-in-sorted-array",
+    "title": "Single Element in a Sorted Array",
+    "url": "https://www.fastprep.io/problems/amazon-single-element-in-sorted-array",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-30"
+  },
+  {
+    "slug": "amazon-count-complete-components",
+    "title": "Count the Number of Complete Components",
+    "url": "https://www.fastprep.io/problems/amazon-count-complete-components",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-29"
+  },
+  {
+    "slug": "amazon-cousins-in-binary-tree-ii",
+    "title": "Cousins in Binary Tree II",
+    "url": "https://www.fastprep.io/problems/amazon-cousins-in-binary-tree-ii",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-29"
+  },
+  {
+    "slug": "amazon-minimum-operations-to-make-array-continuous",
+    "title": "Minimum Operations to Make an Array Continuous",
+    "url": "https://www.fastprep.io/problems/amazon-minimum-operations-to-make-array-continuous",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-29"
+  },
+  {
+    "slug": "amazon-vertical-order-traversal-of-binary-tree",
+    "title": "Vertical Order Traversal of a Binary Tree",
+    "url": "https://www.fastprep.io/problems/amazon-vertical-order-traversal-of-binary-tree",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-29"
+  },
+  {
+    "slug": "amazon-http-request-redirection",
+    "title": "HTTP Request Redirection",
+    "url": "https://www.fastprep.io/problems/amazon-http-request-redirection",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-28"
+  },
+  {
+    "slug": "amazon-resolve-task-dependencies",
+    "title": "Resolve Task Dependencies",
+    "url": "https://www.fastprep.io/problems/amazon-resolve-task-dependencies",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-27"
+  },
+  {
+    "slug": "amazon-shortest-distance-circular-bus-route",
+    "title": "Shortest Distance on a Circular Bus Route",
+    "url": "https://www.fastprep.io/problems/amazon-shortest-distance-circular-bus-route",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-26"
+  },
+  {
+    "slug": "amazon-sort-array-with-rotate-and-flip",
+    "title": "Sort an Array with Rotate and Flip",
+    "url": "https://www.fastprep.io/problems/amazon-sort-array-with-rotate-and-flip",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-22"
+  },
+  {
+    "slug": "amazon-loyal-customers",
+    "title": "Loyal Customers Across Two Days",
+    "url": "https://www.fastprep.io/problems/amazon-loyal-customers",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-21"
+  },
+  {
+    "slug": "amazon-smallest-number-with-digit-sum",
+    "title": "Smallest Number With a Given Digit Sum",
+    "url": "https://www.fastprep.io/problems/amazon-smallest-number-with-digit-sum",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-21"
+  },
+  {
+    "slug": "amazon-group-anagrams",
+    "title": "Group Anagrams",
+    "url": "https://www.fastprep.io/problems/amazon-group-anagrams",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-12"
+  },
+  {
+    "slug": "amazon-longest-palindromic-subsequence",
+    "title": "Longest Palindromic Subsequence",
+    "url": "https://www.fastprep.io/problems/amazon-longest-palindromic-subsequence",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-12"
+  },
+  {
+    "slug": "amazon-maximal-square",
+    "title": "Maximal Square",
+    "url": "https://www.fastprep.io/problems/amazon-maximal-square",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-12"
+  },
+  {
+    "slug": "amazon-maximum-sum-of-heights",
+    "title": "Maximum Sum of Heights",
+    "url": "https://www.fastprep.io/problems/amazon-maximum-sum-of-heights",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-12"
+  },
+  {
+    "slug": "amazon-number-of-islands-ii",
+    "title": "Number of Islands II",
+    "url": "https://www.fastprep.io/problems/amazon-number-of-islands-ii",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-12"
+  },
+  {
+    "slug": "amazon-sliding-window-maximum",
+    "title": "Sliding Window Maximum",
+    "url": "https://www.fastprep.io/problems/amazon-sliding-window-maximum",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-12"
+  },
+  {
+    "slug": "amazon-domain-weight-calculation",
+    "title": "Domain Weight Calculation",
+    "url": "https://www.fastprep.io/problems/amazon-domain-weight-calculation",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-10"
+  },
+  {
+    "slug": "amazon-minimum-contiguous-replacements",
+    "title": "Minimum Contiguous Replacements",
+    "url": "https://www.fastprep.io/problems/amazon-minimum-contiguous-replacements",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-10"
+  },
+  {
+    "slug": "amazon-minimum-redistribution-cost",
+    "title": "Minimum Redistribution Cost",
+    "url": "https://www.fastprep.io/problems/amazon-minimum-redistribution-cost",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-10"
+  },
+  {
+    "slug": "amazon-number-of-atoms",
+    "title": "Number of Atoms",
+    "url": "https://www.fastprep.io/problems/amazon-number-of-atoms",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-10"
+  },
+  {
+    "slug": "amazon-closest-version-date",
+    "title": "Closest Version Date",
+    "url": "https://www.fastprep.io/problems/amazon-closest-version-date",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-08"
+  },
+  {
+    "slug": "amazon-max-concurrent-processes",
+    "title": "Maximum Concurrent Processes (Bar Raiser Round)",
+    "url": "https://www.fastprep.io/problems/amazon-max-concurrent-processes",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-08"
+  },
+  {
+    "slug": "amazon-package-dependency-order",
+    "title": "Package Dependency Order",
+    "url": "https://www.fastprep.io/problems/amazon-package-dependency-order",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-08"
+  },
+  {
+    "slug": "amazon-merge-sorted-array",
+    "title": "Merge Sorted Array",
+    "url": "https://www.fastprep.io/problems/amazon-merge-sorted-array",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-07"
+  },
+  {
+    "slug": "amazon-find-maximum-number-of-servers",
+    "title": "Get Max Servers",
+    "url": "https://www.fastprep.io/problems/amazon-find-maximum-number-of-servers",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-03"
+  },
+  {
+    "slug": "amazon-permutation-sorter",
+    "title": "Permutation Sorter",
+    "url": "https://www.fastprep.io/problems/amazon-permutation-sorter",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-07-03"
+  },
+  {
+    "slug": "amazon-feasible-indices-after-prefix-suffix-reduction",
+    "title": "Feasible Indices After Prefix/Suffix Reduction",
+    "url": "https://www.fastprep.io/problems/amazon-feasible-indices-after-prefix-suffix-reduction",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-06-30"
+  },
+  {
+    "slug": "amazon-frequently-bought-together",
+    "title": "Frequently Bought Together",
+    "url": "https://www.fastprep.io/problems/amazon-frequently-bought-together",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-06-29"
+  },
+  {
+    "slug": "amazon-souvenir-shop-purchases",
+    "title": "Souvenir Shop Purchases",
+    "url": "https://www.fastprep.io/problems/amazon-souvenir-shop-purchases",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-06-29"
+  },
+  {
+    "slug": "amazon-find-minimum-groups",
+    "title": "Find Minimum Groups",
+    "url": "https://www.fastprep.io/problems/amazon-find-minimum-groups",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-06-24"
+  },
+  {
+    "slug": "amazon-maximum-equal-parts-for-prefixes",
+    "title": "Maximum Equal Parts for Prefixes",
+    "url": "https://www.fastprep.io/problems/amazon-maximum-equal-parts-for-prefixes",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-06-19"
+  },
+  {
+    "slug": "amazon-count-promotional-periods",
+    "title": "Count Promotional Periods",
+    "url": "https://www.fastprep.io/problems/amazon-count-promotional-periods",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-06-09"
+  },
+  {
+    "slug": "amazon-get-smallest-base-segment",
+    "title": "Get Smallest Base Segment",
+    "url": "https://www.fastprep.io/problems/amazon-get-smallest-base-segment",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-06-09"
+  },
+  {
+    "slug": "amazon-select-least-resource-tasks",
+    "title": "Select Least Resource Tasks",
+    "url": "https://www.fastprep.io/problems/amazon-select-least-resource-tasks",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-06-09"
+  },
+  {
+    "slug": "amazon-lowest-common-ancestor-implemented-with-stack",
+    "title": "Lowest Common Ancestor Implemented with Stack",
+    "url": "https://www.fastprep.io/problems/amazon-lowest-common-ancestor-implemented-with-stack",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-05-30"
+  },
+  {
+    "slug": "amazon-product-category-groups",
+    "title": "Product Category Group Sizes",
+    "url": "https://www.fastprep.io/problems/amazon-product-category-groups",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-05-23"
+  },
+  {
+    "slug": "amazon-count-connected-components",
+    "title": "Count Connected Components",
+    "url": "https://www.fastprep.io/problems/amazon-count-connected-components",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-05-21"
+  },
+  {
+    "slug": "amazon-unique-pairs-with-target-sum",
+    "title": "Unique Pairs With Target Sum",
+    "url": "https://www.fastprep.io/problems/amazon-unique-pairs-with-target-sum",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-05-13"
+  },
+  {
+    "slug": "amazon-feasible-indices-after-reduction",
+    "title": "Feasible Indices After Reduction",
+    "url": "https://www.fastprep.io/problems/amazon-feasible-indices-after-reduction",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-04-30"
+  },
+  {
+    "slug": "amazon-count-similar-string-groups",
+    "title": "Count Similar String Groups",
+    "url": "https://www.fastprep.io/problems/amazon-count-similar-string-groups",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-04-25"
+  },
+  {
+    "slug": "amazon-get-min-errors",
+    "title": "Get Min Errors",
+    "url": "https://www.fastprep.io/problems/amazon-get-min-errors",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-04-16"
+  },
+  {
+    "slug": "amazon-maximum-score-with-non-adjacent-values",
+    "title": "Maximum Score With Non-Adjacent Values",
+    "url": "https://www.fastprep.io/problems/amazon-maximum-score-with-non-adjacent-values",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-04-14"
+  },
+  {
+    "slug": "amazon-make-value-groups-contiguous",
+    "title": "Make Value Groups Contiguous",
+    "url": "https://www.fastprep.io/problems/amazon-make-value-groups-contiguous",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-04-13"
+  },
+  {
+    "slug": "amazon-dynamic-kth-largest-queries",
+    "title": "Dynamic Kth Largest Queries",
+    "url": "https://www.fastprep.io/problems/amazon-dynamic-kth-largest-queries",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-04-09"
+  },
+  {
+    "slug": "amazon-longest-zero-sum-subarray",
+    "title": "Longest Zero Sum Subarray",
+    "url": "https://www.fastprep.io/problems/amazon-longest-zero-sum-subarray",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-04-09"
+  },
+  {
+    "slug": "amazon-maximize-minimum-machine-power",
+    "title": "Maximize Minimum Machine Power",
+    "url": "https://www.fastprep.io/problems/amazon-maximize-minimum-machine-power",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-04-09"
+  },
+  {
+    "slug": "amazon-maximize-protected-city-population",
+    "title": "Maximize Protected City Population",
+    "url": "https://www.fastprep.io/problems/amazon-maximize-protected-city-population",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-04-06"
+  },
+  {
+    "slug": "amazon-minimum-cost-to-convert-products-to-variant-a",
+    "title": "Minimum Cost to Convert Products to Variant A",
+    "url": "https://www.fastprep.io/problems/amazon-minimum-cost-to-convert-products-to-variant-a",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-04-06"
+  },
+  {
+    "slug": "amazon-minimum-preparation-time-for-two-handlers",
+    "title": "Minimum Preparation Time for Two Handlers",
+    "url": "https://www.fastprep.io/problems/amazon-minimum-preparation-time-for-two-handlers",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-04-06"
+  },
+  {
+    "slug": "amazon-sum-max-plus-min-after-decrement-operations",
+    "title": "Sum Max Plus Min After Decrement Operations",
+    "url": "https://www.fastprep.io/problems/amazon-sum-max-plus-min-after-decrement-operations",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-03-25"
+  },
+  {
+    "slug": "amazon-sort-error-codes-by-frequency",
+    "title": "Sort Error Codes by Frequency",
+    "url": "https://www.fastprep.io/problems/amazon-sort-error-codes-by-frequency",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-03-24"
+  },
+  {
+    "slug": "amazon-lexicographically-smallest-after-one-substring-rotation",
+    "title": "Lexicographically Smallest After One Substring Rotation",
+    "url": "https://www.fastprep.io/problems/amazon-lexicographically-smallest-after-one-substring-rotation",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-02-05"
+  },
+  {
+    "slug": "amazon-minimum-operations-to-sort-permutation",
+    "title": "Minimum Operations to Sort a Permutation",
+    "url": "https://www.fastprep.io/problems/amazon-minimum-operations-to-sort-permutation",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-01-30"
+  },
+  {
+    "slug": "amazon-lexicographically-maximum-final-sequence",
+    "title": "Lexicographically Maximum Final Sequence",
+    "url": "https://www.fastprep.io/problems/amazon-lexicographically-maximum-final-sequence",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-01-24"
+  },
+  {
+    "slug": "amazon-package-delivery-system",
+    "title": "Package Delivery System",
+    "url": "https://www.fastprep.io/problems/amazon-package-delivery-system",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-01-24"
+  },
+  {
+    "slug": "amazon-vm-rental-revenue",
+    "title": "VM Rental Revenue",
+    "url": "https://www.fastprep.io/problems/amazon-vm-rental-revenue",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-01-24"
+  },
+  {
+    "slug": "amazon-longest-arithmetic-subarray-after-one-change",
+    "title": "Longest Arithmetic Subarray After One Change",
+    "url": "https://www.fastprep.io/problems/amazon-longest-arithmetic-subarray-after-one-change",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-01-06"
+  },
+  {
+    "slug": "amazon-replace-values-and-return-sums",
+    "title": "Replace Values and Return Sums",
+    "url": "https://www.fastprep.io/problems/amazon-replace-values-and-return-sums",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2026-01-06"
+  },
+  {
+    "slug": "amazon-minimum-s3-storage-cost",
+    "title": "Minimum S3 Storage Cost",
+    "url": "https://www.fastprep.io/problems/amazon-minimum-s3-storage-cost",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-12-11"
+  },
+  {
+    "slug": "amazon-count-picked-items-less-than-queries",
+    "title": "Count Picked Items Less Than Queries",
+    "url": "https://www.fastprep.io/problems/amazon-count-picked-items-less-than-queries",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-08-10"
+  },
+  {
+    "slug": "amazon-fair-prize-distribution",
+    "title": "Fair Prize Distribution",
+    "url": "https://www.fastprep.io/problems/amazon-fair-prize-distribution",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-08-10"
+  },
+  {
+    "slug": "amazon-largest-number-with-digit-sum",
+    "title": "Largest Number With Digit Sum",
+    "url": "https://www.fastprep.io/problems/amazon-largest-number-with-digit-sum",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-08-03"
+  },
+  {
+    "slug": "amazon-minimize-binary-subsequence-cost",
+    "title": "Minimize Binary Subsequence Cost",
+    "url": "https://www.fastprep.io/problems/amazon-minimize-binary-subsequence-cost",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-08-03"
+  },
+  {
+    "slug": "amazon-first-word-segmentation",
+    "title": "First Valid Word Segmentation",
+    "url": "https://www.fastprep.io/problems/amazon-first-word-segmentation",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-07-26"
+  },
+  {
+    "slug": "amazon-nearby-fulfillment-centers",
+    "title": "Nearby Fulfillment Centers with Inventory",
+    "url": "https://www.fastprep.io/problems/amazon-nearby-fulfillment-centers",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-07-26"
+  },
+  {
+    "slug": "amazon-maximize-pages-before-suspension",
+    "title": "Maximize Pages Before Suspension",
+    "url": "https://www.fastprep.io/problems/amazon-maximize-pages-before-suspension",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-07-08"
+  },
+  {
+    "slug": "amazon-predict-answer",
+    "title": "Predict Answer",
+    "url": "https://www.fastprep.io/problems/amazon-predict-answer",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-06-23"
+  },
+  {
+    "slug": "amazon-find-security-level",
+    "title": "Find Security Level",
+    "url": "https://www.fastprep.io/problems/amazon-find-security-level",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-06-18"
+  },
+  {
+    "slug": "amazon-get-min-subsegments",
+    "title": "Get Min Subsegments",
+    "url": "https://www.fastprep.io/problems/amazon-get-min-subsegments",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-06-18"
+  },
+  {
+    "slug": "amazon-minimize-variation",
+    "title": "Minimize Variation",
+    "url": "https://www.fastprep.io/problems/amazon-minimize-variation",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-06-18"
+  },
+  {
+    "slug": "amazon-find-hash",
+    "title": "Find Hash",
+    "url": "https://www.fastprep.io/problems/amazon-find-hash",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-06-12"
+  },
+  {
+    "slug": "amazon-count-special-substrs",
+    "title": "Count Special Substrings",
+    "url": "https://www.fastprep.io/problems/amazon-count-special-substrs",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-05-31"
+  },
+  {
+    "slug": "amazon-find-minimum-days",
+    "title": "Find Minimum Days",
+    "url": "https://www.fastprep.io/problems/amazon-find-minimum-days",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-05-31"
+  },
+  {
+    "slug": "amazon-find-minimum-machines-size",
+    "title": "Find Minimum Machine Sizes",
+    "url": "https://www.fastprep.io/problems/amazon-find-minimum-machines-size",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-05-31"
+  },
+  {
+    "slug": "amazon-get-maximum-count",
+    "title": "Get Maximum Count",
+    "url": "https://www.fastprep.io/problems/amazon-get-maximum-count",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-05-31"
+  },
+  {
+    "slug": "amazon-split-prefix-suffix",
+    "title": "Split Prefix Suffix",
+    "url": "https://www.fastprep.io/problems/amazon-split-prefix-suffix",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-05-31"
+  },
+  {
+    "slug": "amazon-determine-the-best-skipping-strategy",
+    "title": "Determine the Best Skipping Strategy",
+    "url": "https://www.fastprep.io/problems/amazon-determine-the-best-skipping-strategy",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-05-25"
+  },
+  {
+    "slug": "amazon-compute-beauty-of-array-products",
+    "title": "Compute Beauty of Array Products",
+    "url": "https://www.fastprep.io/problems/amazon-compute-beauty-of-array-products",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-04-27"
+  },
+  {
+    "slug": "amazon-find-idle-skills-query",
+    "title": "Find Idle Skill Query",
+    "url": "https://www.fastprep.io/problems/amazon-find-idle-skills-query",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-04-27"
+  },
+  {
+    "slug": "amazon-get-minimum-dock-bays",
+    "title": "Min Dock Bays",
+    "url": "https://www.fastprep.io/problems/amazon-get-minimum-dock-bays",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-04-27"
+  },
+  {
+    "slug": "amazon-get-minimum-number-of-unique-distribution-centers",
+    "title": "Min Num Unique Distribution Hubs",
+    "url": "https://www.fastprep.io/problems/amazon-get-minimum-number-of-unique-distribution-centers",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-04-13"
+  },
+  {
+    "slug": "amazon-next-greater-perfect-string",
+    "title": "Next Perfect String",
+    "url": "https://www.fastprep.io/problems/amazon-next-greater-perfect-string",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-04-13"
+  },
+  {
+    "slug": "amazon-use-minimum-tokens",
+    "title": "Use Minimum Tokens",
+    "url": "https://www.fastprep.io/problems/amazon-use-minimum-tokens",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-04-13"
+  },
+  {
+    "slug": "amazon-remove-characters-in-frequency-order",
+    "title": "Remove Characters in Frequency Order",
+    "url": "https://www.fastprep.io/problems/amazon-remove-characters-in-frequency-order",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-04-10"
+  },
+  {
+    "slug": "amazon-optimal-utilization",
+    "title": "Optimal Utilization",
+    "url": "https://www.fastprep.io/problems/amazon-optimal-utilization",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-04-05"
+  },
+  {
+    "slug": "amazon-purchase-servers",
+    "title": "Buy Servers",
+    "url": "https://www.fastprep.io/problems/amazon-purchase-servers",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-04-05"
+  },
+  {
+    "slug": "amazon-cinema-shows",
+    "title": "Cinema Shows",
+    "url": "https://www.fastprep.io/problems/amazon-cinema-shows",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-03-31"
+  },
+  {
+    "slug": "amazon-minimum-retailers",
+    "title": "Min Retailers",
+    "url": "https://www.fastprep.io/problems/amazon-minimum-retailers",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-03-31"
+  },
+  {
+    "slug": "amazon-find-min-replacements",
+    "title": "Find Replacement",
+    "url": "https://www.fastprep.io/problems/amazon-find-min-replacements",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-03-29"
+  },
+  {
+    "slug": "amazon-convert-to-good-string",
+    "title": "Good String",
+    "url": "https://www.fastprep.io/problems/amazon-convert-to-good-string",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-03-28"
+  },
+  {
+    "slug": "amazon-find-min-max-difference",
+    "title": "Find Min Max Difference",
+    "url": "https://www.fastprep.io/problems/amazon-find-min-max-difference",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-03-27"
+  },
+  {
+    "slug": "amazon-max-sum-of-non-overlapping-intervals",
+    "title": "Max Sum of Non-overlapping Intervals",
+    "url": "https://www.fastprep.io/problems/amazon-max-sum-of-non-overlapping-intervals",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-03-27"
+  },
+  {
+    "slug": "amazon-get-minimal-cost",
+    "title": "Get Minimal Cost",
+    "url": "https://www.fastprep.io/problems/amazon-get-minimal-cost",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-03-26"
+  },
+  {
+    "slug": "amazon-find-least-possible-vulnerability",
+    "title": "Find Least Possible Vulnerability",
+    "url": "https://www.fastprep.io/problems/amazon-find-least-possible-vulnerability",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-03-24"
+  },
+  {
+    "slug": "amazon-make-array-distinct",
+    "title": "Make Array Distinct",
+    "url": "https://www.fastprep.io/problems/amazon-make-array-distinct",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-03-24"
+  },
+  {
+    "slug": "amazon-ensure-non-zero-load-sum",
+    "title": "Ensure Non Zero Load Sum",
+    "url": "https://www.fastprep.io/problems/amazon-ensure-non-zero-load-sum",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-03-23"
+  },
+  {
+    "slug": "amazon-number-of-well-performing-groups",
+    "title": "Number Of Well Performing Groups",
+    "url": "https://www.fastprep.io/problems/amazon-number-of-well-performing-groups",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-03-23"
+  },
+  {
+    "slug": "amazon-get-max-increments",
+    "title": "Get Max Increments",
+    "url": "https://www.fastprep.io/problems/amazon-get-max-increments",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-03-22"
+  },
+  {
+    "slug": "amazon-password-strength",
+    "title": "Password Strength",
+    "url": "https://www.fastprep.io/problems/amazon-password-strength",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-03-22"
+  },
+  {
+    "slug": "amazon-find-optimal-level",
+    "title": "Optimal Level",
+    "url": "https://www.fastprep.io/problems/amazon-find-optimal-level",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-03-21"
+  },
+  {
+    "slug": "amazon-min-operation",
+    "title": "Min Operation",
+    "url": "https://www.fastprep.io/problems/amazon-min-operation",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-03-21"
+  },
+  {
+    "slug": "amazon-trader-joe-trades",
+    "title": "Trader Joe Trades",
+    "url": "https://www.fastprep.io/problems/amazon-trader-joe-trades",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-03-21"
+  },
+  {
+    "slug": "amazon-all-about-rewards",
+    "title": "All About Rewards",
+    "url": "https://www.fastprep.io/problems/amazon-all-about-rewards",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-03-20"
+  },
+  {
+    "slug": "amazon-inventory-processes-survival-possibility",
+    "title": "Inventory Processes Survival Possibility",
+    "url": "https://www.fastprep.io/problems/amazon-inventory-processes-survival-possibility",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-03-18"
+  },
+  {
+    "slug": "amazon-medians",
+    "title": "All About Medians",
+    "url": "https://www.fastprep.io/problems/amazon-medians",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-03-18"
+  },
+  {
+    "slug": "amazon-find-partition-cost",
+    "title": "Get Largest Number",
+    "url": "https://www.fastprep.io/problems/amazon-find-partition-cost",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-03-13"
+  },
+  {
+    "slug": "amazon-get-most-out-of-the-data",
+    "title": "Get The Most Out Of The Data",
+    "url": "https://www.fastprep.io/problems/amazon-get-most-out-of-the-data",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-02-10"
+  },
+  {
+    "slug": "amazon-maximize-sum-of-array-multiplication",
+    "title": "Maximize Sum of Array Multiplication",
+    "url": "https://www.fastprep.io/problems/amazon-maximize-sum-of-array-multiplication",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-02-05"
+  },
+  {
+    "slug": "amazon-maximum-number-of-products-you-can-pick",
+    "title": "Max Number of Products You can Pick",
+    "url": "https://www.fastprep.io/problems/amazon-maximum-number-of-products-you-can-pick",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-02-05"
+  },
+  {
+    "slug": "amazon-get-maximum",
+    "title": "Get Maximum",
+    "url": "https://www.fastprep.io/problems/amazon-get-maximum",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-02-02"
+  },
+  {
+    "slug": "amazon-sum-of-max-subarrays",
+    "title": "Sum of Max Subarrys",
+    "url": "https://www.fastprep.io/problems/amazon-sum-of-max-subarrays",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-02-02"
+  },
+  {
+    "slug": "amazon-calculate-max-salary",
+    "title": "Calculate Max Salary",
+    "url": "https://www.fastprep.io/problems/amazon-calculate-max-salary",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-01-09"
+  },
+  {
+    "slug": "amazon-maximize-product-of-sizes-of-subtrees",
+    "title": "Maximize Product of Sizes of Subtrees",
+    "url": "https://www.fastprep.io/problems/amazon-maximize-product-of-sizes-of-subtrees",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-01-09"
+  },
+  {
+    "slug": "amazon-minimum-energy-cost",
+    "title": "Min Energy Cost",
+    "url": "https://www.fastprep.io/problems/amazon-minimum-energy-cost",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-01-09"
+  },
+  {
+    "slug": "amazon-optimal-interval-difference",
+    "title": "Optimal Interval Difference",
+    "url": "https://www.fastprep.io/problems/amazon-optimal-interval-difference",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-01-08"
+  },
+  {
+    "slug": "amazon-find-max-value",
+    "title": "Find Max Value",
+    "url": "https://www.fastprep.io/problems/amazon-find-max-value",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-01-05"
+  },
+  {
+    "slug": "amazon-get-maximum-events",
+    "title": "Get Max Events",
+    "url": "https://www.fastprep.io/problems/amazon-get-maximum-events",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2025-01-05"
+  },
+  {
+    "slug": "amazon-calculate-max-profit",
+    "title": "Calculate Max Profit",
+    "url": "https://www.fastprep.io/problems/amazon-calculate-max-profit",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-12-22"
+  },
+  {
+    "slug": "amazon-get-final-locations",
+    "title": "Get Final Location",
+    "url": "https://www.fastprep.io/problems/amazon-get-final-locations",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-12-22"
+  },
+  {
+    "slug": "amazon-get-stable-periods-count",
+    "title": "Get Stable Periods Count",
+    "url": "https://www.fastprep.io/problems/amazon-get-stable-periods-count",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-12-22"
+  },
+  {
+    "slug": "amazon-max-transfer-rate",
+    "title": "Max Transfer Rate",
+    "url": "https://www.fastprep.io/problems/amazon-max-transfer-rate",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-12-22"
+  },
+  {
+    "slug": "amazon-get-max-stability",
+    "title": "Get Max Stability",
+    "url": "https://www.fastprep.io/problems/amazon-get-max-stability",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-12-20"
+  },
+  {
+    "slug": "amazon-make-array-zero-by-subtracting-equal-amounts",
+    "title": "Min Operations",
+    "url": "https://www.fastprep.io/problems/amazon-make-array-zero-by-subtracting-equal-amounts",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-12-20"
+  },
+  {
+    "slug": "amazon-minimum-swaps-to-make-palindrome",
+    "title": "Get Max Stability",
+    "url": "https://www.fastprep.io/problems/amazon-minimum-swaps-to-make-palindrome",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-12-20"
+  },
+  {
+    "slug": "amazon-get-max-skill-sum",
+    "title": "Get Max Skill Sum",
+    "url": "https://www.fastprep.io/problems/amazon-get-max-skill-sum",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-12-11"
+  },
+  {
+    "slug": "amazon-get-minimum-value",
+    "title": "Get Min Value",
+    "url": "https://www.fastprep.io/problems/amazon-get-minimum-value",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-12-11"
+  },
+  {
+    "slug": "amazon-find-number",
+    "title": "Find Number",
+    "url": "https://www.fastprep.io/problems/amazon-find-number",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-12-10"
+  },
+  {
+    "slug": "amazon-get-min-removal",
+    "title": "Get Min Removal",
+    "url": "https://www.fastprep.io/problems/amazon-get-min-removal",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-12-10"
+  },
+  {
+    "slug": "amazon-find-lexicographically-smallest-string",
+    "title": "Find Lexicographically Smallest String",
+    "url": "https://www.fastprep.io/problems/amazon-find-lexicographically-smallest-string",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-12-08"
+  },
+  {
+    "slug": "amazon-find-password-strength",
+    "title": "Find Password Strength",
+    "url": "https://www.fastprep.io/problems/amazon-find-password-strength",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-12-08"
+  },
+  {
+    "slug": "amazon-perform-queries",
+    "title": "Perform Queries",
+    "url": "https://www.fastprep.io/problems/amazon-perform-queries",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-12-08"
+  },
+  {
+    "slug": "amazon-get-data-dependence-sum",
+    "title": "Data Dependence Sum",
+    "url": "https://www.fastprep.io/problems/amazon-get-data-dependence-sum",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-12-03"
+  },
+  {
+    "slug": "amazon-get-min-operations2",
+    "title": "Min Operations",
+    "url": "https://www.fastprep.io/problems/amazon-get-min-operations2",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-12-03"
+  },
+  {
+    "slug": "amazon-sum-of-all-days-numbers-on-which-the-data-of-the-xth-will-be-dependent",
+    "title": "Sum of All Days Numbers on Which the Data of the Xth Will Be Dependent",
+    "url": "https://www.fastprep.io/problems/amazon-sum-of-all-days-numbers-on-which-the-data-of-the-xth-will-be-dependent",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-11-27"
+  },
+  {
+    "slug": "amazon-optimize-identifiers",
+    "title": "Optimize Identifiers",
+    "url": "https://www.fastprep.io/problems/amazon-optimize-identifiers",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-11-25"
+  },
+  {
+    "slug": "amazon-minimum-insertions",
+    "title": "Min Insertions",
+    "url": "https://www.fastprep.io/problems/amazon-minimum-insertions",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-11-24"
+  },
+  {
+    "slug": "amazon-determine-minimum-characters-to-append",
+    "title": "Min Chars to Append",
+    "url": "https://www.fastprep.io/problems/amazon-determine-minimum-characters-to-append",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-11-23"
+  },
+  {
+    "slug": "amazon-reduce-memory-usage",
+    "title": "Reduce Memory Usage",
+    "url": "https://www.fastprep.io/problems/amazon-reduce-memory-usage",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-11-20"
+  },
+  {
+    "slug": "amazon-calculate-truck-distance",
+    "title": "Calculate Truck Distance",
+    "url": "https://www.fastprep.io/problems/amazon-calculate-truck-distance",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-11-18"
+  },
+  {
+    "slug": "amazon-get-minimum-changes",
+    "title": "Get Min Change",
+    "url": "https://www.fastprep.io/problems/amazon-get-minimum-changes",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-11-18"
+  },
+  {
+    "slug": "amazon-find-ideal-days",
+    "title": "Find Ideal Days",
+    "url": "https://www.fastprep.io/problems/amazon-find-ideal-days",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-11-17"
+  },
+  {
+    "slug": "amazon-get-min-moves",
+    "title": "Get Min Moves",
+    "url": "https://www.fastprep.io/problems/amazon-get-min-moves",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-11-14"
+  },
+  {
+    "slug": "amazon-minimize-effort",
+    "title": "Minimize Effort",
+    "url": "https://www.fastprep.io/problems/amazon-minimize-effort",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-11-14"
+  },
+  {
+    "slug": "amazon-get-max-discount-pairs",
+    "title": "Get Max Discount Pairs",
+    "url": "https://www.fastprep.io/problems/amazon-get-max-discount-pairs",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-11-13"
+  },
+  {
+    "slug": "amazon-rooks-left",
+    "title": "Rooks Left",
+    "url": "https://www.fastprep.io/problems/amazon-rooks-left",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-11-12"
+  },
+  {
+    "slug": "amazon-optimized-identifiers",
+    "title": "Optimize Identifiers",
+    "url": "https://www.fastprep.io/problems/amazon-optimized-identifiers",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-11-09"
+  },
+  {
+    "slug": "amazon-cleanup-dataset",
+    "title": "Cleanup Dataset",
+    "url": "https://www.fastprep.io/problems/amazon-cleanup-dataset",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-10-30"
+  },
+  {
+    "slug": "amazon-find-minimum-possible-variance",
+    "title": "Find Min Variance",
+    "url": "https://www.fastprep.io/problems/amazon-find-minimum-possible-variance",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-10-30"
+  },
+  {
+    "slug": "amazon-find-minimum-time-required",
+    "title": "Find Min Time Required",
+    "url": "https://www.fastprep.io/problems/amazon-find-minimum-time-required",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-10-30"
+  },
+  {
+    "slug": "amazon-calculate-warehouse-efficiency",
+    "title": "Calculate Warehouse Efficiency",
+    "url": "https://www.fastprep.io/problems/amazon-calculate-warehouse-efficiency",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-10-28"
+  },
+  {
+    "slug": "amazon-find-network-calls",
+    "title": "Find Networking Calls",
+    "url": "https://www.fastprep.io/problems/amazon-find-network-calls",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-10-28"
+  },
+  {
+    "slug": "amazon-make-all-elements-distinct",
+    "title": "Make All Elements Distinct",
+    "url": "https://www.fastprep.io/problems/amazon-make-all-elements-distinct",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-10-28"
+  },
+  {
+    "slug": "amazon-maximize-similarity",
+    "title": "Maximize Similarity",
+    "url": "https://www.fastprep.io/problems/amazon-maximize-similarity",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-10-28"
+  },
+  {
+    "slug": "amazon-get-min-cost-book",
+    "title": "Get Min Cost of Purchasing Books",
+    "url": "https://www.fastprep.io/problems/amazon-get-min-cost-book",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-10-22"
+  },
+  {
+    "slug": "amazon-get-smaller-items",
+    "title": "Get Smaller Items",
+    "url": "https://www.fastprep.io/problems/amazon-get-smaller-items",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-10-22"
+  },
+  {
+    "slug": "amazon-maximum-number-of-days-to-survive",
+    "title": "About Mortgage",
+    "url": "https://www.fastprep.io/problems/amazon-maximum-number-of-days-to-survive",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-10-22"
+  },
+  {
+    "slug": "amazon-schedule-tasks",
+    "title": "Schedule Tasks",
+    "url": "https://www.fastprep.io/problems/amazon-schedule-tasks",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-10-22"
+  },
+  {
+    "slug": "amazon-minimum-weekly-input",
+    "title": "Planning the Campaign",
+    "url": "https://www.fastprep.io/problems/amazon-minimum-weekly-input",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-10-20"
+  },
+  {
+    "slug": "amazon-find-minimum-time",
+    "title": "Find Minimum Time",
+    "url": "https://www.fastprep.io/problems/amazon-find-minimum-time",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-10-19"
+  },
+  {
+    "slug": "amazon-get-max-programs",
+    "title": "Get Max Programs",
+    "url": "https://www.fastprep.io/problems/amazon-get-max-programs",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-10-19"
+  },
+  {
+    "slug": "amazon-can-sort-permutation-in-given-moves",
+    "title": "Sort Permutation",
+    "url": "https://www.fastprep.io/problems/amazon-can-sort-permutation-in-given-moves",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-10-11"
+  },
+  {
+    "slug": "amazon-find-minimum-time-to-create-beautiful-canvas",
+    "title": "Min Time to Create Beautiful Canvas",
+    "url": "https://www.fastprep.io/problems/amazon-find-minimum-time-to-create-beautiful-canvas",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-10-11"
+  },
+  {
+    "slug": "amazon-get-max-charge",
+    "title": "Get Max Charge",
+    "url": "https://www.fastprep.io/problems/amazon-get-max-charge",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-10-11"
+  },
+  {
+    "slug": "amazon-rearrange-binary-string",
+    "title": "Rearrange Binary String",
+    "url": "https://www.fastprep.io/problems/amazon-rearrange-binary-string",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-10-11"
+  },
+  {
+    "slug": "amazon-get-max-alternating-music",
+    "title": "Get Max Alternating Music",
+    "url": "https://www.fastprep.io/problems/amazon-get-max-alternating-music",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-10-08"
+  },
+  {
+    "slug": "amazon-get-special-string",
+    "title": "Special String",
+    "url": "https://www.fastprep.io/problems/amazon-get-special-string",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-10-05"
+  },
+  {
+    "slug": "amazon-find-days-s2-subsequence-of-s1",
+    "title": "Find Days S2 Subsequence of S1",
+    "url": "https://www.fastprep.io/problems/amazon-find-days-s2-subsequence-of-s1",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-09-28"
+  },
+  {
+    "slug": "amazon-find-subarray-with-minimum-distinct-integers",
+    "title": "Find Subarray with Minimum Distinct Integers",
+    "url": "https://www.fastprep.io/problems/amazon-find-subarray-with-minimum-distinct-integers",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-09-27"
+  },
+  {
+    "slug": "amazon-find-maximum-calories",
+    "title": "Find Maximum Calories",
+    "url": "https://www.fastprep.io/problems/amazon-find-maximum-calories",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-09-26"
+  },
+  {
+    "slug": "amazon-find-sum-of-beauties",
+    "title": "Find Sum of Beauties",
+    "url": "https://www.fastprep.io/problems/amazon-find-sum-of-beauties",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-09-26"
+  },
+  {
+    "slug": "amazon-longest-perfect-anagrams",
+    "title": "Longest Perfect Anagrams",
+    "url": "https://www.fastprep.io/problems/amazon-longest-perfect-anagrams",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-09-26"
+  },
+  {
+    "slug": "amazon-maximum-quality-sum",
+    "title": "Maximum Quality Sum",
+    "url": "https://www.fastprep.io/problems/amazon-maximum-quality-sum",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-09-26"
+  },
+  {
+    "slug": "amazon-minimize-warehouse-transfer-cost",
+    "title": "Minimize Warehouse Transfer Cost",
+    "url": "https://www.fastprep.io/problems/amazon-minimize-warehouse-transfer-cost",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-09-26"
+  },
+  {
+    "slug": "amazon-calculate-total-distance-travelled",
+    "title": "Calculate Total Distrance Travelled",
+    "url": "https://www.fastprep.io/problems/amazon-calculate-total-distance-travelled",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-09-19"
+  },
+  {
+    "slug": "amazon-maximum-possible-racers",
+    "title": "Maximum Possible Racers",
+    "url": "https://www.fastprep.io/problems/amazon-maximum-possible-racers",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-09-19"
+  },
+  {
+    "slug": "amazon-distribute-packages",
+    "title": "Distributed Packages",
+    "url": "https://www.fastprep.io/problems/amazon-distribute-packages",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-09-03"
+  },
+  {
+    "slug": "amazon-find-capable-winners",
+    "title": "Find Capable Winners",
+    "url": "https://www.fastprep.io/problems/amazon-find-capable-winners",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-09-03"
+  },
+  {
+    "slug": "amazon-get-max-information-gain",
+    "title": "Get Max Information Gain",
+    "url": "https://www.fastprep.io/problems/amazon-get-max-information-gain",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-09-03"
+  },
+  {
+    "slug": "amazon-get-min-size",
+    "title": "Get Min Size",
+    "url": "https://www.fastprep.io/problems/amazon-get-min-size",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-08-30"
+  },
+  {
+    "slug": "amazon-find-minimum-number-of-operations",
+    "title": "Min Operations To Make Zeros",
+    "url": "https://www.fastprep.io/problems/amazon-find-minimum-number-of-operations",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-08-28"
+  },
+  {
+    "slug": "amazon-choose-warehouses-location",
+    "title": "Choose Warehouse Location",
+    "url": "https://www.fastprep.io/problems/amazon-choose-warehouses-location",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-08-25"
+  },
+  {
+    "slug": "amazon-minimum-storage-capacity-required",
+    "title": "Minimize Storage Required",
+    "url": "https://www.fastprep.io/problems/amazon-minimum-storage-capacity-required",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-08-23"
+  },
+  {
+    "slug": "amazon-get-maximum-sum",
+    "title": "Get Maximum Sum",
+    "url": "https://www.fastprep.io/problems/amazon-get-maximum-sum",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-08-10"
+  },
+  {
+    "slug": "amazon-assign-tasks",
+    "title": "Assign Tasks",
+    "url": "https://www.fastprep.io/problems/amazon-assign-tasks",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-08-05"
+  },
+  {
+    "slug": "amazon-get-active-requests-count",
+    "title": "Get Active Requests Count",
+    "url": "https://www.fastprep.io/problems/amazon-get-active-requests-count",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-08-05"
+  },
+  {
+    "slug": "amazon-get-operations",
+    "title": "Get Operations",
+    "url": "https://www.fastprep.io/problems/amazon-get-operations",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-08-05"
+  },
+  {
+    "slug": "amazon-process-queries-on-cart",
+    "title": "Process Queries On Cart",
+    "url": "https://www.fastprep.io/problems/amazon-process-queries-on-cart",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-08-05"
+  },
+  {
+    "slug": "amazon-get-minimum-boxes",
+    "title": "Get Minimum Boxes",
+    "url": "https://www.fastprep.io/problems/amazon-get-minimum-boxes",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-07-25"
+  },
+  {
+    "slug": "amazon-compute-encoded-product-name",
+    "title": "Compute Encoded Product Name",
+    "url": "https://www.fastprep.io/problems/amazon-compute-encoded-product-name",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-07-15"
+  },
+  {
+    "slug": "amazon-get-redundant-substrings",
+    "title": "Get Redundant Substrings",
+    "url": "https://www.fastprep.io/problems/amazon-get-redundant-substrings",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-07-15"
+  },
+  {
+    "slug": "amazon-process-queue",
+    "title": "Process Queue",
+    "url": "https://www.fastprep.io/problems/amazon-process-queue",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-07-15"
+  },
+  {
+    "slug": "amazon-get-max-consecutive-on",
+    "title": "Max Consecutive ON Servers",
+    "url": "https://www.fastprep.io/problems/amazon-get-max-consecutive-on",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-07-09"
+  },
+  {
+    "slug": "amazon-get-total-requests",
+    "title": "Get Total Requests",
+    "url": "https://www.fastprep.io/problems/amazon-get-total-requests",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-06-27"
+  },
+  {
+    "slug": "maximize-negative-signs",
+    "title": "Maximize Negative Signs",
+    "url": "https://www.fastprep.io/problems/maximize-negative-signs",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-06-24"
+  },
+  {
+    "slug": "amazon-is-regex-matching",
+    "title": "Is Regex Matching",
+    "url": "https://www.fastprep.io/problems/amazon-is-regex-matching",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-06-15"
+  },
+  {
+    "slug": "amazon-maximum-stability",
+    "title": "Maximum Stability",
+    "url": "https://www.fastprep.io/problems/amazon-maximum-stability",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-06-15"
+  },
+  {
+    "slug": "amazon-bring-servers-down",
+    "title": "Bring Servers Down",
+    "url": "https://www.fastprep.io/problems/amazon-bring-servers-down",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-06-10"
+  },
+  {
+    "slug": "amazon-maximize-subtree-product",
+    "title": "Maximize Subtree Product",
+    "url": "https://www.fastprep.io/problems/amazon-maximize-subtree-product",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-06-10"
+  },
+  {
+    "slug": "amazon-find-k-level-permutation",
+    "title": "Find K Level Permutation",
+    "url": "https://www.fastprep.io/problems/amazon-find-k-level-permutation",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-06-02"
+  },
+  {
+    "slug": "amazon-minimal-heaviest-set-a",
+    "title": "Optimizing Box Weights",
+    "url": "https://www.fastprep.io/problems/amazon-minimal-heaviest-set-a",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-06-02"
+  },
+  {
+    "slug": "amazon-get-exp",
+    "title": "Get Experience",
+    "url": "https://www.fastprep.io/problems/amazon-get-exp",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-05-13"
+  },
+  {
+    "slug": "amazon-orda-layout",
+    "title": "Ordered Confirguration",
+    "url": "https://www.fastprep.io/problems/amazon-orda-layout",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-05-04"
+  },
+  {
+    "slug": "find-median-of-subarray-uniqueness",
+    "title": "Find Median Of Subarray Uniqueness",
+    "url": "https://www.fastprep.io/problems/find-median-of-subarray-uniqueness",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-04-15"
+  },
+  {
+    "slug": "amazon-count-pairs",
+    "title": "Count Pairs",
+    "url": "https://www.fastprep.io/problems/amazon-count-pairs",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-04-12"
+  },
+  {
+    "slug": "amazon-get-max-pairs",
+    "title": "Get Max Pairs",
+    "url": "https://www.fastprep.io/problems/amazon-get-max-pairs",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-04-12"
+  },
+  {
+    "slug": "amazon-get-min-time",
+    "title": "Get Min Time",
+    "url": "https://www.fastprep.io/problems/amazon-get-min-time",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-04-12"
+  },
+  {
+    "slug": "amazon-kth-smallest-in-subarray",
+    "title": "Kth Smallest in Subarray",
+    "url": "https://www.fastprep.io/problems/amazon-kth-smallest-in-subarray",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-04-12"
+  },
+  {
+    "slug": "amazon-maximize-the-array-sum-after-negating-at-most-k-elements",
+    "title": "Max Negation",
+    "url": "https://www.fastprep.io/problems/amazon-maximize-the-array-sum-after-negating-at-most-k-elements",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-04-12"
+  },
+  {
+    "slug": "amazon-calculate-median-sum",
+    "title": "Channel Max Quality",
+    "url": "https://www.fastprep.io/problems/amazon-calculate-median-sum",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-04-09"
+  },
+  {
+    "slug": "max-lucky-numbers",
+    "title": "Max Lucky Numbers",
+    "url": "https://www.fastprep.io/problems/max-lucky-numbers",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-04-07"
+  },
+  {
+    "slug": "amazon-find-kth-minimum-vulnerability",
+    "title": "Find Kth Minimum Vulnerability ",
+    "url": "https://www.fastprep.io/problems/amazon-find-kth-minimum-vulnerability",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-04-05"
+  },
+  {
+    "slug": "amazon-get-max-aggregate-temperature-change",
+    "title": "Max Aggregate Temp Change",
+    "url": "https://www.fastprep.io/problems/amazon-get-max-aggregate-temperature-change",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-03-31"
+  },
+  {
+    "slug": "amazon-count-faults",
+    "title": "Count Faults (Faulty Binding 101 \ud83d\ude01)",
+    "url": "https://www.fastprep.io/problems/amazon-count-faults",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-03-19"
+  },
+  {
+    "slug": "amazon-find-maximum-num",
+    "title": "Find Max Num",
+    "url": "https://www.fastprep.io/problems/amazon-find-maximum-num",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-03-19"
+  },
+  {
+    "slug": "amazon-minimize-sum-of-absolute-differences",
+    "title": "Minimize Sum of Absolute Differences",
+    "url": "https://www.fastprep.io/problems/amazon-minimize-sum-of-absolute-differences",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-03-18"
+  },
+  {
+    "slug": "amazon-match-strings",
+    "title": "Match Strings",
+    "url": "https://www.fastprep.io/problems/amazon-match-strings",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-03-14"
+  },
+  {
+    "slug": "amazon-find-encrypted-password",
+    "title": "Find Encrypted Password",
+    "url": "https://www.fastprep.io/problems/amazon-find-encrypted-password",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-03-12"
+  },
+  {
+    "slug": "amazon-find-number-of-possible-unique-strings",
+    "title": "Num of Possible Unique Strings",
+    "url": "https://www.fastprep.io/problems/amazon-find-number-of-possible-unique-strings",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-03-12"
+  },
+  {
+    "slug": "amazon-lexicographically-smallest-palindrome-possible",
+    "title": "Lexicographically Smallest Palindrome Possible",
+    "url": "https://www.fastprep.io/problems/amazon-lexicographically-smallest-palindrome-possible",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-03-09"
+  },
+  {
+    "slug": "amazon-find-number-of-ways-to-group-parcels",
+    "title": "Ways to Group Parcels",
+    "url": "https://www.fastprep.io/problems/amazon-find-number-of-ways-to-group-parcels",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-03-04"
+  },
+  {
+    "slug": "amazon-maximum-times-word-removed",
+    "title": "Maxmimum Times Word Removed",
+    "url": "https://www.fastprep.io/problems/amazon-maximum-times-word-removed",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-03-03"
+  },
+  {
+    "slug": "amazon-return-records",
+    "title": "Return Records",
+    "url": "https://www.fastprep.io/problems/amazon-return-records",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-03-02"
+  },
+  {
+    "slug": "amazon-reverse-binary-string",
+    "title": "Reverse Binary String",
+    "url": "https://www.fastprep.io/problems/amazon-reverse-binary-string",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-03-02"
+  },
+  {
+    "slug": "amazon-get-max-racers",
+    "title": "Get Max Racers",
+    "url": "https://www.fastprep.io/problems/amazon-get-max-racers",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-02-20"
+  },
+  {
+    "slug": "amazon-count-distinct-passwords",
+    "title": "Count Distinct Passwords",
+    "url": "https://www.fastprep.io/problems/amazon-count-distinct-passwords",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-02-19"
+  },
+  {
+    "slug": "amazon-get-min-num-moves",
+    "title": "Get Min Num Moves",
+    "url": "https://www.fastprep.io/problems/amazon-get-min-num-moves",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-02-19"
+  },
+  {
+    "slug": "amazon-find-min-trips",
+    "title": "Find Min Trips",
+    "url": "https://www.fastprep.io/problems/amazon-find-min-trips",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-02-17"
+  },
+  {
+    "slug": "amazon-maximum-user-traffic",
+    "title": "Max User Traffic",
+    "url": "https://www.fastprep.io/problems/amazon-maximum-user-traffic",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-02-17"
+  },
+  {
+    "slug": "amazon-minimize-the-range",
+    "title": "Fortune Telling",
+    "url": "https://www.fastprep.io/problems/amazon-minimize-the-range",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-02-17"
+  },
+  {
+    "slug": "amazon-find-recurring-names",
+    "title": "Find Recurring Name",
+    "url": "https://www.fastprep.io/problems/amazon-find-recurring-names",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-02-14"
+  },
+  {
+    "slug": "amazon-find-requests-in-queue",
+    "title": "Find Requests In Queue",
+    "url": "https://www.fastprep.io/problems/amazon-find-requests-in-queue",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-02-14"
+  },
+  {
+    "slug": "amazon-find-largest-set-of-onion-bags",
+    "title": "Find Largest Set of Onion Bags",
+    "url": "https://www.fastprep.io/problems/amazon-find-largest-set-of-onion-bags",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-02-06"
+  },
+  {
+    "slug": "amazon-min-errors",
+    "title": "Minimum Total Errors",
+    "url": "https://www.fastprep.io/problems/amazon-min-errors",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-02-06"
+  },
+  {
+    "slug": "amazon-dropped-requests",
+    "title": "Dropped Requests",
+    "url": "https://www.fastprep.io/problems/amazon-dropped-requests",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-01-27"
+  },
+  {
+    "slug": "amazon-execute-processes",
+    "title": "Execute Processes",
+    "url": "https://www.fastprep.io/problems/amazon-execute-processes",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-01-27"
+  },
+  {
+    "slug": "amazon-find-unique-values",
+    "title": "Find Unique Values",
+    "url": "https://www.fastprep.io/problems/amazon-find-unique-values",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-01-27"
+  },
+  {
+    "slug": "amazon-group-students",
+    "title": "Group Students",
+    "url": "https://www.fastprep.io/problems/amazon-group-students",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-01-27"
+  },
+  {
+    "slug": "amazon-num-of-suitable-places",
+    "title": "Number of Suitable Locations",
+    "url": "https://www.fastprep.io/problems/amazon-num-of-suitable-places",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-01-27"
+  },
+  {
+    "slug": "max-set-size",
+    "title": "Rice Bags",
+    "url": "https://www.fastprep.io/problems/max-set-size",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-01-13"
+  },
+  {
+    "slug": "get-discount-pairs",
+    "title": "Get Discount Pairs",
+    "url": "https://www.fastprep.io/problems/get-discount-pairs",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-01-11"
+  },
+  {
+    "slug": "get-min-cost-data",
+    "title": "Get Min Cost Data",
+    "url": "https://www.fastprep.io/problems/get-min-cost-data",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-01-10"
+  },
+  {
+    "slug": "count-maximum-profitable-groups",
+    "title": "Count Maximum Profitable Groups",
+    "url": "https://www.fastprep.io/problems/count-maximum-profitable-groups",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2024-01-07"
+  },
+  {
+    "slug": "amazon-find-minimum-dist",
+    "title": "Get Min Distance (AMZ CN)",
+    "url": "https://www.fastprep.io/problems/amazon-find-minimum-dist",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2023-12-27"
+  },
+  {
+    "slug": "amazon-how-many-games-did-the-team-win",
+    "title": "Count Games Won By Group1 (AMZ CN)",
+    "url": "https://www.fastprep.io/problems/amazon-how-many-games-did-the-team-win",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2023-12-27"
+  },
+  {
+    "slug": "check-similar-passwords",
+    "title": "Check Similar Passwords",
+    "url": "https://www.fastprep.io/problems/check-similar-passwords",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2023-12-23"
+  },
+  {
+    "slug": "location-of-data-after-transfers",
+    "title": "Location of Data After Transfers",
+    "url": "https://www.fastprep.io/problems/location-of-data-after-transfers",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2023-12-23"
+  },
+  {
+    "slug": "maximum-score-in-balanced-string",
+    "title": "Maximum Score in Balanced String",
+    "url": "https://www.fastprep.io/problems/maximum-score-in-balanced-string",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2023-12-23"
+  },
+  {
+    "slug": "get-success-value",
+    "title": "Get Success Value",
+    "url": "https://www.fastprep.io/problems/get-success-value",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2023-12-19"
+  },
+  {
+    "slug": "warehouse-allocation",
+    "title": "Warehouse Distribution",
+    "url": "https://www.fastprep.io/problems/warehouse-allocation",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2023-12-15"
+  },
+  {
+    "slug": "erase-pairs",
+    "title": "Erase Pairs",
+    "url": "https://www.fastprep.io/problems/erase-pairs",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2023-12-13"
+  },
+  {
+    "slug": "get-priorities-after-execution",
+    "title": "Get Priorities After Execution",
+    "url": "https://www.fastprep.io/problems/get-priorities-after-execution",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2023-12-06"
+  },
+  {
+    "slug": "count-max-num-teams",
+    "title": "Count Max Num Teams",
+    "url": "https://www.fastprep.io/problems/count-max-num-teams",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2023-09-24"
+  },
+  {
+    "slug": "get-average-standing",
+    "title": "Get Average Standing",
+    "url": "https://www.fastprep.io/problems/get-average-standing",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2023-09-24"
+  },
+  {
+    "slug": "minimum-time-spent",
+    "title": "Minimum Time Spent",
+    "url": "https://www.fastprep.io/problems/minimum-time-spent",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2023-09-24"
+  },
+  {
+    "slug": "count-spikes",
+    "title": "Count Spikes",
+    "url": "https://www.fastprep.io/problems/count-spikes",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2023-08-31"
+  },
+  {
+    "slug": "find-minimum-inefficiency",
+    "title": "Find Minimum Inefficiency",
+    "url": "https://www.fastprep.io/problems/find-minimum-inefficiency",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2023-08-31"
+  },
+  {
+    "slug": "get-mean-rank-count",
+    "title": "Cet Mean Rank Count",
+    "url": "https://www.fastprep.io/problems/get-mean-rank-count",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2023-08-31"
+  },
+  {
+    "slug": "get-minimum-cost",
+    "title": "Get Minimum Costs",
+    "url": "https://www.fastprep.io/problems/get-minimum-cost",
+    "companies": [
+      "Amazon"
+    ],
+    "updated": "2023-08-31"
+  }
+]

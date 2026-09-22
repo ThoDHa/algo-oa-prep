@@ -1,0 +1,24 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      [
+        "tars",
+        "rats",
+        "arts",
+        "star"
+      ]
+    ],
+    "expected": 2
+  },
+  {
+    "id": "example_2",
+    "args": [
+      [
+        "omv",
+        "ovm"
+      ]
+    ],
+    "expected": 1
+  }
+]

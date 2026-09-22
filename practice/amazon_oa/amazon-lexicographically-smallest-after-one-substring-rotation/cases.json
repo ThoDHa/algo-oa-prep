@@ -1,0 +1,16 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      "baca"
+    ],
+    "expected": "abac"
+  },
+  {
+    "id": "example_2",
+    "args": [
+      "cba"
+    ],
+    "expected": "acb"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      "abbacc",
+      -1,
+      2
+    ],
+    "expected": 5
+  },
+  {
+    "id": "example_2",
+    "args": [
+      "akljfs",
+      -2,
+      1
+    ],
+    "expected": 15
+  }
+]

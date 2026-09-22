@@ -1,0 +1,16 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      "3[a2[c]]"
+    ],
+    "expected": "accaccacc"
+  },
+  {
+    "id": "example_2",
+    "args": [
+      "2[ab]3[c]"
+    ],
+    "expected": "ababccc"
+  }
+]

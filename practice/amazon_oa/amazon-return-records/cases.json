@@ -1,0 +1,36 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      [
+        "register user05 qwerty",
+        "login user05 qwerty",
+        "logout user05"
+      ]
+    ],
+    "expected": [
+      "Registered Successfully",
+      "Logged In Successfully",
+      "Logged Out Successfully"
+    ]
+  },
+  {
+    "id": "example_2",
+    "args": [
+      [
+        "register david david123",
+        "register adam 1Adam1",
+        "login david david123",
+        "login adam 1adam1",
+        "logout david"
+      ]
+    ],
+    "expected": [
+      "Registered Successfully",
+      "Registered Successfully",
+      "Logged In Successfully",
+      "Login Unsuccessfully",
+      "Logged Out Successfully"
+    ]
+  }
+]

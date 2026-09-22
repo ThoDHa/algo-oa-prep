@@ -1,0 +1,39 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      [
+        "baacbab",
+        "accdb",
+        "baacba"
+      ],
+      [
+        "abdbc",
+        "ach",
+        "abb"
+      ]
+    ],
+    "expected": [
+      "YES",
+      "NO",
+      "YES"
+    ]
+  },
+  {
+    "id": "example_2",
+    "args": [
+      [
+        "aaccbbee",
+        "aab"
+      ],
+      [
+        "bdbf",
+        "aee"
+      ]
+    ],
+    "expected": [
+      "YES",
+      "NO"
+    ]
+  }
+]
