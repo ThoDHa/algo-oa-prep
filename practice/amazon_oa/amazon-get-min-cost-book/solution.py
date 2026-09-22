@@ -1,6 +1,6 @@
 """Get Min Cost of Purchasing Books — https://www.fastprep.io/problems/amazon-get-min-cost-book
 
-Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-min-cost-book.md
+Write-up & approaches: ../../../docs/problems/amazon_oa/amazon-get-min-cost-book.md
 
 Amazon OA problem.
 

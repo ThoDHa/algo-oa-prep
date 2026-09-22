@@ -37,5 +37,5 @@ Return a valid ordering of courses you can take to finish all courses. If there 
 ## Solutions
 
 <!-- Scaffold placeholder: the worked derivation and solutions land
-     on the solutions branch later. See ../_TEMPLATE.md for the
+     on the solutions branch later. See _TEMPLATE.md for the
      expected layout, naming, and ordering conventions. -->

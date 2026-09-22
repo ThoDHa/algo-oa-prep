@@ -30,5 +30,5 @@ Return `true` if you can reach the last index starting from index `0`, or `false
 ## Solutions
 
 <!-- Scaffold placeholder: the worked derivation and solutions land
-     on the solutions branch later. See ../_TEMPLATE.md for the
+     on the solutions branch later. See _TEMPLATE.md for the
      expected layout, naming, and ordering conventions. -->

@@ -41,5 +41,5 @@ In the examples, the linked list is represented as a list of `n` nodes. Each nod
 ## Solutions
 
 <!-- Scaffold placeholder: the worked derivation and solutions land
-     on the solutions branch later. See ../_TEMPLATE.md for the
+     on the solutions branch later. See _TEMPLATE.md for the
      expected layout, naming, and ordering conventions. -->

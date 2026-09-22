@@ -25,5 +25,5 @@ You are given an integer `n`. Return all well-formed parentheses strings that yo
 ## Solutions
 
 <!-- Scaffold placeholder: the worked derivation and solutions land
-     on the solutions branch later. See ../_TEMPLATE.md for the
+     on the solutions branch later. See _TEMPLATE.md for the
      expected layout, naming, and ordering conventions. -->

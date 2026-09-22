@@ -36,5 +36,5 @@ Your solution should run in $O(log (m+n))$ time.
 ## Solutions
 
 <!-- Scaffold placeholder: the worked derivation and solutions land
-     on the solutions branch later. See ../_TEMPLATE.md for the
+     on the solutions branch later. See _TEMPLATE.md for the
      expected layout, naming, and ordering conventions. -->

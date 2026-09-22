@@ -63,6 +63,8 @@ BROWSER_USER_AGENT = (
 
 LC_PROBLEM_URL_TEMPLATE = "https://leetcode.com/problems/{slug}/"
 NC_PROBLEM_URL_TEMPLATE = "https://neetcode.io/problems/{slug}"
+# Write-ups live flat in docs/problems/, so the template is a sibling.
+TEMPLATE_LINK = "_TEMPLATE.md"
 
 TRACK_SIZE = 150
 DIFFICULTY_TOTALS = {"Easy": 28, "Medium": 101, "Hard": 21}
@@ -973,7 +975,7 @@ def render_writeup(entry: dict, metadata: Optional[dict], parsed: Optional[dict]
             "## Solutions",
             "",
             "<!-- Scaffold placeholder: the worked derivation and solutions land",
-            "     on the solutions branch later. See ../_TEMPLATE.md for the",
+            f"     on the solutions branch later. See {TEMPLATE_LINK} for the",
             "     expected layout, naming, and ordering conventions. -->",
             "",
         ]

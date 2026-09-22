@@ -1,6 +1,6 @@
 """Min Operations To Make Zeros — https://www.fastprep.io/problems/amazon-find-minimum-number-of-operations
 
-Write-up & approaches: ../../docs/problems/amazon_oa/amazon-find-minimum-number-of-operations.md
+Write-up & approaches: ../../../docs/problems/amazon_oa/amazon-find-minimum-number-of-operations.md
 
 Amazon OA problem.
 

@@ -621,6 +621,12 @@ def test_render_writeup_follows_template_section_order():
     assert "solutions branch" in text
 
 
+def test_render_writeup_references_template_as_sibling():
+    text = gen.render_writeup(writeup_entry(), gen.parse_metadata(CLEAN_METADATA))
+    assert "See _TEMPLATE.md for the" in text
+    assert "See ../_TEMPLATE.md" not in text
+
+
 def test_render_writeup_renders_the_metadata_line():
     metadata = gen.parse_metadata(CLEAN_METADATA)
     text = gen.render_writeup(writeup_entry(), metadata)

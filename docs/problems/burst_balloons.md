@@ -28,5 +28,5 @@ coins =  4*2*3    +   4*3*7   +  1*4*7  + 1*7*1 = 143
 ## Solutions
 
 <!-- Scaffold placeholder: the worked derivation and solutions land
-     on the solutions branch later. See ../_TEMPLATE.md for the
+     on the solutions branch later. See _TEMPLATE.md for the
      expected layout, naming, and ordering conventions. -->

@@ -17,6 +17,12 @@ value. Trees, linked lists, graphs, design-operation sequences, and free-text
 outputs produce an empty cases.json and a test module that skips with a reason
 naming the slug. Empty is never a silent pass.
 
+Offline contract: the committed scripts/amazon_oa_manifest.json (with its
+per-slug parse_status) is the source of truth. When the bank pages under /tmp
+are absent (any fresh clone), every mode falls back to the committed manifest,
+and --check compares the tree against manifest-driven expectations, never
+against a re-render from the unversioned fastprep cache.
+
 Usage (from the repository root):
   cd practice && uv run pytest ../scripts/          # run the generator tests
   python3 scripts/generate_amazon_oa_scaffolds.py \
@@ -55,6 +61,12 @@ FASTPREP_CACHE_DIR = Path("/tmp/opencode/fastprep-cache")
 FASTPREP_URL_TEMPLATE = "https://www.fastprep.io/problems/{slug}"
 FETCH_DELAY_SECONDS = 0.5
 AMAZON_TAG = "Amazon"
+WRITEUP_LINK_TEMPLATE = "../../../docs/problems/amazon_oa/{slug}.md"
+# Site-relative links cannot reach the practice/ tree outside the mkdocs
+# docs_dir; the published site gets the absolute repo URL instead.
+PRACTICE_INDEX_URL = (
+    "https://github.com/ThoDHa/algo-oa-prep/tree/main/practice/amazon_oa/"
+)
 
 BANK_ROW_PATTERN = re.compile(
     r"^\|\*\*(?P<companies>[^*]+)\*\*\*?"
@@ -180,6 +192,34 @@ def build_manifest(page_texts: Sequence[str]) -> List[dict]:
         }
         for row in entries
     ]
+
+
+def load_committed_manifest(path: Path = MANIFEST_PATH) -> List[dict]:
+    """Load the committed manifest, the offline source of truth.
+
+    The bank pages under /tmp are recon scratch, absent on any fresh clone;
+    every generation mode must be able to run from the committed manifest
+    alone.
+
+    Args:
+        path: Path to the manifest JSON (default: scripts/amazon_oa_manifest.json).
+
+    Returns:
+        The manifest entries in committed order, each carrying its
+        `parse_status`.
+
+    Raises:
+        SystemExit: When the manifest file is missing or is not valid JSON.
+    """
+    try:
+        entries = json.loads(path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, UnicodeDecodeError) as error:
+        raise SystemExit(f"committed manifest unusable: {error}; run the generator once with the bank pages present")
+    except json.JSONDecodeError as error:
+        raise SystemExit(f"committed manifest {path} is not valid JSON: {error}")
+    if not isinstance(entries, list):
+        raise SystemExit(f"committed manifest {path} must be a JSON list")
+    return entries
 
 
 # ---------------------------------------------------------------------------
@@ -559,9 +599,10 @@ def render_solution_stub(
     case_id = parsed_cases.cases[0]["id"] if parsed_cases.cases else "example_1"
     function_name = parsed_cases.function_name
     args_signature = _signature_args(problem)
+    writeup_link = WRITEUP_LINK_TEMPLATE.format(slug=entry["slug"])
     return f'''"""{entry["title"]} — {entry["url"]}
 
-Write-up & approaches: ../../docs/problems/amazon_oa/{entry["slug"]}.md
+Write-up & approaches: {writeup_link}
 
 {summary}
 
@@ -653,9 +694,10 @@ def render_test(entry: dict, function_name: str, cases: List[dict], skip_reason:
     """
     reason = skip_reason or "no cases parsed"
     case_list = _python_literal(cases)
+    writeup_link = WRITEUP_LINK_TEMPLATE.format(slug=entry["slug"])
     return f'''"""Tests for {entry["title"]} — your attempt (solution.py) against cases.json.
 
-The worked approaches live in ../../docs/problems/amazon_oa/{entry["slug"]}.md.
+The worked approaches live in {writeup_link}.
 """
 
 import pytest
@@ -695,7 +737,7 @@ def render_index(manifest: Sequence[dict]) -> str:
         "Amazon-tagged coding problems from the"
         " [Tech-OA-Interview-Questions](https://github.com/perixtar/Tech-OA-Interview-Questions)"
         " bank (statement pages on fastprep.io), most recently updated first."
-        " Practice stubs live under [`practice/amazon_oa/`](../../../practice/amazon_oa/).",
+        f" Practice stubs live under [`practice/amazon_oa/`]({PRACTICE_INDEX_URL}).",
         "",
         "| Updated | Problem | Companies |",
         "|---------|---------|-----------|",
@@ -889,11 +931,66 @@ def ensure_nav_entry() -> bool:
 # ---------------------------------------------------------------------------
 
 
-def check(manifest: Sequence[dict]) -> int:
-    """Exit 0 when every scaffold on disk matches a fresh in-memory generation.
+def expected_scaffold_fragments(entry: dict) -> Dict[Path, str]:
+    """Manifest-driven scaffold expectations for one problem.
 
-    Read-only: the manifest is never rewritten. Cache misses do not mutate
-    anything; they surface as stale files if the on-disk scaffold disagrees.
+    A `page-unparseable` entry was rendered entirely from the manifest, so
+    its four scaffolds are compared byte-for-byte. Every other entry was
+    rendered from FastPrep data that lives only in the unversioned /tmp
+    cache; the fragments the generator owns end to end (the write-up
+    header, the stub/test header and write-up link docstrings) are compared
+    exactly instead of re-rendering from the cache.
+
+    Args:
+        entry: Manifest entry carrying `slug`, `title`, `url`, and
+            `parse_status`.
+
+    Returns:
+        Expected text fragments keyed by scaffold path; a file matches when
+        it starts with the expected fragment.
+    """
+    slug = entry["slug"]
+    if entry.get("parse_status") == "page-unparseable":
+        return render_all(entry, None, unparsed_page_cases(slug), "")
+    writeup_link = WRITEUP_LINK_TEMPLATE.format(slug=slug)
+    return {
+        DOCS_DIR / f"{slug}.md": f"# [{entry['title']}]({entry['url']})\n",
+        PRACTICE_DIR / slug / "solution.py": (
+            f'"""{entry["title"]} — {entry["url"]}\n'
+            f"\nWrite-up & approaches: {writeup_link}\n"
+        ),
+        PRACTICE_DIR / slug / f"test_{slug}.py": (
+            f'"""Tests for {entry["title"]} — your attempt (solution.py) against'
+            f" cases.json.\n\nThe worked approaches live in {writeup_link}.\n"
+        ),
+    }
+
+
+def _is_json_list_file(path: Path) -> bool:
+    """Report whether the file exists and parses to a JSON list."""
+    if not path.exists():
+        return False
+    try:
+        parsed = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, UnicodeDecodeError):
+        return False
+    return isinstance(parsed, list)
+
+
+def _displays(path: Path) -> str:
+    """Render a scaffold path for check output, repo-relative when possible."""
+    try:
+        return str(path.relative_to(REPO_ROOT))
+    except ValueError:
+        return str(path)
+
+
+def check(manifest: Sequence[dict]) -> int:
+    """Exit 0 when every scaffold on disk matches the manifest-driven state.
+
+    Read-only: nothing is fetched, written, or rewritten; the committed
+    manifest's `parse_status` drives the expectation per slug, so the check
+    never depends on the /tmp bank pages or the fastprep cache.
 
     Args:
         manifest: The manifest entries to verify.
@@ -904,19 +1001,19 @@ def check(manifest: Sequence[dict]) -> int:
     stale: List[str] = []
     for entry in manifest:
         slug = entry["slug"]
-        page_html = fetch_problem_page(slug, delay=False, network=False)
-        problem = extract_problem_record(page_html)
-        parsed_cases = cases_from_record(problem) if problem else unparsed_page_cases(slug)
-        statement_html = resolve_statement(problem, page_html)
-        for path, expected in render_all(entry, problem, parsed_cases, statement_html).items():
-            if not path.exists() or path.read_text(encoding="utf-8") != expected:
-                stale.append(str(path.relative_to(REPO_ROOT)))
+        for path, expected in expected_scaffold_fragments(entry).items():
+            if not path.exists() or not path.read_text(encoding="utf-8").startswith(expected):
+                stale.append(_displays(path))
+        if entry.get("parse_status") != "page-unparseable":
+            cases_path = PRACTICE_DIR / slug / "cases.json"
+            if not _is_json_list_file(cases_path):
+                stale.append(_displays(cases_path))
     expected_index = render_index(manifest)
     index_path = DOCS_DIR / "index.md"
     if not index_path.exists() or index_path.read_text(encoding="utf-8") != expected_index:
-        stale.append("docs/problems/amazon_oa/index.md")
+        stale.append(_displays(DOCS_DIR / "index.md"))
     if stale:
-        print(f"--check: {len(stale)} scaffold file(s) differ from a fresh generation:")
+        print(f"--check: {len(stale)} scaffold file(s) differ from the manifest-driven state:")
         for path in stale[:20]:
             print(f"  {path}")
         return 1
@@ -949,12 +1046,24 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument("--limit", type=int, default=None, help="Scaffold only the first N entries")
     parser.add_argument("--manifest-only", action="store_true", help="Write only the manifest")
     parser.add_argument("--no-fetch", action="store_true", help="Never hit the network (cache-only)")
-    parser.add_argument("--check", action="store_true", help="Verify scaffolds match a fresh generation; exit 0 when up to date")
+    parser.add_argument("--check", action="store_true", help="Verify scaffolds match the manifest-driven state; exit 0 when up to date")
     args = parser.parse_args(argv)
 
     bank_pages = args.bank_page or list(DEFAULT_BANK_PAGES)
-    manifest = build_manifest([path.read_text(encoding="utf-8") for path in bank_pages])
-    print(f"manifest: {len(manifest)} Amazon-tagged coding problems")
+    bank_available = all(path.exists() for path in bank_pages)
+    if not bank_available and args.bank_page:
+        missing = next(path for path in bank_pages if not path.exists())
+        raise SystemExit(f"bank page not found: {missing}")
+    if args.check or not bank_available:
+        # The committed manifest is the source of truth: --check never
+        # depends on the bank pages or the fastprep cache, and a fresh
+        # clone (no recon-scratch bank pages) still runs from the commit.
+        manifest = load_committed_manifest(MANIFEST_PATH)
+        source = "committed manifest fallback"
+    else:
+        manifest = build_manifest([path.read_text(encoding="utf-8") for path in bank_pages])
+        source = "built from bank pages"
+    print(f"manifest: {len(manifest)} Amazon-tagged coding problems ({source})")
     if args.manifest_only:
         write_manifest(manifest)
         return 0
@@ -966,7 +1075,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     ensure_nav_entry()
     write_index(entries if args.limit else manifest)
-    stats = emit_scaffolds(entries, fetch=not args.no_fetch)
+    stats = emit_scaffolds(entries, fetch=not args.no_fetch and bank_available)
     # Written after emission so entries carry the parse_status set there.
     write_manifest(manifest)
     print(

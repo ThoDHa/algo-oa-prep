@@ -1,6 +1,6 @@
 """Get Minimum Amount — https://www.fastprep.io/problems/amazon-get-min-amount
 
-Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-min-amount.md
+Write-up & approaches: ../../../docs/problems/amazon_oa/amazon-get-min-amount.md
 
 The manager of the Amazon warehouse has decided to make changes to the inventory. Currently, the inventory has n products, where the quality of the ith product after quality checks is represented by t
 

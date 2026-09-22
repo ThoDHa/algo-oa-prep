@@ -8,6 +8,8 @@ shaped like the real server-rendered HTML. Run with:
 """
 
 import ast
+import contextlib
+import io
 import json
 import re
 from pathlib import Path
@@ -564,7 +566,9 @@ def test_main_check_mode_does_not_rewrite_manifest(tmp_path, monkeypatch):
         "DEFAULT_BANK_PAGES",
         [FIXTURES_DIR / "bank_coding.md", FIXTURES_DIR / "bank_coding_page_2.md"],
     )
-    monkeypatch.setattr(gen, "MANIFEST_PATH", tmp_path / "manifest.json")
+    manifest_path = tmp_path / "manifest.json"
+    manifest_path.write_text('[{"slug": "amazon-x", "parse_status": "parsed-with-cases"}]', encoding="utf-8")
+    monkeypatch.setattr(gen, "MANIFEST_PATH", manifest_path)
     monkeypatch.setattr(gen, "check", lambda manifest: 0)
     writes = []
     real_write = gen.write_manifest
@@ -614,3 +618,161 @@ def test_render_test_embeds_python_literals_not_json():
     )
     embedded = ast.literal_eval(cases_node)
     assert embedded == cases
+
+
+# ---------------------------------------------------------------------------
+# Scaffold path depth (from practice/amazon_oa/<slug>/ the write-up sits
+# three levels up, not two)
+# ---------------------------------------------------------------------------
+
+
+def test_render_solution_stub_links_writeup_at_amazon_depth():
+    problem = gen.extract_problem_record(FASTPREP_PAGE)
+    entry = {"slug": problem["id"], "title": problem["title"], "url": "https://x", "companies": ["Amazon"], "updated": "2026-09-19"}
+    text = gen.render_solution_stub(entry, problem, gen.cases_from_record(problem))
+    assert (
+        "Write-up & approaches: ../../../docs/problems/amazon_oa/"
+        f"{entry['slug']}.md" in text
+    )
+    assert "approaches: ../../docs/" not in text
+
+
+def test_render_test_links_writeup_at_amazon_depth():
+    entry = {"slug": "amazon-depth", "title": "T", "url": "https://x", "companies": ["Amazon"], "updated": "2026-09-19"}
+    text = gen.render_test(entry, function_name="solve", cases=[], skip_reason="no parseable examples for amazon-depth")
+    assert (
+        "The worked approaches live in ../../../docs/problems/amazon_oa/amazon-depth.md." in text
+    )
+    assert "live in ../../docs/" not in text
+
+
+def test_render_index_links_practice_directory_with_absolute_repo_url():
+    text = gen.render_index([{"slug": "amazon-x", "title": "X", "url": "https://x/x", "companies": ["Amazon"], "updated": "2026-09-19"}])
+    assert (
+        "[`practice/amazon_oa/`](https://github.com/ThoDHa/algo-oa-prep/tree/main/practice/amazon_oa/)"
+        in text
+    )
+    assert "../../../practice" not in text
+
+
+# ---------------------------------------------------------------------------
+# Manifest-driven --check (works with no /tmp scratch, catches stale files)
+# ---------------------------------------------------------------------------
+
+
+def write_scaffold_set(tmp_path, entry):
+    """Emit the four scaffolds for `entry` under the tmp dirs."""
+    docs_dir = tmp_path / "docs" / "problems" / "amazon_oa"
+    practice_dir = tmp_path / "practice" / "amazon_oa"
+    docs_dir.mkdir(parents=True, exist_ok=True)
+    slug = entry["slug"]
+    (docs_dir / f"{slug}.md").write_text(
+        gen.render_writeup(entry, None, ""), encoding="utf-8"
+    )
+    (practice_dir / slug).mkdir(parents=True, exist_ok=True)
+    (practice_dir / slug / "solution.py").write_text(
+        gen.render_solution_stub(entry, None, gen.unparsed_page_cases(slug), ""),
+        encoding="utf-8",
+    )
+    (practice_dir / slug / "cases.json").write_text(
+        gen.render_cases_file(gen.unparsed_page_cases(slug)), encoding="utf-8"
+    )
+    (practice_dir / slug / f"test_{slug}.py").write_text(
+        gen.render_test(entry, "solve", [], f"FastPrep page for {slug} did not parse"),
+        encoding="utf-8",
+    )
+
+
+def redirect_check_paths(tmp_path, monkeypatch):
+    """Point every path `check()` reads at the tmp tree."""
+    monkeypatch.setattr(gen, "DOCS_DIR", tmp_path / "docs" / "problems" / "amazon_oa")
+    monkeypatch.setattr(gen, "PRACTICE_DIR", tmp_path / "practice" / "amazon_oa")
+
+
+UNPARSEABLE_ENTRY = {
+    "slug": "amazon-gone",
+    "title": "Gone",
+    "url": "https://x/gone",
+    "companies": ["Amazon"],
+    "updated": "2026-09-19",
+    "parse_status": "page-unparseable",
+}
+
+
+def test_check_green_with_no_tmp_scratch(tmp_path, monkeypatch):
+    redirect_check_paths(tmp_path, monkeypatch)
+    write_scaffold_set(tmp_path, UNPARSEABLE_ENTRY)
+    (gen.DOCS_DIR / "index.md").write_text(gen.render_index([UNPARSEABLE_ENTRY]), encoding="utf-8")
+    assert gen.check([UNPARSEABLE_ENTRY]) == 0
+
+
+def test_check_names_a_genuinely_stale_scaffold(tmp_path, monkeypatch):
+    redirect_check_paths(tmp_path, monkeypatch)
+    write_scaffold_set(tmp_path, UNPARSEABLE_ENTRY)
+    (gen.DOCS_DIR / "index.md").write_text(gen.render_index([UNPARSEABLE_ENTRY]), encoding="utf-8")
+    stub = gen.PRACTICE_DIR / "amazon-gone" / "solution.py"
+    stub.write_text(
+        gen.render_solution_stub(UNPARSEABLE_ENTRY, None, gen.unparsed_page_cases("amazon-gone"), "")
+        .replace("NotSolved", "NotSolvedV2"),
+        encoding="utf-8",
+    )
+    assert gen.check([UNPARSEABLE_ENTRY]) == 1
+    captured = io.StringIO()
+    with contextlib.redirect_stdout(captured):
+        gen.check([UNPARSEABLE_ENTRY])
+    assert "practice/amazon_oa/amazon-gone/solution.py" in captured.getvalue()
+
+
+def test_check_flags_missing_scaffolds_and_missing_cases_json(tmp_path, monkeypatch):
+    redirect_check_paths(tmp_path, monkeypatch)
+    write_scaffold_set(tmp_path, UNPARSEABLE_ENTRY)
+    (gen.DOCS_DIR / "index.md").write_text(gen.render_index([UNPARSEABLE_ENTRY]), encoding="utf-8")
+    (gen.PRACTICE_DIR / "amazon-gone" / "cases.json").unlink()
+    entry = dict(UNPARSEABLE_ENTRY, slug="amazon-missing", title="Missing", url="https://x/m")
+    assert gen.check([UNPARSEABLE_ENTRY, entry]) == 1
+
+
+def test_check_flags_malformed_cases_json(tmp_path, monkeypatch):
+    redirect_check_paths(tmp_path, monkeypatch)
+    write_scaffold_set(tmp_path, UNPARSEABLE_ENTRY)
+    (gen.DOCS_DIR / "index.md").write_text(gen.render_index([UNPARSEABLE_ENTRY]), encoding="utf-8")
+    (gen.PRACTICE_DIR / "amazon-gone" / "cases.json").write_text("{not json", encoding="utf-8")
+    assert gen.check([UNPARSEABLE_ENTRY]) == 1
+
+
+def test_check_parsed_entry_requires_generator_owned_fragments(tmp_path, monkeypatch):
+    redirect_check_paths(tmp_path, monkeypatch)
+    entry = dict(UNPARSEABLE_ENTRY, slug="amazon-parsed", parse_status="parsed-with-cases")
+    write_scaffold_set(tmp_path, entry)
+    (gen.DOCS_DIR / "index.md").write_text(gen.render_index([entry]), encoding="utf-8")
+    assert gen.check([entry]) == 0
+    (gen.DOCS_DIR / "amazon-parsed.md").write_text(
+        "# Different Problem (https://x/other)\n", encoding="utf-8"
+    )
+    assert gen.check([entry]) == 1
+
+
+def test_main_check_falls_back_to_committed_manifest_without_bank_pages(tmp_path, monkeypatch):
+    monkeypatch.setattr(gen, "DEFAULT_BANK_PAGES", [tmp_path / "absent" / "coding.md"])
+    manifest_path = tmp_path / "amazon_oa_manifest.json"
+    manifest_path.write_text(
+        json.dumps([UNPARSEABLE_ENTRY], indent=2) + "\n", encoding="utf-8"
+    )
+    monkeypatch.setattr(gen, "MANIFEST_PATH", manifest_path)
+    redirect_check_paths(tmp_path, monkeypatch)
+    write_scaffold_set(tmp_path, UNPARSEABLE_ENTRY)
+    (gen.DOCS_DIR / "index.md").write_text(gen.render_index([UNPARSEABLE_ENTRY]), encoding="utf-8")
+    seen = {}
+
+    def spy(manifest):
+        seen["entries"] = manifest
+        return 0
+
+    monkeypatch.setattr(gen, "check", spy)
+    assert gen.main(["--check"]) == 0
+    assert seen["entries"] == [UNPARSEABLE_ENTRY]
+
+
+def test_main_with_explicit_missing_bank_page_errors():
+    with pytest.raises(SystemExit, match="bank page not found"):
+        gen.main(["--bank-page", "/nonexistent/bank.md", "--check"])

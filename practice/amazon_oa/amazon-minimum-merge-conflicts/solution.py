@@ -1,6 +1,6 @@
 """Minimum Merge Conflicts — https://www.fastprep.io/problems/amazon-minimum-merge-conflicts
 
-Write-up & approaches: ../../docs/problems/amazon_oa/amazon-minimum-merge-conflicts.md
+Write-up & approaches: ../../../docs/problems/amazon_oa/amazon-minimum-merge-conflicts.md
 
 Developers want to merge two source-control branches into one unified branch while preserving the relative order of commits from each branch.
 

@@ -1,6 +1,6 @@
 """Find Min Variance — https://www.fastprep.io/problems/amazon-find-minimum-possible-variance
 
-Write-up & approaches: ../../docs/problems/amazon_oa/amazon-find-minimum-possible-variance.md
+Write-up & approaches: ../../../docs/problems/amazon_oa/amazon-find-minimum-possible-variance.md
 
 Amazon OA problem.
 
