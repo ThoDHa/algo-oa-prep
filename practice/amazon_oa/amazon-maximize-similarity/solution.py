@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-maximize-similarity.md
 
-$23
+In the world of Amazon's vast inventory management, you face a challenge of optimizing two inventories, inv1 and inv2, each containing n elements.
 
   uv run python amazon_oa/amazon-maximize-similarity/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-maximize-similarity/              # run the test sets

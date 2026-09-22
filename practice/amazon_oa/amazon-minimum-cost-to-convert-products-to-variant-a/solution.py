@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-minimum-cost-to-convert-products-to-variant-a.md
 
-An inventory array product contains only 0 and 1, where 0 represents variant A and 1 represents variant B.In one operation, choose a subarray of length k. The cost of that operation is the sum of the 
+An inventory array product contains only 0 and 1, where 0 represents variant A and 1 represents variant B.
 
   uv run python amazon_oa/amazon-minimum-cost-to-convert-products-to-variant-a/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-minimum-cost-to-convert-products-to-variant-a/              # run the test sets

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-ad-click-counts-sliding-window.md
 
-You receive a finite sequence of advertisement click and count operations. Each operation is one of:CLICK <adId> <timestamp>: record one click for the advertisement.COUNT <adId> <timestamp>: report ho
+You receive a finite sequence of advertisement click and count operations. Each operation is one of:
 
   uv run python amazon_oa/amazon-ad-click-counts-sliding-window/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-ad-click-counts-sliding-window/              # run the test sets

@@ -8,8 +8,7 @@ You have an array from 1 to N now you have to find a K-level permutation such th
 
 ### Example 1
 
-**Input:** `N = 7`
-**Input:** `K = 4`
+**Input:** `N = 7`, `K = 4`
 
 **Output:** `[1, 7, 3, 5, 2, 6, 4]`
 

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-minimum-dock-bays.md
 
-$23
+You are managing operations at a large Amazon warehouse. Loaded trucks arrive at the warehouse sequentially and must be unloaded within a specific timeframe to ensure timely delivery. Your task is to 
 
   uv run python amazon_oa/amazon-get-minimum-dock-bays/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-minimum-dock-bays/              # run the test sets

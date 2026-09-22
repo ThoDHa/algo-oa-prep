@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-dropped-requests.md
 
-$23
+Special thanks: 🥝 1003 thanks to the real MVP spike! 🍉
 
   uv run python amazon_oa/amazon-dropped-requests/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-dropped-requests/              # run the test sets

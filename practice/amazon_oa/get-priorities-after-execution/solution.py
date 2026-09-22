@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/get-priorities-after-execution.md
 
-$23
+Several processes are scheduled for execution on an AWS server.
 
   uv run python amazon_oa/get-priorities-after-execution/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/get-priorities-after-execution/              # run the test sets

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-binary-tree-right-view.md
 
-Given the root of a binary tree, imagine viewing the tree from its right side.Return the value of the visible node at each depth, ordered from the root level downward. For an empty tree, return an emp
+Given the root of a binary tree, imagine viewing the tree from its right side.
 
   uv run python amazon_oa/amazon-binary-tree-right-view/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-binary-tree-right-view/              # run the test sets

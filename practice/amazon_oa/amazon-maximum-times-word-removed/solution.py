@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-maximum-times-word-removed.md
 
-$23
+Special thanks: kcho and ketchup contributed this problem and example.
 
   uv run python amazon_oa/amazon-maximum-times-word-removed/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-maximum-times-word-removed/              # run the test sets

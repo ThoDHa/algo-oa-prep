@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-indexed-bit-after-binary-expansion.md
 
-Start with a binary string bits. In one expansion round, replace every character independently:0 becomes 00.1 becomes 10.After exactly rounds expansions, return the bit at the zero-based position inde
+Start with a binary string bits. In one expansion round, replace every character independently:
 
   uv run python amazon_oa/amazon-indexed-bit-after-binary-expansion/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-indexed-bit-after-binary-expansion/              # run the test sets

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-total-requests.md
 
-$23
+Developers at Amazon have their applications deployed on n servers. Initially, the ith server has an id server[i] and can handle server[i] requests at a time.
 
   uv run python amazon_oa/amazon-get-total-requests/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-total-requests/              # run the test sets

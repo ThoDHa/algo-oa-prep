@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-count-picked-items-less-than-queries.md
 
-A warehouse has items represented by an array items, where items[i] is the value of the i-th item.There are several orders. The i-th order picks every item in the inclusive index range startIndex[i] t
+A warehouse has items represented by an array items, where items[i] is the value of the i-th item.
 
   uv run python amazon_oa/amazon-count-picked-items-less-than-queries/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-count-picked-items-less-than-queries/              # run the test sets

@@ -2,7 +2,11 @@
 
 **unknown difficulty** | **NN minutes** | **unknown categories**
 
-You are given a list of integers nums. You may choose any set of values from the list.If you choose a value x, then you cannot choose x - 1 or x + 1. When you choose x, your score increases by x * frequency(x), where frequency(x) is the number of times x appears in nums.Return the maximum score you can obtain.
+You are given a list of integers nums. You may choose any set of values from the list.
+
+If you choose a value x, then you cannot choose x - 1 or x + 1. When you choose x, your score increases by x * frequency(x), where frequency(x) is the number of times x appears in nums.
+
+Return the maximum score you can obtain.
 
 ## Examples
 

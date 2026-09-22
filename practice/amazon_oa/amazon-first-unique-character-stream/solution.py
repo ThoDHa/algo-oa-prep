@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-first-unique-character-stream.md
 
-Characters arrive in the order of the string stream. After each arrival, append the earliest character seen so far whose frequency in the processed prefix is exactly one.If the current prefix has no u
+Characters arrive in the order of the string stream. After each arrival, append the earliest character seen so far whose frequency in the processed prefix is exactly one.
 
   uv run python amazon_oa/amazon-first-unique-character-stream/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-first-unique-character-stream/              # run the test sets

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-smallest-number-with-digit-sum.md
 
-Given integers digitSum and numberOfDigits, construct the smallest non-negative decimal number that:has exactly numberOfDigits digits, andhas digits whose sum is exactly digitSum.Return the number as 
+Given integers digitSum and numberOfDigits, construct the smallest non-negative decimal number that:
 
   uv run python amazon_oa/amazon-smallest-number-with-digit-sum/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-smallest-number-with-digit-sum/              # run the test sets

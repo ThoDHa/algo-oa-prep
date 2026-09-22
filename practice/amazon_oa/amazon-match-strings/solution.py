@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-match-strings.md
 
-$23
+Special thanks: MasterKhan contributed this problem.
 
   uv run python amazon_oa/amazon-match-strings/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-match-strings/              # run the test sets

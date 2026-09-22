@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-minimum-energy-cost.md
 
-$23
+Janet has N bags in a row. Each bag has a weight (Wi). Janet can collect bags from either the leftmost or rightmost position, but there are energy costs:
 
   uv run python amazon_oa/amazon-minimum-energy-cost/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-minimum-energy-cost/              # run the test sets

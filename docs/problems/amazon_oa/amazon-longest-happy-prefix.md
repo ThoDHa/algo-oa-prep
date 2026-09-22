@@ -2,7 +2,9 @@
 
 **Hard** | **NN minutes** | **String**
 
-A string is a happy prefix of s when it is a non-empty proper prefix of s and is also a suffix of s.Return the longest happy prefix. If none exists, return the empty string.
+A string is a happy prefix of s when it is a non-empty proper prefix of s and is also a suffix of s.
+
+Return the longest happy prefix. If none exists, return the empty string.
 
 ## Examples
 
@@ -32,7 +34,8 @@ A string is a happy prefix of s when it is a non-empty proper prefix of s and is
 
 ## Constraints
 
-- `1 <= s.length <= 100000.s contains only lowercase English letters.`
+- `1 <= s.length <= 100000.`
+- `s contains only lowercase English letters.`
 
 ## Solutions
 

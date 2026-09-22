@@ -2,14 +2,17 @@
 
 **Medium** | **NN minutes** | **Array, Greedy, Dynamic Programming**
 
-$23
+You are given n cities arranged in a line. City i has population population[i] and may contain a security unit described by unit[i], where unit[i] = '1' means a unit is initially stationed in city i.
+
+Each security unit may stay where it is, or if it is not in the first city, it may move exactly one city to the left. Every unit can move at most once.
+
+After all moves are chosen, a city is protected if at least one security unit is stationed there. Return the maximum total population of all protected cities.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `population = [10, 5, 8, 9, 6]`
-**Input:** `unit = "01101"`
+**Input:** `population = [10, 5, 8, 9, 6]`, `unit = "01101"`
 
 **Output:** `27`
 
@@ -17,8 +20,7 @@ $23
 
 ### Example 2
 
-**Input:** `population = [7, 4]`
-**Input:** `unit = "01"`
+**Input:** `population = [7, 4]`, `unit = "01"`
 
 **Output:** `7`
 
@@ -26,7 +28,9 @@ $23
 
 ## Constraints
 
-- `population.length = unit.length()unit contains only '0' and '1'Each security unit may move left by at most one city, and may move at most once.`
+- `population.length = unit.length()`
+- `unit contains only '0' and '1'`
+- `Each security unit may move left by at most one city, and may move at most once.`
 
 ## Solutions
 

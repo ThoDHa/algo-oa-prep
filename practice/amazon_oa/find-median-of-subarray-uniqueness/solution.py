@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/find-median-of-subarray-uniqueness.md
 
-$23
+In an Amazon coding marathon, the following challenge was given.
 
   uv run python amazon_oa/find-median-of-subarray-uniqueness/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/find-median-of-subarray-uniqueness/              # run the test sets

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-longest-perfect-anagrams.md
 
-$23
+Developers at Amazon continuously develop algorithms to ensure the security of users' accounts through strong passwords.
 
   uv run python amazon_oa/amazon-longest-perfect-anagrams/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-longest-perfect-anagrams/              # run the test sets

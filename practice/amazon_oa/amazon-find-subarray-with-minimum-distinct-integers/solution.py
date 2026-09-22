@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-find-subarray-with-minimum-distinct-integers.md
 
-$23
+Given an array of integers and two specified numbers, find a subarray from the original array that contains both of these specified numbers, with the requirement that the subarray contains the minimum
 
   uv run python amazon_oa/amazon-find-subarray-with-minimum-distinct-integers/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-find-subarray-with-minimum-distinct-integers/              # run the test sets

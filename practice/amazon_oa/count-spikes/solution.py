@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/count-spikes.md
 
-A k-Spike is an element that satisfies both the following conditions:  There are at least k elements from indices (0, i-1) that are less than prices[i]. There are at least k  elements from indices (i+
+A k-Spike is an element that satisfies both the following conditions: 
 
   uv run python amazon_oa/count-spikes/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/count-spikes/              # run the test sets

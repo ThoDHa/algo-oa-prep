@@ -2,7 +2,13 @@
 
 **Medium** | **NN minutes** | **Array, Two Pointers, Greedy**
 
-You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the i-th line are (i, 0) and (i, height[i]).Find two lines that, together with the x-axis, form a container so that the container holds the most water.Return the maximum amount of water a container can store.You may not slant the container.
+You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the i-th line are (i, 0) and (i, height[i]).
+
+Find two lines that, together with the x-axis, form a container so that the container holds the most water.
+
+Return the maximum amount of water a container can store.
+
+You may not slant the container.
 
 ## Examples
 
@@ -24,7 +30,8 @@ You are given an integer array height of length n. There are n vertical lines dr
 
 ## Constraints
 
-- `2 <= height.length <= 10^5.0 <= height[i] <= 10^4.`
+- `2 <= height.length <= 10^5.`
+- `0 <= height[i] <= 10^4.`
 
 ## Solutions
 

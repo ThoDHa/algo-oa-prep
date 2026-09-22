@@ -2,14 +2,21 @@
 
 **Easy** | **NN minutes** | **Array, String, Binary Search**
 
-2026-07-02 •ᴗ• Practice note: This version should match the core of the reported interview question by about 85%-90%. It was reported for SDE II. It may not be word-for-word identical, but the main idea and expected approach are close.You are given a target date and a list of release dates for different software versions. Return the release date that is closest to the target date. The distance between two dates is the absolute number of calendar days between them.If two release dates are equally close to the target date, return the later date. All dates are provided in YYYY-MM-DD format.Function Signaturefunction findClosestVersionDate(targetDate: string, versions: string[]): string
+2026-07-02 •ᴗ• Practice note: This version should match the core of the reported interview question by about 85%-90%. It was reported for SDE II. It may not be word-for-word identical, but the main idea and expected approach are close.
+
+You are given a target date and a list of release dates for different software versions. Return the release date that is closest to the target date. The distance between two dates is the absolute number of calendar days between them.
+
+If two release dates are equally close to the target date, return the later date. All dates are provided in YYYY-MM-DD format.
+
+Function Signature
+
+function findClosestVersionDate(targetDate: string, versions: string[]): string
 
 ## Examples
 
 ### Example 1
 
-**Input:** `targetDate = "2026-04-01"`
-**Input:** `versions = ["2023-04-01", "2025-04-01", "2026-05-03"]`
+**Input:** `targetDate = "2026-04-01"`, `versions = ["2023-04-01", "2025-04-01", "2026-05-03"]`
 
 **Output:** `"2026-05-03"`
 
@@ -17,8 +24,7 @@
 
 ### Example 2
 
-**Input:** `targetDate = "2024-06-10"`
-**Input:** `versions = ["2024-06-01", "2024-06-20", "2024-07-01"]`
+**Input:** `targetDate = "2024-06-10"`, `versions = ["2024-06-01", "2024-06-20", "2024-07-01"]`
 
 **Output:** `"2024-06-01"`
 
@@ -26,8 +32,7 @@
 
 ### Example 3
 
-**Input:** `targetDate = "2025-01-15"`
-**Input:** `versions = ["2025-01-10", "2025-01-20"]`
+**Input:** `targetDate = "2025-01-15"`, `versions = ["2025-01-10", "2025-01-20"]`
 
 **Output:** `"2025-01-20"`
 
@@ -35,8 +40,7 @@
 
 ### Example 4
 
-**Input:** `targetDate = "2026-04-01"`
-**Input:** `versions = ["2026-04-01", "2026-05-03", "2025-12-31"]`
+**Input:** `targetDate = "2026-04-01"`, `versions = ["2026-04-01", "2026-05-03", "2025-12-31"]`
 
 **Output:** `"2026-04-01"`
 
@@ -44,7 +48,11 @@
 
 ## Constraints
 
-- `1 <= versions.length <= 100000targetDate and every date in versions are valid dates in YYYY-MM-DD format.versions may not be sorted.Follow-upIf versions is already sorted, can you solve each query faster than checking every date? What if there are many target dates queried against the same version list?`
+- `1 <= versions.length <= 100000`
+- `targetDate and every date in versions are valid dates in YYYY-MM-DD format.`
+- `versions may not be sorted.`
+- `Follow-up`
+- `If versions is already sorted, can you solve each query faster than checking every date? What if there are many target dates queried against the same version list?`
 
 ## Solutions
 

@@ -2,14 +2,17 @@
 
 **Medium** | **NN minutes** | **String, Greedy, Hash Table**
 
-$23
+Some developers at Amazon are building a prototype for a simple rate-limiting algorithm. There are n requests to be processed by the server represented by a string requests where the ith character represents the region of the ith client. Each request takes 1 unit of time to process. There must be a minimum time gap of minGap units between any two requests from the same region.
+    
+
+
+    The requests can be sent in any order and there can be gaps in transmission for testing purposes. Find the minimum amount of time required to process all the requests such that no request is denied.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `requests = "abacadaeafag"`
-**Input:** `minGap = 2`
+**Input:** `requests = "abacadaeafag"`, `minGap = 2`
 
 **Output:** `16`
 
@@ -17,8 +20,7 @@ $23
 
 ### Example 2
 
-**Input:** `requests = "aaabbb"`
-**Input:** `minGap = 0`
+**Input:** `requests = "aaabbb"`, `minGap = 0`
 
 **Output:** `6`
 
@@ -26,8 +28,7 @@ $23
 
 ### Example 3
 
-**Input:** `requests = "aaabbb"`
-**Input:** `minGap = 2`
+**Input:** `requests = "aaabbb"`, `minGap = 2`
 
 **Output:** `8`
 

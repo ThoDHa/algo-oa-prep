@@ -2,14 +2,15 @@
 
 **Hard** | **NN minutes** | **Array, Matrix, Heap**
 
-Given an integer matrix mat whose rows are sorted in nondecreasing order, choose exactly one value from each row and add the chosen values.Return the kth smallest obtainable sum. Distinct choices occupy distinct ranks even when they produce equal sums.
+Given an integer matrix mat whose rows are sorted in nondecreasing order, choose exactly one value from each row and add the chosen values.
+
+Return the kth smallest obtainable sum. Distinct choices occupy distinct ranks even when they produce equal sums.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `mat = [[1,3,11],[2,4,6]]`
-**Input:** `k = 5`
+**Input:** `mat = [[1,3,11],[2,4,6]]`, `k = 5`
 
 **Output:** `7`
 
@@ -17,8 +18,7 @@ Given an integer matrix mat whose rows are sorted in nondecreasing order, choose
 
 ### Example 2
 
-**Input:** `mat = [[1,3,11],[2,4,6]]`
-**Input:** `k = 9`
+**Input:** `mat = [[1,3,11],[2,4,6]]`, `k = 9`
 
 **Output:** `17`
 
@@ -26,8 +26,7 @@ Given an integer matrix mat whose rows are sorted in nondecreasing order, choose
 
 ### Example 3
 
-**Input:** `mat = [[1,10,10],[1,4,5],[2,3,6]]`
-**Input:** `k = 7`
+**Input:** `mat = [[1,10,10],[1,4,5],[2,3,6]]`, `k = 7`
 
 **Output:** `9`
 
@@ -35,7 +34,10 @@ Given an integer matrix mat whose rows are sorted in nondecreasing order, choose
 
 ## Constraints
 
-- `1 <= mat.length, mat[i].length <= 40.All rows have the same length and are sorted in nondecreasing order.1 <= mat[i][j] <= 5000.1 <= k <= min(200, mat[i].length^mat.length).`
+- `1 <= mat.length, mat[i].length <= 40.`
+- `All rows have the same length and are sorted in nondecreasing order.`
+- `1 <= mat[i][j] <= 5000.`
+- `1 <= k <= min(200, mat[i].length^mat.length).`
 
 ## Solutions
 

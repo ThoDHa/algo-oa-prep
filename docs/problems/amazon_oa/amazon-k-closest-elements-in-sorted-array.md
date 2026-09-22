@@ -2,15 +2,15 @@
 
 **Medium** | **NN minutes** | **Array, Binary Search, Two Pointers**
 
-Given an integer array arr sorted in nondecreasing order, an integer k, and a target x, return the k values closest to x in ascending order.A value a is closer than a value b when |a - x| < |b - x|. When the distances are equal, the smaller value is considered closer.
+Given an integer array arr sorted in nondecreasing order, an integer k, and a target x, return the k values closest to x in ascending order.
+
+A value a is closer than a value b when |a - x| < |b - x|. When the distances are equal, the smaller value is considered closer.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `arr = [-10,-4,-1,3,8,12]`
-**Input:** `k = 4`
-**Input:** `x = 2`
+**Input:** `arr = [-10,-4,-1,3,8,12]`, `k = 4`, `x = 2`
 
 **Output:** `[-4,-1,3,8]`
 
@@ -18,9 +18,7 @@ Given an integer array arr sorted in nondecreasing order, an integer k, and a ta
 
 ### Example 2
 
-**Input:** `arr = [2,4,6,8]`
-**Input:** `k = 1`
-**Input:** `x = 5`
+**Input:** `arr = [2,4,6,8]`, `k = 1`, `x = 5`
 
 **Output:** `[4]`
 
@@ -28,9 +26,7 @@ Given an integer array arr sorted in nondecreasing order, an integer k, and a ta
 
 ### Example 3
 
-**Input:** `arr = [5,6,7]`
-**Input:** `k = 2`
-**Input:** `x = 100`
+**Input:** `arr = [5,6,7]`, `k = 2`, `x = 100`
 
 **Output:** `[6,7]`
 
@@ -38,7 +34,10 @@ Given an integer array arr sorted in nondecreasing order, an integer k, and a ta
 
 ## Constraints
 
-- `1 <= arr.length <= 100000.1 <= k <= arr.length.arr is sorted in nondecreasing order.-1000000000 <= arr[i], x <= 1000000000.`
+- `1 <= arr.length <= 100000.`
+- `1 <= k <= arr.length.`
+- `arr is sorted in nondecreasing order.`
+- `-1000000000 <= arr[i], x <= 1000000000.`
 
 ## Solutions
 

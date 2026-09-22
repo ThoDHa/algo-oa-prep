@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-sum-max-plus-min-after-decrement-operations.md
 
-You are given an integer array arr and an integer requests.Repeat the following operation exactly requests times:Find the current maximum value and the current minimum value in arr.Add their sum to th
+You are given an integer array arr and an integer requests.
 
   uv run python amazon_oa/amazon-sum-max-plus-min-after-decrement-operations/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-sum-max-plus-min-after-decrement-operations/              # run the test sets

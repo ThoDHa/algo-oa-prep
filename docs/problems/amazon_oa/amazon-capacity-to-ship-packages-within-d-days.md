@@ -2,14 +2,17 @@
 
 **Medium** | **NN minutes** | **Array, Binary Search**
 
-A conveyor belt has packages that must be shipped from one port to another within days days.The i-th package has weight weights[i]. Packages are loaded in the given order: you may not rearrange them. Each day, you load the conveyor with packages whose total weight does not exceed the ship's capacity, then ship that day's load.Return the least ship capacity that can move every package within days days.
+A conveyor belt has packages that must be shipped from one port to another within days days.
+
+The i-th package has weight weights[i]. Packages are loaded in the given order: you may not rearrange them. Each day, you load the conveyor with packages whose total weight does not exceed the ship's capacity, then ship that day's load.
+
+Return the least ship capacity that can move every package within days days.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `weights = [1,2,3,4,5,6,7,8,9,10]`
-**Input:** `days = 5`
+**Input:** `weights = [1,2,3,4,5,6,7,8,9,10]`, `days = 5`
 
 **Output:** `15`
 
@@ -17,8 +20,7 @@ A conveyor belt has packages that must be shipped from one port to another withi
 
 ### Example 2
 
-**Input:** `weights = [3,2,2,4,1,4]`
-**Input:** `days = 3`
+**Input:** `weights = [3,2,2,4,1,4]`, `days = 3`
 
 **Output:** `6`
 
@@ -26,7 +28,9 @@ A conveyor belt has packages that must be shipped from one port to another withi
 
 ## Constraints
 
-- `1 <= weights.length <= 5 * 10^4.1 <= weights[i] <= 500.1 <= days <= weights.length.`
+- `1 <= weights.length <= 5 * 10^4.`
+- `1 <= weights[i] <= 500.`
+- `1 <= days <= weights.length.`
 
 ## Solutions
 

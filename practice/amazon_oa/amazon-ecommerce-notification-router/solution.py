@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-ecommerce-notification-router.md
 
-Implement the routing decision for a batch of e-commerce notifications. For notification i, preferredChannels[i] is the user's preferred channel and priorities[i] is either NORMAL or URGENT.A NORMAL n
+Implement the routing decision for a batch of e-commerce notifications. For notification i, preferredChannels[i] is the user's preferred channel and priorities[i] is either NORMAL or URGENT.
 
   uv run python amazon_oa/amazon-ecommerce-notification-router/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-ecommerce-notification-router/              # run the test sets

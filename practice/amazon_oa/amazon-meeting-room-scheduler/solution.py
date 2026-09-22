@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-meeting-room-scheduler.md
 
-Implement a scheduler for roomCount meeting rooms numbered from 0 to roomCount - 1.Each row meetings[i] = [start, end] is a request for the half-open interval [start, end). Requests appear in nondecre
+Implement a scheduler for roomCount meeting rooms numbered from 0 to roomCount - 1.
 
   uv run python amazon_oa/amazon-meeting-room-scheduler/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-meeting-room-scheduler/              # run the test sets

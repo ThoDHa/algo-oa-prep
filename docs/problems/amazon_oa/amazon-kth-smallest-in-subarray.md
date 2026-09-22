@@ -8,9 +8,7 @@ Given an array arr, return the kth smallest integer for each subarray of size m.
 
 ### Example 1
 
-**Input:** `arr = [3, 1, 4, 2]`
-**Input:** `k = 2`
-**Input:** `m = 3`
+**Input:** `arr = [3, 1, 4, 2]`, `k = 2`, `m = 3`
 
 **Output:** `[3, 2]`
 

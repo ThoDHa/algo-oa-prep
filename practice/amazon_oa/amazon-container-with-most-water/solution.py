@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-container-with-most-water.md
 
-You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the i-th line are (i, 0) and (i, height[i]).Find two lines that, together with the x-
+You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the i-th line are (i, 0) and (i, height[i]).
 
   uv run python amazon_oa/amazon-container-with-most-water/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-container-with-most-water/              # run the test sets

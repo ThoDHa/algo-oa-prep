@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/get-average-standing.md
 
-$23
+As an aspiring developer, you are required to develop a result analysis service for a car game on Amazon games.
 
   uv run python amazon_oa/get-average-standing/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/get-average-standing/              # run the test sets

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-feasible-indices-after-reduction.md
 
-You are given an integer array arr of size n. All elements of arr are distinct.You may perform either of the following operations any number of times:Choose a non-empty prefix of the current array and
+You are given an integer array arr of size n. All elements of arr are distinct.
 
   uv run python amazon_oa/amazon-feasible-indices-after-reduction/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-feasible-indices-after-reduction/              # run the test sets

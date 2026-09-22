@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-max-programs.md
 
-$23
+Within an Amazon software management tool, there's a collection of software programs and time slots. Each time slot lasts k seconds, and within that time the slots do not overlap. The software program
 
   uv run python amazon_oa/amazon-get-max-programs/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-max-programs/              # run the test sets

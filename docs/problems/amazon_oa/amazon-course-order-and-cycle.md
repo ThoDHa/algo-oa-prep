@@ -2,14 +2,15 @@
 
 **Hard** | **NN minutes** | **Graph, Breadth First Search, Depth First Search, Topological Sort**
 
-There are numCourses courses numbered from 0 through numCourses - 1. Each row [course, prerequisite] means the prerequisite must be completed before the course.Return a two-row result [order, cycle]:
+There are numCourses courses numbered from 0 through numCourses - 1. Each row [course, prerequisite] means the prerequisite must be completed before the course.
+
+Return a two-row result [order, cycle]:
 
 ## Examples
 
 ### Example 1
 
-**Input:** `numCourses = 4`
-**Input:** `prerequisites = [[1,0],[2,0],[3,1],[3,2]]`
+**Input:** `numCourses = 4`, `prerequisites = [[1,0],[2,0],[3,1],[3,2]]`
 
 **Output:** `[[0,1,2,3],[]]`
 

@@ -2,7 +2,9 @@
 
 **Medium** | **NN minutes** | **Array, Prefix Sum**
 
-Given an integer array nums, return an array answer where answer[i] equals the product of every element of nums except nums[i].Solve the problem without division in O(n) time. The output array does not count as extra space.
+Given an integer array nums, return an array answer where answer[i] equals the product of every element of nums except nums[i].
+
+Solve the problem without division in O(n) time. The output array does not count as extra space.
 
 ## Examples
 
@@ -32,7 +34,9 @@ Given an integer array nums, return an array answer where answer[i] equals the p
 
 ## Constraints
 
-- `2 <= nums.length <= 10^5.-30 <= nums[i] <= 30.Every prefix product and suffix product fits in a signed 32-bit integer.`
+- `2 <= nums.length <= 10^5.`
+- `-30 <= nums[i] <= 30.`
+- `Every prefix product and suffix product fits in a signed 32-bit integer.`
 
 ## Solutions
 

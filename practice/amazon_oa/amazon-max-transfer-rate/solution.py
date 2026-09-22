@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-max-transfer-rate.md
 
-$23
+You are in the Amazon's Cloud Infrastructure Team, and you are working on a project to optimize how data flows through its network of storage servers.
 
   uv run python amazon_oa/amazon-max-transfer-rate/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-max-transfer-rate/              # run the test sets

@@ -2,15 +2,19 @@
 
 **Hard** | **NN minutes** | **Binary Search, Sliding Window**
 
-$23
+A student is preparing for a scholarship test which is organized on the Amazon Academy platform and scheduled for next month.
+
+There are n chapters to be studied, where the i-th chapter has pages[i] pages. On each day, the student chooses some window of exactly k consecutive chapters. From each chapter in that chosen window, the student reads up to p of its remaining pages: the remaining page count of every chapter in the window is reduced by p. If a chapter has fewer than p pages remaining, the student reads all of its remaining pages and its remaining page count becomes 0 (it never goes negative). A chapter already at 0 remaining pages may still lie inside a chosen window; it simply stays at 0.
+
+Find the minimum number of days the student needs so that the remaining page count of every chapter is 0.
+
+Note: The k chapters chosen each day must be contiguous, and each chosen window must lie fully within the chapters (its starting index ranges over 0 to n - k).
 
 ## Examples
 
 ### Example 1
 
-**Input:** `pages = [3, 1, 4]`
-**Input:** `k = 2`
-**Input:** `p = 2`
+**Input:** `pages = [3, 1, 4]`, `k = 2`, `p = 2`
 
 **Output:** `4`
 
@@ -23,9 +27,7 @@ Chapter 1 needs ceil(3/2)=2 coverings, chapter 2 needs ceil(1/2)=1, and chapter 
 
 ### Example 2
 
-**Input:** `pages = [3, 4]`
-**Input:** `k = 1`
-**Input:** `p = 2`
+**Input:** `pages = [3, 4]`, `k = 1`, `p = 2`
 
 **Output:** `4`
 
@@ -42,7 +44,10 @@ This test case is fromt the second source we found. You can find source ss from 
 
 ## Constraints
 
-- `1 ≤ n ≤ 10^51 ≤ pages[i] ≤ 10^91 ≤ k ≤ n1 ≤ p ≤ 10^9`
+- `1 ≤ n ≤ 10^5`
+- `1 ≤ pages[i] ≤ 10^9`
+- `1 ≤ k ≤ n`
+- `1 ≤ p ≤ 10^9`
 
 ## Solutions
 

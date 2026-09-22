@@ -2,7 +2,11 @@
 
 **Hard** | **NN minutes** | **Array, Sorting, Binary Search, Sliding Window**
 
-You are given a non-empty integer array nums of length n. In one operation, you may replace any one element with any integer.An array is continuous when both conditions hold:All n elements are unique.The difference between the maximum and minimum elements is exactly n - 1.Return the minimum number of replacement operations needed to make nums continuous.
+You are given a non-empty integer array nums of length n. In one operation, you may replace any one element with any integer.
+
+An array is continuous when both conditions hold:
+
+All n elements are unique.The difference between the maximum and minimum elements is exactly n - 1.Return the minimum number of replacement operations needed to make nums continuous.
 
 ## Examples
 

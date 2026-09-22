@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-maximum-sum.md
 
-$23
+Note 📝 - might be a sister problem of  🦥 Get Max Sum
 
   uv run python amazon_oa/amazon-get-maximum-sum/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-maximum-sum/              # run the test sets

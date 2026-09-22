@@ -2,14 +2,21 @@
 
 **Hard** | **NN minutes** | **Array, Hash Table, Sliding Window**
 
-$23
+Amazon has launched a "Play to Win" game where users get a chance to earn free gift vouchers. The game presents you with an array of integers (arr) and an integer k. You are allowed to choose any contiguous subarray within arr and add an integer x of your choice to all the elements within that subarray. You can do this at most once.
+    
+
+
+    The goal is to maximize the number of elements in the entire array that have a value equal to k after performing this operation (choosing a subarray and adding x to it).
+    
+
+
+    You need to complete the function getMaximumCount which takes the integer array arr and the target value k as input, and returns the maximum number of elements equal to k that can be achieved.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `arr = [2, 3, 2, 4, 3, 2]`
-**Input:** `k = 2`
+**Input:** `arr = [2, 3, 2, 4, 3, 2]`, `k = 2`
 
 **Output:** `4`
 
@@ -17,8 +24,7 @@ $23
 
 ### Example 2
 
-**Input:** `arr = [6, 4, 4, 6, 4, 4]`
-**Input:** `k = 6`
+**Input:** `arr = [6, 4, 4, 6, 4, 4]`, `k = 6`
 
 **Output:** `5`
 

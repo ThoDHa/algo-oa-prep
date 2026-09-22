@@ -2,7 +2,11 @@
 
 **Hard** | **NN minutes** | **String, Stack, Hash Table, Parsing, Sorting**
 
-You are given a valid chemical formula string. Return the count of each atom as one canonical string.An atom name starts with an uppercase letter and may be followed by lowercase letters. A number after an atom or a parenthesized group multiplies that atom or group. If no number follows, the multiplier is 1. Parentheses may be nested.The output must list atom names in lexicographic order. For each atom, write the atom name followed by its count only when the count is greater than 1.
+You are given a valid chemical formula string. Return the count of each atom as one canonical string.
+
+An atom name starts with an uppercase letter and may be followed by lowercase letters. A number after an atom or a parenthesized group multiplies that atom or group. If no number follows, the multiplier is 1. Parentheses may be nested.
+
+The output must list atom names in lexicographic order. For each atom, write the atom name followed by its count only when the count is greater than 1.
 
 ## Examples
 
@@ -24,7 +28,8 @@ You are given a valid chemical formula string. Return the count of each atom as 
 
 ## Constraints
 
-- `The formula is valid and contains atom names, positive integer multipliers, and parentheses.Parentheses may be nested.`
+- `The formula is valid and contains atom names, positive integer multipliers, and parentheses.`
+- `Parentheses may be nested.`
 
 ## Solutions
 

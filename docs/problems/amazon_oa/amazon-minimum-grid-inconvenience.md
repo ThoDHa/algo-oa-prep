@@ -2,7 +2,9 @@
 
 **Hard** | **NN minutes** | **Matrix, Breadth First Search, Binary Search**
 
-A city is represented by a binary grid. A cell marked 1 is a delivery center, and a cell marked 0 is any other place.The distance between two cells is the maximum of the absolute row-coordinate difference and the absolute column-coordinate difference. The inconvenience of the grid is the maximum, over every 0 cell, of its distance to the nearest delivery center.
+A city is represented by a binary grid. A cell marked 1 is a delivery center, and a cell marked 0 is any other place.
+
+The distance between two cells is the maximum of the absolute row-coordinate difference and the absolute column-coordinate difference. The inconvenience of the grid is the maximum, over every 0 cell, of its distance to the nearest delivery center.
 
 ## Examples
 

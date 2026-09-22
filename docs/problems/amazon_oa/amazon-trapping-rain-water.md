@@ -2,7 +2,11 @@
 
 **Hard** | **NN minutes** | **Array, Two Pointers, Stack**
 
-You are given an integer array height of length n. n vertical bars stand on the x-axis. The i-th bar has width 1 and height height[i].Compute how many units of water the bars can trap after rain.Water sits above a bar only when both a strictly taller left boundary and a strictly taller right boundary exist. The water depth at index i is max(0, min(leftMax[i], rightMax[i]) - height[i]), where leftMax[i] is the tallest bar at an index < i and rightMax[i] is the tallest bar at an index > i.
+You are given an integer array height of length n. n vertical bars stand on the x-axis. The i-th bar has width 1 and height height[i].
+
+Compute how many units of water the bars can trap after rain.
+
+Water sits above a bar only when both a strictly taller left boundary and a strictly taller right boundary exist. The water depth at index i is max(0, min(leftMax[i], rightMax[i]) - height[i]), where leftMax[i] is the tallest bar at an index < i and rightMax[i] is the tallest bar at an index > i.
 
 ## Examples
 
@@ -24,7 +28,8 @@ You are given an integer array height of length n. n vertical bars stand on the 
 
 ## Constraints
 
-- `1 <= height.length <= 2 * 10^4.0 <= height[i] <= 10^5.`
+- `1 <= height.length <= 2 * 10^4.`
+- `0 <= height[i] <= 10^5.`
 
 ## Solutions
 

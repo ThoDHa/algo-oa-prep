@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-frequently-bought-together.md
 
-Amazon's Retail Analytics team wants to discover which pairs of items are most often bought together so they can create Frequently Bought Together bundles.During a short observation window, each custo
+Amazon's Retail Analytics team wants to discover which pairs of items are most often bought together so they can create Frequently Bought Together bundles.
 
   uv run python amazon_oa/amazon-frequently-bought-together/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-frequently-bought-together/              # run the test sets

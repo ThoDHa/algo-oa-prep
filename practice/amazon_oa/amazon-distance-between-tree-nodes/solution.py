@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-distance-between-tree-nodes.md
 
-You are given a rooted tree whose nodes are numbered from 1 through treeNodes. The arrays treeFrom and treeTo describe the undirected edges of the tree, and root identifies its root.Given two node IDs
+You are given a rooted tree whose nodes are numbered from 1 through treeNodes. The arrays treeFrom and treeTo describe the undirected edges of the tree, and root identifies its root.
 
   uv run python amazon_oa/amazon-distance-between-tree-nodes/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-distance-between-tree-nodes/              # run the test sets

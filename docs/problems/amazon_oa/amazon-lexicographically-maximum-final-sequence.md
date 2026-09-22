@@ -2,7 +2,13 @@
 
 **unknown difficulty** | **NN minutes** | **unknown categories**
 
-You are given a binary string shipmentData consisting only of '0' and '1'.A final string is built from a chosen ordering of shipmentData as follows:Start with an empty string finalSequence.For each character c in the chosen ordering from left to right, append c to finalSequence, then reverse finalSequence.You may rearrange the characters of shipmentData arbitrarily before applying the operation. Return the rearranged shipmentData string that should be fed into the operation to produce the lexicographically maximum possible finalSequence.Do not return finalSequence itself. The answer must be a rearrangement of the original shipmentData.
+You are given a binary string shipmentData consisting only of '0' and '1'.
+
+A final string is built from a chosen ordering of shipmentData as follows:
+
+Start with an empty string finalSequence.For each character c in the chosen ordering from left to right, append c to finalSequence, then reverse finalSequence.You may rearrange the characters of shipmentData arbitrarily before applying the operation. Return the rearranged shipmentData string that should be fed into the operation to produce the lexicographically maximum possible finalSequence.
+
+Do not return finalSequence itself. The answer must be a rearrangement of the original shipmentData.
 
 ## Examples
 
@@ -24,7 +30,8 @@ You are given a binary string shipmentData consisting only of '0' and '1'.A fina
 
 ## Constraints
 
-- `shipmentData.length >= 1shipmentData contains only '0' and '1'.`
+- `shipmentData.length >= 1`
+- `shipmentData contains only '0' and '1'.`
 
 ## Solutions
 

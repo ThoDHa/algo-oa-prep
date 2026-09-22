@@ -2,15 +2,15 @@
 
 **Medium** | **NN minutes** | **Array, Matrix, Dynamic Programming, Breadth First Search**
 
-Given a rectangular array of strings grid, a zero-based coordinate source = [row, col], and a zero-based coordinate destination = [row, col], return whether the destination is reachable.The character O is open and X is blocked. From an open cell you may move exactly one cell right or one cell down. A blocked endpoint is unreachable, and a destination above or left of the source is also unreachable.
+Given a rectangular array of strings grid, a zero-based coordinate source = [row, col], and a zero-based coordinate destination = [row, col], return whether the destination is reachable.
+
+The character O is open and X is blocked. From an open cell you may move exactly one cell right or one cell down. A blocked endpoint is unreachable, and a destination above or left of the source is also unreachable.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `grid = ["OOO","OXO","OOO"]`
-**Input:** `source = [0,0]`
-**Input:** `destination = [2,2]`
+**Input:** `grid = ["OOO","OXO","OOO"]`, `source = [0,0]`, `destination = [2,2]`
 
 **Output:** `true`
 
@@ -18,9 +18,7 @@ Given a rectangular array of strings grid, a zero-based coordinate source = [row
 
 ### Example 2
 
-**Input:** `grid = ["OX","XO"]`
-**Input:** `source = [0,0]`
-**Input:** `destination = [1,1]`
+**Input:** `grid = ["OX","XO"]`, `source = [0,0]`, `destination = [1,1]`
 
 **Output:** `false`
 
@@ -28,9 +26,7 @@ Given a rectangular array of strings grid, a zero-based coordinate source = [row
 
 ### Example 3
 
-**Input:** `grid = ["OOO"]`
-**Input:** `source = [0,2]`
-**Input:** `destination = [0,0]`
+**Input:** `grid = ["OOO"]`, `source = [0,2]`, `destination = [0,0]`
 
 **Output:** `false`
 
@@ -38,7 +34,10 @@ Given a rectangular array of strings grid, a zero-based coordinate source = [row
 
 ## Constraints
 
-- `1 <= grid.length, grid[i].length <= 500.Every row has the same length, and the grid has at most 250000 cells.Every cell is O or X.source and destination each contain exactly two valid grid coordinates.`
+- `1 <= grid.length, grid[i].length <= 500.`
+- `Every row has the same length, and the grid has at most 250000 cells.`
+- `Every cell is O or X.`
+- `source and destination each contain exactly two valid grid coordinates.`
 
 ## Solutions
 

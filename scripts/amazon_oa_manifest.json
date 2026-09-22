@@ -6,7 +6,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-19"
+    "updated": "2026-09-19",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-shortest-grid-path-with-one-wall-break",
@@ -15,7 +16,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-19"
+    "updated": "2026-09-19",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-course-order-and-cycle",
@@ -24,7 +26,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-18"
+    "updated": "2026-09-18",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-inventory-allocation",
@@ -33,7 +36,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-18"
+    "updated": "2026-09-18",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-lru-query-result-cache",
@@ -42,7 +46,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-18"
+    "updated": "2026-09-18",
+    "parse_status": "parsed-empty-cases"
   },
   {
     "slug": "amazon-minimum-stick-connection-cost",
@@ -51,7 +56,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-18"
+    "updated": "2026-09-18",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-first-non-repeating-character",
@@ -60,7 +66,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-14"
+    "updated": "2026-09-14",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-root-to-leaf-target-sum-paths",
@@ -69,7 +76,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-14"
+    "updated": "2026-09-14",
+    "parse_status": "parsed-empty-cases"
   },
   {
     "slug": "amazon-aggressive-cows",
@@ -78,7 +86,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-anagram-start-indices",
@@ -87,7 +96,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-basic-calculator",
@@ -96,7 +106,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-binary-strings-bounded-subset",
@@ -105,7 +116,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-binary-tree-cameras",
@@ -114,7 +126,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-empty-cases"
   },
   {
     "slug": "amazon-binary-tree-right-view",
@@ -123,7 +136,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-empty-cases"
   },
   {
     "slug": "amazon-calculate-beauty-values",
@@ -132,7 +146,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-capacity-to-ship-packages-within-d-days",
@@ -141,7 +156,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-cheapest-flights-within-k-stops",
@@ -150,7 +166,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-construct-tree-level-inorder",
@@ -159,7 +176,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-empty-cases"
   },
   {
     "slug": "amazon-container-with-most-water",
@@ -168,7 +186,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-count-stepping-numbers-in-range",
@@ -177,7 +196,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-count-univalued-subtrees",
@@ -186,7 +206,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-empty-cases"
   },
   {
     "slug": "amazon-course-schedule",
@@ -195,7 +216,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-course-schedule-ii",
@@ -204,7 +226,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-currency-conversion-rate",
@@ -213,7 +236,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-decode-encoded-string",
@@ -222,7 +246,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-distance-between-tree-nodes",
@@ -231,7 +256,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-ecommerce-notification-router",
@@ -240,7 +266,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-employee-ratings-data-structure",
@@ -249,7 +276,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-empty-cases"
   },
   {
     "slug": "amazon-find-median-from-data-stream",
@@ -258,7 +286,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-empty-cases"
   },
   {
     "slug": "amazon-find-safest-path-in-grid",
@@ -267,7 +296,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-first-missing-positive",
@@ -276,7 +306,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-first-unique-character-stream",
@@ -285,7 +316,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-indexed-bit-after-binary-expansion",
@@ -294,7 +326,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-islands-eight-direction",
@@ -303,7 +336,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-k-closest-elements-in-sorted-array",
@@ -312,7 +346,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-kth-smallest-row-sum",
@@ -321,7 +356,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-largest-lexicographic-unique-letters",
@@ -330,7 +366,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-longest-common-subsequence-length",
@@ -339,7 +376,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-longest-happy-prefix",
@@ -348,7 +386,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-longest-increasing-subsequence-bounded-difference",
@@ -357,7 +396,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-max-consecutive-ones-iii",
@@ -366,7 +406,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximize-distance-to-closest-person",
@@ -375,7 +416,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximum-non-adjacent-house-value",
@@ -384,7 +426,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximum-profit-job-scheduling",
@@ -393,7 +436,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximum-sum-bst",
@@ -402,7 +446,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-empty-cases"
   },
   {
     "slug": "amazon-meeting-room-scheduler",
@@ -411,7 +456,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-merge-intervals",
@@ -420,7 +466,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-merge-k-sorted-lists",
@@ -429,7 +476,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-empty-cases"
   },
   {
     "slug": "amazon-middle-stack-operations",
@@ -438,7 +486,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-empty-cases"
   },
   {
     "slug": "amazon-minimize-malware-facility-network",
@@ -447,7 +496,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimum-window-substring",
@@ -456,7 +506,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-nary-tree-nodes-at-level",
@@ -465,7 +516,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-next-palindromic-time",
@@ -474,7 +526,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-next-permutation",
@@ -483,7 +536,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-product-array-except-self",
@@ -492,7 +546,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-reorganize-string",
@@ -501,7 +556,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-right-down-grid-path",
@@ -510,7 +566,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-rotting-oranges-variation",
@@ -519,7 +576,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-running-delivery-time-medians",
@@ -528,7 +586,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-search-rotated-sorted-array",
@@ -537,7 +596,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-task-scheduler",
@@ -546,7 +606,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-three-sum-closest",
@@ -555,7 +616,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-train-route-fare",
@@ -564,7 +626,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-transfer-chain-endpoints",
@@ -573,7 +636,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-trapping-rain-water",
@@ -582,7 +646,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-two-knights-minimum-meeting-moves",
@@ -591,7 +656,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-unique-pairs-2d-target",
@@ -600,7 +666,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-unique-string-permutations",
@@ -609,7 +676,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-validate-two-color-chessboard",
@@ -618,7 +686,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-woodcut-saw-height",
@@ -627,7 +696,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-word-break",
@@ -636,7 +706,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-word-break-ii",
@@ -645,7 +716,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-min-amount",
@@ -654,7 +726,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-12"
+    "updated": "2026-09-12",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-interleaving-string",
@@ -663,7 +736,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-12"
+    "updated": "2026-09-12",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-prefix-search-collection",
@@ -672,7 +746,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-12"
+    "updated": "2026-09-12",
+    "parse_status": "parsed-empty-cases"
   },
   {
     "slug": "amazon-word-search-ii",
@@ -681,7 +756,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-12"
+    "updated": "2026-09-12",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-ad-click-counts-sliding-window",
@@ -690,7 +766,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-10"
+    "updated": "2026-09-10",
+    "parse_status": "parsed-empty-cases"
   },
   {
     "slug": "amazon-consecutive-website-visit-pattern",
@@ -699,7 +776,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-10"
+    "updated": "2026-09-10",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-longest-substring-without-repeating-characters",
@@ -708,7 +786,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-10"
+    "updated": "2026-09-10",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-sliding-window-rate-limiter",
@@ -717,7 +796,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-10"
+    "updated": "2026-09-10",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-minimum-cost",
@@ -726,7 +806,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-09"
+    "updated": "2026-09-09",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximum-capacity",
@@ -735,7 +816,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-08"
+    "updated": "2026-09-08",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-meeting-rooms-ii",
@@ -744,7 +826,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-08"
+    "updated": "2026-09-08",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimum-merge-conflicts",
@@ -753,7 +836,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-08"
+    "updated": "2026-09-08",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-next-smaller-ticket-price",
@@ -762,7 +846,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-08"
+    "updated": "2026-09-08",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-remove-k-digits",
@@ -771,7 +856,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-08"
+    "updated": "2026-09-08",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-distinct-pairs",
@@ -780,7 +866,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-05"
+    "updated": "2026-09-05",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimum-adjacent-swaps-binary-groups",
@@ -789,7 +876,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-02"
+    "updated": "2026-09-02",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximum-frequency-stack",
@@ -798,7 +886,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-09-01"
+    "updated": "2026-09-01",
+    "parse_status": "parsed-empty-cases"
   },
   {
     "slug": "amazon-linked-list-queue-operations",
@@ -807,7 +896,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-08-31"
+    "updated": "2026-08-31",
+    "parse_status": "parsed-empty-cases"
   },
   {
     "slug": "amazon-minimum-grid-inconvenience",
@@ -816,7 +906,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-08-28"
+    "updated": "2026-08-28",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-single-element-in-sorted-array",
@@ -825,7 +916,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-30"
+    "updated": "2026-07-30",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-count-complete-components",
@@ -834,7 +926,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-29"
+    "updated": "2026-07-29",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-cousins-in-binary-tree-ii",
@@ -843,7 +936,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-29"
+    "updated": "2026-07-29",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimum-operations-to-make-array-continuous",
@@ -852,7 +946,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-29"
+    "updated": "2026-07-29",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-vertical-order-traversal-of-binary-tree",
@@ -861,7 +956,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-29"
+    "updated": "2026-07-29",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-http-request-redirection",
@@ -870,7 +966,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-28"
+    "updated": "2026-07-28",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-resolve-task-dependencies",
@@ -879,7 +976,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-27"
+    "updated": "2026-07-27",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-shortest-distance-circular-bus-route",
@@ -888,7 +986,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-26"
+    "updated": "2026-07-26",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-sort-array-with-rotate-and-flip",
@@ -897,7 +996,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-22"
+    "updated": "2026-07-22",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-loyal-customers",
@@ -906,7 +1006,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-21"
+    "updated": "2026-07-21",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-smallest-number-with-digit-sum",
@@ -915,7 +1016,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-21"
+    "updated": "2026-07-21",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-group-anagrams",
@@ -924,7 +1026,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-12"
+    "updated": "2026-07-12",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-longest-palindromic-subsequence",
@@ -933,7 +1036,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-12"
+    "updated": "2026-07-12",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximal-square",
@@ -942,7 +1046,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-12"
+    "updated": "2026-07-12",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximum-sum-of-heights",
@@ -951,7 +1056,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-12"
+    "updated": "2026-07-12",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-number-of-islands-ii",
@@ -960,7 +1066,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-12"
+    "updated": "2026-07-12",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-sliding-window-maximum",
@@ -969,7 +1076,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-12"
+    "updated": "2026-07-12",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-domain-weight-calculation",
@@ -978,7 +1086,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-10"
+    "updated": "2026-07-10",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimum-contiguous-replacements",
@@ -987,7 +1096,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-10"
+    "updated": "2026-07-10",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimum-redistribution-cost",
@@ -996,7 +1106,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-10"
+    "updated": "2026-07-10",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-number-of-atoms",
@@ -1005,7 +1116,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-10"
+    "updated": "2026-07-10",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-closest-version-date",
@@ -1014,7 +1126,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-08"
+    "updated": "2026-07-08",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-max-concurrent-processes",
@@ -1023,7 +1136,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-08"
+    "updated": "2026-07-08",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-package-dependency-order",
@@ -1032,7 +1146,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-08"
+    "updated": "2026-07-08",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-merge-sorted-array",
@@ -1041,7 +1156,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-07"
+    "updated": "2026-07-07",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-maximum-number-of-servers",
@@ -1050,7 +1166,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-03"
+    "updated": "2026-07-03",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-permutation-sorter",
@@ -1059,7 +1176,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-07-03"
+    "updated": "2026-07-03",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-feasible-indices-after-prefix-suffix-reduction",
@@ -1068,7 +1186,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-06-30"
+    "updated": "2026-06-30",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-frequently-bought-together",
@@ -1077,7 +1196,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-06-29"
+    "updated": "2026-06-29",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-souvenir-shop-purchases",
@@ -1086,7 +1206,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-06-29"
+    "updated": "2026-06-29",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-minimum-groups",
@@ -1095,7 +1216,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-06-24"
+    "updated": "2026-06-24",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximum-equal-parts-for-prefixes",
@@ -1104,7 +1226,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-06-19"
+    "updated": "2026-06-19",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-count-promotional-periods",
@@ -1113,7 +1236,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-06-09"
+    "updated": "2026-06-09",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-smallest-base-segment",
@@ -1122,7 +1246,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-06-09"
+    "updated": "2026-06-09",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-select-least-resource-tasks",
@@ -1131,7 +1256,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-06-09"
+    "updated": "2026-06-09",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-lowest-common-ancestor-implemented-with-stack",
@@ -1140,7 +1266,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-05-30"
+    "updated": "2026-05-30",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-product-category-groups",
@@ -1149,7 +1276,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-05-23"
+    "updated": "2026-05-23",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-count-connected-components",
@@ -1158,7 +1286,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-05-21"
+    "updated": "2026-05-21",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-unique-pairs-with-target-sum",
@@ -1167,7 +1296,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-05-13"
+    "updated": "2026-05-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-feasible-indices-after-reduction",
@@ -1176,7 +1306,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-04-30"
+    "updated": "2026-04-30",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-count-similar-string-groups",
@@ -1185,7 +1316,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-04-25"
+    "updated": "2026-04-25",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-min-errors",
@@ -1194,7 +1326,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-04-16"
+    "updated": "2026-04-16",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximum-score-with-non-adjacent-values",
@@ -1203,7 +1336,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-04-14"
+    "updated": "2026-04-14",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-make-value-groups-contiguous",
@@ -1212,7 +1346,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-04-13"
+    "updated": "2026-04-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-dynamic-kth-largest-queries",
@@ -1221,7 +1356,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-04-09"
+    "updated": "2026-04-09",
+    "parse_status": "parsed-empty-cases"
   },
   {
     "slug": "amazon-longest-zero-sum-subarray",
@@ -1230,7 +1366,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-04-09"
+    "updated": "2026-04-09",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximize-minimum-machine-power",
@@ -1239,7 +1376,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-04-09"
+    "updated": "2026-04-09",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximize-protected-city-population",
@@ -1248,7 +1386,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-04-06"
+    "updated": "2026-04-06",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimum-cost-to-convert-products-to-variant-a",
@@ -1257,7 +1396,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-04-06"
+    "updated": "2026-04-06",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimum-preparation-time-for-two-handlers",
@@ -1266,7 +1406,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-04-06"
+    "updated": "2026-04-06",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-sum-max-plus-min-after-decrement-operations",
@@ -1275,7 +1416,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-03-25"
+    "updated": "2026-03-25",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-sort-error-codes-by-frequency",
@@ -1284,7 +1426,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-03-24"
+    "updated": "2026-03-24",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-lexicographically-smallest-after-one-substring-rotation",
@@ -1293,7 +1436,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-02-05"
+    "updated": "2026-02-05",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimum-operations-to-sort-permutation",
@@ -1302,7 +1446,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-01-30"
+    "updated": "2026-01-30",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-lexicographically-maximum-final-sequence",
@@ -1311,7 +1456,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-01-24"
+    "updated": "2026-01-24",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-package-delivery-system",
@@ -1320,7 +1466,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-01-24"
+    "updated": "2026-01-24",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-vm-rental-revenue",
@@ -1329,7 +1476,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-01-24"
+    "updated": "2026-01-24",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-longest-arithmetic-subarray-after-one-change",
@@ -1338,7 +1486,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-01-06"
+    "updated": "2026-01-06",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-replace-values-and-return-sums",
@@ -1347,7 +1496,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2026-01-06"
+    "updated": "2026-01-06",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimum-s3-storage-cost",
@@ -1356,7 +1506,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-12-11"
+    "updated": "2025-12-11",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-count-picked-items-less-than-queries",
@@ -1365,7 +1516,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-08-10"
+    "updated": "2025-08-10",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-fair-prize-distribution",
@@ -1374,7 +1526,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-08-10"
+    "updated": "2025-08-10",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-largest-number-with-digit-sum",
@@ -1383,7 +1536,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-08-03"
+    "updated": "2025-08-03",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimize-binary-subsequence-cost",
@@ -1392,7 +1546,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-08-03"
+    "updated": "2025-08-03",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-first-word-segmentation",
@@ -1401,7 +1556,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-07-26"
+    "updated": "2025-07-26",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-nearby-fulfillment-centers",
@@ -1410,7 +1566,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-07-26"
+    "updated": "2025-07-26",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximize-pages-before-suspension",
@@ -1419,7 +1576,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-07-08"
+    "updated": "2025-07-08",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-predict-answer",
@@ -1428,7 +1586,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-06-23"
+    "updated": "2025-06-23",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-security-level",
@@ -1437,7 +1596,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-06-18"
+    "updated": "2025-06-18",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-min-subsegments",
@@ -1446,7 +1606,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-06-18"
+    "updated": "2025-06-18",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimize-variation",
@@ -1455,7 +1616,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-06-18"
+    "updated": "2025-06-18",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-hash",
@@ -1464,7 +1626,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-06-12"
+    "updated": "2025-06-12",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-count-special-substrs",
@@ -1473,7 +1636,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-05-31"
+    "updated": "2025-05-31",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-minimum-days",
@@ -1482,7 +1646,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-05-31"
+    "updated": "2025-05-31",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-minimum-machines-size",
@@ -1491,7 +1656,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-05-31"
+    "updated": "2025-05-31",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-maximum-count",
@@ -1500,7 +1666,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-05-31"
+    "updated": "2025-05-31",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-split-prefix-suffix",
@@ -1509,7 +1676,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-05-31"
+    "updated": "2025-05-31",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-determine-the-best-skipping-strategy",
@@ -1518,7 +1686,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-05-25"
+    "updated": "2025-05-25",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-compute-beauty-of-array-products",
@@ -1527,7 +1696,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-04-27"
+    "updated": "2025-04-27",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-idle-skills-query",
@@ -1536,7 +1706,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-04-27"
+    "updated": "2025-04-27",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-minimum-dock-bays",
@@ -1545,7 +1716,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-04-27"
+    "updated": "2025-04-27",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-minimum-number-of-unique-distribution-centers",
@@ -1554,7 +1726,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-04-13"
+    "updated": "2025-04-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-next-greater-perfect-string",
@@ -1563,7 +1736,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-04-13"
+    "updated": "2025-04-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-use-minimum-tokens",
@@ -1572,7 +1746,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-04-13"
+    "updated": "2025-04-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-remove-characters-in-frequency-order",
@@ -1581,7 +1756,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-04-10"
+    "updated": "2025-04-10",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-optimal-utilization",
@@ -1590,7 +1766,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-04-05"
+    "updated": "2025-04-05",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-purchase-servers",
@@ -1599,7 +1776,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-04-05"
+    "updated": "2025-04-05",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-cinema-shows",
@@ -1608,7 +1786,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-03-31"
+    "updated": "2025-03-31",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimum-retailers",
@@ -1617,7 +1796,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-03-31"
+    "updated": "2025-03-31",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-min-replacements",
@@ -1626,7 +1806,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-03-29"
+    "updated": "2025-03-29",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-convert-to-good-string",
@@ -1635,7 +1816,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-03-28"
+    "updated": "2025-03-28",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-min-max-difference",
@@ -1644,7 +1826,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-03-27"
+    "updated": "2025-03-27",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-max-sum-of-non-overlapping-intervals",
@@ -1653,7 +1836,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-03-27"
+    "updated": "2025-03-27",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-minimal-cost",
@@ -1662,7 +1846,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-03-26"
+    "updated": "2025-03-26",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-least-possible-vulnerability",
@@ -1671,7 +1856,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-03-24"
+    "updated": "2025-03-24",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-make-array-distinct",
@@ -1680,7 +1866,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-03-24"
+    "updated": "2025-03-24",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-ensure-non-zero-load-sum",
@@ -1689,7 +1876,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-03-23"
+    "updated": "2025-03-23",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-number-of-well-performing-groups",
@@ -1698,7 +1886,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-03-23"
+    "updated": "2025-03-23",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-max-increments",
@@ -1707,7 +1896,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-03-22"
+    "updated": "2025-03-22",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-password-strength",
@@ -1716,7 +1906,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-03-22"
+    "updated": "2025-03-22",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-optimal-level",
@@ -1725,7 +1916,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-03-21"
+    "updated": "2025-03-21",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-min-operation",
@@ -1734,7 +1926,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-03-21"
+    "updated": "2025-03-21",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-trader-joe-trades",
@@ -1743,7 +1936,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-03-21"
+    "updated": "2025-03-21",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-all-about-rewards",
@@ -1752,7 +1946,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-03-20"
+    "updated": "2025-03-20",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-inventory-processes-survival-possibility",
@@ -1761,7 +1956,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-03-18"
+    "updated": "2025-03-18",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-medians",
@@ -1770,7 +1966,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-03-18"
+    "updated": "2025-03-18",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-partition-cost",
@@ -1779,7 +1976,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-03-13"
+    "updated": "2025-03-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-most-out-of-the-data",
@@ -1788,7 +1986,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-02-10"
+    "updated": "2025-02-10",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximize-sum-of-array-multiplication",
@@ -1797,7 +1996,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-02-05"
+    "updated": "2025-02-05",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximum-number-of-products-you-can-pick",
@@ -1806,7 +2006,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-02-05"
+    "updated": "2025-02-05",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-maximum",
@@ -1815,7 +2016,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-02-02"
+    "updated": "2025-02-02",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-sum-of-max-subarrays",
@@ -1824,7 +2026,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-02-02"
+    "updated": "2025-02-02",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-calculate-max-salary",
@@ -1833,7 +2036,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-01-09"
+    "updated": "2025-01-09",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximize-product-of-sizes-of-subtrees",
@@ -1842,7 +2046,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-01-09"
+    "updated": "2025-01-09",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimum-energy-cost",
@@ -1851,7 +2056,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-01-09"
+    "updated": "2025-01-09",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-optimal-interval-difference",
@@ -1860,7 +2066,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-01-08"
+    "updated": "2025-01-08",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-max-value",
@@ -1869,7 +2076,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-01-05"
+    "updated": "2025-01-05",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-maximum-events",
@@ -1878,7 +2086,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2025-01-05"
+    "updated": "2025-01-05",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-calculate-max-profit",
@@ -1887,7 +2096,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-12-22"
+    "updated": "2024-12-22",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-final-locations",
@@ -1896,7 +2106,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-12-22"
+    "updated": "2024-12-22",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-stable-periods-count",
@@ -1905,7 +2116,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-12-22"
+    "updated": "2024-12-22",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-max-transfer-rate",
@@ -1914,7 +2126,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-12-22"
+    "updated": "2024-12-22",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-max-stability",
@@ -1923,7 +2136,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-12-20"
+    "updated": "2024-12-20",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-make-array-zero-by-subtracting-equal-amounts",
@@ -1932,7 +2146,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-12-20"
+    "updated": "2024-12-20",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimum-swaps-to-make-palindrome",
@@ -1941,7 +2156,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-12-20"
+    "updated": "2024-12-20",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-max-skill-sum",
@@ -1950,7 +2166,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-12-11"
+    "updated": "2024-12-11",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-minimum-value",
@@ -1959,7 +2176,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-12-11"
+    "updated": "2024-12-11",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-number",
@@ -1968,7 +2186,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-12-10"
+    "updated": "2024-12-10",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-min-removal",
@@ -1977,7 +2196,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-12-10"
+    "updated": "2024-12-10",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-lexicographically-smallest-string",
@@ -1986,7 +2206,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-12-08"
+    "updated": "2024-12-08",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-password-strength",
@@ -1995,7 +2216,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-12-08"
+    "updated": "2024-12-08",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-perform-queries",
@@ -2004,7 +2226,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-12-08"
+    "updated": "2024-12-08",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-data-dependence-sum",
@@ -2013,7 +2236,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-12-03"
+    "updated": "2024-12-03",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-min-operations2",
@@ -2022,7 +2246,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-12-03"
+    "updated": "2024-12-03",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-sum-of-all-days-numbers-on-which-the-data-of-the-xth-will-be-dependent",
@@ -2031,7 +2256,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-11-27"
+    "updated": "2024-11-27",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-optimize-identifiers",
@@ -2040,7 +2266,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-11-25"
+    "updated": "2024-11-25",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimum-insertions",
@@ -2049,7 +2276,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-11-24"
+    "updated": "2024-11-24",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-determine-minimum-characters-to-append",
@@ -2058,7 +2286,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-11-23"
+    "updated": "2024-11-23",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-reduce-memory-usage",
@@ -2067,7 +2296,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-11-20"
+    "updated": "2024-11-20",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-calculate-truck-distance",
@@ -2076,7 +2306,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-11-18"
+    "updated": "2024-11-18",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-minimum-changes",
@@ -2085,7 +2316,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-11-18"
+    "updated": "2024-11-18",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-ideal-days",
@@ -2094,7 +2326,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-11-17"
+    "updated": "2024-11-17",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-min-moves",
@@ -2103,7 +2336,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-11-14"
+    "updated": "2024-11-14",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimize-effort",
@@ -2112,7 +2346,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-11-14"
+    "updated": "2024-11-14",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-max-discount-pairs",
@@ -2121,7 +2356,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-11-13"
+    "updated": "2024-11-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-rooks-left",
@@ -2130,7 +2366,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-11-12"
+    "updated": "2024-11-12",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-optimized-identifiers",
@@ -2139,7 +2376,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-11-09"
+    "updated": "2024-11-09",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-cleanup-dataset",
@@ -2148,7 +2386,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-10-30"
+    "updated": "2024-10-30",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-minimum-possible-variance",
@@ -2157,7 +2396,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-10-30"
+    "updated": "2024-10-30",
+    "parse_status": "page-unparseable"
   },
   {
     "slug": "amazon-find-minimum-time-required",
@@ -2166,7 +2406,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-10-30"
+    "updated": "2024-10-30",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-calculate-warehouse-efficiency",
@@ -2175,7 +2416,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-10-28"
+    "updated": "2024-10-28",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-network-calls",
@@ -2184,7 +2426,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-10-28"
+    "updated": "2024-10-28",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-make-all-elements-distinct",
@@ -2193,7 +2436,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-10-28"
+    "updated": "2024-10-28",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximize-similarity",
@@ -2202,7 +2446,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-10-28"
+    "updated": "2024-10-28",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-min-cost-book",
@@ -2211,7 +2456,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-10-22"
+    "updated": "2024-10-22",
+    "parse_status": "page-unparseable"
   },
   {
     "slug": "amazon-get-smaller-items",
@@ -2220,7 +2466,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-10-22"
+    "updated": "2024-10-22",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximum-number-of-days-to-survive",
@@ -2229,7 +2476,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-10-22"
+    "updated": "2024-10-22",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-schedule-tasks",
@@ -2238,7 +2486,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-10-22"
+    "updated": "2024-10-22",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimum-weekly-input",
@@ -2247,7 +2496,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-10-20"
+    "updated": "2024-10-20",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-minimum-time",
@@ -2256,7 +2506,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-10-19"
+    "updated": "2024-10-19",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-max-programs",
@@ -2265,7 +2516,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-10-19"
+    "updated": "2024-10-19",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-can-sort-permutation-in-given-moves",
@@ -2274,7 +2526,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-10-11"
+    "updated": "2024-10-11",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-minimum-time-to-create-beautiful-canvas",
@@ -2283,7 +2536,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-10-11"
+    "updated": "2024-10-11",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-max-charge",
@@ -2292,7 +2546,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-10-11"
+    "updated": "2024-10-11",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-rearrange-binary-string",
@@ -2301,7 +2556,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-10-11"
+    "updated": "2024-10-11",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-max-alternating-music",
@@ -2310,7 +2566,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-10-08"
+    "updated": "2024-10-08",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-special-string",
@@ -2319,7 +2576,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-10-05"
+    "updated": "2024-10-05",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-days-s2-subsequence-of-s1",
@@ -2328,7 +2586,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-09-28"
+    "updated": "2024-09-28",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-subarray-with-minimum-distinct-integers",
@@ -2337,7 +2596,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-09-27"
+    "updated": "2024-09-27",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-maximum-calories",
@@ -2346,7 +2606,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-09-26"
+    "updated": "2024-09-26",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-sum-of-beauties",
@@ -2355,7 +2616,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-09-26"
+    "updated": "2024-09-26",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-longest-perfect-anagrams",
@@ -2364,7 +2626,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-09-26"
+    "updated": "2024-09-26",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximum-quality-sum",
@@ -2373,7 +2636,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-09-26"
+    "updated": "2024-09-26",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimize-warehouse-transfer-cost",
@@ -2382,7 +2646,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-09-26"
+    "updated": "2024-09-26",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-calculate-total-distance-travelled",
@@ -2391,7 +2656,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-09-19"
+    "updated": "2024-09-19",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximum-possible-racers",
@@ -2400,7 +2666,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-09-19"
+    "updated": "2024-09-19",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-distribute-packages",
@@ -2409,7 +2676,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-09-03"
+    "updated": "2024-09-03",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-capable-winners",
@@ -2418,7 +2686,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-09-03"
+    "updated": "2024-09-03",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-max-information-gain",
@@ -2427,7 +2696,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-09-03"
+    "updated": "2024-09-03",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-min-size",
@@ -2436,7 +2706,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-08-30"
+    "updated": "2024-08-30",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-minimum-number-of-operations",
@@ -2445,7 +2716,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-08-28"
+    "updated": "2024-08-28",
+    "parse_status": "page-unparseable"
   },
   {
     "slug": "amazon-choose-warehouses-location",
@@ -2454,7 +2726,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-08-25"
+    "updated": "2024-08-25",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimum-storage-capacity-required",
@@ -2463,7 +2736,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-08-23"
+    "updated": "2024-08-23",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-maximum-sum",
@@ -2472,7 +2746,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-08-10"
+    "updated": "2024-08-10",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-assign-tasks",
@@ -2481,7 +2756,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-08-05"
+    "updated": "2024-08-05",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-active-requests-count",
@@ -2490,7 +2766,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-08-05"
+    "updated": "2024-08-05",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-operations",
@@ -2499,7 +2776,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-08-05"
+    "updated": "2024-08-05",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-process-queries-on-cart",
@@ -2508,7 +2786,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-08-05"
+    "updated": "2024-08-05",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-minimum-boxes",
@@ -2517,7 +2796,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-07-25"
+    "updated": "2024-07-25",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-compute-encoded-product-name",
@@ -2526,7 +2806,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-07-15"
+    "updated": "2024-07-15",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-redundant-substrings",
@@ -2535,7 +2816,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-07-15"
+    "updated": "2024-07-15",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-process-queue",
@@ -2544,7 +2826,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-07-15"
+    "updated": "2024-07-15",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-max-consecutive-on",
@@ -2553,7 +2836,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-07-09"
+    "updated": "2024-07-09",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-total-requests",
@@ -2562,7 +2846,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-06-27"
+    "updated": "2024-06-27",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "maximize-negative-signs",
@@ -2571,7 +2856,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-06-24"
+    "updated": "2024-06-24",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-is-regex-matching",
@@ -2580,7 +2866,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-06-15"
+    "updated": "2024-06-15",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximum-stability",
@@ -2589,7 +2876,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-06-15"
+    "updated": "2024-06-15",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-bring-servers-down",
@@ -2598,7 +2886,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-06-10"
+    "updated": "2024-06-10",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximize-subtree-product",
@@ -2607,7 +2896,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-06-10"
+    "updated": "2024-06-10",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-k-level-permutation",
@@ -2616,7 +2906,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-06-02"
+    "updated": "2024-06-02",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimal-heaviest-set-a",
@@ -2625,7 +2916,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-06-02"
+    "updated": "2024-06-02",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-exp",
@@ -2634,7 +2926,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-05-13"
+    "updated": "2024-05-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-orda-layout",
@@ -2643,7 +2936,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-05-04"
+    "updated": "2024-05-04",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "find-median-of-subarray-uniqueness",
@@ -2652,7 +2946,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-04-15"
+    "updated": "2024-04-15",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-count-pairs",
@@ -2661,7 +2956,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-04-12"
+    "updated": "2024-04-12",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-max-pairs",
@@ -2670,7 +2966,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-04-12"
+    "updated": "2024-04-12",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-min-time",
@@ -2679,7 +2976,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-04-12"
+    "updated": "2024-04-12",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-kth-smallest-in-subarray",
@@ -2688,7 +2986,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-04-12"
+    "updated": "2024-04-12",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximize-the-array-sum-after-negating-at-most-k-elements",
@@ -2697,7 +2996,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-04-12"
+    "updated": "2024-04-12",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-calculate-median-sum",
@@ -2706,7 +3006,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-04-09"
+    "updated": "2024-04-09",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "max-lucky-numbers",
@@ -2715,7 +3016,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-04-07"
+    "updated": "2024-04-07",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-kth-minimum-vulnerability",
@@ -2724,7 +3026,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-04-05"
+    "updated": "2024-04-05",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-max-aggregate-temperature-change",
@@ -2733,7 +3036,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-03-31"
+    "updated": "2024-03-31",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-count-faults",
@@ -2742,7 +3046,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-03-19"
+    "updated": "2024-03-19",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-maximum-num",
@@ -2751,7 +3056,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-03-19"
+    "updated": "2024-03-19",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimize-sum-of-absolute-differences",
@@ -2760,7 +3066,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-03-18"
+    "updated": "2024-03-18",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-match-strings",
@@ -2769,7 +3076,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-03-14"
+    "updated": "2024-03-14",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-encrypted-password",
@@ -2778,7 +3086,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-03-12"
+    "updated": "2024-03-12",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-number-of-possible-unique-strings",
@@ -2787,7 +3096,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-03-12"
+    "updated": "2024-03-12",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-lexicographically-smallest-palindrome-possible",
@@ -2796,7 +3106,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-03-09"
+    "updated": "2024-03-09",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-number-of-ways-to-group-parcels",
@@ -2805,7 +3116,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-03-04"
+    "updated": "2024-03-04",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximum-times-word-removed",
@@ -2814,7 +3126,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-03-03"
+    "updated": "2024-03-03",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-return-records",
@@ -2823,7 +3136,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-03-02"
+    "updated": "2024-03-02",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-reverse-binary-string",
@@ -2832,7 +3146,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-03-02"
+    "updated": "2024-03-02",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-max-racers",
@@ -2841,7 +3156,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-02-20"
+    "updated": "2024-02-20",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-count-distinct-passwords",
@@ -2850,7 +3166,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-02-19"
+    "updated": "2024-02-19",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-get-min-num-moves",
@@ -2859,7 +3176,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-02-19"
+    "updated": "2024-02-19",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-min-trips",
@@ -2868,7 +3186,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-02-17"
+    "updated": "2024-02-17",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-maximum-user-traffic",
@@ -2877,7 +3196,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-02-17"
+    "updated": "2024-02-17",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-minimize-the-range",
@@ -2886,7 +3206,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-02-17"
+    "updated": "2024-02-17",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-recurring-names",
@@ -2895,7 +3216,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-02-14"
+    "updated": "2024-02-14",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-requests-in-queue",
@@ -2904,7 +3226,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-02-14"
+    "updated": "2024-02-14",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-largest-set-of-onion-bags",
@@ -2913,7 +3236,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-02-06"
+    "updated": "2024-02-06",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-min-errors",
@@ -2922,7 +3246,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-02-06"
+    "updated": "2024-02-06",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-dropped-requests",
@@ -2931,7 +3256,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-01-27"
+    "updated": "2024-01-27",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-execute-processes",
@@ -2940,7 +3266,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-01-27"
+    "updated": "2024-01-27",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-unique-values",
@@ -2949,7 +3276,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-01-27"
+    "updated": "2024-01-27",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-group-students",
@@ -2958,7 +3286,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-01-27"
+    "updated": "2024-01-27",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-num-of-suitable-places",
@@ -2967,7 +3296,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-01-27"
+    "updated": "2024-01-27",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "max-set-size",
@@ -2976,7 +3306,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-01-13"
+    "updated": "2024-01-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "get-discount-pairs",
@@ -2985,7 +3316,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-01-11"
+    "updated": "2024-01-11",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "get-min-cost-data",
@@ -2994,7 +3326,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-01-10"
+    "updated": "2024-01-10",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "count-maximum-profitable-groups",
@@ -3003,7 +3336,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2024-01-07"
+    "updated": "2024-01-07",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-find-minimum-dist",
@@ -3012,7 +3346,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2023-12-27"
+    "updated": "2023-12-27",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "amazon-how-many-games-did-the-team-win",
@@ -3021,7 +3356,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2023-12-27"
+    "updated": "2023-12-27",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "check-similar-passwords",
@@ -3030,7 +3366,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2023-12-23"
+    "updated": "2023-12-23",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "location-of-data-after-transfers",
@@ -3039,7 +3376,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2023-12-23"
+    "updated": "2023-12-23",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "maximum-score-in-balanced-string",
@@ -3048,7 +3386,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2023-12-23"
+    "updated": "2023-12-23",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "get-success-value",
@@ -3057,7 +3396,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2023-12-19"
+    "updated": "2023-12-19",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "warehouse-allocation",
@@ -3066,7 +3406,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2023-12-15"
+    "updated": "2023-12-15",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "erase-pairs",
@@ -3075,7 +3416,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2023-12-13"
+    "updated": "2023-12-13",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "get-priorities-after-execution",
@@ -3084,7 +3426,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2023-12-06"
+    "updated": "2023-12-06",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "count-max-num-teams",
@@ -3093,7 +3436,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2023-09-24"
+    "updated": "2023-09-24",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "get-average-standing",
@@ -3102,7 +3446,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2023-09-24"
+    "updated": "2023-09-24",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "minimum-time-spent",
@@ -3111,7 +3456,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2023-09-24"
+    "updated": "2023-09-24",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "count-spikes",
@@ -3120,7 +3466,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2023-08-31"
+    "updated": "2023-08-31",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "find-minimum-inefficiency",
@@ -3129,7 +3476,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2023-08-31"
+    "updated": "2023-08-31",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "get-mean-rank-count",
@@ -3138,7 +3486,8 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2023-08-31"
+    "updated": "2023-08-31",
+    "parse_status": "parsed-with-cases"
   },
   {
     "slug": "get-minimum-cost",
@@ -3147,6 +3496,7 @@
     "companies": [
       "Amazon"
     ],
-    "updated": "2023-08-31"
+    "updated": "2023-08-31",
+    "parse_status": "parsed-with-cases"
   }
 ]

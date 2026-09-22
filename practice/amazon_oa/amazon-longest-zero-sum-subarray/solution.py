@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-longest-zero-sum-subarray.md
 
-You are given an integer array nums containing positive and negative integers.Return the length of the longest contiguous subarray whose sum is equal to 0. If no such subarray exists, return 0.
+You are given an integer array nums containing positive and negative integers.
 
   uv run python amazon_oa/amazon-longest-zero-sum-subarray/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-longest-zero-sum-subarray/              # run the test sets

@@ -2,7 +2,9 @@
 
 **Medium** | **NN minutes** | **Array, Binary Search**
 
-Given a sorted integer array nums, every value appears exactly twice except for one value that appears exactly once.Return the value that appears once. Your solution must run in O(log n) time and use O(1) extra space.
+Given a sorted integer array nums, every value appears exactly twice except for one value that appears exactly once.
+
+Return the value that appears once. Your solution must run in O(log n) time and use O(1) extra space.
 
 ## Examples
 
@@ -24,7 +26,11 @@ Given a sorted integer array nums, every value appears exactly twice except for 
 
 ## Constraints
 
-- `1 <= nums.length <= 100000nums.length is odd.-2147483648 <= nums[i] <= 2147483647nums is sorted in nondecreasing order.Exactly one value appears once; every other value appears exactly twice.`
+- `1 <= nums.length <= 100000`
+- `nums.length is odd.`
+- `-2147483648 <= nums[i] <= 2147483647`
+- `nums is sorted in nondecreasing order.`
+- `Exactly one value appears once; every other value appears exactly twice.`
 
 ## Solutions
 

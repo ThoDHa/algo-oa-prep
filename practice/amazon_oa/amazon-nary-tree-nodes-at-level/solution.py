@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-nary-tree-nodes-at-level.md
 
-An N-ary tree uses node IDs from 0 through children.length - 1, with root ID 0. For each node ID, children[id] lists its child IDs from left to right.Return the node IDs at zero-based level in left-to
+An N-ary tree uses node IDs from 0 through children.length - 1, with root ID 0. For each node ID, children[id] lists its child IDs from left to right.
 
   uv run python amazon_oa/amazon-nary-tree-nodes-at-level/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-nary-tree-nodes-at-level/              # run the test sets

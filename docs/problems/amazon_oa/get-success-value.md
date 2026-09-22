@@ -2,14 +2,31 @@
 
 **Easy** | **NN minutes** | **Sorting, Prefix Sum**
 
-$23
+Amazon Prime Video has recently released an exclusive series on its platform. They collected the number of viewers from n
+  different regions across the world and stored the data in the array num_viewers.
+  
+
+
+  The success value of the release is defined as the sum of viewership in the top k regions, those with the highest viewers.
+  For example, if num_viewers = [3, 2, 1, 4, 5] and k = 3, then the success value of the release is 
+  3 + 4 + 5 = 12 as [3, 4, 5] are the top 3 values.
+  
+
+
+  Given a number of k values, calculate the success value for each query.
+  
+
+Complete the function findSuccessValue in the editor.
+
+findSuccessValue has the following parameters:
+
+int num_viewers[n]: viewership from n different regionsint queries[q]: an array of k valueslong[q]: the maximum possible success values for each query
 
 ## Examples
 
 ### Example 1
 
-**Input:** `num_viewers = [2, 5, 6, 3, 5]`
-**Input:** `queries = [2, 3, 5]`
+**Input:** `num_viewers = [2, 5, 6, 3, 5]`, `queries = [2, 3, 5]`
 
 **Output:** `[11, 16, 21]`
 
@@ -25,8 +42,7 @@ Return [11, 16, 21].
 
 ### Example 2
 
-**Input:** `num_viewers = [7, 3, 5, 2]`
-**Input:** `queries = [1, 4]`
+**Input:** `num_viewers = [7, 3, 5, 2]`, `queries = [1, 4]`
 
 **Output:** `[7, 17]`
 
@@ -39,8 +55,7 @@ Return [7, 17].
 
 ### Example 3
 
-**Input:** `num_viewers = [7, 5, 6]`
-**Input:** `queries = [1, 2, 3]`
+**Input:** `num_viewers = [7, 5, 6]`, `queries = [1, 2, 3]`
 
 **Output:** `[7, 13, 18]`
 
@@ -55,7 +70,11 @@ Return [7, 13, 18].
 
 ## Constraints
 
-- `1 <= n <= 1051 <= q <= 1051 <= num_viewers[i] <= 1091 <= queries[i] <= nEach success value is at most 1014 and requires a 64-bit integer.`
+- `1 <= n <= 10^5`
+- `1 <= q <= 10^5`
+- `1 <= num_viewers[i] <= 10^9`
+- `1 <= queries[i] <= n`
+- `Each success value is at most 10^14 and requires a 64-bit integer.`
 
 ## Solutions
 

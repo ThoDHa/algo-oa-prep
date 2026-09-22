@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-special-string.md
 
-$23
+Special thanks: Agnes and spike contributed this problem.
 
   uv run python amazon_oa/amazon-get-special-string/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-special-string/              # run the test sets

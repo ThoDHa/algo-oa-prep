@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-find-idle-skills-query.md
 
-The Amazon Alexa development team needs to analyze request logs across numSkills skills.The skills are identified by the integers from 1 through numSkills. Each entry requestLogs[i] = [skillId, timest
+The Amazon Alexa development team needs to analyze request logs across numSkills skills.
 
   uv run python amazon_oa/amazon-find-idle-skills-query/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-find-idle-skills-query/              # run the test sets

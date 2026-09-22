@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-maximum-capacity.md
 
-Amazon is optimizing the capacity of a cloud system with n servers. The memory capacity of the i-th server is memory[i].A system uses an even number of servers. If it uses 2x servers, exactly x are pr
+Amazon is optimizing the capacity of a cloud system with n servers. The memory capacity of the i-th server is memory[i].
 
   uv run python amazon_oa/amazon-maximum-capacity/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-maximum-capacity/              # run the test sets

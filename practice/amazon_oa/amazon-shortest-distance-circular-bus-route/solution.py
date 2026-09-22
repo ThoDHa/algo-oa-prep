@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-shortest-distance-circular-bus-route.md
 
-For this exercise, assume a bus route has n stops arranged in a circle. The array distance contains the distance from stop i to stop (i + 1) mod n.Given two distinct stops, start and destination, retu
+For this exercise, assume a bus route has n stops arranged in a circle. The array distance contains the distance from stop i to stop (i + 1) mod n.
 
   uv run python amazon_oa/amazon-shortest-distance-circular-bus-route/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-shortest-distance-circular-bus-route/              # run the test sets

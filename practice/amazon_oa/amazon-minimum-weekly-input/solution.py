@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-minimum-weekly-input.md
 
-$23
+A company will launch a series of marketing campaigns over several weeks. Each campaign has a certain cost. They want to launch at least one campaign every week, and to plan the campaigns in a way tha
 
   uv run python amazon_oa/amazon-minimum-weekly-input/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-minimum-weekly-input/              # run the test sets

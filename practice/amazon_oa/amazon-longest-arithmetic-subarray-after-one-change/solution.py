@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-longest-arithmetic-subarray-after-one-change.md
 
-You are given an integer array deviation.You may change at most one element of the array to any integer value. After making at most one change, find the maximum possible length of a contiguous subarra
+You are given an integer array deviation.
 
   uv run python amazon_oa/amazon-longest-arithmetic-subarray-after-one-change/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-longest-arithmetic-subarray-after-one-change/              # run the test sets

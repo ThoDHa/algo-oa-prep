@@ -4,6 +4,8 @@
 
 You are given a non-negative integer array nums. In one operation, you must:
     
+
+
       Choose a positive integer x such that x is less than or equal to the smallest non-zero element in nums.
       Subtract x from every positive element in nums.
     
@@ -33,7 +35,8 @@ In the third operation, choose x = 2. Now, nums = [0,0,0,0,0]
 
 ## Constraints
 
-- `1 <= nums.length <= 1000 <= nums[i] <= 100`
+- `1 <= nums.length <= 100`
+- `0 <= nums[i] <= 100`
 
 ## Solutions
 

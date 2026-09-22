@@ -2,7 +2,9 @@
 
 **Medium** | **NN minutes** | **Tree, Depth First Search, Recursion**
 
-Given the root of a binary tree, return the number of subtrees whose nodes all have the same value.Every node defines one subtree consisting of that node and all of its descendants. A leaf is therefore always a uni-valued subtree.
+Given the root of a binary tree, return the number of subtrees whose nodes all have the same value.
+
+Every node defines one subtree consisting of that node and all of its descendants. A leaf is therefore always a uni-valued subtree.
 
 ## Examples
 
@@ -32,7 +34,8 @@ Given the root of a binary tree, return the number of subtrees whose nodes all h
 
 ## Constraints
 
-- `The tree contains between 0 and 500 nodes.-1000 &le; Node.val &le; 1000.`
+- `The tree contains between 0 and 500 nodes.`
+- `-1000 ≤ Node.val ≤ 1000.`
 
 ## Solutions
 

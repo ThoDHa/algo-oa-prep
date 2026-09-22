@@ -2,14 +2,21 @@
 
 **Medium** | **NN minutes** | **Array, Sliding Window**
 
-A virtual assistant is being given a feature that recommends ideal days for fishing from a rainfall forecast.A day is ideal when rainfall is non-increasing throughout the previous window days leading to that day and non-decreasing throughout the following window days.Given the predicted rainfall for the next n days in forecast, find every ideal day. Formally, an array index i is ideal when:forecast[i - window] ≥ forecast[i - window + 1] ≥ … ≥ forecast[i - 1] ≥ forecast[i] ≤ forecast[i + 1] ≤ … ≤ forecast[i + window - 1] ≤ forecast[i + window]Return the ideal day numbers in ascending order. Array index i represents day i + 1, so returned day numbers are 1-based. At least one ideal day is guaranteed.
+A virtual assistant is being given a feature that recommends ideal days for fishing from a rainfall forecast.
+
+A day is ideal when rainfall is non-increasing throughout the previous window days leading to that day and non-decreasing throughout the following window days.
+
+Given the predicted rainfall for the next n days in forecast, find every ideal day. Formally, an array index i is ideal when:
+
+forecast[i - window] ≥ forecast[i - window + 1] ≥ … ≥ forecast[i - 1] ≥ forecast[i] ≤ forecast[i + 1] ≤ … ≤ forecast[i + window - 1] ≤ forecast[i + window]
+
+Return the ideal day numbers in ascending order. Array index i represents day i + 1, so returned day numbers are 1-based. At least one ideal day is guaranteed.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `forecast = [3, 2, 2, 2, 3, 4]`
-**Input:** `window = 2`
+**Input:** `forecast = [3, 2, 2, 2, 3, 4]`, `window = 2`
 
 **Output:** `[3, 4]`
 
@@ -17,8 +24,7 @@ A virtual assistant is being given a feature that recommends ideal days for fish
 
 ### Example 2
 
-**Input:** `forecast = [1, 0, 1, 0, 1]`
-**Input:** `window = 1`
+**Input:** `forecast = [1, 0, 1, 0, 1]`, `window = 1`
 
 **Output:** `[2, 4]`
 
@@ -26,8 +32,7 @@ A virtual assistant is being given a feature that recommends ideal days for fish
 
 ### Example 3
 
-**Input:** `forecast = [1, 0, 0, 0, 1]`
-**Input:** `window = 2`
+**Input:** `forecast = [1, 0, 0, 0, 1]`, `window = 2`
 
 **Output:** `[3]`
 
@@ -35,8 +40,7 @@ A virtual assistant is being given a feature that recommends ideal days for fish
 
 ### Example 4
 
-**Input:** `forecast = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]`
-**Input:** `window = 3`
+**Input:** `forecast = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]`, `window = 3`
 
 **Output:** `[4, 5, 6, 7]`
 
@@ -44,7 +48,8 @@ A virtual assistant is being given a feature that recommends ideal days for fish
 
 ## Constraints
 
-- `1 ≤ window ≤ n ≤ 2 × 1050 ≤ forecast[i] ≤ 109`
+- `1 ≤ window ≤ n ≤ 2 × 10^5`
+- `0 ≤ forecast[i] ≤ 10^9`
 
 ## Solutions
 

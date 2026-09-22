@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-vm-rental-revenue.md
 
-There are multiple VM types, each with an initial stock count. A sequence of customers rent one VM at a time.Each customer always rents from the VM type with the highest remaining stock. The revenue f
+There are multiple VM types, each with an initial stock count. A sequence of customers rent one VM at a time.
 
   uv run python amazon_oa/amazon-vm-rental-revenue/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-vm-rental-revenue/              # run the test sets

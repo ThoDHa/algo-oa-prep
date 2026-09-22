@@ -2,7 +2,17 @@
 
 **Easy** | **NN minutes** | **Sorting, Hash Table**
 
-You are given an integer array codes representing error codes.Sort the entire array using these priority rules:Error codes with lower frequency come first.If two error codes have the same frequency, the smaller numeric value comes first.Return the sorted array, keeping duplicate values in the result.Function Description Complete the function sortErrorCodesByFrequency in the editor below.sortErrorCodesByFrequency has the following parameter:int[] codes: the input error codesReturns int[]: the reordered array.
+You are given an integer array codes representing error codes.
+
+Sort the entire array using these priority rules:
+
+Error codes with lower frequency come first.If two error codes have the same frequency, the smaller numeric value comes first.Return the sorted array, keeping duplicate values in the result.
+
+Function Description Complete the function sortErrorCodesByFrequency in the editor below.
+
+sortErrorCodesByFrequency has the following parameter:
+
+int[] codes: the input error codesReturns int[]: the reordered array.
 
 ## Examples
 
@@ -24,7 +34,8 @@ You are given an integer array codes representing error codes.Sort the entire ar
 
 ## Constraints
 
-- `The output must contain the same multiset of values as the input.Order by increasing frequency, then by increasing numeric value.`
+- `The output must contain the same multiset of values as the input.`
+- `Order by increasing frequency, then by increasing numeric value.`
 
 ## Solutions
 

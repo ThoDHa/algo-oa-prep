@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-find-security-level.md
 
-$23
+Source said that the other problem 👇 in the same batch was for Newe Grad, so I assume this problem is for New Grad as well.  
 
   uv run python amazon_oa/amazon-find-security-level/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-find-security-level/              # run the test sets

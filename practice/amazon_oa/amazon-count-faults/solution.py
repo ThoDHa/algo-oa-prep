@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-count-faults.md
 
-There are n servers with IDs s1, s2, ..., sn. You are given an array logs in chronological order. Each entry has the form "<server_id> <status>", where status is either success or error.Track consecut
+There are n servers with IDs s1, s2, ..., sn. You are given an array logs in chronological order. Each entry has the form "<server_id> <status>", where status is either success or error.
 
   uv run python amazon_oa/amazon-count-faults/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-count-faults/              # run the test sets

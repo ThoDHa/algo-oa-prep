@@ -2,7 +2,11 @@
 
 **Hard** | **NN minutes** | **Array, Stack, Dynamic Programming**
 
-Given positive maximum heights maxHeights, choose a positive height for every index so that height[i] <= maxHeights[i]. The resulting array must be mountain-shaped: for some peak index, heights do not decrease before the peak and do not increase after it.Return the maximum possible sum of the chosen heights.Interview follow-upThe interviewer asked follow-up questions about the approach, complexity, and possible alternatives.
+Given positive maximum heights maxHeights, choose a positive height for every index so that height[i] <= maxHeights[i]. The resulting array must be mountain-shaped: for some peak index, heights do not decrease before the peak and do not increase after it.
+
+Return the maximum possible sum of the chosen heights.
+
+Interview follow-upThe interviewer asked follow-up questions about the approach, complexity, and possible alternatives.
 
 ## Examples
 

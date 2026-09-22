@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-minimize-warehouse-transfer-cost.md
 
-$23
+Source note: Confirmed on 2026-06-23 as a duplicate of Find Minimum Cost. The linked version is more complete and is the recommended practice version.
 
   uv run python amazon_oa/amazon-minimize-warehouse-transfer-cost/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-minimize-warehouse-transfer-cost/              # run the test sets

@@ -2,7 +2,11 @@
 
 **Hard** | **NN minutes** | **Array, Math, Greedy**
 
-You start on the ground at height 0. There are n stones, and stone i has height height[i].You must visit every stone exactly once, in any order. After jumping from the ground to the first stone, you cannot return to the ground. A jump between heights x and y burns (x - y)² calories.Return the maximum total calories that can be burned.
+You start on the ground at height 0. There are n stones, and stone i has height height[i].
+
+You must visit every stone exactly once, in any order. After jumping from the ground to the first stone, you cannot return to the ground. A jump between heights x and y burns (x - y)² calories.
+
+Return the maximum total calories that can be burned.
 
 ## Examples
 
@@ -16,7 +20,9 @@ You start on the ground at height 0. There are n stones, and stone i has height 
 
 ## Constraints
 
-- `1 ≤ n ≤ 10^5height.length = n1 ≤ height[i] ≤ 46340`
+- `1 ≤ n ≤ 10^5`
+- `height.length = n`
+- `1 ≤ height[i] ≤ 46340`
 
 ## Solutions
 

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-capacity-to-ship-packages-within-d-days.md
 
-A conveyor belt has packages that must be shipped from one port to another within days days.The i-th package has weight weights[i]. Packages are loaded in the given order: you may not rearrange them. 
+A conveyor belt has packages that must be shipped from one port to another within days days.
 
   uv run python amazon_oa/amazon-capacity-to-ship-packages-within-d-days/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-capacity-to-ship-packages-within-d-days/              # run the test sets

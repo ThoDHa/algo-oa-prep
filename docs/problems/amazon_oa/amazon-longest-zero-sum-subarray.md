@@ -2,7 +2,9 @@
 
 **unknown difficulty** | **NN minutes** | **unknown categories**
 
-You are given an integer array nums containing positive and negative integers.Return the length of the longest contiguous subarray whose sum is equal to 0. If no such subarray exists, return 0.
+You are given an integer array nums containing positive and negative integers.
+
+Return the length of the longest contiguous subarray whose sum is equal to 0. If no such subarray exists, return 0.
 
 ## Examples
 
@@ -24,7 +26,8 @@ You are given an integer array nums containing positive and negative integers.Re
 
 ## Constraints
 
-- `1 <= nums.lengthnums[i] may be positive, negative, or zero.`
+- `1 <= nums.length`
+- `nums[i] may be positive, negative, or zero.`
 
 ## Solutions
 

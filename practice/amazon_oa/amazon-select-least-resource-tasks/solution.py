@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-select-least-resource-tasks.md
 
-Amazon's Elastic Container Service schedules tasks dynamically. You are given an integer array resourceConsumption, where resourceConsumption[i] is the resource consumption of one task.Repeat the foll
+Amazon's Elastic Container Service schedules tasks dynamically. You are given an integer array resourceConsumption, where resourceConsumption[i] is the resource consumption of one task.
 
   uv run python amazon_oa/amazon-select-least-resource-tasks/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-select-least-resource-tasks/              # run the test sets

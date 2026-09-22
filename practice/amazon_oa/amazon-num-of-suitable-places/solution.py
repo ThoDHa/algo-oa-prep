@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-num-of-suitable-places.md
 
-$23
+Amazon has multiple delivery centers across the world, represented by a number line from -10^9 to 10^9. There are n delivery centers, the ith one located at position center[i].
 
   uv run python amazon_oa/amazon-num-of-suitable-places/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-num-of-suitable-places/              # run the test sets

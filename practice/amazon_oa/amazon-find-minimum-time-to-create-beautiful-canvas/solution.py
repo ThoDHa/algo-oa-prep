@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-find-minimum-time-to-create-beautiful-canvas.md
 
-$24
+Amazon is introducing an innovative smart canvas display for personalized home decor. The canvas is initially painted white, featuring n rows and m columns, waiting to be transformed into a beautiful 
 
   uv run python amazon_oa/amazon-find-minimum-time-to-create-beautiful-canvas/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-find-minimum-time-to-create-beautiful-canvas/              # run the test sets

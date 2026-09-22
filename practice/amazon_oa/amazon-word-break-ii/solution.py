@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-word-break-ii.md
 
-Given a string s and an array of unique dictionary words wordDict, insert spaces into s so that every resulting token is a dictionary word.Return every valid sentence in lexicographic order. A diction
+Given a string s and an array of unique dictionary words wordDict, insert spaces into s so that every resulting token is a dictionary word.
 
   uv run python amazon_oa/amazon-word-break-ii/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-word-break-ii/              # run the test sets

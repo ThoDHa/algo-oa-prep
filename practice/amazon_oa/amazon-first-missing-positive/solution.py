@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-first-missing-positive.md
 
-Given an unsorted integer array nums, return the smallest positive integer that does not appear in the array.Your algorithm must run in O(n) time and use O(1) extra space, excluding the input array.
+Given an unsorted integer array nums, return the smallest positive integer that does not appear in the array.
 
   uv run python amazon_oa/amazon-first-missing-positive/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-first-missing-positive/              # run the test sets

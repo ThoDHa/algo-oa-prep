@@ -2,18 +2,17 @@
 
 **Medium** | **NN minutes** | **Tree, Breadth First Search, Graph**
 
-You are given a rooted tree whose nodes are numbered from 1 through treeNodes. The arrays treeFrom and treeTo describe the undirected edges of the tree, and root identifies its root.Given two node IDs source and target, return the number of edges on the unique path between them.The serialized edge list supplies the tree structure without parent pointers.
+You are given a rooted tree whose nodes are numbered from 1 through treeNodes. The arrays treeFrom and treeTo describe the undirected edges of the tree, and root identifies its root.
+
+Given two node IDs source and target, return the number of edges on the unique path between them.
+
+The serialized edge list supplies the tree structure without parent pointers.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `treeNodes = 7`
-**Input:** `treeFrom = [1,1,2,2,3,3]`
-**Input:** `treeTo = [2,3,4,5,6,7]`
-**Input:** `root = 1`
-**Input:** `source = 4`
-**Input:** `target = 7`
+**Input:** `treeNodes = 7`, `treeFrom = [1,1,2,2,3,3]`, `treeTo = [2,3,4,5,6,7]`, `root = 1`, `source = 4`, `target = 7`
 
 **Output:** `4`
 
@@ -21,12 +20,7 @@ You are given a rooted tree whose nodes are numbered from 1 through treeNodes. T
 
 ### Example 2
 
-**Input:** `treeNodes = 5`
-**Input:** `treeFrom = [1,1,3,3]`
-**Input:** `treeTo = [2,3,4,5]`
-**Input:** `root = 1`
-**Input:** `source = 3`
-**Input:** `target = 5`
+**Input:** `treeNodes = 5`, `treeFrom = [1,1,3,3]`, `treeTo = [2,3,4,5]`, `root = 1`, `source = 3`, `target = 5`
 
 **Output:** `1`
 

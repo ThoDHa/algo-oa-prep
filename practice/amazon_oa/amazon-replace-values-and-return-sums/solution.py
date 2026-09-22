@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-replace-values-and-return-sums.md
 
-You are given an integer array entries and a 2D integer array transactions. Each transaction is a pair [oldValue, newValue].For each transaction, replace every occurrence of oldValue in entries with n
+You are given an integer array entries and a 2D integer array transactions. Each transaction is a pair [oldValue, newValue].
 
   uv run python amazon_oa/amazon-replace-values-and-return-sums/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-replace-values-and-return-sums/              # run the test sets

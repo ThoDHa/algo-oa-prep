@@ -2,7 +2,11 @@
 
 **Medium** | **NN minutes** | **Heap, Design**
 
-Given an array deliveryTimes, process the values from left to right. After each new delivery time arrives, output the median of all delivery times seen so far.When the number of seen values is even, use the lower median, meaning the larger value in the lower half after sorting.Return an array containing the median after each insertion.
+Given an array deliveryTimes, process the values from left to right. After each new delivery time arrives, output the median of all delivery times seen so far.
+
+When the number of seen values is even, use the lower median, meaning the larger value in the lower half after sorting.
+
+Return an array containing the median after each insertion.
 
 ## Examples
 
@@ -16,7 +20,10 @@ Given an array deliveryTimes, process the values from left to right. After each 
 
 ## Constraints
 
-- `deliveryTimes are processed from left to right.After each new value is inserted, record the median of all values seen so far.When the number of seen values is even, use the lower median: the larger value in the lower half after sorting.Return one median for each insertion.`
+- `deliveryTimes are processed from left to right.`
+- `After each new value is inserted, record the median of all values seen so far.`
+- `When the number of seen values is even, use the lower median: the larger value in the lower half after sorting.`
+- `Return one median for each insertion.`
 
 ## Solutions
 

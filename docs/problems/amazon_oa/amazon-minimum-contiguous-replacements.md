@@ -2,7 +2,17 @@
 
 **Medium** | **NN minutes** | **Array, Hash Table, Union Find**
 
-You are given an array arr of integers. In one operation, choose two distinct values x and y that currently appear in the array, then replace every occurrence of x with y.Return the minimum number of operations needed to make the array valid.An array is valid if every distinct value forms exactly one contiguous block. Values do not all need to become the same.For example, [1,1,2,2,3] is valid, while [1,2,1,3] is not valid because value 1 appears in two separated blocks.Function Description Complete minOperations.int arr[n]: the array to transformReturns int: the minimum number of replacement operations.
+You are given an array arr of integers. In one operation, choose two distinct values x and y that currently appear in the array, then replace every occurrence of x with y.
+
+Return the minimum number of operations needed to make the array valid.
+
+An array is valid if every distinct value forms exactly one contiguous block. Values do not all need to become the same.
+
+For example, [1,1,2,2,3] is valid, while [1,2,1,3] is not valid because value 1 appears in two separated blocks.
+
+Function Description Complete minOperations.
+
+int arr[n]: the array to transformReturns int: the minimum number of replacement operations.
 
 ## Examples
 
@@ -32,7 +42,8 @@ You are given an array arr of integers. In one operation, choose two distinct va
 
 ## Constraints
 
-- `1 <= arr.length <= 10001 <= arr[i] <= 1000`
+- `1 <= arr.length <= 1000`
+- `1 <= arr[i] <= 1000`
 
 ## Solutions
 

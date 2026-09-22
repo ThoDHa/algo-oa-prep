@@ -2,14 +2,15 @@
 
 **Easy** | **NN minutes** | **Array, Hash Table, Math**
 
-Amazon is offering a discount on every purchase of a pair of products whose price sum is divisible by x. Given the prices of n products, count the number of unordered index pairs (i, j) such that 0 <= i < j < n and (prices[i] + prices[j]) is divisible by x.Return the number of such pairs.
+Amazon is offering a discount on every purchase of a pair of products whose price sum is divisible by x. Given the prices of n products, count the number of unordered index pairs (i, j) such that 0 <= i < j < n and (prices[i] + prices[j]) is divisible by x.
+
+Return the number of such pairs.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `x = 60`
-**Input:** `prices = [31, 25, 85, 29, 35]`
+**Input:** `x = 60`, `prices = [31, 25, 85, 29, 35]`
 
 **Output:** `3`
 
@@ -17,7 +18,9 @@ Amazon is offering a discount on every purchase of a pair of products whose pric
 
 ## Constraints
 
-- `1 ≤ x ≤ 2 * 1091 ≤ n ≤ 1051 ≤ prices[i] ≤ 109`
+- `1 ≤ x ≤ 2 * 109`
+- `1 ≤ n ≤ 105`
+- `1 ≤ prices[i] ≤ 109`
 
 ## Solutions
 

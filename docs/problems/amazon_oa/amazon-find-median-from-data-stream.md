@@ -2,7 +2,9 @@
 
 **Hard** | **NN minutes** | **Design, Heap, Sorting**
 
-Process a finite sequence of operations while maintaining every integer added so far. Each row in operations has one of these forms:[&quot;add&quot;, value] inserts the integer represented by value.[&quot;median&quot;] queries the current median.For an odd number of stored values, the median is the middle value after sorting. For an even number, it is the arithmetic mean of the two middle values. Return a double[] containing the median-query results in encounter order. Add operations produce no output.
+Process a finite sequence of operations while maintaining every integer added so far. Each row in operations has one of these forms:
+
+["add", value] inserts the integer represented by value.["median"] queries the current median.For an odd number of stored values, the median is the middle value after sorting. For an even number, it is the arithmetic mean of the two middle values. Return a double[] containing the median-query results in encounter order. Add operations produce no output.
 
 ## Examples
 
@@ -32,7 +34,11 @@ Process a finite sequence of operations while maintaining every integer added so
 
 ## Constraints
 
-- `1 <= operations.length <= 2000Every row is either [&quot;add&quot;, value] or [&quot;median&quot;].Each added value is an integer from -1000000000 through 1000000000.Every median query occurs after at least one add operation.At least one median query appears.`
+- `1 <= operations.length <= 2000`
+- `Every row is either ["add", value] or ["median"].`
+- `Each added value is an integer from -1000000000 through 1000000000.`
+- `Every median query occurs after at least one add operation.`
+- `At least one median query appears.`
 
 ## Solutions
 

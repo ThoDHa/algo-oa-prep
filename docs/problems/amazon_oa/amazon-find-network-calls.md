@@ -2,14 +2,45 @@
 
 **Medium** | **NN minutes** | **Array, Sorting, Prefix Sum**
 
-$23
+Source note: Example 2 was added on 2025-03-31; its relevant source image is included in Problem Source.
+
+Special thanks: interested_max shared this problem.
+
+
+    A digital commerce platform is conducting an experiment on the number of customer feedback entries associated with each item in its catalog.
+    
+
+
+    You are provided with an array feedback of size n, where feedback[i] denotes the current number of feedback entries for the i-th item. The platform offers API endpoints that allow modifying these counts by either increasing or decreasing them by one per call.
+    
+
+
+    Given an integer array targetCounts of size q, your task is to determine the number of API calls required to adjust the feedback count of every item in feedback so that all items match each value in targetCounts.
+    
+
+
+    The objective is to return an array of size q, where the i-th element represents the total number of API calls necessary to align all feedback counts with targetCounts[i].
+    
+
+
+      Complete the function findNetworkCalls in the editor below.
+      
+
+
+      findNetworkCalls has the following parameters:
+        
+
+
+          int feedback[n]: the initial count of reviews of each product
+          int targetCounts[q]: the equal count of reviews
+        
+        long[]: an array where each element denotes the total API calls needed to align all feedback counts to the corresponding value in targetCounts
 
 ## Examples
 
 ### Example 1
 
-**Input:** `feedback = [4, 6, 5, 2, 1]`
-**Input:** `targetCounts = [3]`
+**Input:** `feedback = [4, 6, 5, 2, 1]`, `targetCounts = [3]`
 
 **Output:** `[10, 20]`
 
@@ -35,8 +66,7 @@ As the screenshots were taken on the platform, our expected output will go with 
 
 ### Example 2
 
-**Input:** `feedback = [3, 6, 6]`
-**Input:** `targetCounts = [5, 6]`
+**Input:** `feedback = [3, 6, 6]`, `targetCounts = [5, 6]`
 
 **Output:** `[4, 3]`
 
@@ -52,7 +82,10 @@ So, we return [4, 3].
 
 ## Constraints
 
-- `1 ≤ n ≤ 10^51 ≤ feedback[i] ≤ 10^61 ≤ q ≤ 10^51 ≤ targetCounts[i] ≤ 10^6`
+- `1 ≤ n ≤ 10^5`
+- `1 ≤ feedback[i] ≤ 10^6`
+- `1 ≤ q ≤ 10^5`
+- `1 ≤ targetCounts[i] ≤ 10^6`
 
 ## Solutions
 

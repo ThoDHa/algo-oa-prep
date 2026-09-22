@@ -7,12 +7,20 @@ In Amazon Go Store, there are nitems, each associated with two positive
     type numbered from 1 to infinity and the item numbered j of type 
     i costs a[i] + (j - 1) * b[i] units.
     
+
+
     Determine the minimum possible cost to purchase exactly m items.
-    Function Description 
+    
+
+Function Description 
       Complete the function getMinimumCost in the editor.
       
+
+
       getMinimumCost has the following parameters:
         
+
+
           1. int a[n]: an array of integers
           2. int b[n]: an array of integers
           3. m: the number of items to purchase
@@ -23,9 +31,7 @@ In Amazon Go Store, there are nitems, each associated with two positive
 
 ### Example 1
 
-**Input:** `a = [2, 1, 1]`
-**Input:** `b = [1, 2, 3]`
-**Input:** `m = 4`
+**Input:** `a = [2, 1, 1]`, `b = [1, 2, 3]`, `m = 4`
 
 **Output:** `7`
 
@@ -47,7 +53,9 @@ The total cost to purchase is 1 + 1 + 2 + 3 = 7.
 
 ## Constraints
 
-- `1 <= n <= 1051 <= a[i], b[i] <= 1051 <= m <= 105`
+- `1 <= n <= 10^5`
+- `1 <= a[i], b[i] <= 10^5`
+- `1 <= m <= 10^5`
 
 ## Solutions
 

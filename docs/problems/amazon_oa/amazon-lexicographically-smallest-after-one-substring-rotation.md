@@ -2,7 +2,11 @@
 
 **unknown difficulty** | **NN minutes** | **unknown categories**
 
-You are given a string s. You must choose one non-empty contiguous substring of s and rotate that substring to the right by one position exactly once.Rotating a substring to the right by one position moves its last character to the front of that substring, while every other character in the substring shifts one position to the right.Return the lexicographically smallest string that can be obtained after performing the operation.
+You are given a string s. You must choose one non-empty contiguous substring of s and rotate that substring to the right by one position exactly once.
+
+Rotating a substring to the right by one position moves its last character to the front of that substring, while every other character in the substring shifts one position to the right.
+
+Return the lexicographically smallest string that can be obtained after performing the operation.
 
 ## Examples
 
@@ -24,7 +28,8 @@ You are given a string s. You must choose one non-empty contiguous substring of 
 
 ## Constraints
 
-- `s is non-empty.The operation must be performed exactly once. Choosing a substring of length 1 leaves the string unchanged.`
+- `s is non-empty.`
+- `The operation must be performed exactly once. Choosing a substring of length 1 leaves the string unchanged.`
 
 ## Solutions
 

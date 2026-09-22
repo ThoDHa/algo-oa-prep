@@ -2,7 +2,13 @@
 
 **unknown difficulty** | **NN minutes** | **unknown categories**
 
-You are given an integer array deviation.You may change at most one element of the array to any integer value. After making at most one change, find the maximum possible length of a contiguous subarray that forms an arithmetic progression.The changed element stays at its original index and may be used to connect the unchanged elements before it and after it into one longer arithmetic subarray.A contiguous subarray forms an arithmetic progression if the difference between every pair of consecutive elements in that subarray is the same.
+You are given an integer array deviation.
+
+You may change at most one element of the array to any integer value. After making at most one change, find the maximum possible length of a contiguous subarray that forms an arithmetic progression.
+
+The changed element stays at its original index and may be used to connect the unchanged elements before it and after it into one longer arithmetic subarray.
+
+A contiguous subarray forms an arithmetic progression if the difference between every pair of consecutive elements in that subarray is the same.
 
 ## Examples
 
@@ -24,7 +30,10 @@ You are given an integer array deviation.You may change at most one element of t
 
 ## Constraints
 
-- `Constraints:1 <= deviation.length <= 105-109 <= deviation[i] <= 109You may change at most one element, and the changed value may be any integer.`
+- `Constraints:`
+- `1 <= deviation.length <= 105`
+- `-109 <= deviation[i] <= 109`
+- `You may change at most one element, and the changed value may be any integer.`
 
 ## Solutions
 

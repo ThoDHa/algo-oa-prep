@@ -2,14 +2,17 @@
 
 **Medium** | **NN minutes** | **Graph, Depth First Search, Breadth First Search, Union Find**
 
-You are given an integer n and an undirected graph whose vertices are numbered from 0 through n - 1. The array edges contains each undirected edge [u, v].A connected component is complete when every pair of distinct vertices in that component is joined by an edge.Return the number of complete connected components. A component containing one vertex is complete.
+You are given an integer n and an undirected graph whose vertices are numbered from 0 through n - 1. The array edges contains each undirected edge [u, v].
+
+A connected component is complete when every pair of distinct vertices in that component is joined by an edge.
+
+Return the number of complete connected components. A component containing one vertex is complete.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `n = 6`
-**Input:** `edges = [[0,1],[0,2],[1,2],[3,4]]`
+**Input:** `n = 6`, `edges = [[0,1],[0,2],[1,2],[3,4]]`
 
 **Output:** `3`
 
@@ -17,8 +20,7 @@ You are given an integer n and an undirected graph whose vertices are numbered f
 
 ### Example 2
 
-**Input:** `n = 6`
-**Input:** `edges = [[0,1],[0,2],[1,2],[3,4],[3,5]]`
+**Input:** `n = 6`, `edges = [[0,1],[0,2],[1,2],[3,4],[3,5]]`
 
 **Output:** `1`
 
@@ -26,8 +28,7 @@ You are given an integer n and an undirected graph whose vertices are numbered f
 
 ### Example 3
 
-**Input:** `n = 1`
-**Input:** `edges = []`
+**Input:** `n = 1`, `edges = []`
 
 **Output:** `1`
 

@@ -2,21 +2,31 @@
 
 **Medium** | **NN minutes** | **Dynamic Programming, Array**
 
-$23
+The database specialists at Amazon are engaged in segmenting their sequence of interconnected servers. There exists a consecutive sequence of m servers, labeled from 1 to m, where the expense metric linked to the j-th server is given in the list expense[j]. These servers must be divided into precisely p separate server segments.
+    
+
+
+    The expense of dividing a server segment from servers[x : y] is established as expense[x] + expense[y]. The aggregate expense accounts for the sum of partitioning costs for all server segments.
+    
+
+
+    Given m servers, a list expense, and an integer p, determine both the least and greatest achievable total expense of these operations and return them as a list of length 2: [minimum expense, maximum expense].
+    
+
+
+    Note: Splitting a list means dividing it into consecutive subsequences where each item belongs strictly to one segment. For a list [10, 20, 30, 40, 50], a valid segmentation would be [[10], [20, 30], [40, 50]], while [[10, 20], [20, 30], [40, 50]] and [[10, 30], [20, 40, 50]] would be deemed incorrect 😭.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `expense = [1, 2, 3, 2, 5]`
-**Input:** `p = 3`
+**Input:** `expense = [1, 2, 3, 2, 5]`, `p = 3`
 
 **Output:** `[14, 18]`
 
 ### Example 2
 
-**Input:** `expense = [1, 2, 3, 4]`
-**Input:** `p = 2`
+**Input:** `expense = [1, 2, 3, 4]`, `p = 2`
 
 **Output:** `[12, 8]`
 

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-find-ideal-days.md
 
-A virtual assistant is being given a feature that recommends ideal days for fishing from a rainfall forecast.A day is ideal when rainfall is non-increasing throughout the previous window days leading 
+A virtual assistant is being given a feature that recommends ideal days for fishing from a rainfall forecast.
 
   uv run python amazon_oa/amazon-find-ideal-days/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-find-ideal-days/              # run the test sets

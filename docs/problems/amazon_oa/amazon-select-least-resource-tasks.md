@@ -2,7 +2,13 @@
 
 **unknown difficulty** | **NN minutes** | **unknown categories**
 
-Amazon's Elastic Container Service schedules tasks dynamically. You are given an integer array resourceConsumption, where resourceConsumption[i] is the resource consumption of one task.Repeat the following process until no tasks remain:Select the remaining task with the lowest resource consumption. If multiple tasks have the same lowest value, select the one with the smallest current index.Add the selected task's resource consumption to the total.Remove the selected task and its adjacent remaining tasks, if they exist.Return the total resource consumption of all selected tasks.Complete the function selectLeastResourceTasks, which receives resourceConsumption and returns the total as an int.
+Amazon's Elastic Container Service schedules tasks dynamically. You are given an integer array resourceConsumption, where resourceConsumption[i] is the resource consumption of one task.
+
+Repeat the following process until no tasks remain:
+
+Select the remaining task with the lowest resource consumption. If multiple tasks have the same lowest value, select the one with the smallest current index.Add the selected task's resource consumption to the total.Remove the selected task and its adjacent remaining tasks, if they exist.Return the total resource consumption of all selected tasks.
+
+Complete the function selectLeastResourceTasks, which receives resourceConsumption and returns the total as an int.
 
 ## Examples
 
@@ -24,7 +30,8 @@ Amazon's Elastic Container Service schedules tasks dynamically. You are given an
 
 ## Constraints
 
-- `3 <= n <= 20001 <= resourceConsumption[i] <= 10^5`
+- `3 <= n <= 2000`
+- `1 <= resourceConsumption[i] <= 10^5`
 
 ## Solutions
 

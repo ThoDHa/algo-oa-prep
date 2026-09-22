@@ -2,7 +2,11 @@
 
 **Hard** | **NN minutes** | **Tree, Depth First Search, Dynamic Programming, Greedy**
 
-You are given the root of a binary tree. You may install cameras on its nodes.A camera installed at a node monitors that node, its parent if one exists, and its immediate children.Return the minimum number of cameras needed so that every node in the tree is monitored.
+You are given the root of a binary tree. You may install cameras on its nodes.
+
+A camera installed at a node monitors that node, its parent if one exists, and its immediate children.
+
+Return the minimum number of cameras needed so that every node in the tree is monitored.
 
 ## Examples
 
@@ -32,7 +36,8 @@ You are given the root of a binary tree. You may install cameras on its nodes.A 
 
 ## Constraints
 
-- `The tree contains between 1 and 1000 nodes.Every node has value 0.`
+- `The tree contains between 1 and 1000 nodes.`
+- `Every node has value 0.`
 
 ## Solutions
 

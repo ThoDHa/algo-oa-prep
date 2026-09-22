@@ -2,15 +2,17 @@
 
 **Medium** | **NN minutes** | **Sliding Window, Hash Table, Array**
 
-$23
+Given an array of integers and two specified numbers, find a subarray from the original array that contains both of these specified numbers, with the requirement that the subarray contains the minimum number of distinct numbers. Return the count of distinct numbers in this subarray.
+    
+
+
+    If the two specified numbers are the same, simply return 1 if the array contains this number, otherwise return 0.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `array = [1, 2, 2, 2, 5, 2]`
-**Input:** `series1 = 1`
-**Input:** `series2 = 5`
+**Input:** `array = [1, 2, 2, 2, 5, 2]`, `series1 = 1`, `series2 = 5`
 
 **Output:** `3`
 
@@ -18,9 +20,7 @@ $23
 
 ### Example 2
 
-**Input:** `array = [1, 3, 2, 1, 4]`
-**Input:** `series1 = 1`
-**Input:** `series2 = 2`
+**Input:** `array = [1, 3, 2, 1, 4]`, `series1 = 1`, `series2 = 2`
 
 **Output:** `2`
 
@@ -28,9 +28,7 @@ $23
 
 ### Example 3
 
-**Input:** `array = [3, 1, 2]`
-**Input:** `series1 = 1`
-**Input:** `series2 = 1`
+**Input:** `array = [3, 1, 2]`, `series1 = 1`, `series2 = 1`
 
 **Output:** `1`
 
@@ -38,9 +36,7 @@ $23
 
 ### Example 4
 
-**Input:** `array = [2, 4, 9]`
-**Input:** `series1 = 1`
-**Input:** `series2 = 1`
+**Input:** `array = [2, 4, 9]`, `series1 = 1`, `series2 = 1`
 
 **Output:** `0`
 

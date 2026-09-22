@@ -2,14 +2,21 @@
 
 **Easy** | **NN minutes** | **Array, Greedy, Hash Table**
 
-$23
+The manager of an Amazon warehouse needs to ship n products from different locations, the location of the ith product is represented by an array locations[i]. The manager is allowed to perform one operation at a time. Each operation is described below:
+    
+
+If the inventory has two or more products, the manager can pick two products x and y from the inventory if they have different locations (locations[x]!=locations[y]) and ship both of them.If the inventory has one or more products, the manager can pick one product x from the inventory and ship it.
+    Note: After shipping a product it gets removed from the inventory, and the rest of the products which are currently not shipped come together keeping the order the same as before.
+    
+
+
+    Given n products and an array locations, find the minimum number of operations that the manager has to perform to ship all of the products.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `m = 5`
-**Input:** `locations = [1, 8, 6, 7, 7]`
+**Input:** `m = 5`, `locations = [1, 8, 6, 7, 7]`
 
 **Output:** `3`
 
@@ -17,8 +24,7 @@ $23
 
 ### Example 2
 
-**Input:** `m = 4`
-**Input:** `locations = [1, 3, 1, 2]`
+**Input:** `m = 4`, `locations = [1, 3, 1, 2]`
 
 **Output:** `2`
 
@@ -26,7 +32,9 @@ $23
 
 ## Constraints
 
-- `1 <= m <= 105locations.length == m1 <= locations[i] <= 109`
+- `1 <= m <= 105`
+- `locations.length == m`
+- `1 <= locations[i] <= 109`
 
 ## Solutions
 

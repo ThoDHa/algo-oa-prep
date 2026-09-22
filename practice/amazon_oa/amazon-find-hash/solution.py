@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-find-hash.md
 
-$23
+The developers at AWS IAM are designing a new checksum logic for an authentication module. The checksum is calculated as an array hash where hash[i] = secretKey[i] % param[i]. There are n parameters f
 
   uv run python amazon_oa/amazon-find-hash/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-find-hash/              # run the test sets

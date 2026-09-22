@@ -2,14 +2,15 @@
 
 **Hard** | **NN minutes** | **Math, Breadth First Search, Dynamic Programming**
 
-A stepping number is an integer whose adjacent digits differ by exactly 1. Every one-digit integer, including 0, is a stepping number.Given two integers low and high, return the number of stepping numbers in the inclusive range [low, high].
+A stepping number is an integer whose adjacent digits differ by exactly 1. Every one-digit integer, including 0, is a stepping number.
+
+Given two integers low and high, return the number of stepping numbers in the inclusive range [low, high].
 
 ## Examples
 
 ### Example 1
 
-**Input:** `low = 0`
-**Input:** `high = 21`
+**Input:** `low = 0`, `high = 21`
 
 **Output:** `13`
 
@@ -17,8 +18,7 @@ A stepping number is an integer whose adjacent digits differ by exactly 1. Every
 
 ### Example 2
 
-**Input:** `low = 10`
-**Input:** `high = 15`
+**Input:** `low = 10`, `high = 15`
 
 **Output:** `2`
 

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-distinct-pairs.md
 
-$23
+A financial strategist at Amazon Web Services (AWS) is analyzing a collection of profitable investments, each represented by an integer array. Every value in the array indicates the annual gain of a p
 
   uv run python amazon_oa/amazon-get-distinct-pairs/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-distinct-pairs/              # run the test sets

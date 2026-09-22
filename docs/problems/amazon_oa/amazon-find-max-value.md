@@ -2,15 +2,18 @@
 
 **Medium** | **NN minutes** | **Matrix, Dynamic Programming, Greedy**
 
-$23
+Amazon’s engineering team is developing a tool designed to minimize the size of an n x n grid named matrix, based on a compression ratio described by the array limit. Their challenge is to compute the highest possible sum of exactly x elements from the matrix while adhering to the following conditions:
+    
+
+
+
+    For every row i (where 0 ≤ i
 
 ## Examples
 
 ### Example 1
 
-**Input:** `limit = [1, 2, 1]`
-**Input:** `matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]`
-**Input:** `x = 2`
+**Input:** `limit = [1, 2, 1]`, `matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]`, `x = 2`
 
 **Output:** `15`
 

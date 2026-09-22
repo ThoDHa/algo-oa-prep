@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-permutation-sorter.md
 
-Amazon engineers are testing a new tool, the Permutation Sorter, built to reorder sequences using limited operations.Given a permutation of integers, the objective is to sort the permutation using onl
+Amazon engineers are testing a new tool, the Permutation Sorter, built to reorder sequences using limited operations.
 
   uv run python amazon_oa/amazon-permutation-sorter/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-permutation-sorter/              # run the test sets

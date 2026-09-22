@@ -2,7 +2,9 @@
 
 **Medium** | **NN minutes** | **String, Stack, Parsing**
 
-An encoded string uses positive repeat counts followed by bracketed segments. Decode it using these rules:k[segment] means the decoded segment is repeated exactly k times.Segments may be nested.Letters outside brackets appear once and remain in order.Return the fully decoded string.
+An encoded string uses positive repeat counts followed by bracketed segments. Decode it using these rules:
+
+k[segment] means the decoded segment is repeated exactly k times.Segments may be nested.Letters outside brackets appear once and remain in order.Return the fully decoded string.
 
 ## Examples
 
@@ -24,7 +26,10 @@ An encoded string uses positive repeat counts followed by bracketed segments. De
 
 ## Constraints
 
-- `1 <= s.length <= 10^4s is a well-formed encoding made of lowercase English letters, digits, and brackets.Every repeat count is between 1 and 300.The decoded string has at most 10^5 characters.`
+- `1 <= s.length <= 10^4`
+- `s is a well-formed encoding made of lowercase English letters, digits, and brackets.`
+- `Every repeat count is between 1 and 300.`
+- `The decoded string has at most 10^5 characters.`
 
 ## Solutions
 

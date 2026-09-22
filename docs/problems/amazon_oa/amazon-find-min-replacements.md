@@ -2,7 +2,19 @@
 
 **Hard** | **NN minutes** | **Array, Greedy**
 
-$23
+In Amazon's distribution network, there are several drones with varying capacities, ranging from 1 to 10^9. Each j-th drone has a carrying capacity of j. The company needs to dispatch n packages, where the weight of the i-th package is given by pack[i].
+
+During peak delivery times, only two drones are available to transport the packages, and they must alternate in their duties. This means that if Drone 1 handles the i-th package, Drone 2 must handle the (i + 1)-th package, and so on.
+
+However, there may be challenges if the drones cannot handle certain package weights (i.e., some packages may be too heavy for a drone). To address this, Amazon can replace certain packages with others of a different weight to ensure that all packages are successfully delivered.
+
+Given the ability to choose any two drones, your task is to determine the minimum number of replacements needed to ensure that all packages can be successfully delivered.
+
+Complete the function findMinReplacements in the editor.
+
+findMinReplacements has the following parameter:
+
+int pack[n]: an array representing the weights of packages.int: the minimum number of replacements needed.
 
 ## Examples
 

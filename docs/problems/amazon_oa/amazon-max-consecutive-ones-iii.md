@@ -8,8 +8,7 @@ Given a binary array nums and an integer k, return the maximum number of consecu
 
 ### Example 1
 
-**Input:** `nums = [1,1,1,0,0,0,1,1,1,1,0]`
-**Input:** `k = 2`
+**Input:** `nums = [1,1,1,0,0,0,1,1,1,1,0]`, `k = 2`
 
 **Output:** `6`
 
@@ -17,8 +16,7 @@ Given a binary array nums and an integer k, return the maximum number of consecu
 
 ### Example 2
 
-**Input:** `nums = [0,0,1,1,1,0,0]`
-**Input:** `k = 0`
+**Input:** `nums = [0,0,1,1,1,0,0]`, `k = 0`
 
 **Output:** `3`
 
@@ -26,8 +24,7 @@ Given a binary array nums and an integer k, return the maximum number of consecu
 
 ### Example 3
 
-**Input:** `nums = [0,0,0]`
-**Input:** `k = 3`
+**Input:** `nums = [0,0,0]`, `k = 3`
 
 **Output:** `3`
 
@@ -35,7 +32,9 @@ Given a binary array nums and an integer k, return the maximum number of consecu
 
 ## Constraints
 
-- `0 &le; nums.length &le; 100000.Every value in nums is 0 or 1.0 &le; k &le; nums.length.`
+- `0 ≤ nums.length ≤ 100000.`
+- `Every value in nums is 0 or 1.`
+- `0 ≤ k ≤ nums.length.`
 
 ## Solutions
 

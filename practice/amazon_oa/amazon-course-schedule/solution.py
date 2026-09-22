@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-course-schedule.md
 
-There are numCourses courses labeled from 0 to numCourses - 1. Each pair [course, prerequisite] means the prerequisite must be completed before the course.Return true if all courses can be completed, 
+There are numCourses courses labeled from 0 to numCourses - 1. Each pair [course, prerequisite] means the prerequisite must be completed before the course.
 
   uv run python amazon_oa/amazon-course-schedule/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-course-schedule/              # run the test sets

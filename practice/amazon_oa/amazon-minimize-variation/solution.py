@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-minimize-variation.md
 
-$23
+Source note: Examples 3 through 5 were added on 2025-06-25, with relevant source images included in Problem Source. The original poster said Example 5 failed but did not clarify whether the testcase i
 
   uv run python amazon_oa/amazon-minimize-variation/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-minimize-variation/              # run the test sets

@@ -2,7 +2,9 @@
 
 **Hard** | **NN minutes** | **Tree, Depth First Search, Dynamic Programming**
 
-Given the root of a binary tree, find the maximum sum of node values among all subtrees that are valid binary search trees.A valid BST has every left-subtree value strictly smaller than its root and every right-subtree value strictly larger. Return 0 when every valid non-empty BST subtree has a negative sum.
+Given the root of a binary tree, find the maximum sum of node values among all subtrees that are valid binary search trees.
+
+A valid BST has every left-subtree value strictly smaller than its root and every right-subtree value strictly larger. Return 0 when every valid non-empty BST subtree has a negative sum.
 
 ## Examples
 
@@ -32,7 +34,8 @@ Given the root of a binary tree, find the maximum sum of node values among all s
 
 ## Constraints
 
-- `The tree contains between 0 and 5000 nodes.-10000 &le; Node.val &le; 10000.`
+- `The tree contains between 0 and 5000 nodes.`
+- `-10000 ≤ Node.val ≤ 10000.`
 
 ## Solutions
 

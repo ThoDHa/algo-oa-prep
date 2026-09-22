@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-maximum-score-with-non-adjacent-values.md
 
-You are given a list of integers nums. You may choose any set of values from the list.If you choose a value x, then you cannot choose x - 1 or x + 1. When you choose x, your score increases by x * fre
+You are given a list of integers nums. You may choose any set of values from the list.
 
   uv run python amazon_oa/amazon-maximum-score-with-non-adjacent-values/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-maximum-score-with-non-adjacent-values/              # run the test sets

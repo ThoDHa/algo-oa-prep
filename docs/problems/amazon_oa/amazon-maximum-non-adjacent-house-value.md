@@ -2,7 +2,11 @@
 
 **Medium** | **NN minutes** | **Array, Dynamic Programming**
 
-You are given an array values where values[i] is the amount available in the ith house arranged in a line.You may choose any subset of houses, but you cannot choose two adjacent houses.Return the maximum total value that can be collected.
+You are given an array values where values[i] is the amount available in the ith house arranged in a line.
+
+You may choose any subset of houses, but you cannot choose two adjacent houses.
+
+Return the maximum total value that can be collected.
 
 ## Examples
 
@@ -16,7 +20,10 @@ You are given an array values where values[i] is the amount available in the ith
 
 ## Constraints
 
-- `values contains the amount available in each house, with houses arranged in a line.values has at least one element.Each values[i] is a non-negative integer.You cannot choose two adjacent houses.`
+- `values contains the amount available in each house, with houses arranged in a line.`
+- `values has at least one element.`
+- `Each values[i] is a non-negative integer.`
+- `You cannot choose two adjacent houses.`
 
 ## Solutions
 

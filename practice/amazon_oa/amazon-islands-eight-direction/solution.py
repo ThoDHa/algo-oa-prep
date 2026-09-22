@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-islands-eight-direction.md
 
-Given a rectangular binary matrix grid, return the number of islands.An island is a maximal group of cells containing 1. Two land cells belong to the same island when they share an edge or a corner, s
+Given a rectangular binary matrix grid, return the number of islands.
 
   uv run python amazon_oa/amazon-islands-eight-direction/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-islands-eight-direction/              # run the test sets

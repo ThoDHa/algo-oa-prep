@@ -8,8 +8,7 @@ You have an integer servers, which denote the number of servers, and you have a 
 
 ### Example 1
 
-**Input:** `servers = 5`
-**Input:** `requests = [3, 1, 0, 2, 1]`
+**Input:** `servers = 5`, `requests = [3, 1, 0, 2, 1]`
 
 **Output:** `[0, 1, 0, 2, 1]`
 

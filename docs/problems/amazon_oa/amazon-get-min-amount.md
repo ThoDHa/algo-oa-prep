@@ -2,7 +2,11 @@
 
 **unknown difficulty** | **NN minutes** | **unknown categories**
 
-The manager of the Amazon warehouse has decided to make changes to the inventory. Currently, the inventory has n products, where the quality of the ith product after quality checks is represented by the array element quality[i].The manager wants to create an optimal inventory, where the array of products quality follows the following property:All occurrences of each quality value must be contiguous.In order to convert the inventory into an optimal inventory, the manager can do the following operation any number of times:
+The manager of the Amazon warehouse has decided to make changes to the inventory. Currently, the inventory has n products, where the quality of the ith product after quality checks is represented by the array element quality[i].
+
+The manager wants to create an optimal inventory, where the array of products quality follows the following property:
+
+All occurrences of each quality value must be contiguous.In order to convert the inventory into an optimal inventory, the manager can do the following operation any number of times:
 
 ## Examples
 
@@ -12,7 +16,11 @@ The manager of the Amazon warehouse has decided to make changes to the inventory
 
 **Output:** `4`
 
-**Explanation:** Given n = 7, quality = [7, 7, 5, 7, 3, 5, 3].One of the optimal ways to convert is explained below:Hence, the total amount spent is 4.
+**Explanation:** Given n = 7, quality = [7, 7, 5, 7, 3, 5, 3].
+
+One of the optimal ways to convert is explained below:
+
+Hence, the total amount spent is 4.
 
 ## Constraints
 

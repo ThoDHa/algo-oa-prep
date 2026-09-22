@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-anagram-start-indices.md
 
-Given lowercase strings s and p, return every starting index where a substring of s is an anagram of p.Return indices in increasing order. Overlapping matches are included.
+Given lowercase strings s and p, return every starting index where a substring of s is an anagram of p.
 
   uv run python amazon_oa/amazon-anagram-start-indices/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-anagram-start-indices/              # run the test sets

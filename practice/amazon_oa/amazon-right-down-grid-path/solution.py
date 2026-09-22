@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-right-down-grid-path.md
 
-Given a rectangular array of strings grid, a zero-based coordinate source = [row, col], and a zero-based coordinate destination = [row, col], return whether the destination is reachable.The character 
+Given a rectangular array of strings grid, a zero-based coordinate source = [row, col], and a zero-based coordinate destination = [row, col], return whether the destination is reachable.
 
   uv run python amazon_oa/amazon-right-down-grid-path/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-right-down-grid-path/              # run the test sets

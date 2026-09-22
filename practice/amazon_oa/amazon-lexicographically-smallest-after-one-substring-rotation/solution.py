@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-lexicographically-smallest-after-one-substring-rotation.md
 
-You are given a string s. You must choose one non-empty contiguous substring of s and rotate that substring to the right by one position exactly once.Rotating a substring to the right by one position 
+You are given a string s. You must choose one non-empty contiguous substring of s and rotate that substring to the right by one position exactly once.
 
   uv run python amazon_oa/amazon-lexicographically-smallest-after-one-substring-rotation/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-lexicographically-smallest-after-one-substring-rotation/              # run the test sets

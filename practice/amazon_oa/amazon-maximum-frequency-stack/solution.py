@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-maximum-frequency-stack.md
 
-Design a stack-like data structure that supports push and pop.push(x) adds x to the structure.pop() removes and returns the value with the highest current frequency. If several values have the same hi
+Design a stack-like data structure that supports push and pop.
 
   uv run python amazon_oa/amazon-maximum-frequency-stack/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-maximum-frequency-stack/              # run the test sets

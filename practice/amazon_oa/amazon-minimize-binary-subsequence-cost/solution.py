@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-minimize-binary-subsequence-cost.md
 
-You are given a string binaryString consisting only of '0', '1', and '!', and two integers x and y.Replace every '!' with either '0' or '1'. After replacement, every subsequence equal to "01" contribu
+You are given a string binaryString consisting only of '0', '1', and '!', and two integers x and y.
 
   uv run python amazon_oa/amazon-minimize-binary-subsequence-cost/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-minimize-binary-subsequence-cost/              # run the test sets

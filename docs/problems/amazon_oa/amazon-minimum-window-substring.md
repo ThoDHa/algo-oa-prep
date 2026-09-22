@@ -2,14 +2,15 @@
 
 **Hard** | **NN minutes** | **String, Hash Table, Sliding Window**
 
-Given non-empty strings s and t, return the shortest contiguous substring of s that contains every character of t, including duplicate occurrences.If no window exists, return the empty string. If several shortest windows exist, return the one with the smallest starting index.
+Given non-empty strings s and t, return the shortest contiguous substring of s that contains every character of t, including duplicate occurrences.
+
+If no window exists, return the empty string. If several shortest windows exist, return the one with the smallest starting index.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `s = "ADOBECODEBANC"`
-**Input:** `t = "ABC"`
+**Input:** `s = "ADOBECODEBANC"`, `t = "ABC"`
 
 **Output:** `"BANC"`
 
@@ -17,8 +18,7 @@ Given non-empty strings s and t, return the shortest contiguous substring of s t
 
 ### Example 2
 
-**Input:** `s = "a"`
-**Input:** `t = "a"`
+**Input:** `s = "a"`, `t = "a"`
 
 **Output:** `"a"`
 
@@ -26,8 +26,7 @@ Given non-empty strings s and t, return the shortest contiguous substring of s t
 
 ### Example 3
 
-**Input:** `s = "a"`
-**Input:** `t = "aa"`
+**Input:** `s = "a"`, `t = "aa"`
 
 **Output:** `""`
 
@@ -35,7 +34,9 @@ Given non-empty strings s and t, return the shortest contiguous substring of s t
 
 ## Constraints
 
-- `1 &le; s.length, t.length &le; 100000.s and t contain printable ASCII characters.The total input length fits in memory.`
+- `1 ≤ s.length, t.length ≤ 100000.`
+- `s and t contain printable ASCII characters.`
+- `The total input length fits in memory.`
 
 ## Solutions
 

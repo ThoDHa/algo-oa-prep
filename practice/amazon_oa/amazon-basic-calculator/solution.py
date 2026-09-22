@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-basic-calculator.md
 
-Given a valid arithmetic expression s, return its evaluated integer value.The expression may contain:Non-negative integer literals.The binary operators + and -.Parentheses ( and ).Spaces.Unary + or - 
+Given a valid arithmetic expression s, return its evaluated integer value.
 
   uv run python amazon_oa/amazon-basic-calculator/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-basic-calculator/              # run the test sets

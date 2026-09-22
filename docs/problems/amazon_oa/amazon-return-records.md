@@ -2,7 +2,13 @@
 
 **Easy** | **NN minutes** | **Hash Table, Simulation, String**
 
-Simulate a website authentication service. Initially, no users are registered and no user is logged in. Process each request in attempts from left to right.Each request has one of these forms:register username password: register a new username. Return "Registered Successfully", or "Register Unsuccessfully" if the username already exists.login username password: log in a registered user when the password matches and the user is not already logged in. Return "Logged In Successfully" on success, or "Login Unsuccessfully" otherwise.logout username: log out a currently logged-in user. Return "Logged Out Successfully" on success, or "Logout Unsuccessfully" otherwise.A failed login does not change an existing session. Usernames and passwords are case-sensitive.Return one result string for every request, in the same order.
+Simulate a website authentication service. Initially, no users are registered and no user is logged in. Process each request in attempts from left to right.
+
+Each request has one of these forms:
+
+register username password: register a new username. Return "Registered Successfully", or "Register Unsuccessfully" if the username already exists.login username password: log in a registered user when the password matches and the user is not already logged in. Return "Logged In Successfully" on success, or "Login Unsuccessfully" otherwise.logout username: log out a currently logged-in user. Return "Logged Out Successfully" on success, or "Logout Unsuccessfully" otherwise.A failed login does not change an existing session. Usernames and passwords are case-sensitive.
+
+Return one result string for every request, in the same order.
 
 ## Examples
 
@@ -24,7 +30,10 @@ Simulate a website authentication service. Initially, no users are registered an
 
 ## Constraints
 
-- `1 <= attempts.length <= 1000001 <= username.length, password.length <= 10Usernames and passwords contain only digits and English letters.Every request has one of the three documented formats.`
+- `1 <= attempts.length <= 100000`
+- `1 <= username.length, password.length <= 10`
+- `Usernames and passwords contain only digits and English letters.`
+- `Every request has one of the three documented formats.`
 
 ## Solutions
 

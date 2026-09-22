@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-min-num-moves.md
 
-$23
+Imagine you are shopping on Amazon.com for some good weight lifting equipment. The equipment you want has blocks of many different weights that you can combine to lift.
 
   uv run python amazon_oa/amazon-get-min-num-moves/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-min-num-moves/              # run the test sets

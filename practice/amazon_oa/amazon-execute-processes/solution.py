@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-execute-processes.md
 
-$23
+Amazon Web Services (AWS) has several processors for executing processes scheduled on its servers.
 
   uv run python amazon_oa/amazon-execute-processes/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-execute-processes/              # run the test sets

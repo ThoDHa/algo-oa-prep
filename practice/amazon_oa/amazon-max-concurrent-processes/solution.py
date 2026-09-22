@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-max-concurrent-processes.md
 
-$23
+🍇 FastPrep match note: This version is based on a reported Amazon SDE2 full-time onsite Bar Raiser round prompt and should match the core task about 90-95%: given process running intervals, return the
 
   uv run python amazon_oa/amazon-max-concurrent-processes/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-max-concurrent-processes/              # run the test sets

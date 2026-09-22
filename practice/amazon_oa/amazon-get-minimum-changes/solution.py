@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-minimum-changes.md
 
-$23
+Amazon's software developers are working on enhancing their inventory management system with a new pricing adjustment operation on an array of products, where the price of the i^th product is given by
 
   uv run python amazon_oa/amazon-get-minimum-changes/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-minimum-changes/              # run the test sets

@@ -2,14 +2,19 @@
 
 **Medium** | **NN minutes** | **Graph, Depth First Search, Topological Sort**
 
-You are given package dependency pairs and a target package. Each pair [package, dependency] means the package depends on that dependency.Return an order in which to install the target package and all of its transitive dependencies so that every dependency appears before the package that needs it.If there is a cyclic dependency among packages needed by the target package, return an empty array.The source noted that multiple valid orders may exist. FastPrep uses this deterministic rule: process dependencies in the order they appear in the input pairs.
+You are given package dependency pairs and a target package. Each pair [package, dependency] means the package depends on that dependency.
+
+Return an order in which to install the target package and all of its transitive dependencies so that every dependency appears before the package that needs it.
+
+If there is a cyclic dependency among packages needed by the target package, return an empty array.
+
+The source noted that multiple valid orders may exist. FastPrep uses this deterministic rule: process dependencies in the order they appear in the input pairs.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `dependencies = [["A","B"],["A","C"],["B","D"],["B","E"],["B","F"],["C","F"],["F","G"],["H","I"],["H","J"],["J","G"]]`
-**Input:** `target = "A"`
+**Input:** `dependencies = [["A","B"],["A","C"],["B","D"],["B","E"],["B","F"],["C","F"],["F","G"],["H","I"],["H","J"],["J","G"]]`, `target = "A"`
 
 **Output:** `["D","E","G","F","B","C","A"]`
 

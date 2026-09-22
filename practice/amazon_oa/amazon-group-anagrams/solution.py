@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-group-anagrams.md
 
-Group the strings in strs so that two strings appear in the same group exactly when they are anagrams.For deterministic output, sort the strings inside each group and then sort the groups lexicographi
+Group the strings in strs so that two strings appear in the same group exactly when they are anagrams.
 
   uv run python amazon_oa/amazon-group-anagrams/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-group-anagrams/              # run the test sets

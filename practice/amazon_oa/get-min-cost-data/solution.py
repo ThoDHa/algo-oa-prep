@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/get-min-cost-data.md
 
-You are given a string data containing lowercase English letters and question marks. Replace every ? with a lowercase English letter.The cost of a position is the number of earlier positions containin
+You are given a string data containing lowercase English letters and question marks. Replace every ? with a lowercase English letter.
 
   uv run python amazon_oa/get-min-cost-data/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/get-min-cost-data/              # run the test sets

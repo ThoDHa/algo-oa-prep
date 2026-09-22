@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-longest-palindromic-subsequence.md
 
-Given a string s, return the length of its longest subsequence that reads the same from left to right and right to left.A subsequence keeps the relative order of selected characters but does not need 
+Given a string s, return the length of its longest subsequence that reads the same from left to right and right to left.
 
   uv run python amazon_oa/amazon-longest-palindromic-subsequence/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-longest-palindromic-subsequence/              # run the test sets

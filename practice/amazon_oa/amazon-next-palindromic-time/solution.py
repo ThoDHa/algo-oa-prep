@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-next-palindromic-time.md
 
-Given a valid 24-hour time time in HH:MM format, return the first strictly later time whose four digits form a palindrome.Advance in one-minute steps and wrap from 23:59 to 00:00. The input itself is 
+Given a valid 24-hour time time in HH:MM format, return the first strictly later time whose four digits form a palindrome.
 
   uv run python amazon_oa/amazon-next-palindromic-time/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-next-palindromic-time/              # run the test sets

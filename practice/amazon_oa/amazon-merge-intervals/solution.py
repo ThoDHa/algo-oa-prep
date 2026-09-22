@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-merge-intervals.md
 
-Given an array of closed intervals where intervals[i] = [start_i, end_i], merge every pair of overlapping intervals.Return the non-overlapping intervals that cover every interval in the input, sorted 
+Given an array of closed intervals where intervals[i] = [start_i, end_i], merge every pair of overlapping intervals.
 
   uv run python amazon_oa/amazon-merge-intervals/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-merge-intervals/              # run the test sets

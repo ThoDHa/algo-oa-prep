@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-binary-tree-cameras.md
 
-You are given the root of a binary tree. You may install cameras on its nodes.A camera installed at a node monitors that node, its parent if one exists, and its immediate children.Return the minimum n
+You are given the root of a binary tree. You may install cameras on its nodes.
 
   uv run python amazon_oa/amazon-binary-tree-cameras/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-binary-tree-cameras/              # run the test sets

@@ -2,15 +2,39 @@
 
 **Medium** | **NN minutes** | **Two Pointers, Sorting**
 
-$23
+You are given a device with a limited amount of memory. Each device must run two applications at the same time: one foreground application and one background application. Each application is identified by a unique integer ID (unique within its type), requires a fixed non-zero amount of memory to execute, and is classified as either foreground or background.
+    
+
+
+    A pair of applications (one foreground and one background) is considered optimal if:
+
+      
+
+Their combined memory usage is less than or equal to the device's capacity.There is no other valid pair with a higher combined memory usage without exceeding the device's capacity.
+    Your task is to write an algorithm that finds all pairs of foreground and background applications that optimally utilize the device memory.
+    
+
+
+    The function should return a list of pairs [foregroundAppID, backgroundAppID] representing the IDs of applications that optimally utilize the device. If no valid pair exists, return a list with an empty pair.
+    
+
+
+      Input Format
+
+        
+
+An integer deviceCapacity representing the device's memory.A list of pairs for foreground applications.A list of pairs for background applications.
+      Output Format
+
+        
+
+A list of pairs of integers [foregroundAppID, backgroundAppID] for each optimal application pair.If no valid pair exists, return a list containing an empty pair.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `deviceCapacity = 7`
-**Input:** `foregroundAppList = [[1, 2], [2, 4], [3, 6]]`
-**Input:** `backgroundAppList = [[1, 2]]`
+**Input:** `deviceCapacity = 7`, `foregroundAppList = [[1, 2], [2, 4], [3, 6]]`, `backgroundAppList = [[1, 2]]`
 
 **Output:** `[[2, 1]]`
 
@@ -24,9 +48,7 @@ Since 6 is the largest usage within capacity, [2, 1] is the only optimal pair.
 
 ### Example 2
 
-**Input:** `deviceCapacity = 10`
-**Input:** `foregroundAppList = [[1, 3], [2, 5], [3, 7], [4, 10]]`
-**Input:** `backgroundAppList = [[1, 2], [2, 3], [3, 4], [4, 5]]`
+**Input:** `deviceCapacity = 10`, `foregroundAppList = [[1, 3], [2, 5], [3, 7], [4, 10]]`, `backgroundAppList = [[1, 2], [2, 3], [3, 4], [4, 5]]`
 
 **Output:** `[[2, 4], [3, 2]]`
 
@@ -38,9 +60,7 @@ Pair [3, 2]: Foreground app 3 uses 7 memory, background app 2 uses 3 memory; com
 
 ### Example 3
 
-**Input:** `deviceCapacity = 16`
-**Input:** `foregroundAppList = [[2, 7], [3, 14]]`
-**Input:** `backgroundAppList = [[2, 10], [3, 14]]`
+**Input:** `deviceCapacity = 16`, `foregroundAppList = [[2, 7], [3, 14]]`, `backgroundAppList = [[2, 10], [3, 14]]`
 
 **Output:** `[[]]`
 

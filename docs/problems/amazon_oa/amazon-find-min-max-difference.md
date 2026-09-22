@@ -4,16 +4,19 @@
 
 Given one unsorted array of size n and integer k.
     
+
+
     From subsequences of size n-k, find the max of consecutive element dfferences in the sorted subsequences AND from these max differences return the min difference.
     
+
+
     A subsequence is any combination of integers.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `arr = [1, 4, 3, 6, 5]`
-**Input:** `k = 2`
+**Input:** `arr = [1, 4, 3, 6, 5]`, `k = 2`
 
 **Output:** `1`
 

@@ -2,7 +2,9 @@
 
 **Medium** | **NN minutes** | **Tree, Breadth First Search, Depth First Search**
 
-Given the root of a binary tree, imagine viewing the tree from its right side.Return the value of the visible node at each depth, ordered from the root level downward. For an empty tree, return an empty array.
+Given the root of a binary tree, imagine viewing the tree from its right side.
+
+Return the value of the visible node at each depth, ordered from the root level downward. For an empty tree, return an empty array.
 
 ## Examples
 
@@ -32,7 +34,8 @@ Given the root of a binary tree, imagine viewing the tree from its right side.Re
 
 ## Constraints
 
-- `The tree contains between 0 and 10000 nodes.-10^9 <= Node.val <= 10^9.`
+- `The tree contains between 0 and 10000 nodes.`
+- `-10^9 <= Node.val <= 10^9.`
 
 ## Solutions
 

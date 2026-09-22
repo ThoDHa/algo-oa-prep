@@ -2,7 +2,9 @@
 
 **Easy** | **NN minutes** | **Array, Hash Table, Graph**
 
-You are given directed account-transfer pairs [from, to] in arbitrary order. Together they form one non-branching chain containing every pair exactly once.Return [initialAccount, finalAccount], where the initial account has no incoming transfer and the final account has no outgoing transfer.
+You are given directed account-transfer pairs [from, to] in arbitrary order. Together they form one non-branching chain containing every pair exactly once.
+
+Return [initialAccount, finalAccount], where the initial account has no incoming transfer and the final account has no outgoing transfer.
 
 ## Examples
 
@@ -32,7 +34,9 @@ You are given directed account-transfer pairs [from, to] in arbitrary order. Tog
 
 ## Constraints
 
-- `1 &le; transfers.length &le; 100000.Every transfer contains two distinct integer account IDs.The pairs form exactly one acyclic chain with no branches.`
+- `1 ≤ transfers.length ≤ 100000.`
+- `Every transfer contains two distinct integer account IDs.`
+- `The pairs form exactly one acyclic chain with no branches.`
 
 ## Solutions
 

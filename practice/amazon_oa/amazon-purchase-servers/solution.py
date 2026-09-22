@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-purchase-servers.md
 
-$23
+AWS provides a range of servers to meet their clients' deployment and computation needs. One AWS client wants to purchase servers to deploy their application.
 
   uv run python amazon_oa/amazon-purchase-servers/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-purchase-servers/              # run the test sets

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-max-consecutive-on.md
 
-$23
+Special thanks: Barry contributed this problem.
 
   uv run python amazon_oa/amazon-get-max-consecutive-on/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-max-consecutive-on/              # run the test sets

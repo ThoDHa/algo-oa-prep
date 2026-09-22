@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-kth-smallest-row-sum.md
 
-Given an integer matrix mat whose rows are sorted in nondecreasing order, choose exactly one value from each row and add the chosen values.Return the kth smallest obtainable sum. Distinct choices occu
+Given an integer matrix mat whose rows are sorted in nondecreasing order, choose exactly one value from each row and add the chosen values.
 
   uv run python amazon_oa/amazon-kth-smallest-row-sum/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-kth-smallest-row-sum/              # run the test sets

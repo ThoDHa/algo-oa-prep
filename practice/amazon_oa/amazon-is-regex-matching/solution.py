@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-is-regex-matching.md
 
-$23
+Special thanks: Alex contributed this problem.
 
   uv run python amazon_oa/amazon-is-regex-matching/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-is-regex-matching/              # run the test sets

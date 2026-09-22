@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-shortest-grid-path-with-one-wall-break.md
 
-Given a rectangular binary matrix grid, a cell containing 1 is open and a cell containing 0 is a wall.Start at the top-left cell and move to the bottom-right cell. Each move goes one cell up, down, le
+Given a rectangular binary matrix grid, a cell containing 1 is open and a cell containing 0 is a wall.
 
   uv run python amazon_oa/amazon-shortest-grid-path-with-one-wall-break/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-shortest-grid-path-with-one-wall-break/              # run the test sets

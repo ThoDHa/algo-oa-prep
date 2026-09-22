@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-interleaving-string.md
 
-Given strings s1, s2, and s3, return whether s3 can be formed by interleaving s1 and s2.An interleaving uses every character from both source strings exactly once while preserving the left-to-right or
+Given strings s1, s2, and s3, return whether s3 can be formed by interleaving s1 and s2.
 
   uv run python amazon_oa/amazon-interleaving-string/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-interleaving-string/              # run the test sets

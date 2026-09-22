@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-min-moves.md
 
-$23
+Developers at Amazon are working on a new algorithm using the Bitwise XOR operation.
 
   uv run python amazon_oa/amazon-get-min-moves/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-min-moves/              # run the test sets

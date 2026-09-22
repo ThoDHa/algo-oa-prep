@@ -2,29 +2,45 @@
 
 **Medium** | **NN minutes** | **Greedy, Hash Table**
 
-$23
+Data Scientists at Amazon are working on cleansing a machine learning dataset. The dataset is represented as a string dataset consisting of an even number of lowercase English letters. The goal is to clean the dataset efficiently by performing specific operations.
+    
+
+
+    Here's how the operations work:
+    
+
+
+      In each operation, two characters from the dataset are selected and removed.
+      Each operation has an associated cost:
+        
+          x: the cost of removing two identical characters.
+          y: the cost of removing two different characters.
+        
+      
+    
+    The task is to determine the optimal strategy that minimizes the total cost to completely clean up the dataset. In other words, find the minimum cost required to remove all characters and make the dataset empty.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `dataset = "aaabca"`
-**Input:** `x = 3`
-**Input:** `y = 2`
+**Input:** `dataset = "aaabca"`, `x = 3`, `y = 2`
 
 **Output:** `7`
 
 **Explanation:** In the first operation, the first and second characters are deleted from the dataset, resulting in dataset = "abca". The cost of this operation is x = 3 because both removed characters are equal (also 'a').
       
+
+
       In the next operation, the first and third characters are deleted, making dataset = "ba". The cost of this operation is y = 2 because the removed characters are not equal. In the final operation, the remaining two characters are deleted, making the dataset an empty string. The cost of this operation is y = 2 because the removed characters are not equal.
       
+
+
       Hence, the total cost is 3 + 2 + 2 = 7.
 
 ### Example 2
 
-**Input:** `dataset = "ouio"`
-**Input:** `x = 2`
-**Input:** `y = 4`
+**Input:** `dataset = "ouio"`, `x = 2`, `y = 4`
 
 **Output:** `6`
 
@@ -40,7 +56,9 @@ Total cost --> x + y = 2 + 4 = 6
 
 ## Constraints
 
-- `2 ≤ |dataset| ≤ 105|dataset| is even1 ≤ x, y ≤ 104`
+- `2 ≤ |dataset| ≤ 105`
+- `|dataset| is even`
+- `1 ≤ x, y ≤ 104`
 
 ## Solutions
 

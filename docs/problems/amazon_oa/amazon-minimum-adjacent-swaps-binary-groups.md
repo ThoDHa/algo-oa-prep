@@ -2,7 +2,9 @@
 
 **Medium** | **NN minutes** | **Array, Greedy**
 
-You are given a binary array bits. Using adjacent swaps, rearrange it so that equal values form two contiguous groups.Either order is valid: all 0s before all 1s, or all 1s before all 0s. Return the minimum number of adjacent swaps over both orders.
+You are given a binary array bits. Using adjacent swaps, rearrange it so that equal values form two contiguous groups.
+
+Either order is valid: all 0s before all 1s, or all 1s before all 0s. Return the minimum number of adjacent swaps over both orders.
 
 ## Examples
 
@@ -24,7 +26,8 @@ You are given a binary array bits. Using adjacent swaps, rearrange it so that eq
 
 ## Constraints
 
-- `1 <= bits.length <= 100000Every value in bits is either 0 or 1.`
+- `1 <= bits.length <= 100000`
+- `Every value in bits is either 0 or 1.`
 
 ## Solutions
 

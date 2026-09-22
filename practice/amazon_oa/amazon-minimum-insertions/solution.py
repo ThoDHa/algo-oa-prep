@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-minimum-insertions.md
 
-$23
+Amazon CodeCraft introduces you to an engaging problem-solving challenge. You are
 
   uv run python amazon_oa/amazon-minimum-insertions/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-minimum-insertions/              # run the test sets

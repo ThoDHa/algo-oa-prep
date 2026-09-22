@@ -2,7 +2,9 @@
 
 **Medium** | **NN minutes** | **Array, Stack, Design, Simulation**
 
-Process a sequence of stack operations. Each operation is ["push", value], ["pop"], ["top"], or ["middle"]. Values are signed decimal integers encoded as strings.Return one string for every non-push operation. For an empty stack, return EMPTY. For an even-sized stack, middle returns the lower middle element, the one closer to the bottom. Every operation must run in constant time; preallocated array storage is allowed.
+Process a sequence of stack operations. Each operation is ["push", value], ["pop"], ["top"], or ["middle"]. Values are signed decimal integers encoded as strings.
+
+Return one string for every non-push operation. For an empty stack, return EMPTY. For an even-sized stack, middle returns the lower middle element, the one closer to the bottom. Every operation must run in constant time; preallocated array storage is allowed.
 
 ## Examples
 
@@ -32,7 +34,10 @@ Process a sequence of stack operations. Each operation is ["push", value], ["pop
 
 ## Constraints
 
-- `1 &le; operations.length &le; 100000.Every operation has one of the four documented forms.Push values are integers in [-10^9, 10^9].The output contains one entry for every non-push operation.`
+- `1 ≤ operations.length ≤ 100000.`
+- `Every operation has one of the four documented forms.`
+- `Push values are integers in [-10^9, 10^9].`
+- `The output contains one entry for every non-push operation.`
 
 ## Solutions
 

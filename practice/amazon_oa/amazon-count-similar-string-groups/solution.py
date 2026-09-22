@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-count-similar-string-groups.md
 
-You are given an array of strings strs. All strings are anagrams of each other.Two strings are considered similar if they are identical, or if you can make them equal by swapping exactly two character
+You are given an array of strings strs. All strings are anagrams of each other.
 
   uv run python amazon_oa/amazon-count-similar-string-groups/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-count-similar-string-groups/              # run the test sets

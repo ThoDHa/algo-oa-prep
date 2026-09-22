@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-exp.md
 
-$23
+Note --> Feel free to check the source image below for the original problem statement :)
 
   uv run python amazon_oa/amazon-get-exp/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-exp/              # run the test sets

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-maximum-profit-job-scheduling.md
 
-You are given equal-length arrays startTime, endTime, and profit. Job i runs on the half-open interval from its start time to its end time and earns its profit.Select non-overlapping jobs to maximize 
+You are given equal-length arrays startTime, endTime, and profit. Job i runs on the half-open interval from its start time to its end time and earns its profit.
 
   uv run python amazon_oa/amazon-maximum-profit-job-scheduling/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-maximum-profit-job-scheduling/              # run the test sets

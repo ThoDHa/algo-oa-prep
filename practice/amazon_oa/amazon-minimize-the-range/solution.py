@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-minimize-the-range.md
 
-$23
+Given a collection of n cards. The i-th card (1 ≤ i ≤ n) has a number Ai on its front and a number Bi on its back. At the start, all the cards are facing upwards. He wants to minimize the range of num
 
   uv run python amazon_oa/amazon-minimize-the-range/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-minimize-the-range/              # run the test sets

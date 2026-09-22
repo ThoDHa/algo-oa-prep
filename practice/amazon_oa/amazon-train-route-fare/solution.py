@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-train-route-fare.md
 
-A train route is given as an ordered array of unique stop names. Traveling across one adjacent segment costs one fare unit in either direction.Implement calculateFare to return the fare between start 
+A train route is given as an ordered array of unique stop names. Traveling across one adjacent segment costs one fare unit in either direction.
 
   uv run python amazon_oa/amazon-train-route-fare/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-train-route-fare/              # run the test sets

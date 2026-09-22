@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-find-minimum-time-required.md
 
-$23
+Some developers at Amazon are building a prototype for a simple rate-limiting algorithm. There are n requests to be processed by the server represented by a string requests where the ith character rep
 
   uv run python amazon_oa/amazon-find-minimum-time-required/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-find-minimum-time-required/              # run the test sets

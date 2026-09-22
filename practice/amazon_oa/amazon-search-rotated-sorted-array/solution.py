@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-search-rotated-sorted-array.md
 
-Given an integer array nums that was sorted in strictly increasing order and then rotated at an unknown pivot, and an integer target, return the index of target.Return -1 when target does not appear i
+Given an integer array nums that was sorted in strictly increasing order and then rotated at an unknown pivot, and an integer target, return the index of target.
 
   uv run python amazon_oa/amazon-search-rotated-sorted-array/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-search-rotated-sorted-array/              # run the test sets

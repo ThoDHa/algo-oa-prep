@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-perform-queries.md
 
-$23
+Amazon ships millions of packages every day. A large percentage of them are fulfilled by Amazon, so it is important to minimize shipping costs. It has been found that moving a group of 3 packages to t
 
   uv run python amazon_oa/amazon-perform-queries/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-perform-queries/              # run the test sets

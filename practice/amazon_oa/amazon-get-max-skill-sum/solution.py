@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-max-skill-sum.md
 
-$23
+A manager at Amazon is managing a team of n employees with IDs numbered from 0 to n - 1. Some employees are marketing experts and others are developers. The employee with id i has a skill level of ski
 
   uv run python amazon_oa/amazon-get-max-skill-sum/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-max-skill-sum/              # run the test sets

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-count-connected-components.md
 
-You are given an undirected graph with n nodes and a list of edges. Each edge connects two nodes in the graph.Return the number of connected components in the graph. A connected component is a maximal
+You are given an undirected graph with n nodes and a list of edges. Each edge connects two nodes in the graph.
 
   uv run python amazon_oa/amazon-count-connected-components/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-count-connected-components/              # run the test sets

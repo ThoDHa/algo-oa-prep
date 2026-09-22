@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-unique-pairs-with-target-sum.md
 
-Complete the function below. The function receives the full standard input as a single string and returns the exact standard output lines.Problem Given an integer array and a target value, return all 
+Complete the function below. The function receives the full standard input as a single string and returns the exact standard output lines.
 
   uv run python amazon_oa/amazon-unique-pairs-with-target-sum/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-unique-pairs-with-target-sum/              # run the test sets

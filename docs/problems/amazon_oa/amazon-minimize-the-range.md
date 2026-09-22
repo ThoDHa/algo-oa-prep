@@ -2,16 +2,29 @@
 
 **Hard** | **NN minutes** | **Sliding Window, Sorting, Greedy**
 
-$23
+Given a collection of n cards. The i-th card (1 ≤ i ≤ n) has a number Ai on its front and a number Bi on its back. At the start, all the cards are facing upwards. He wants to minimize the range of numbers (i.e. the difference between the maximum and minimum values) on the face-up side. He is allowed to flip a maximum of m cards. Flipping a card will transition Bi to the face up side and Ai to the back. Help him find the minimum possible range after using at most m flips.
+    
+
+
+      Input
+      
+
+
+      The first line of the input consists of 2 integers n and m. The next line contains n integers, i-th of which denotes Ai. The next line contains n integers, i-th of which denotes Bi.
+      
+
+
+      Output
+      
+
+
+      Output a single integer, the minimum possible range.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `n = 5`
-**Input:** `m = 2`
-**Input:** `A = [1, 2, 17, 16, 9]`
-**Input:** `B = [3, 4, 5, 6, 11]`
+**Input:** `n = 5`, `m = 2`, `A = [1, 2, 17, 16, 9]`, `B = [3, 4, 5, 6, 11]`
 
 **Output:** `8`
 
@@ -19,7 +32,8 @@ $23
 
 ## Constraints
 
-- `1 <= m <= n1 <= Ai, Bi <= 107`
+- `1 <= m <= n`
+- `1 <= Ai, Bi <= 107`
 
 ## Solutions
 

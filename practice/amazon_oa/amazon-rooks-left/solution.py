@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-rooks-left.md
 
-$23
+You are given a 2D grid board that represents a chessboard. The board contains multiple cells, where:
 
   uv run python amazon_oa/amazon-rooks-left/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-rooks-left/              # run the test sets

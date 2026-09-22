@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-minimum-preparation-time-for-two-handlers.md
 
-$23
+A work queue workList must be processed in order by two handlers. Each value in workList is a work type from 1 through m.
 
   uv run python amazon_oa/amazon-minimum-preparation-time-for-two-handlers/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-minimum-preparation-time-for-two-handlers/              # run the test sets

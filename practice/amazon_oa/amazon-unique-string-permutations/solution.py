@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-unique-string-permutations.md
 
-Given a lowercase string s, return every distinct permutation of its characters exactly once.Return the permutations in ascending lexicographic order. Equal characters from different input positions m
+Given a lowercase string s, return every distinct permutation of its characters exactly once.
 
   uv run python amazon_oa/amazon-unique-string-permutations/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-unique-string-permutations/              # run the test sets

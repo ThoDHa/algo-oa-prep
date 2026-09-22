@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-lexicographically-maximum-final-sequence.md
 
-You are given a binary string shipmentData consisting only of '0' and '1'.A final string is built from a chosen ordering of shipmentData as follows:Start with an empty string finalSequence.For each ch
+You are given a binary string shipmentData consisting only of '0' and '1'.
 
   uv run python amazon_oa/amazon-lexicographically-maximum-final-sequence/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-lexicographically-maximum-final-sequence/              # run the test sets

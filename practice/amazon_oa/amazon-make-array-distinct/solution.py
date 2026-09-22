@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-make-array-distinct.md
 
-Problem Description Version No.2:
+Amazon OA problem.
 
   uv run python amazon_oa/amazon-make-array-distinct/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-make-array-distinct/              # run the test sets

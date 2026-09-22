@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/check-similar-passwords.md
 
-$23
+Amazon would like to enforce a password policy for password changes. For each pair of strings newPasswords[i] and oldPasswords[i], determine whether the two passwords are similar.
 
   uv run python amazon_oa/check-similar-passwords/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/check-similar-passwords/              # run the test sets

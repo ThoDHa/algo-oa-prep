@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-smallest-base-segment.md
 
-$23
+In Amazon's distributed storage network, some critical data segments are missing. They are represented by a string missingData. The system restores data by choosing a base segment of length segmentSiz
 
   uv run python amazon_oa/amazon-get-smallest-base-segment/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-smallest-base-segment/              # run the test sets

@@ -2,15 +2,41 @@
 
 **Easy** | **NN minutes** | **Hash Table, Sorting, Greedy**
 
-$23
+Note 📝 - might be a sister problem of  🦥 Get Max Sum
+    
+
+
+    Amazon is building a new data center with n servers of different types. The health and type of each server are represented in the arrays health and serverType. The developers need to build a server facility with a maximum of k distinct types of servers and the sum of their health should be maximized.
+    
+
+
+    Given arrays health and serverType, find the maximum sum of the health for up to k types of servers.
+    
+
+
+      Complete the function getMaximumSum in the editor.
+      
+
+
+      getMaximumSum has the following parameters:
+        
+
+
+          int health[n]: the health of each server
+          int serverType[n]: the type of each server
+          int k: the maximum number of distinct types
+        
+        long int: the maximum sum of health of the selected servers
+        
+
+
+        Thanks a lot to Spike — our trusted authority! 🥰
 
 ## Examples
 
 ### Example 1
 
-**Input:** `health = [4, 5, 5, 6]`
-**Input:** `serverType = [1, 2, 1, 2]`
-**Input:** `k = 1`
+**Input:** `health = [4, 5, 5, 6]`, `serverType = [1, 2, 1, 2]`, `k = 1`
 
 **Output:** `11`
 
@@ -18,9 +44,7 @@ $23
 
 ### Example 2
 
-**Input:** `health = [1, 2, 3, 10, 10]`
-**Input:** `serverType = [3, 3, 1, 2, 5]`
-**Input:** `k = 2`
+**Input:** `health = [1, 2, 3, 10, 10]`, `serverType = [3, 3, 1, 2, 5]`, `k = 2`
 
 **Output:** `20`
 

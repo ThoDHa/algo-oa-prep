@@ -32,7 +32,8 @@ Return the lexicographically next permutation of nums. If the current ordering i
 
 ## Constraints
 
-- `1 <= nums.length <= 10000Values fit in a signed 32-bit integer.`
+- `1 <= nums.length <= 10000`
+- `Values fit in a signed 32-bit integer.`
 
 ## Solutions
 

@@ -2,7 +2,9 @@
 
 **Medium** | **NN minutes** | **String, Hash Table, Heap, Greedy**
 
-Rearrange a lowercase string so that no two adjacent characters are equal. If no such arrangement exists, return the empty string.To make the judged result deterministic, construct the answer with this rule: at each position, select the eligible character with the greatest remaining frequency. The previously placed character is not eligible. If several eligible characters have the same frequency, select the lexicographically smallest one.
+Rearrange a lowercase string so that no two adjacent characters are equal. If no such arrangement exists, return the empty string.
+
+To make the judged result deterministic, construct the answer with this rule: at each position, select the eligible character with the greatest remaining frequency. The previously placed character is not eligible. If several eligible characters have the same frequency, select the lexicographically smallest one.
 
 ## Examples
 
@@ -32,7 +34,8 @@ Rearrange a lowercase string so that no two adjacent characters are equal. If no
 
 ## Constraints
 
-- `1 <= s.length <= 10^5s contains only lowercase English letters.`
+- `1 <= s.length <= 10^5`
+- `s contains only lowercase English letters.`
 
 ## Solutions
 

@@ -2,14 +2,21 @@
 
 **Easy** | **NN minutes** | **Graph, Union Find, Depth First Search**
 
-You are given an undirected graph with n nodes and a list of edges. Each edge connects two nodes in the graph.Return the number of connected components in the graph. A connected component is a maximal group of nodes where every pair of nodes is connected by some path.Function Description Complete the function countConnectedComponents in the editor.countConnectedComponents has the following parameters:int n: the number of nodes, labeled from 0 to n - 1int edges[][]: an array where each element [u, v] represents an undirected edge between nodes u and vReturns int: the number of connected components in the graph
+You are given an undirected graph with n nodes and a list of edges. Each edge connects two nodes in the graph.
+
+Return the number of connected components in the graph. A connected component is a maximal group of nodes where every pair of nodes is connected by some path.
+
+Function Description Complete the function countConnectedComponents in the editor.
+
+countConnectedComponents has the following parameters:
+
+int n: the number of nodes, labeled from 0 to n - 1int edges[][]: an array where each element [u, v] represents an undirected edge between nodes u and vReturns int: the number of connected components in the graph
 
 ## Examples
 
 ### Example 1
 
-**Input:** `n = 5`
-**Input:** `edges = [[0, 1], [1, 2], [3, 4]]`
+**Input:** `n = 5`, `edges = [[0, 1], [1, 2], [3, 4]]`
 
 **Output:** `2`
 
@@ -17,8 +24,7 @@ You are given an undirected graph with n nodes and a list of edges. Each edge co
 
 ### Example 2
 
-**Input:** `n = 5`
-**Input:** `edges = [[0, 1], [1, 2], [2, 0], [3, 4]]`
+**Input:** `n = 5`, `edges = [[0, 1], [1, 2], [2, 0], [3, 4]]`
 
 **Output:** `2`
 
@@ -26,8 +32,7 @@ You are given an undirected graph with n nodes and a list of edges. Each edge co
 
 ### Example 3
 
-**Input:** `n = 4`
-**Input:** `edges = []`
+**Input:** `n = 4`, `edges = []`
 
 **Output:** `4`
 
@@ -35,7 +40,9 @@ You are given an undirected graph with n nodes and a list of edges. Each edge co
 
 ## Constraints
 
-- `Nodes are labeled from 0 to n - 1.The graph is undirected.The input edges are valid node pairs.`
+- `Nodes are labeled from 0 to n - 1.`
+- `The graph is undirected.`
+- `The input edges are valid node pairs.`
 
 ## Solutions
 

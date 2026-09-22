@@ -2,7 +2,9 @@
 
 **Medium** | **NN minutes** | **Array, Math, Simulation**
 
-You are given an array values containing distinct integers. You may apply either of these operations:Rotate: Move the first element to the end of the array.Flip: Reverse the entire array.Return the minimum number of operations needed to place values in strictly increasing order. You may use the operations in any sequence. If increasing order cannot be reached, return -1.
+You are given an array values containing distinct integers. You may apply either of these operations:
+
+Rotate: Move the first element to the end of the array.Flip: Reverse the entire array.Return the minimum number of operations needed to place values in strictly increasing order. You may use the operations in any sequence. If increasing order cannot be reached, return -1.
 
 ## Examples
 
@@ -32,7 +34,9 @@ You are given an array values containing distinct integers. You may apply either
 
 ## Constraints
 
-- `1 <= values.length <= 200000Every element is a 32-bit signed integer.All elements are distinct.`
+- `1 <= values.length <= 200000`
+- `Every element is a 32-bit signed integer.`
+- `All elements are distinct.`
 
 ## Solutions
 

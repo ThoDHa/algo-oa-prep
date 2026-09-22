@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-count-pairs.md
 
-You are given an integer array numbers and a nonnegative integer k. Count the number of distinct value pairs (a, b) for which both values occur in numbers and a + k = b.Pairs are distinguished by thei
+You are given an integer array numbers and a nonnegative integer k. Count the number of distinct value pairs (a, b) for which both values occur in numbers and a + k = b.
 
   uv run python amazon_oa/amazon-count-pairs/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-count-pairs/              # run the test sets

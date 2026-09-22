@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-group-students.md
 
-$23
+Amazon Technical Academy (ATA) provides in-demand, technical training to current Amazon employees looking to broaden their skill sets. ATA has admitted a group of n prospective trainees with varying s
 
   uv run python amazon_oa/amazon-group-students/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-group-students/              # run the test sets

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-minimum-window-substring.md
 
-Given non-empty strings s and t, return the shortest contiguous substring of s that contains every character of t, including duplicate occurrences.If no window exists, return the empty string. If seve
+Given non-empty strings s and t, return the shortest contiguous substring of s that contains every character of t, including duplicate occurrences.
 
   uv run python amazon_oa/amazon-minimum-window-substring/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-minimum-window-substring/              # run the test sets

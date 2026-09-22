@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-minimum-value.md
 
-$23
+Amazon Prime Games is designing a game. The player needs to pass n rounds sequentially in this game. Rules of play are as follows:
 
   uv run python amazon_oa/amazon-get-minimum-value/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-minimum-value/              # run the test sets

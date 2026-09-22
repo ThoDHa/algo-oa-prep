@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-optimized-identifiers.md
 
-$23
+In an Amazon inventory management, an operations analyst is dealing with a set of initial product identifiers represented by strings. The type of a string product identifier is determined by the first
 
   uv run python amazon_oa/amazon-optimized-identifiers/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-optimized-identifiers/              # run the test sets

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-minimum-adjacent-swaps-binary-groups.md
 
-You are given a binary array bits. Using adjacent swaps, rearrange it so that equal values form two contiguous groups.Either order is valid: all 0s before all 1s, or all 1s before all 0s. Return the m
+You are given a binary array bits. Using adjacent swaps, rearrange it so that equal values form two contiguous groups.
 
   uv run python amazon_oa/amazon-minimum-adjacent-swaps-binary-groups/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-minimum-adjacent-swaps-binary-groups/              # run the test sets

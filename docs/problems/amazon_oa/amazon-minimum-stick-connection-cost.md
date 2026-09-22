@@ -2,7 +2,9 @@
 
 **unknown difficulty** | **NN minutes** | **unknown categories**
 
-You are given an integer array sticks, where each element is the length of a stick.You may connect any two sticks with lengths x and y. The new stick has length x + y, and the cost of this operation is also x + y.
+You are given an integer array sticks, where each element is the length of a stick.
+
+You may connect any two sticks with lengths x and y. The new stick has length x + y, and the cost of this operation is also x + y.
 
 ## Examples
 

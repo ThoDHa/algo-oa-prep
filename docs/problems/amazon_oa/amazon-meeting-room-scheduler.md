@@ -2,14 +2,17 @@
 
 **Medium** | **NN minutes** | **Array, Heap, Intervals, Simulation**
 
-Implement a scheduler for roomCount meeting rooms numbered from 0 to roomCount - 1.Each row meetings[i] = [start, end] is a request for the half-open interval [start, end). Requests appear in nondecreasing start order and are processed in input order. Assign the lowest-numbered available room. If every room overlaps the request, reject it with -1.Return an array whose ith value is the assigned room number or -1. A rejected request does not reserve a room.
+Implement a scheduler for roomCount meeting rooms numbered from 0 to roomCount - 1.
+
+Each row meetings[i] = [start, end] is a request for the half-open interval [start, end). Requests appear in nondecreasing start order and are processed in input order. Assign the lowest-numbered available room. If every room overlaps the request, reject it with -1.
+
+Return an array whose ith value is the assigned room number or -1. A rejected request does not reserve a room.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `roomCount = 2`
-**Input:** `meetings = [[0,10],[5,7],[10,12],[10,15]]`
+**Input:** `roomCount = 2`, `meetings = [[0,10],[5,7],[10,12],[10,15]]`
 
 **Output:** `[0,1,0,1]`
 
@@ -17,8 +20,7 @@ Implement a scheduler for roomCount meeting rooms numbered from 0 to roomCount -
 
 ### Example 2
 
-**Input:** `roomCount = 1`
-**Input:** `meetings = [[1,4],[2,3],[4,5]]`
+**Input:** `roomCount = 1`, `meetings = [[1,4],[2,3],[4,5]]`
 
 **Output:** `[0,-1,0]`
 
@@ -26,8 +28,7 @@ Implement a scheduler for roomCount meeting rooms numbered from 0 to roomCount -
 
 ### Example 3
 
-**Input:** `roomCount = 2`
-**Input:** `meetings = [[1,2],[1,2],[1,2]]`
+**Input:** `roomCount = 2`, `meetings = [[1,2],[1,2],[1,2]]`
 
 **Output:** `[0,1,-1]`
 
@@ -35,7 +36,11 @@ Implement a scheduler for roomCount meeting rooms numbered from 0 to roomCount -
 
 ## Constraints
 
-- `1 <= roomCount <= 10^5.1 <= meetings.length <= 10^5.meetings[i].length == 2.0 <= start < end <= 10^9.Meeting start times are nondecreasing.`
+- `1 <= roomCount <= 10^5.`
+- `1 <= meetings.length <= 10^5.`
+- `meetings[i].length == 2.`
+- `0 <= start < end <= 10^9.`
+- `Meeting start times are nondecreasing.`
 
 ## Solutions
 

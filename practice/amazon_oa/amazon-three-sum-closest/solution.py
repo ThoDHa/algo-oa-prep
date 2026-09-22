@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-three-sum-closest.md
 
-Given an integer array nums and an integer target, choose three distinct indices and return the sum of their values that is closest to target.If two obtainable sums are equally close, return the small
+Given an integer array nums and an integer target, choose three distinct indices and return the sum of their values that is closest to target.
 
   uv run python amazon_oa/amazon-three-sum-closest/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-three-sum-closest/              # run the test sets

@@ -2,7 +2,13 @@
 
 **unknown difficulty** | **NN minutes** | **unknown categories**
 
-You are given an array of strings strs. All strings are anagrams of each other.Two strings are considered similar if they are identical, or if you can make them equal by swapping exactly two characters in one of the strings.Similarity is transitive: if string a is similar to b, and b is similar to c, then all three belong to the same group.Return the number of groups of similar strings.
+You are given an array of strings strs. All strings are anagrams of each other.
+
+Two strings are considered similar if they are identical, or if you can make them equal by swapping exactly two characters in one of the strings.
+
+Similarity is transitive: if string a is similar to b, and b is similar to c, then all three belong to the same group.
+
+Return the number of groups of similar strings.
 
 ## Examples
 
@@ -24,7 +30,8 @@ You are given an array of strings strs. All strings are anagrams of each other.T
 
 ## Constraints
 
-- `All strings in strs are anagrams of each other.All strings have the same length.`
+- `All strings in strs are anagrams of each other.`
+- `All strings have the same length.`
 
 ## Solutions
 

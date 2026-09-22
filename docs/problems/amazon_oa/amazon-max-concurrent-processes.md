@@ -2,7 +2,15 @@
 
 **Medium** | **NN minutes** | **Intervals, Sorting**
 
-$23
+🍇 FastPrep match note: This version is based on a reported Amazon SDE2 full-time onsite Bar Raiser round prompt and should match the core task about 90-95%: given process running intervals, return the maximum number running at the same time.
+
+The main uncertainty is whether the original wording explicitly counted endpoints as running; the reported example only reaches 3 if time 3 belongs to both [1, 3] and [3, 6], so we make the inclusive endpoint rule explicit and add a few practice examples and constraints for clarity.
+
+You are given a list of processes. Each process has a running interval represented as [start, end].
+
+A process is considered running at every integer time from start through end, inclusive.
+
+Return the maximum number of processes running at the same time.
 
 ## Examples
 
@@ -40,7 +48,10 @@ $23
 
 ## Constraints
 
-- `1 <= intervals.length <= 1000000 <= start <= end <= 1000000000All start and end values are integers.Intervals are inclusive: [start, end].`
+- `1 <= intervals.length <= 100000`
+- `0 <= start <= end <= 1000000000`
+- `All start and end values are integers.`
+- `Intervals are inclusive: [start, end].`
 
 ## Solutions
 

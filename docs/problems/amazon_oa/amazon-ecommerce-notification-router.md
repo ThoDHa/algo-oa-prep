@@ -2,14 +2,15 @@
 
 **Easy** | **NN minutes** | **Array, String, Simulation**
 
-Implement the routing decision for a batch of e-commerce notifications. For notification i, preferredChannels[i] is the user's preferred channel and priorities[i] is either NORMAL or URGENT.A NORMAL notification routes only to the user's preferred channel.An URGENT notification routes to all channels in the fixed order EMAIL, SMS, PUSH.Return one channel array per notification. Implement only the routing decisions; delivery handlers and delivery success are outside this task.
+Implement the routing decision for a batch of e-commerce notifications. For notification i, preferredChannels[i] is the user's preferred channel and priorities[i] is either NORMAL or URGENT.
+
+A NORMAL notification routes only to the user's preferred channel.An URGENT notification routes to all channels in the fixed order EMAIL, SMS, PUSH.Return one channel array per notification. Implement only the routing decisions; delivery handlers and delivery success are outside this task.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `preferredChannels = ["EMAIL","SMS","PUSH"]`
-**Input:** `priorities = ["NORMAL","URGENT","NORMAL"]`
+**Input:** `preferredChannels = ["EMAIL","SMS","PUSH"]`, `priorities = ["NORMAL","URGENT","NORMAL"]`
 
 **Output:** `[["EMAIL"],["EMAIL","SMS","PUSH"],["PUSH"]]`
 
@@ -17,8 +18,7 @@ Implement the routing decision for a batch of e-commerce notifications. For noti
 
 ### Example 2
 
-**Input:** `preferredChannels = ["PUSH"]`
-**Input:** `priorities = ["URGENT"]`
+**Input:** `preferredChannels = ["PUSH"]`, `priorities = ["URGENT"]`
 
 **Output:** `[["EMAIL","SMS","PUSH"]]`
 
@@ -26,8 +26,7 @@ Implement the routing decision for a batch of e-commerce notifications. For noti
 
 ### Example 3
 
-**Input:** `preferredChannels = ["SMS","EMAIL"]`
-**Input:** `priorities = ["NORMAL","NORMAL"]`
+**Input:** `preferredChannels = ["SMS","EMAIL"]`, `priorities = ["NORMAL","NORMAL"]`
 
 **Output:** `[["SMS"],["EMAIL"]]`
 
@@ -35,7 +34,9 @@ Implement the routing decision for a batch of e-commerce notifications. For noti
 
 ## Constraints
 
-- `1 <= preferredChannels.length == priorities.length <= 10^5.Every preferred channel is EMAIL, SMS, or PUSH.Every priority is NORMAL or URGENT.`
+- `1 <= preferredChannels.length == priorities.length <= 10^5.`
+- `Every preferred channel is EMAIL, SMS, or PUSH.`
+- `Every priority is NORMAL or URGENT.`
 
 ## Solutions
 

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-min-operations2.md
 
-🍊 Following is the original prompt - 🥑
+Amazon OA problem.
 
   uv run python amazon_oa/amazon-get-min-operations2/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-min-operations2/              # run the test sets

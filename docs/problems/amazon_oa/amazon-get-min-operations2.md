@@ -4,18 +4,32 @@
 
 🍊 Following is the original prompt - 🥑
 
+
+
 Devs at AMZ are working on a new sorting algorithm for points on the x-axis of the coordinate system.
 
-There are n points. The ith point initially has a weight of weight[i] and is located at position i on the x-axis.
-In a single position, the ith point can be moved to the right by a distance of dist[i].
+
+
+There are n points. The i^th point initially has a weight of weight[i] and is located at position i on the x-axis.
+In a single position, the i^th point can be moved to the right by a distance of dist[i].
+
+
 
 Given weight and dist, find the minimum number of operations required to sort the points by their weights.
 
+
+
 Function Description 🥑
+
+
 
 Complete the function getMinOperations2 in the editor - 
 
+
+
 GetMinOperations2 has the following arguments - 
+
+
 int weights[n]: the weights of the pointsint dist[n]: the distances the points can moveReturns 
 long int: the min num of operations to sort the points. Here long int represents a 64 bit integer. :)
 
@@ -23,8 +37,7 @@ long int: the min num of operations to sort the points. Here long int represents
 
 ### Example 1
 
-**Input:** `weight = [3, 6, 5, 2]`
-**Input:** `dist = [4, 3, 2, 1]`
+**Input:** `weight = [3, 6, 5, 2]`, `dist = [4, 3, 2, 1]`
 
 **Output:** `5`
 
@@ -32,8 +45,7 @@ long int: the min num of operations to sort the points. Here long int represents
 
 ### Example 2
 
-**Input:** `weight = [2, 4, 3, 1]`
-**Input:** `dist = [2, 6, 3, 5]`
+**Input:** `weight = [2, 4, 3, 1]`, `dist = [2, 6, 3, 5]`
 
 **Output:** `4`
 
@@ -41,7 +53,9 @@ long int: the min num of operations to sort the points. Here long int represents
 
 ## Constraints
 
-- `2 <= n <= 2 * 1051 <= weights[i] <= 1091 <= dist[i] <= 103`
+- `2 <= n <= 2 * 10^5`
+- `1 <= weights[i] <= 10^9`
+- `1 <= dist[i] <= 10^3`
 
 ## Solutions
 

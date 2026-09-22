@@ -2,7 +2,11 @@
 
 **Medium** | **NN minutes** | **Trie, String, Design**
 
-Implement a dynamic collection of lowercase words. Process the finite array operations from left to right.Each operation has one of these forms:INSERT word: add word to the collection. Inserting a word that is already present does not create a duplicate.SEARCH prefix: return up to three stored words that begin with prefix, ordered lexicographically.The collection starts empty. Return one row for every SEARCH operation, in command order. INSERT operations do not produce output.
+Implement a dynamic collection of lowercase words. Process the finite array operations from left to right.
+
+Each operation has one of these forms:
+
+INSERT word: add word to the collection. Inserting a word that is already present does not create a duplicate.SEARCH prefix: return up to three stored words that begin with prefix, ordered lexicographically.The collection starts empty. Return one row for every SEARCH operation, in command order. INSERT operations do not produce output.
 
 ## Examples
 
@@ -24,7 +28,11 @@ Implement a dynamic collection of lowercase words. Process the finite array oper
 
 ## Constraints
 
-- `1 <= operations.length <= 100000.Every operation is exactly one documented command with one separating space.Every word and prefix contains 1 to 100 lowercase English letters.The total number of characters across all operations is at most 1000000.At least one operation is SEARCH.`
+- `1 <= operations.length <= 100000.`
+- `Every operation is exactly one documented command with one separating space.`
+- `Every word and prefix contains 1 to 100 lowercase English letters.`
+- `The total number of characters across all operations is at most 1000000.`
+- `At least one operation is SEARCH.`
 
 ## Solutions
 

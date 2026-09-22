@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-final-locations.md
 
-$23
+Amazon stores its data on different servers at different locations. From time to time, due to several factors, Amazon needs to move its data from one location to another. This challenge involves keepi
 
   uv run python amazon_oa/amazon-get-final-locations/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-final-locations/              # run the test sets

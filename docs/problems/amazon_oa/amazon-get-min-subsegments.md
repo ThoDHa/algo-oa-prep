@@ -2,7 +2,15 @@
 
 **Hard** | **NN minutes** | **Dynamic Programming, Greedy, String**
 
-$23
+Amazon Prime Video is developing a new feature called "Segmentify." This feature applies to a video with n (even) visual frames, where each frame is represented by a binary character in the array frames. In this format, a "0" represents a black pixel, and a "1" represents a white pixel.
+
+Due to factors like lighting and camera angles, some frames may need horizontal or vertical flips (changing "0"s to "1"s and vice versa) to create consistent visuals. The objective is to divide the video into subsegments so that all frames in a subsegment are visually identical (i.e., the frames in a subsegment are either all "0"s or all "1"s). Additionally, each subsegment should have an even length.
+
+The goal is to accomplish this segmentation with two criteria in mind:
+
+Minimize the number of flips required to form valid segments, let this be denoted by B.Among all configurations requiring B flips, minimize the total number of subsegments.Given the binary string frames, determine the minimum number of even-length subsegments that can be created while utilising the least number of flips.
+
+Note: A subsegment is a segment that can be derived from another segment by deleting some elements without changing the order of the remaining elements.
 
 ## Examples
 
@@ -42,7 +50,8 @@ Hence, the length of the only segment formed is even. So, the minimum number of 
 
 ## Constraints
 
-- `2 ≤ n ≤ 10^5, where n is the length of frames and is even.It is guaranteed that the string frames only consists of 0s and 1s.`
+- `2 ≤ n ≤ 10^5, where n is the length of frames and is even.`
+- `It is guaranteed that the string frames only consists of 0s and 1s.`
 
 ## Solutions
 

@@ -4,15 +4,15 @@
 
 See the Image Source section for the original statement :)
     
+
+
     In a vast digital database, numbers were carefully stored as strings of binary characters—'0' and '1'. But something went wrong. In place of some digits, mysterious '!' marks appeared, casting doubt on what those digits should be. Should they be '0's or '1's? To make matters worse, whenever a '0' and '1' pair appeared together, they caused glitches—small errors that multiplied throughout the system. Some combinations triggered more glitches than others. The challenge now is to replace all the '!' marks in a way that minimizes the total glitches, while keeping the system stable and efficient.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `errorString = "101!1"`
-**Input:** `x = 2`
-**Input:** `y = 3`
+**Input:** `errorString = "101!1"`, `x = 2`, `y = 3`
 
 **Output:** `9`
 

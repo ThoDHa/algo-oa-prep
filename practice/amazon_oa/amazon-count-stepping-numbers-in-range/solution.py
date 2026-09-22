@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-count-stepping-numbers-in-range.md
 
-A stepping number is an integer whose adjacent digits differ by exactly 1. Every one-digit integer, including 0, is a stepping number.Given two integers low and high, return the number of stepping num
+A stepping number is an integer whose adjacent digits differ by exactly 1. Every one-digit integer, including 0, is a stepping number.
 
   uv run python amazon_oa/amazon-count-stepping-numbers-in-range/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-count-stepping-numbers-in-range/              # run the test sets

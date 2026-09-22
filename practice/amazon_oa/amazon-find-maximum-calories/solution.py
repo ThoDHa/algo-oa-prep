@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-find-maximum-calories.md
 
-You start on the ground at height 0. There are n stones, and stone i has height height[i].You must visit every stone exactly once, in any order. After jumping from the ground to the first stone, you c
+You start on the ground at height 0. There are n stones, and stone i has height height[i].
 
   uv run python amazon_oa/amazon-find-maximum-calories/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-find-maximum-calories/              # run the test sets

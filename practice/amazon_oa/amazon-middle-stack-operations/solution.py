@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-middle-stack-operations.md
 
-Process a sequence of stack operations. Each operation is ["push", value], ["pop"], ["top"], or ["middle"]. Values are signed decimal integers encoded as strings.Return one string for every non-push o
+Process a sequence of stack operations. Each operation is ["push", value], ["pop"], ["top"], or ["middle"]. Values are signed decimal integers encoded as strings.
 
   uv run python amazon_oa/amazon-middle-stack-operations/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-middle-stack-operations/              # run the test sets

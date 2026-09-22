@@ -2,14 +2,17 @@
 
 **unknown difficulty** | **NN minutes** | **unknown categories**
 
-You are given an integer array sources, where sources[i] is the amount of power available from the i-th power source, and an integer n representing the number of machines.Each machine must receive power from exactly one source. A source may power multiple machines, but the total power assigned from that source cannot exceed its capacity.Return the maximum possible value of the minimum power assigned to any machine.
+You are given an integer array sources, where sources[i] is the amount of power available from the i-th power source, and an integer n representing the number of machines.
+
+Each machine must receive power from exactly one source. A source may power multiple machines, but the total power assigned from that source cannot exceed its capacity.
+
+Return the maximum possible value of the minimum power assigned to any machine.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `sources = [5, 8, 6]`
-**Input:** `n = 4`
+**Input:** `sources = [5, 8, 6]`, `n = 4`
 
 **Output:** `4`
 
@@ -17,8 +20,7 @@ You are given an integer array sources, where sources[i] is the amount of power 
 
 ### Example 2
 
-**Input:** `sources = [10, 10]`
-**Input:** `n = 3`
+**Input:** `sources = [10, 10]`, `n = 3`
 
 **Output:** `5`
 
@@ -26,7 +28,9 @@ You are given an integer array sources, where sources[i] is the amount of power 
 
 ## Constraints
 
-- `1 <= sources.length1 <= nsources[i] is a non-negative integer power capacity.`
+- `1 <= sources.length`
+- `1 <= n`
+- `sources[i] is a non-negative integer power capacity.`
 
 ## Solutions
 

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-medians.md
 
-$23
+A new Amazon intern encountered a challenging task. Currently, the intern has n integers, where the value of the ith element is represented by the array element nums[i]. The intern is curious to play 
 
   uv run python amazon_oa/amazon-medians/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-medians/              # run the test sets

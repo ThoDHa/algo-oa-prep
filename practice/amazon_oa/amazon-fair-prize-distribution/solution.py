@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-fair-prize-distribution.md
 
-A coding challenge has n participants. Participant i earned score points[i]. There are m available prizes, and values[j] is the value of the j-th prize.Assign one prize value to each participant using
+A coding challenge has n participants. Participant i earned score points[i]. There are m available prizes, and values[j] is the value of the j-th prize.
 
   uv run python amazon_oa/amazon-fair-prize-distribution/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-fair-prize-distribution/              # run the test sets

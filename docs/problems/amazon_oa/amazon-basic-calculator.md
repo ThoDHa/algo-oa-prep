@@ -2,7 +2,11 @@
 
 **Hard** | **NN minutes** | **String, Stack, Recursion**
 
-Given a valid arithmetic expression s, return its evaluated integer value.The expression may contain:Non-negative integer literals.The binary operators + and -.Parentheses ( and ).Spaces.Unary + or - where a signed expression is valid.Integer division is not needed because the expression contains no multiplication or division operators.
+Given a valid arithmetic expression s, return its evaluated integer value.
+
+The expression may contain:
+
+Non-negative integer literals.The binary operators + and -.Parentheses ( and ).Spaces.Unary + or - where a signed expression is valid.Integer division is not needed because the expression contains no multiplication or division operators.
 
 ## Examples
 
@@ -32,7 +36,9 @@ Given a valid arithmetic expression s, return its evaluated integer value.The ex
 
 ## Constraints
 
-- `1 <= s.length <= 3 * 10^5s is a valid expression containing digits, +, -, (, ), and spaces.Every intermediate and final result fits in a signed 32-bit integer.`
+- `1 <= s.length <= 3 * 10^5`
+- `s is a valid expression containing digits, +, -, (, ), and spaces.`
+- `Every intermediate and final result fits in a signed 32-bit integer.`
 
 ## Solutions
 

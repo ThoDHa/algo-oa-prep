@@ -2,7 +2,9 @@
 
 **Medium** | **NN minutes** | **String, Sorting, Backtracking, Combinatorics**
 
-Given a lowercase string s, return every distinct permutation of its characters exactly once.Return the permutations in ascending lexicographic order. Equal characters from different input positions must not create duplicate strings.
+Given a lowercase string s, return every distinct permutation of its characters exactly once.
+
+Return the permutations in ascending lexicographic order. Equal characters from different input positions must not create duplicate strings.
 
 ## Examples
 
@@ -32,7 +34,8 @@ Given a lowercase string s, return every distinct permutation of its characters 
 
 ## Constraints
 
-- `1 <= s.length <= 8.s contains only lowercase English letters.`
+- `1 <= s.length <= 8.`
+- `s contains only lowercase English letters.`
 
 ## Solutions
 

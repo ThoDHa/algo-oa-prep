@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-next-greater-perfect-string.md
 
-A perfect string is a string in which no two adjacent characters are the same.You are given a starting string s, which may or may not itself be a perfect string. Return the lexicographically smallest 
+A perfect string is a string in which no two adjacent characters are the same.
 
   uv run python amazon_oa/amazon-next-greater-perfect-string/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-next-greater-perfect-string/              # run the test sets

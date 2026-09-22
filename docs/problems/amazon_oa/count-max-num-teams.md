@@ -4,13 +4,19 @@
 
 Amazon is hosting a team hackathon.
 
+
+
   1. Each team will have exactly teamSize developers.
   2. A developer's skill level is denoted by skill[i].
   3. The difference between the maximum and minimum skill levels within a team cannot exceed a threshold, maxDiff.
 
 Determine the maximum number of teams that can be formed from the contestants.
 
+
+
 Complete the function countMaxNumTeams which has the following parameters
+
+
 
   int skill[n]: the developers' skill levels
   int teamSize: the number of developers to make up a team
@@ -22,9 +28,7 @@ int: the maximum number of teams that can be formed at one time
 
 ### Example 1
 
-**Input:** `skill = [3, 4, 3, 1, 6, 5]`
-**Input:** `teamSize = 3`
-**Input:** `maxDiff = 2`
+**Input:** `skill = [3, 4, 3, 1, 6, 5]`, `teamSize = 3`, `maxDiff = 2`
 
 **Output:** `2`
 

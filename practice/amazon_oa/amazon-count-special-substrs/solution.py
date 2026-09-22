@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-count-special-substrs.md
 
-$23
+Imagine you're working with Amazon's data analysis team, specifically focusing on analyzing customer behavior through clickstream data. This data consists of sequences of user actions on the website, 
 
   uv run python amazon_oa/amazon-count-special-substrs/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-count-special-substrs/              # run the test sets

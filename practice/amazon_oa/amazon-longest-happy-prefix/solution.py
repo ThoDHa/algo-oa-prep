@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-longest-happy-prefix.md
 
-A string is a happy prefix of s when it is a non-empty proper prefix of s and is also a suffix of s.Return the longest happy prefix. If none exists, return the empty string.
+A string is a happy prefix of s when it is a non-empty proper prefix of s and is also a suffix of s.
 
   uv run python amazon_oa/amazon-longest-happy-prefix/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-longest-happy-prefix/              # run the test sets

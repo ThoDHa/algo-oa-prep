@@ -2,14 +2,15 @@
 
 **Easy** | **NN minutes** | **Array, Matrix, Hash Table, Two Pointers**
 
-Given a rectangular integer matrix matrix whose values are globally unique and an integer target, return the number of unordered pairs of values whose sum is target.Each pair must use two different cells. Count a value pair once regardless of order.
+Given a rectangular integer matrix matrix whose values are globally unique and an integer target, return the number of unordered pairs of values whose sum is target.
+
+Each pair must use two different cells. Count a value pair once regardless of order.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `matrix = [[1,5],[7,-1]]`
-**Input:** `target = 6`
+**Input:** `matrix = [[1,5],[7,-1]]`, `target = 6`
 
 **Output:** `2`
 
@@ -17,8 +18,7 @@ Given a rectangular integer matrix matrix whose values are globally unique and a
 
 ### Example 2
 
-**Input:** `matrix = [[1,2],[3,4]]`
-**Input:** `target = 5`
+**Input:** `matrix = [[1,2],[3,4]]`, `target = 5`
 
 **Output:** `2`
 
@@ -26,8 +26,7 @@ Given a rectangular integer matrix matrix whose values are globally unique and a
 
 ### Example 3
 
-**Input:** `matrix = [[4]]`
-**Input:** `target = 8`
+**Input:** `matrix = [[4]]`, `target = 8`
 
 **Output:** `0`
 
@@ -35,7 +34,10 @@ Given a rectangular integer matrix matrix whose values are globally unique and a
 
 ## Constraints
 
-- `1 <= matrix.length, matrix[i].length.The matrix is rectangular and contains at most 100000 cells.-10^9 <= matrix[i][j], target <= 10^9.All matrix values are distinct.`
+- `1 <= matrix.length, matrix[i].length.`
+- `The matrix is rectangular and contains at most 100000 cells.`
+- `-10^9 <= matrix[i][j], target <= 10^9.`
+- `All matrix values are distinct.`
 
 ## Solutions
 

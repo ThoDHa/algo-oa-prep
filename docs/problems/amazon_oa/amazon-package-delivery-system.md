@@ -2,14 +2,17 @@
 
 **Medium** | **NN minutes** | **Greedy, Sorting, Heap**
 
-Each shipment scenario has a list of truck capacities and a list of package weights.A truck may deliver any package whose weight does not exceed its current capacity. After a successful delivery, that truck's capacity becomes floor(capacity / 2). Determine whether every package in each scenario can be delivered using the available trucks.Return an int[] where each entry is 1 if the corresponding scenario is feasible and 0 otherwise.
+Each shipment scenario has a list of truck capacities and a list of package weights.
+
+A truck may deliver any package whose weight does not exceed its current capacity. After a successful delivery, that truck's capacity becomes floor(capacity / 2). Determine whether every package in each scenario can be delivered using the available trucks.
+
+Return an int[] where each entry is 1 if the corresponding scenario is feasible and 0 otherwise.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `truckCapacities = [[7]]`
-**Input:** `packageWeights = [[4, 3]]`
+**Input:** `truckCapacities = [[7]]`, `packageWeights = [[4, 3]]`
 
 **Output:** `[1]`
 

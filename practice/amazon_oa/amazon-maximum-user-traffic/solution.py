@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-maximum-user-traffic.md
 
-$23
+Special thanks: Nick contributed this problem.
 
   uv run python amazon_oa/amazon-maximum-user-traffic/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-maximum-user-traffic/              # run the test sets

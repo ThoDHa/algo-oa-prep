@@ -18,7 +18,8 @@ outputs produce an empty cases.json and a test module that skips with a reason
 naming the slug. Empty is never a silent pass.
 
 Usage (from the repository root):
-  uv run --project practice python scripts/generate_amazon_oa_scaffolds.py \
+  cd practice && uv run pytest ../scripts/          # run the generator tests
+  python3 scripts/generate_amazon_oa_scaffolds.py \
       [--bank-page PATH]... [--manifest-only | --limit N | --check] [--no-fetch]
 """
 
@@ -27,7 +28,9 @@ from __future__ import annotations
 import argparse
 import ast
 import datetime
+import html
 import json
+import keyword
 import re
 import sys
 import time
@@ -61,6 +64,13 @@ DATE_SUFFIX_PATTERN = re.compile(
     r"(?P<month>Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+"
     r"(?P<day>\d{1,2}),\s+(?P<year>\d{4})[\s|]*$"
 )
+CONSTRAINT_LIST_ITEM_PATTERN = re.compile(r"<li>(.*?)</li>", re.S)
+STATEMENT_CONTENT_MARKER = '<div class="fp-statement-content">'
+STATEMENT_SECTION_END = "</section>"
+# Flight-data statements below this many rendered characters are shredded
+# (katex markup consumed the prose, e.g. the literal "$23"); the statement is
+# then recovered from the server-rendered page instead.
+MIN_PLAUSIBLE_STATEMENT_LENGTH = 40
 NEXT_FLIGHT_CHUNK_PATTERN = re.compile(
     r'self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)'
 )
@@ -287,10 +297,15 @@ def cases_from_record(problem: dict) -> CasesResult:
                     "is not JSON-representable",
                 )
             args.append(value)
-        expected = parse_scalar_literal(
-            str(example.get("outputText", "")),
-            allowed_none=bool(str(example.get("outputType", "")).lower().startswith("treenode")),
-        )
+        output_type = str(example.get("outputType", "")).lower()
+        if output_type.startswith("treenode"):
+            return CasesResult(
+                function_name,
+                [],
+                f"tree output for {slug} is not `==`-assertable: the method "
+                "returns a TreeNode, which never equals a list",
+            )
+        expected = parse_scalar_literal(str(example.get("outputText", "")))
         if expected is _UNPARSEABLE:
             return CasesResult(
                 function_name,
@@ -323,16 +338,15 @@ def parse_typed_value(item: dict) -> Any:
     return parse_scalar_literal(str(item.get("inputValue", "")))
 
 
-def parse_scalar_literal(raw: str, allowed_none: bool = False) -> Any:
+def parse_scalar_literal(raw: str) -> Any:
     """Parse a literal that may be JSON or Python spelling.
 
     Args:
         raw: The raw literal text (e.g. `[2,3,1,5,4]`, `'abcabc'`, `10`).
-        allowed_none: Accept JSON `null` inside the literal. Only set for
-            outputs the practice harness can build (level-order tree arrays).
 
     Returns:
-        The parsed value, or the _UNPARSEABLE sentinel.
+        The parsed value, or the _UNPARSEABLE sentinel. JSON `null` anywhere
+        in the literal makes it unparseable: no case may hinge on None.
     """
     text = raw.strip()
     if not text:
@@ -344,7 +358,7 @@ def parse_scalar_literal(raw: str, allowed_none: bool = False) -> Any:
             return ast.literal_eval(text)
         except (ValueError, SyntaxError):
             return _UNPARSEABLE
-    if not allowed_none and parsed is not None and _contains_null(parsed):
+    if parsed is not None and _contains_null(parsed):
         return _UNPARSEABLE
     return parsed
 
@@ -355,6 +369,8 @@ def _contains_null(value: Any) -> bool:
         return True
     if isinstance(value, list):
         return any(_contains_null(item) for item in value)
+    if isinstance(value, dict):
+        return any(_contains_null(item) for item in value.values())
     return False
 
 
@@ -363,19 +379,66 @@ def _contains_null(value: Any) -> bool:
 # ---------------------------------------------------------------------------
 
 
-def render_writeup(entry: dict, problem: Optional[dict]) -> str:
+def extract_statement_from_page(page_html: str) -> str:
+    """Extract the server-rendered statement HTML from a FastPrep page.
+
+    Returns:
+        The inner HTML of the `fp-statement-content` div, or "" when the page
+        carries no such section.
+    """
+    start = page_html.find(STATEMENT_CONTENT_MARKER)
+    if start == -1:
+        return ""
+    start += len(STATEMENT_CONTENT_MARKER)
+    end = page_html.find(STATEMENT_SECTION_END, start)
+    if end == -1:
+        return ""
+    return page_html[start:end].strip()
+
+
+def resolve_statement(problem: Optional[dict], page_html: str) -> str:
+    """Pick the best available statement HTML for a problem.
+
+    Some flight-data records carry a shredded statement (katex markup reduced
+    the prose to fragments like "$23"); when the record statement renders
+    implausibly short, the statement is recovered from the server-rendered
+    page instead.
+
+    Args:
+        problem: Parsed FastPrep record, or None when the page failed to parse.
+        page_html: Raw HTML of the FastPrep problem page.
+
+    Returns:
+        Statement HTML; empty when nothing plausible exists (the caller then
+        renders the statement placeholder).
+    """
+    raw = str((problem or {}).get("problemStatement") or "")
+    if len(html_to_markdown(raw)) >= MIN_PLAUSIBLE_STATEMENT_LENGTH:
+        return raw
+    recovered = extract_statement_from_page(page_html or "")
+    return recovered or raw
+
+
+def render_writeup(entry: dict, problem: Optional[dict], statement_html: Optional[str] = None) -> str:
     """Render the statement write-up scaffold for one problem.
 
     Args:
         entry: Manifest entry for the problem.
         problem: Parsed FastPrep record, or None when the page failed to parse.
+        statement_html: Statement source chosen by resolve_statement; when
+            None, the record's own problemStatement is used without recovery.
 
     Returns:
         Write-up markdown following the docs/problems/_TEMPLATE.md section
         order, with solution sections left as explicit placeholders.
     """
-    statement_html = (problem or {}).get("problemStatement") or ""
+    if statement_html is None:
+        statement_html = str((problem or {}).get("problemStatement") or "")
     statement = html_to_markdown(statement_html)
+    if len(statement) < MIN_PLAUSIBLE_STATEMENT_LENGTH:
+        # Shredded flight-data statements render as meaningless fragments;
+        # the explicit placeholder beats garbage.
+        statement = ""
     parts: List[str] = [
         f"# [{entry['title']}]({entry['url']})",
         "",
@@ -427,10 +490,11 @@ def render_examples(problem: Optional[dict], slug: str) -> List[str]:
     for index, example in enumerate(examples, start=1):
         lines.append(f"### Example {index}")
         lines.append("")
-        for item in example.get("inputText") or []:
-            lines.append(
-                f"**Input:** `{item.get('inputName')} = {item.get('inputValue')}`"
-            )
+        inputs_text = ", ".join(
+            f"`{item.get('inputName')} = {item.get('inputValue')}`"
+            for item in example.get("inputText") or []
+        )
+        lines.append(f"**Input:** {inputs_text}")
         lines.append("")
         lines.append(f"**Output:** `{example.get('outputText')}`")
         explanation = html_to_markdown(str(example.get("explanation") or ""))
@@ -449,26 +513,46 @@ def render_constraints(problem: Optional[dict], slug: str) -> List[str]:
             f"<!-- Constraints not parseable from FastPrep for {slug}; fill them in. -->",
             "",
         ]
-    lines: List[str] = []
-    for chunk in re.split(r"<br\s*/?>|\\n|\n", raw_constraints):
-        text = html_to_markdown(chunk).strip()
-        if text:
-            lines.append(f"- `{text}`")
+    lines = [f"- `{text}`" for text in split_constraints(raw_constraints)]
     return lines + [""]
 
 
 def html_to_markdown(fragment: str) -> str:
     """Convert the small HTML subset FastPrep uses to plain markdown text."""
-    text = re.sub(r"<br\s*/?>", "\n", fragment)
-    text = re.sub(r"</?(p|code|pre|strong|em|b|i)[^>]*>", "", text)
+    text = re.sub(r"<!--.*?-->", "", fragment, flags=re.S)
+    text = re.sub(r"<sup>(.*?)</sup>", r"^\1", text, flags=re.S | re.I)
+    text = text.replace("</p>", "\n\n")
+    text = re.sub(r"<br\s*/?>", "\n", text)
+    text = re.sub(r"</?(p|code|pre|strong|em|b|i|ul|li|sup)[^>]*>", "", text)
     text = re.sub(r"<[^>]+>", "", text)
-    return text.replace("&lt;", "<").replace("&gt;", ">").replace("&amp;", "&").strip()
+    return html.unescape(text).strip()
 
 
-def render_solution_stub(entry: dict, problem: Optional[dict], parsed_cases: CasesResult) -> str:
+def split_constraints(raw_constraints: str) -> List[str]:
+    """Split a raw constraints payload into one string per constraint.
+
+    FastPrep ships constraints as an HTML list (`<ul><li>...</li></ul>`);
+    pages without list markup fall back to `<br>`/newline separation.
+    """
+    items = CONSTRAINT_LIST_ITEM_PATTERN.findall(raw_constraints)
+    if not items:
+        items = re.split(r"<br\s*/?>|\\n|\n", raw_constraints)
+    return [text for text in (html_to_markdown(item).strip() for item in items) if text]
+
+
+def render_solution_stub(
+    entry: dict,
+    problem: Optional[dict],
+    parsed_cases: CasesResult,
+    statement_html: Optional[str] = None,
+) -> str:
     """Render the NotSolved practice stub in the two_sum house style."""
-    statement = (problem or {}).get("problemStatement") or ""
-    summary = html_to_markdown(statement).split("\n")[0][:200] or "Amazon OA problem."
+    if statement_html is None:
+        statement_html = str((problem or {}).get("problemStatement") or "")
+    rendered_summary = html_to_markdown(statement_html).split("\n")[0]
+    summary = (
+        rendered_summary[:200] if len(rendered_summary) >= MIN_PLAUSIBLE_STATEMENT_LENGTH else ""
+    ) or "Amazon OA problem."
     case_id = parsed_cases.cases[0]["id"] if parsed_cases.cases else "example_1"
     function_name = parsed_cases.function_name
     args_signature = _signature_args(problem)
@@ -508,11 +592,18 @@ if __name__ == "__main__":
 
 
 def _signature_args(problem: Optional[dict]) -> str:
-    """Build the plain-argument list for the stub signature from example inputs."""
+    """Build the plain-argument list for the stub signature from example inputs.
+
+    Python keywords in FastPrep input names are suffixed with `_` so the
+    generated signature stays syntactically valid.
+    """
     examples = (problem or {}).get("examples") or []
     inputs = (examples[0].get("inputText") or []) if examples else []
     if inputs:
-        return "".join(f", {item.get('inputName')}" for item in inputs)
+        names = (str(item.get("inputName")) for item in inputs)
+        return "".join(
+            f", {name}_" if keyword.iskeyword(name) else f", {name}" for name in names
+        )
     return ", *args"
 
 
@@ -615,14 +706,47 @@ def render_index(manifest: Sequence[dict]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def render_all(
+    entry: dict,
+    problem: Optional[dict],
+    parsed_cases: CasesResult,
+    statement_html: str,
+) -> Dict[Path, str]:
+    """Render every scaffold file for one problem, keyed by target path.
+
+    Shared by the emission and idempotency-check paths so the two can never
+    drift apart.
+    """
+    slug = entry["slug"]
+    return {
+        DOCS_DIR / f"{slug}.md": render_writeup(entry, problem, statement_html),
+        PRACTICE_DIR / slug / "solution.py": render_solution_stub(
+            entry, problem, parsed_cases, statement_html
+        ),
+        PRACTICE_DIR / slug / "cases.json": render_cases_file(parsed_cases),
+        PRACTICE_DIR / slug / f"test_{slug}.py": render_test(
+            entry,
+            parsed_cases.function_name,
+            parsed_cases.cases,
+            parsed_cases.skip_reason,
+        ),
+    }
+
+
 # ---------------------------------------------------------------------------
 # Fetching
 # ---------------------------------------------------------------------------
 
 
+def has_cached_page(slug: str, cache_dir: Optional[Path] = None) -> bool:
+    """Report whether the problem page is available in the disk cache."""
+    cache_root = cache_dir if cache_dir is not None else FASTPREP_CACHE_DIR
+    return (cache_root / f"{slug}.html").exists()
+
+
 def fetch_problem_page(
     slug: str,
-    cache_dir: Path = FASTPREP_CACHE_DIR,
+    cache_dir: Optional[Path] = None,
     delay: bool = True,
     network: bool = True,
 ) -> str:
@@ -644,7 +768,8 @@ def fetch_problem_page(
     Raises:
         RuntimeError: When the network fetch fails for a non-HTTP reason.
     """
-    cache_path = cache_dir / f"{slug}.html"
+    cache_root = cache_dir if cache_dir is not None else FASTPREP_CACHE_DIR
+    cache_path = cache_root / f"{slug}.html"
     if cache_path.exists():
         return cache_path.read_text(encoding="utf-8")
     if not network:
@@ -679,46 +804,50 @@ def emit_scaffolds(entries: Sequence[dict], fetch: bool = True) -> dict:
 
     Args:
         entries: Manifest entries to scaffold, most-recent first.
-        fetch: When False, never hit the network (cache-only, for --check).
+        fetch: When False, never hit the network and never overwrite an
+            existing non-placeholder scaffold for a slug whose page is not
+            cached; such slugs are reported as `skipped_no_cache` instead.
 
     Returns:
         Stats: `generated` (n), `cases_parsed` (n), `cases_empty` (n),
-        `parse_failures` (slugs whose FastPrep page did not parse).
+        `parse_failures` (slugs whose FastPrep page did not parse),
+        `skipped_no_cache` (slugs left untouched under fetch=False).
     """
-    stats = {"generated": 0, "cases_parsed": 0, "cases_empty": 0, "parse_failures": []}
+    stats = {
+        "generated": 0,
+        "cases_parsed": 0,
+        "cases_empty": 0,
+        "parse_failures": [],
+        "skipped_no_cache": [],
+    }
     for entry in entries:
         slug = entry["slug"]
+        cached = has_cached_page(slug)
+        if not fetch and not cached:
+            stats["skipped_no_cache"].append(slug)
+            continue
         page_html = fetch_problem_page(slug, delay=fetch, network=fetch)
         problem = extract_problem_record(page_html)
         parsed_cases = cases_from_record(problem) if problem else unparsed_page_cases(slug)
         if problem is None:
             stats["parse_failures"].append(slug)
-        practice_dir = PRACTICE_DIR / slug
-        practice_dir.mkdir(parents=True, exist_ok=True)
+        statement_html = resolve_statement(problem, page_html)
         DOCS_DIR.mkdir(parents=True, exist_ok=True)
-        (DOCS_DIR / f"{slug}.md").write_text(
-            render_writeup(entry, problem), encoding="utf-8"
+        (PRACTICE_DIR / slug).mkdir(parents=True, exist_ok=True)
+        for path, content in render_all(entry, problem, parsed_cases, statement_html).items():
+            path.write_text(content, encoding="utf-8")
+        entry["parse_status"] = (
+            "parsed" if problem else "page-unparseable"
         )
-        (practice_dir / "solution.py").write_text(
-            render_solution_stub(entry, problem, parsed_cases), encoding="utf-8"
-        )
-        (practice_dir / "cases.json").write_text(
-            render_cases_file(parsed_cases), encoding="utf-8"
-        )
-        (practice_dir / f"test_{slug}.py").write_text(
-            render_test(
-                entry,
-                parsed_cases.function_name,
-                parsed_cases.cases,
-                parsed_cases.skip_reason,
-            ),
-            encoding="utf-8",
-        )
-        stats["generated"] += 1
         if parsed_cases.cases:
+            entry["parse_status"] = "parsed-with-cases"
             stats["cases_parsed"] += 1
         else:
+            entry["parse_status"] = (
+                "parsed-empty-cases" if problem else "page-unparseable"
+            )
             stats["cases_empty"] += 1
+        stats["generated"] += 1
     return stats
 
 
@@ -760,6 +889,9 @@ def ensure_nav_entry() -> bool:
 def check(manifest: Sequence[dict]) -> int:
     """Exit 0 when every scaffold on disk matches a fresh in-memory generation.
 
+    Read-only: the manifest is never rewritten. Cache misses do not mutate
+    anything; they surface as stale files if the on-disk scaffold disagrees.
+
     Args:
         manifest: The manifest entries to verify.
 
@@ -772,19 +904,8 @@ def check(manifest: Sequence[dict]) -> int:
         page_html = fetch_problem_page(slug, delay=False, network=False)
         problem = extract_problem_record(page_html)
         parsed_cases = cases_from_record(problem) if problem else unparsed_page_cases(slug)
-        practice_dir = PRACTICE_DIR / slug
-        expectations = {
-            DOCS_DIR / f"{slug}.md": render_writeup(entry, problem),
-            practice_dir / "solution.py": render_solution_stub(entry, problem, parsed_cases),
-            practice_dir / "cases.json": render_cases_file(parsed_cases),
-            practice_dir / f"test_{slug}.py": render_test(
-                entry,
-                parsed_cases.function_name,
-                parsed_cases.cases,
-                parsed_cases.skip_reason,
-            ),
-        }
-        for path, expected in expectations.items():
+        statement_html = resolve_statement(problem, page_html)
+        for path, expected in render_all(entry, problem, parsed_cases, statement_html).items():
             if not path.exists() or path.read_text(encoding="utf-8") != expected:
                 stale.append(str(path.relative_to(REPO_ROOT)))
     expected_index = render_index(manifest)
@@ -830,18 +951,21 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     bank_pages = args.bank_page or list(DEFAULT_BANK_PAGES)
     manifest = build_manifest([path.read_text(encoding="utf-8") for path in bank_pages])
-    write_manifest(manifest)
     print(f"manifest: {len(manifest)} Amazon-tagged coding problems")
     if args.manifest_only:
+        write_manifest(manifest)
         return 0
 
     entries = manifest[: args.limit] if args.limit else manifest
     if args.check:
+        # --check is read-only verification: it must not rewrite the manifest.
         return check(entries)
 
     ensure_nav_entry()
     write_index(entries if args.limit else manifest)
     stats = emit_scaffolds(entries, fetch=not args.no_fetch)
+    # Written after emission so entries carry the parse_status set there.
+    write_manifest(manifest)
     print(
         "scaffolds: {generated} generated | cases: {parsed} parsed, {empty} empty"
         " (skip with reason) | pages failed to parse: {failed}".format(
@@ -853,6 +977,11 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     )
     if stats["parse_failures"]:
         print("parse failures: " + ", ".join(stats["parse_failures"]))
+    if stats["skipped_no_cache"]:
+        print(
+            "skipped (no cache, fetch disabled, existing scaffolds kept): "
+            + ", ".join(stats["skipped_no_cache"])
+        )
     return 0
 
 

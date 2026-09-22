@@ -2,7 +2,9 @@
 
 **Easy** | **NN minutes** | **Intervals, Sorting**
 
-Given an array of closed intervals where intervals[i] = [start_i, end_i], merge every pair of overlapping intervals.Return the non-overlapping intervals that cover every interval in the input, sorted by start time. Intervals that share an endpoint are considered overlapping.
+Given an array of closed intervals where intervals[i] = [start_i, end_i], merge every pair of overlapping intervals.
+
+Return the non-overlapping intervals that cover every interval in the input, sorted by start time. Intervals that share an endpoint are considered overlapping.
 
 ## Examples
 
@@ -32,7 +34,9 @@ Given an array of closed intervals where intervals[i] = [start_i, end_i], merge 
 
 ## Constraints
 
-- `1 <= intervals.length <= 10^4intervals[i].length == 20 <= start_i <= end_i <= 10^4`
+- `1 <= intervals.length <= 10^4`
+- `intervals[i].length == 2`
+- `0 <= start_i <= end_i <= 10^4`
 
 ## Solutions
 

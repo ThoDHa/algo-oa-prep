@@ -2,7 +2,9 @@
 
 **Hard** | **NN minutes** | **Array, Hash Table**
 
-Given an unsorted integer array nums, return the smallest positive integer that does not appear in the array.Your algorithm must run in O(n) time and use O(1) extra space, excluding the input array.
+Given an unsorted integer array nums, return the smallest positive integer that does not appear in the array.
+
+Your algorithm must run in O(n) time and use O(1) extra space, excluding the input array.
 
 ## Examples
 
@@ -32,7 +34,8 @@ Given an unsorted integer array nums, return the smallest positive integer that 
 
 ## Constraints
 
-- `1 <= nums.length <= 100000.-2^31 <= nums[i] <= 2^31 - 1.`
+- `1 <= nums.length <= 100000.`
+- `-2^31 <= nums[i] <= 2^31 - 1.`
 
 ## Solutions
 

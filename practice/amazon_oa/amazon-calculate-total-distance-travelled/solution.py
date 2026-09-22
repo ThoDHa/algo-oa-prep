@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-calculate-total-distance-travelled.md
 
-$23
+Giving position of trucks and they are always moving towards end station as it is a gas station. 
 
   uv run python amazon_oa/amazon-calculate-total-distance-travelled/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-calculate-total-distance-travelled/              # run the test sets

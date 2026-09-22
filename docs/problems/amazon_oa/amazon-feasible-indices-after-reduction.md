@@ -2,7 +2,13 @@
 
 **unknown difficulty** | **NN minutes** | **unknown categories**
 
-You are given an integer array arr of size n. All elements of arr are distinct.You may perform either of the following operations any number of times:Choose a non-empty prefix of the current array and delete every element in that prefix except the minimum element of the prefix.Choose a non-empty suffix of the current array and delete every element in that suffix except the maximum element of the suffix.After each operation, the remaining elements are concatenated to form the new array.An index i is called feasible if it is possible to reduce the array to the single element [arr[i]]. Return a binary string of length n where the i-th character is '1' if index i is feasible, and '0' otherwise.
+You are given an integer array arr of size n. All elements of arr are distinct.
+
+You may perform either of the following operations any number of times:
+
+Choose a non-empty prefix of the current array and delete every element in that prefix except the minimum element of the prefix.Choose a non-empty suffix of the current array and delete every element in that suffix except the maximum element of the suffix.After each operation, the remaining elements are concatenated to form the new array.
+
+An index i is called feasible if it is possible to reduce the array to the single element [arr[i]]. Return a binary string of length n where the i-th character is '1' if index i is feasible, and '0' otherwise.
 
 ## Examples
 
@@ -24,7 +30,9 @@ You are given an integer array arr of size n. All elements of arr are distinct.Y
 
 ## Constraints
 
-- `1 <= n <= 10^51 <= arr[i] <= 10^9All values in arr are distinct.`
+- `1 <= n <= 10^5`
+- `1 <= arr[i] <= 10^9`
+- `All values in arr are distinct.`
 
 ## Solutions
 

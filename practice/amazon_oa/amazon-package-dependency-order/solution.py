@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-package-dependency-order.md
 
-You are given package dependency pairs and a target package. Each pair [package, dependency] means the package depends on that dependency.Return an order in which to install the target package and all
+You are given package dependency pairs and a target package. Each pair [package, dependency] means the package depends on that dependency.
 
   uv run python amazon_oa/amazon-package-dependency-order/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-package-dependency-order/              # run the test sets

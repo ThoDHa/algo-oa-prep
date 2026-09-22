@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-vertical-order-traversal-of-binary-tree.md
 
-You are given a binary tree serialized as a level-order array levelOrder. Each non-null token is a signed decimal integer, and the token "null" denotes a missing child.Place the root at row 0, column 
+You are given a binary tree serialized as a level-order array levelOrder. Each non-null token is a signed decimal integer, and the token "null" denotes a missing child.
 
   uv run python amazon_oa/amazon-vertical-order-traversal-of-binary-tree/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-vertical-order-traversal-of-binary-tree/              # run the test sets

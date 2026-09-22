@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-minimum-redistribution-cost.md
 
-There are n warehouses arranged in a circle. Warehouse i initially stores products[i] items.You may redistribute items around the circle, but all moved items must travel in one fixed direction: either
+There are n warehouses arranged in a circle. Warehouse i initially stores products[i] items.
 
   uv run python amazon_oa/amazon-minimum-redistribution-cost/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-minimum-redistribution-cost/              # run the test sets

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-maximum-sum-bst.md
 
-Given the root of a binary tree, find the maximum sum of node values among all subtrees that are valid binary search trees.A valid BST has every left-subtree value strictly smaller than its root and e
+Given the root of a binary tree, find the maximum sum of node values among all subtrees that are valid binary search trees.
 
   uv run python amazon_oa/amazon-maximum-sum-bst/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-maximum-sum-bst/              # run the test sets

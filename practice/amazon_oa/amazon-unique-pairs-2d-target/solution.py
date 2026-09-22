@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-unique-pairs-2d-target.md
 
-Given a rectangular integer matrix matrix whose values are globally unique and an integer target, return the number of unordered pairs of values whose sum is target.Each pair must use two different ce
+Given a rectangular integer matrix matrix whose values are globally unique and an integer target, return the number of unordered pairs of values whose sum is target.
 
   uv run python amazon_oa/amazon-unique-pairs-2d-target/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-unique-pairs-2d-target/              # run the test sets

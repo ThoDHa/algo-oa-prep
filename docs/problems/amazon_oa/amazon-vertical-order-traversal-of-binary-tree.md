@@ -2,7 +2,13 @@
 
 **Medium** | **NN minutes** | **Tree, Breadth First Search, Hash Table, Sorting**
 
-You are given a binary tree serialized as a level-order array levelOrder. Each non-null token is a signed decimal integer, and the token "null" denotes a missing child.Place the root at row 0, column 0. For a node at row r, column c:Its left child is at row r + 1, column c - 1.Its right child is at row r + 1, column c + 1.Return the node values grouped by column from the smallest column to the largest. Within one column, order nodes by increasing row. When multiple nodes share the same row and column, preserve their breadth-first left-to-right encounter order; do not sort them by value.If the tree is empty, return an empty list.
+You are given a binary tree serialized as a level-order array levelOrder. Each non-null token is a signed decimal integer, and the token "null" denotes a missing child.
+
+Place the root at row 0, column 0. For a node at row r, column c:
+
+Its left child is at row r + 1, column c - 1.Its right child is at row r + 1, column c + 1.Return the node values grouped by column from the smallest column to the largest. Within one column, order nodes by increasing row. When multiple nodes share the same row and column, preserve their breadth-first left-to-right encounter order; do not sort them by value.
+
+If the tree is empty, return an empty list.
 
 ## Examples
 
@@ -32,7 +38,9 @@ You are given a binary tree serialized as a level-order array levelOrder. Each n
 
 ## Constraints
 
-- `0 <= non-null node count <= 10^5.Every non-null token represents a signed 32-bit integer.levelOrder is a valid level-order serialization using "null" markers.`
+- `0 <= non-null node count <= 10^5.`
+- `Every non-null token represents a signed 32-bit integer.`
+- `levelOrder is a valid level-order serialization using "null" markers.`
 
 ## Solutions
 

@@ -2,15 +2,15 @@
 
 **Hard** | **NN minutes** | **Array, Sorting, Binary Search, Dynamic Programming, Intervals**
 
-You are given equal-length arrays startTime, endTime, and profit. Job i runs on the half-open interval from its start time to its end time and earns its profit.Select non-overlapping jobs to maximize total profit. A job that starts exactly when another ends does not overlap.
+You are given equal-length arrays startTime, endTime, and profit. Job i runs on the half-open interval from its start time to its end time and earns its profit.
+
+Select non-overlapping jobs to maximize total profit. A job that starts exactly when another ends does not overlap.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `startTime = [1,2,3,3]`
-**Input:** `endTime = [3,4,5,6]`
-**Input:** `profit = [50,10,40,70]`
+**Input:** `startTime = [1,2,3,3]`, `endTime = [3,4,5,6]`, `profit = [50,10,40,70]`
 
 **Output:** `120`
 
@@ -18,9 +18,7 @@ You are given equal-length arrays startTime, endTime, and profit. Job i runs on 
 
 ### Example 2
 
-**Input:** `startTime = [1,2,3,4,6]`
-**Input:** `endTime = [3,5,10,6,9]`
-**Input:** `profit = [20,20,100,70,60]`
+**Input:** `startTime = [1,2,3,4,6]`, `endTime = [3,5,10,6,9]`, `profit = [20,20,100,70,60]`
 
 **Output:** `150`
 
@@ -28,9 +26,7 @@ You are given equal-length arrays startTime, endTime, and profit. Job i runs on 
 
 ### Example 3
 
-**Input:** `startTime = [1,1,1]`
-**Input:** `endTime = [2,3,4]`
-**Input:** `profit = [5,6,4]`
+**Input:** `startTime = [1,1,1]`, `endTime = [2,3,4]`, `profit = [5,6,4]`
 
 **Output:** `6`
 
@@ -38,7 +34,9 @@ You are given equal-length arrays startTime, endTime, and profit. Job i runs on 
 
 ## Constraints
 
-- `1 &le; startTime.length = endTime.length = profit.length &le; 50000.0 &le; startTime[i] < endTime[i] &le; 10^9.1 &le; profit[i] &le; 10000.`
+- `1 ≤ startTime.length = endTime.length = profit.length ≤ 50000.`
+- `0 ≤ startTime[i] < endTime[i] ≤ 10^9.`
+- `1 ≤ profit[i] ≤ 10000.`
 
 ## Solutions
 

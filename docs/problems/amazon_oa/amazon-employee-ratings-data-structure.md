@@ -2,7 +2,9 @@
 
 **Hard** | **NN minutes** | **Array, Segment Tree, Binary Search, Design**
 
-Process a sequence of operations on an initially empty ordered list of employee ratings. Operation [1, rating] appends a rating. Operation [2, index] deletes the rating at the current zero-based index, shifting later indices left. Operation [3] queries the maximum rating and its earliest current index.Return one row [maximumRating, earliestIndex] for every query operation. Every deletion index is valid, and every query occurs while at least one rating exists.
+Process a sequence of operations on an initially empty ordered list of employee ratings. Operation [1, rating] appends a rating. Operation [2, index] deletes the rating at the current zero-based index, shifting later indices left. Operation [3] queries the maximum rating and its earliest current index.
+
+Return one row [maximumRating, earliestIndex] for every query operation. Every deletion index is valid, and every query occurs while at least one rating exists.
 
 ## Examples
 
@@ -32,7 +34,10 @@ Process a sequence of operations on an initially empty ordered list of employee 
 
 ## Constraints
 
-- `1 &le; operations.length &le; 100000.Each operation is exactly one of [1, rating], [2, index], or [3].-10^9 &le; rating &le; 10^9.Deletion indices and non-empty query preconditions are valid.`
+- `1 ≤ operations.length ≤ 100000.`
+- `Each operation is exactly one of [1, rating], [2, index], or [3].`
+- `-10^9 ≤ rating ≤ 10^9.`
+- `Deletion indices and non-empty query preconditions are valid.`
 
 ## Solutions
 

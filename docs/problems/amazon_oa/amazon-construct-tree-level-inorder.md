@@ -2,14 +2,15 @@
 
 **Hard** | **NN minutes** | **Array, Hash Table, Tree, Recursion, Stack**
 
-Given the levelOrder and inorder traversals of the same binary tree, reconstruct and return its root.All node values are distinct. Both arrays contain the same values, and together they describe exactly one valid binary tree.
+Given the levelOrder and inorder traversals of the same binary tree, reconstruct and return its root.
+
+All node values are distinct. Both arrays contain the same values, and together they describe exactly one valid binary tree.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `levelOrder = [3,9,20,15,7]`
-**Input:** `inorder = [9,3,15,20,7]`
+**Input:** `levelOrder = [3,9,20,15,7]`, `inorder = [9,3,15,20,7]`
 
 **Output:** `[3,9,20,null,null,15,7]`
 
@@ -17,8 +18,7 @@ Given the levelOrder and inorder traversals of the same binary tree, reconstruct
 
 ### Example 2
 
-**Input:** `levelOrder = [1]`
-**Input:** `inorder = [1]`
+**Input:** `levelOrder = [1]`, `inorder = [1]`
 
 **Output:** `[1]`
 
@@ -26,8 +26,7 @@ Given the levelOrder and inorder traversals of the same binary tree, reconstruct
 
 ### Example 3
 
-**Input:** `levelOrder = [1,2,3,4,5]`
-**Input:** `inorder = [4,2,5,1,3]`
+**Input:** `levelOrder = [1,2,3,4,5]`, `inorder = [4,2,5,1,3]`
 
 **Output:** `[1,2,3,4,5]`
 
@@ -35,7 +34,10 @@ Given the levelOrder and inorder traversals of the same binary tree, reconstruct
 
 ## Constraints
 
-- `1 <= levelOrder.length == inorder.length <= 1200.-10^9 <= levelOrder[i], inorder[i] <= 10^9.Each traversal contains distinct values, and both contain the same set of values.The arrays are valid traversals of one binary tree.`
+- `1 <= levelOrder.length == inorder.length <= 1200.`
+- `-10^9 <= levelOrder[i], inorder[i] <= 10^9.`
+- `Each traversal contains distinct values, and both contain the same set of values.`
+- `The arrays are valid traversals of one binary tree.`
 
 ## Solutions
 

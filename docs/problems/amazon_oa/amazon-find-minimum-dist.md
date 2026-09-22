@@ -4,14 +4,15 @@
 
 note - See the Problem Source at the vely bottom of the page for the original problem description~
   
+
+
   In a realm where data centers and servers flourished along a mystical one-dimensional line, a wise ruler sought to optimize their connections. Each data center needed to establish a bond with a server, minimizing the lag defined as the absolute distance between their coordinates. Tasked with this quest, the ruler gathered the bravest minds to decipher the best pairings from the enchanted positions of the data centers and servers. Together, they embarked on a journey to forge connections that would ensure the smallest lag possible, bringing harmony to the kingdom's network and enhancing its magical efficiency.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `center = [1, 2, 2]`
-**Input:** `destination = [5, 2, 4]`
+**Input:** `center = [1, 2, 2]`, `destination = [5, 2, 4]`
 
 **Output:** `6`
 
@@ -29,8 +30,7 @@ The minimum total lag for these connections was calculated as follows: abs(1 - 2
 
 ### Example 2
 
-**Input:** `center = [3, 1, 6, 8, 9]`
-**Input:** `destination = [2, 3, 1, 7, 9]`
+**Input:** `center = [3, 1, 6, 8, 9]`, `destination = [2, 3, 1, 7, 9]`
 
 **Output:** `5`
 
@@ -38,7 +38,8 @@ The minimum total lag for these connections was calculated as follows: abs(1 - 2
 
 ## Constraints
 
-- `1 <= n <= 1051 <= center[i], destination[i] <= 109`
+- `1 <= n <= 105`
+- `1 <= center[i], destination[i] <= 109`
 
 ## Solutions
 

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-linked-list-queue-operations.md
 
-$23
+Source note: The source omits whether deletion removes one or all matches, which duplicate occurrence survives, and the callable batch format. The judged core task matches the visible report at about 
 
   uv run python amazon_oa/amazon-linked-list-queue-operations/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-linked-list-queue-operations/              # run the test sets

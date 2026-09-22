@@ -2,14 +2,17 @@
 
 **unknown difficulty** | **NN minutes** | **unknown categories**
 
-$23
+In Amazon's distributed storage network, some critical data segments are missing. They are represented by a string missingData. The system restores data by choosing a base segment of length segmentSize and repeatedly appending copies of that base segment to a generated string.
+
+A base segment is valid if, after some number of replications, the generated string contains every character in missingData at least as many times as it appears in missingData.
+
+Among all valid base segments, choose one that requires the fewest replications. If more than one base segment requires that same minimum number of replications, return the lexicographically smallest one. If no valid base segment exists, return "-1".
 
 ## Examples
 
 ### Example 1
 
-**Input:** `segmentSize = 2`
-**Input:** `missingData = "aavvavv"`
+**Input:** `segmentSize = 2`, `missingData = "aavvavv"`
 
 **Output:** `"av"`
 
@@ -17,8 +20,7 @@ $23
 
 ### Example 2
 
-**Input:** `segmentSize = 1`
-**Input:** `missingData = "abc"`
+**Input:** `segmentSize = 1`, `missingData = "abc"`
 
 **Output:** `"-1"`
 
@@ -26,7 +28,8 @@ $23
 
 ## Constraints
 
-- `1 <= segmentSize <= missingData.lengthmissingData consists of lowercase English letters.`
+- `1 <= segmentSize <= missingData.length`
+- `missingData consists of lowercase English letters.`
 
 ## Solutions
 

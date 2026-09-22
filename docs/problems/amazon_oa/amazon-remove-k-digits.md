@@ -2,14 +2,17 @@
 
 **Medium** | **NN minutes** | **Stack, Greedy, String**
 
-You are given a string num that represents a non-negative integer, and an integer k.Remove exactly k digits from num so the remaining digits stay in their original relative order and form the smallest possible integer.Return that integer as a string. Do not keep leading zeros, except for the integer 0 itself.
+You are given a string num that represents a non-negative integer, and an integer k.
+
+Remove exactly k digits from num so the remaining digits stay in their original relative order and form the smallest possible integer.
+
+Return that integer as a string. Do not keep leading zeros, except for the integer 0 itself.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `num = "1432219"`
-**Input:** `k = 3`
+**Input:** `num = "1432219"`, `k = 3`
 
 **Output:** `"1219"`
 
@@ -17,8 +20,7 @@ You are given a string num that represents a non-negative integer, and an intege
 
 ### Example 2
 
-**Input:** `num = "10200"`
-**Input:** `k = 1`
+**Input:** `num = "10200"`, `k = 1`
 
 **Output:** `"200"`
 
@@ -26,8 +28,7 @@ You are given a string num that represents a non-negative integer, and an intege
 
 ### Example 3
 
-**Input:** `num = "10"`
-**Input:** `k = 2`
+**Input:** `num = "10"`, `k = 2`
 
 **Output:** `"0"`
 
@@ -35,7 +36,10 @@ You are given a string num that represents a non-negative integer, and an intege
 
 ## Constraints
 
-- `1 <= num.length <= 10^5.1 <= k <= num.length.num consists of digits only.num has no leading zeros except when num is "0".`
+- `1 <= num.length <= 10^5.`
+- `1 <= k <= num.length.`
+- `num consists of digits only.`
+- `num has no leading zeros except when num is "0".`
 
 ## Solutions
 

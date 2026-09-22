@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-longest-common-subsequence-length.md
 
-Given two lowercase strings first and second, return the length of their longest common subsequence.A subsequence is formed by deleting zero or more characters without changing the relative order of t
+Given two lowercase strings first and second, return the length of their longest common subsequence.
 
   uv run python amazon_oa/amazon-longest-common-subsequence-length/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-longest-common-subsequence-length/              # run the test sets

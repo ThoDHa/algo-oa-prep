@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/count-max-num-teams.md
 
-Amazon is hosting a team hackathon.
+Amazon OA problem.
 
   uv run python amazon_oa/count-max-num-teams/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/count-max-num-teams/              # run the test sets

@@ -2,7 +2,9 @@
 
 **Medium** | **NN minutes** | **Array, Matrix, Depth First Search, Breadth First Search**
 
-Given a rectangular binary matrix grid, return the number of islands.An island is a maximal group of cells containing 1. Two land cells belong to the same island when they share an edge or a corner, so each cell can connect in any of the eight horizontal, vertical, or diagonal directions.
+Given a rectangular binary matrix grid, return the number of islands.
+
+An island is a maximal group of cells containing 1. Two land cells belong to the same island when they share an edge or a corner, so each cell can connect in any of the eight horizontal, vertical, or diagonal directions.
 
 ## Examples
 
@@ -32,7 +34,10 @@ Given a rectangular binary matrix grid, return the number of islands.An island i
 
 ## Constraints
 
-- `1 <= grid.length, grid[i].length <= 500.Every row has the same length.grid[i][j] is either 0 or 1.The matrix contains at most 100000 cells.`
+- `1 <= grid.length, grid[i].length <= 500.`
+- `Every row has the same length.`
+- `grid[i][j] is either 0 or 1.`
+- `The matrix contains at most 100000 cells.`
 
 ## Solutions
 

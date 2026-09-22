@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-binary-strings-bounded-subset.md
 
-Given an array of binary strings strs and two budgets, maxOnes and maxZeroes, return the maximum number of strings you can select.The selected strings must contain at most maxOnes ones in total and at
+Given an array of binary strings strs and two budgets, maxOnes and maxZeroes, return the maximum number of strings you can select.
 
   uv run python amazon_oa/amazon-binary-strings-bounded-subset/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-binary-strings-bounded-subset/              # run the test sets

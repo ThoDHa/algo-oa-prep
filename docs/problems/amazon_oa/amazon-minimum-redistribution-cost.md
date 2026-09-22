@@ -2,7 +2,15 @@
 
 **Medium** | **NN minutes** | **Array, Prefix Sum, Greedy**
 
-There are n warehouses arranged in a circle. Warehouse i initially stores products[i] items.You may redistribute items around the circle, but all moved items must travel in one fixed direction: either clockwise or counter-clockwise. Moving one item across one edge costs 1.Return the minimum total cost needed to make every warehouse contain the same number of products. You may choose the better of the two directions.Function Description Complete getMinimumRedistributionCost.int products[n]: product counts around the circleReturns long: the minimum redistribution cost.
+There are n warehouses arranged in a circle. Warehouse i initially stores products[i] items.
+
+You may redistribute items around the circle, but all moved items must travel in one fixed direction: either clockwise or counter-clockwise. Moving one item across one edge costs 1.
+
+Return the minimum total cost needed to make every warehouse contain the same number of products. You may choose the better of the two directions.
+
+Function Description Complete getMinimumRedistributionCost.
+
+int products[n]: product counts around the circleReturns long: the minimum redistribution cost.
 
 ## Examples
 
@@ -24,7 +32,9 @@ There are n warehouses arranged in a circle. Warehouse i initially stores produc
 
 ## Constraints
 
-- `1 <= products.length <= 10^50 <= products[i] <= 10^9The total number of products is divisible by products.length.`
+- `1 <= products.length <= 10^5`
+- `0 <= products[i] <= 10^9`
+- `The total number of products is divisible by products.length.`
 
 ## Solutions
 

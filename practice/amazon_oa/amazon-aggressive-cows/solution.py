@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-aggressive-cows.md
 
-Given distinct integer stall positions stalls and an integer cows, place exactly cows cows in different stalls.Return the largest possible value of the minimum distance between every pair of placed co
+Given distinct integer stall positions stalls and an integer cows, place exactly cows cows in different stalls.
 
   uv run python amazon_oa/amazon-aggressive-cows/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-aggressive-cows/              # run the test sets

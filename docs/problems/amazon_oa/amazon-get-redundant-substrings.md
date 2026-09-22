@@ -2,15 +2,21 @@
 
 **Hard** | **NN minutes** | **String, Prefix Sum, Hash Table**
 
-$23
+Data analysts at Amazon are building a utility to identify redundant words in advertisements.
+
+They define a string as redundant if the length of the string, |word| = a * V + b * C, where a and b are given integers and V and C are the numbers of vowels and consonants in the string. Note that for any substring, |word| = V + C, so a substring is redundant when V + C = a * V + b * C.
+
+Given a string word, and two integers a and b, find the number of redundant substrings of word.
+
+A substring is a contiguous, non-empty group of characters in a string. For example, "bcb" is a substring of "abcba", while "bba" is not. The empty substring is not counted.
+
+Vowels are the letters a, e, i, o, u; all other lowercase English letters are consonants.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `word = "abbacc"`
-**Input:** `a = -1`
-**Input:** `b = 2`
+**Input:** `word = "abbacc"`, `a = -1`, `b = 2`
 
 **Output:** `5`
 
@@ -18,9 +24,7 @@ $23
 
 ### Example 2
 
-**Input:** `word = "akljfs"`
-**Input:** `a = -2`
-**Input:** `b = 1`
+**Input:** `word = "akljfs"`, `a = -2`, `b = 1`
 
 **Output:** `15`
 
@@ -28,7 +32,10 @@ $23
 
 ## Constraints
 
-- `1 ≤ |word| ≤ 10^5-10^3 ≤ a ≤ 10^3-10^3 ≤ b ≤ 10^3word contains lowercase English letters, [a-z].`
+- `1 ≤ |word| ≤ 10^5`
+- `-10^3 ≤ a ≤ 10^3`
+- `-10^3 ≤ b ≤ 10^3`
+- `word contains lowercase English letters, [a-z].`
 
 ## Solutions
 

@@ -4,6 +4,8 @@
 
 Note - Feel free to checkout the source image for the original statement :) 🐳
   
+
+
   A barcode scanner's settings are stored in a backend system as a single string of configurations, each encoded with a four-digit ordinal index followed by a configuration value, all separated by '|'. To set up the scanner correctly, the client needs to request this string and present the configurations in the proper sequence. Your task is to ensure the validity of this configuration string and return the configurations in the right order. The validation criteria include ensuring that configurations are separated by '|', indices are sequential and unique without any gaps, configuration values are alphanumeric and unique, and there are no duplicate ordinal indices. If the string fails these checks, the function should return ["Invalid configuration"].
 
 ## Examples
@@ -42,7 +44,10 @@ Note - Feel free to checkout the source image for the original statement :) 🐳
 
 ## Constraints
 
-- `1 ≤ orders ≤ 99991 ≤ orders(configuration) ≤ 9999Order values may not be unique or completeConfiguration values are not always unique, the same configuration may appear in multiple configuration steps`
+- `1 ≤ orders ≤ 9999`
+- `1 ≤ orders(configuration) ≤ 9999`
+- `Order values may not be unique or complete`
+- `Configuration values are not always unique, the same configuration may appear in multiple configuration steps`
 
 ## Solutions
 

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-max-alternating-music.md
 
-$23
+Amazon Music is working on harmonizing their music playlist.
 
   uv run python amazon_oa/amazon-get-max-alternating-music/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-max-alternating-music/              # run the test sets

@@ -2,33 +2,40 @@
 
 **Hard** | **NN minutes** | **Prefix Sum, Binary Search, Sorting**
 
-$23
+Special thanks: 🐳 Manyyy thanks to the GG of Error-Free Excellence 👉 ✨ spike ✨! 🐝
+
+
+    An Amazon fulfillment center receives a large number of orders each day. Each order is associated with a range of prices of items that need to be picked from the warehouse and packed into a box. There are n items in the warehouse, which are represented as an array items[n]. The value of items[i] represents the value of ith item in the warehouse, and subsequently there are m orders. The start_index and end_index for the order are represented in the arrays start[i] and end[i]. Also start[i] and end[i] are 0-index based. For each order, all the items are picked from the inclusive range from start[i] through end[i].
+    
+
+
+    Given array items, start, end, and query. For each query[i], find the count of elements in the range with a value strictly less than query[i].
 
 ## Examples
 
 ### Example 1
 
-**Input:** `items = [1, 2, 5, 4, 5]`
-**Input:** `start = [0, 0, 1]`
-**Input:** `end = [1, 2, 2]`
-**Input:** `query = [2, 4]`
+**Input:** `items = [1, 2, 5, 4, 5]`, `start = [0, 0, 1]`, `end = [1, 2, 2]`, `query = [2, 4]`
 
 **Output:** `[2, 5]`
 
 **Explanation:** Over the 3 orders, the picked items are [1, 2], [1, 2, 5], and [2, 5].
       
+
+
       For the first query, 2 picked items have values less than 2.
       
+
+
       5 picked items have values less than 4.
       
+
+
       Hence the answer is [2, 5].
 
 ### Example 2
 
-**Input:** `items = [1, 2, 3, 2, 4, 1]`
-**Input:** `start = [2, 0]`
-**Input:** `end = [4, 0]`
-**Input:** `query = [5, 3]`
+**Input:** `items = [1, 2, 3, 2, 4, 1]`, `start = [2, 0]`, `end = [4, 0]`, `query = [5, 3]`
 
 **Output:** `[4, 2]`
 

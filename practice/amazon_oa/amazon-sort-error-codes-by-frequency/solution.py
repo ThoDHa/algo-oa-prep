@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-sort-error-codes-by-frequency.md
 
-You are given an integer array codes representing error codes.Sort the entire array using these priority rules:Error codes with lower frequency come first.If two error codes have the same frequency, t
+You are given an integer array codes representing error codes.
 
   uv run python amazon_oa/amazon-sort-error-codes-by-frequency/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-sort-error-codes-by-frequency/              # run the test sets

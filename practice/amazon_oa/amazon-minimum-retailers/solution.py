@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-minimum-retailers.md
 
-$23
+An online marketplace has onboarded n retailers, each operating within a designated geographical range. Retailer i operates over the interval from regionStart[i] to regionEnd[i] (inclusive on both end
 
   uv run python amazon_oa/amazon-minimum-retailers/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-minimum-retailers/              # run the test sets

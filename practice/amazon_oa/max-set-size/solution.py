@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/max-set-size.md
 
-$23
+You are shopping on Amazon.com for some bags of rice. Each listing displays the number of grains of rice that the bag contains. You want to buy a perfect set of rice bags chosen from the entire search
 
   uv run python amazon_oa/max-set-size/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/max-set-size/              # run the test sets

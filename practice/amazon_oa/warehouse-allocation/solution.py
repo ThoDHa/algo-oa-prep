@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/warehouse-allocation.md
 
-$23
+Amazon has a warehouse that stores piles of boxes containing goods to be shipped. There are n piles numbered 1, 2, ..., n, where the i-th pile has boxes[i] boxes.
 
   uv run python amazon_oa/warehouse-allocation/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/warehouse-allocation/              # run the test sets

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-operations.md
 
-$23
+There are n processes. The i-th process has resource[i] number of resources. All the resource[i] are distinct. The CPU wants the processes to be arranged in increasing order of their resource[i]. The 
 
   uv run python amazon_oa/amazon-get-operations/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-operations/              # run the test sets

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-construct-tree-level-inorder.md
 
-Given the levelOrder and inorder traversals of the same binary tree, reconstruct and return its root.All node values are distinct. Both arrays contain the same values, and together they describe exact
+Given the levelOrder and inorder traversals of the same binary tree, reconstruct and return its root.
 
   uv run python amazon_oa/amazon-construct-tree-level-inorder/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-construct-tree-level-inorder/              # run the test sets

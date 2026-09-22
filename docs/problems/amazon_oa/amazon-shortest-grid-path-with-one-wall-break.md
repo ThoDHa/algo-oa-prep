@@ -2,7 +2,9 @@
 
 **Medium** | **NN minutes** | **Matrix, Breadth First Search, Shortest Path**
 
-Given a rectangular binary matrix grid, a cell containing 1 is open and a cell containing 0 is a wall.Start at the top-left cell and move to the bottom-right cell. Each move goes one cell up, down, left, or right. During the route, you may break and enter at most one wall.
+Given a rectangular binary matrix grid, a cell containing 1 is open and a cell containing 0 is a wall.
+
+Start at the top-left cell and move to the bottom-right cell. Each move goes one cell up, down, left, or right. During the route, you may break and enter at most one wall.
 
 ## Examples
 

@@ -2,7 +2,13 @@
 
 **Easy** | **NN minutes** | **Array, Hash Table, Two Pointers**
 
-Complete the function below. The function receives the full standard input as a single string and returns the exact standard output lines.Problem Given an integer array and a target value, return all unique pairs whose sum equals the target. Each pair must be sorted in ascending order, and duplicate pairs must appear only once.Output the pairs in lexicographic order as a,b. If there are no valid pairs, output None.Function Description Complete solveUniquePairsWithTargetSum. It has one parameter, String input. The first line contains n target; the second line contains n integers. Return one output line per unique pair.
+Complete the function below. The function receives the full standard input as a single string and returns the exact standard output lines.
+
+Problem Given an integer array and a target value, return all unique pairs whose sum equals the target. Each pair must be sorted in ascending order, and duplicate pairs must appear only once.
+
+Output the pairs in lexicographic order as a,b. If there are no valid pairs, output None.
+
+Function Description Complete solveUniquePairsWithTargetSum. It has one parameter, String input. The first line contains n target; the second line contains n integers. Return one output line per unique pair.
 
 ## Examples
 

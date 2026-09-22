@@ -8,8 +8,7 @@ You are given an integer, requests which denotes the number of requests, and a l
 
 ### Example 1
 
-**Input:** `requests = 6`
-**Input:** `wait_time = [5, 2, 2, 4, 7, 1]`
+**Input:** `requests = 6`, `wait_time = [5, 2, 2, 4, 7, 1]`
 
 **Output:** `[6, 4, 2, 2, 1, 0]`
 

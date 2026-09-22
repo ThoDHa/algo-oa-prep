@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-find-maximum-num.md
 
-$24
+Special thanks: whale and spike contributed this problem.
 
   uv run python amazon_oa/amazon-find-maximum-num/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-find-maximum-num/              # run the test sets

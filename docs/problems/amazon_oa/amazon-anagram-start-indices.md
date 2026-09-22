@@ -2,14 +2,15 @@
 
 **Medium** | **NN minutes** | **String, Hash Table, Sliding Window**
 
-Given lowercase strings s and p, return every starting index where a substring of s is an anagram of p.Return indices in increasing order. Overlapping matches are included.
+Given lowercase strings s and p, return every starting index where a substring of s is an anagram of p.
+
+Return indices in increasing order. Overlapping matches are included.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `s = "acbadabcaa"`
-**Input:** `p = "aabc"`
+**Input:** `s = "acbadabcaa"`, `p = "aabc"`
 
 **Output:** `[0,5,6]`
 
@@ -17,8 +18,7 @@ Given lowercase strings s and p, return every starting index where a substring o
 
 ### Example 2
 
-**Input:** `s = "cbaebabacd"`
-**Input:** `p = "abc"`
+**Input:** `s = "cbaebabacd"`, `p = "abc"`
 
 **Output:** `[0,6]`
 
@@ -26,8 +26,7 @@ Given lowercase strings s and p, return every starting index where a substring o
 
 ### Example 3
 
-**Input:** `s = "abab"`
-**Input:** `p = "ab"`
+**Input:** `s = "abab"`, `p = "ab"`
 
 **Output:** `[0,1,2]`
 
@@ -35,7 +34,8 @@ Given lowercase strings s and p, return every starting index where a substring o
 
 ## Constraints
 
-- `1 &le; s.length, p.length &le; 100000.s and p contain only lowercase English letters.`
+- `1 ≤ s.length, p.length ≤ 100000.`
+- `s and p contain only lowercase English letters.`
 
 ## Solutions
 

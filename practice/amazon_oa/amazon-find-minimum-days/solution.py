@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-find-minimum-days.md
 
-$23
+A student is preparing for a scholarship test which is organized on the Amazon Academy platform and scheduled for next month.
 
   uv run python amazon_oa/amazon-find-minimum-days/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-find-minimum-days/              # run the test sets

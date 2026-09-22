@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-next-smaller-ticket-price.md
 
-You are given an integer array prices, where prices[i] is the price of ticket i.For each ticket, find the next strictly smaller price to its right. If no later ticket is cheaper, the answer for that t
+You are given an integer array prices, where prices[i] is the price of ticket i.
 
   uv run python amazon_oa/amazon-next-smaller-ticket-price/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-next-smaller-ticket-price/              # run the test sets

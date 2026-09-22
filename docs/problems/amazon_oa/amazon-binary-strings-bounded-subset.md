@@ -2,15 +2,15 @@
 
 **Medium** | **NN minutes** | **Array, String, Dynamic Programming**
 
-Given an array of binary strings strs and two budgets, maxOnes and maxZeroes, return the maximum number of strings you can select.The selected strings must contain at most maxOnes ones in total and at most maxZeroes zeroes in total. Each array position may be selected at most once, including when two positions contain equal strings.
+Given an array of binary strings strs and two budgets, maxOnes and maxZeroes, return the maximum number of strings you can select.
+
+The selected strings must contain at most maxOnes ones in total and at most maxZeroes zeroes in total. Each array position may be selected at most once, including when two positions contain equal strings.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `strs = ["100","10","1","11","111"]`
-**Input:** `maxOnes = 3`
-**Input:** `maxZeroes = 0`
+**Input:** `strs = ["100","10","1","11","111"]`, `maxOnes = 3`, `maxZeroes = 0`
 
 **Output:** `2`
 
@@ -18,9 +18,7 @@ Given an array of binary strings strs and two budgets, maxOnes and maxZeroes, re
 
 ### Example 2
 
-**Input:** `strs = ["10","0001","111001","1","0"]`
-**Input:** `maxOnes = 3`
-**Input:** `maxZeroes = 5`
+**Input:** `strs = ["10","0001","111001","1","0"]`, `maxOnes = 3`, `maxZeroes = 5`
 
 **Output:** `4`
 
@@ -28,9 +26,7 @@ Given an array of binary strings strs and two budgets, maxOnes and maxZeroes, re
 
 ### Example 3
 
-**Input:** `strs = ["10","0","1"]`
-**Input:** `maxOnes = 1`
-**Input:** `maxZeroes = 1`
+**Input:** `strs = ["10","0","1"]`, `maxOnes = 1`, `maxZeroes = 1`
 
 **Output:** `2`
 
@@ -38,7 +34,10 @@ Given an array of binary strings strs and two budgets, maxOnes and maxZeroes, re
 
 ## Constraints
 
-- `1 <= strs.length <= 600.1 <= strs[i].length <= 100.Every strs[i] contains only 0 and 1.0 <= maxOnes, maxZeroes <= 100.`
+- `1 <= strs.length <= 600.`
+- `1 <= strs[i].length <= 100.`
+- `Every strs[i] contains only 0 and 1.`
+- `0 <= maxOnes, maxZeroes <= 100.`
 
 ## Solutions
 

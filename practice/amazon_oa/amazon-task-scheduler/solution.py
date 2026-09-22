@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-task-scheduler.md
 
-$23
+Special thanks: ( ˶ˆᗜˆ˵ ) Many Manyy Manyyy thanks to spike!ᯓᡣ𐭩
 
   uv run python amazon_oa/amazon-task-scheduler/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-task-scheduler/              # run the test sets

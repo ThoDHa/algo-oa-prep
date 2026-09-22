@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-all-about-rewards.md
 
-$23
+Amazon OA problem.
 
   uv run python amazon_oa/amazon-all-about-rewards/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-all-about-rewards/              # run the test sets

@@ -2,7 +2,9 @@
 
 **Medium** | **NN minutes** | **Array, Breadth First Search, Matrix**
 
-You are given a rectangular grid whose cells contain 0, 1, or 2. A zero is empty, a one is fresh, and a two is already active.After each minute, every active cell makes each orthogonally adjacent fresh cell active. Return the minimum number of minutes until no fresh cell remains. Return -1 when this is impossible.
+You are given a rectangular grid whose cells contain 0, 1, or 2. A zero is empty, a one is fresh, and a two is already active.
+
+After each minute, every active cell makes each orthogonally adjacent fresh cell active. Return the minimum number of minutes until no fresh cell remains. Return -1 when this is impossible.
 
 ## Examples
 
@@ -32,7 +34,9 @@ You are given a rectangular grid whose cells contain 0, 1, or 2. A zero is empty
 
 ## Constraints
 
-- `1 <= grid.length, grid[r].length <= 200Every row has the same length.grid[r][c] is 0, 1, or 2.`
+- `1 <= grid.length, grid[r].length <= 200`
+- `Every row has the same length.`
+- `grid[r][c] is 0, 1, or 2.`
 
 ## Solutions
 

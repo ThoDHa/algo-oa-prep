@@ -2,7 +2,9 @@
 
 **Medium** | **NN minutes** | **String, Simulation**
 
-Given a valid 24-hour time time in HH:MM format, return the first strictly later time whose four digits form a palindrome.Advance in one-minute steps and wrap from 23:59 to 00:00. The input itself is never returned unless a full day has elapsed.
+Given a valid 24-hour time time in HH:MM format, return the first strictly later time whose four digits form a palindrome.
+
+Advance in one-minute steps and wrap from 23:59 to 00:00. The input itself is never returned unless a full day has elapsed.
 
 ## Examples
 
@@ -32,7 +34,9 @@ Given a valid 24-hour time time in HH:MM format, return the first strictly later
 
 ## Constraints
 
-- `time.length == 5.time[2] == ':'.time is a valid zero-padded 24-hour time from 00:00 through 23:59.`
+- `time.length == 5.`
+- `time[2] == ':'.`
+- `time is a valid zero-padded 24-hour time from 00:00 through 23:59.`
 
 ## Solutions
 

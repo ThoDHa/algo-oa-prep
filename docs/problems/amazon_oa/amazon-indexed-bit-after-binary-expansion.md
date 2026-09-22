@@ -2,15 +2,15 @@
 
 **Medium** | **NN minutes** | **String, Math**
 
-Start with a binary string bits. In one expansion round, replace every character independently:0 becomes 00.1 becomes 10.After exactly rounds expansions, return the bit at the zero-based position index. The position is guaranteed to exist in the expanded string.
+Start with a binary string bits. In one expansion round, replace every character independently:
+
+0 becomes 00.1 becomes 10.After exactly rounds expansions, return the bit at the zero-based position index. The position is guaranteed to exist in the expanded string.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `bits = "01"`
-**Input:** `rounds = 1`
-**Input:** `index = 2`
+**Input:** `bits = "01"`, `rounds = 1`, `index = 2`
 
 **Output:** `1`
 
@@ -18,9 +18,7 @@ Start with a binary string bits. In one expansion round, replace every character
 
 ### Example 2
 
-**Input:** `bits = "1"`
-**Input:** `rounds = 2`
-**Input:** `index = 3`
+**Input:** `bits = "1"`, `rounds = 2`, `index = 3`
 
 **Output:** `0`
 
@@ -28,9 +26,7 @@ Start with a binary string bits. In one expansion round, replace every character
 
 ### Example 3
 
-**Input:** `bits = "101"`
-**Input:** `rounds = 0`
-**Input:** `index = 2`
+**Input:** `bits = "101"`, `rounds = 0`, `index = 2`
 
 **Output:** `1`
 
@@ -38,7 +34,11 @@ Start with a binary string bits. In one expansion round, replace every character
 
 ## Constraints
 
-- `1 <= bits.length <= 10^5bits contains only 0 and 1.0 <= rounds <= 300 <= index <= 10^9index < bits.length * 2^rounds.`
+- `1 <= bits.length <= 10^5`
+- `bits contains only 0 and 1.`
+- `0 <= rounds <= 30`
+- `0 <= index <= 10^9`
+- `index < bits.length * 2^rounds.`
 
 ## Solutions
 

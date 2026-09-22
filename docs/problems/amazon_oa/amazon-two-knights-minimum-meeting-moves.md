@@ -2,14 +2,15 @@
 
 **Medium** | **NN minutes** | **Math, Breadth First Search**
 
-Two knights start at coordinates first = [x1, y1] and second = [x2, y2] on an infinite chessboard. They take turns, with the first knight moving first. On a turn, the chosen knight must make one standard knight move: two squares along one axis and one square along the other.Return the minimum total number of moves until the two knights occupy the same coordinate. If they already share a coordinate, return 0.
+Two knights start at coordinates first = [x1, y1] and second = [x2, y2] on an infinite chessboard. They take turns, with the first knight moving first. On a turn, the chosen knight must make one standard knight move: two squares along one axis and one square along the other.
+
+Return the minimum total number of moves until the two knights occupy the same coordinate. If they already share a coordinate, return 0.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `first = [0,0]`
-**Input:** `second = [1,2]`
+**Input:** `first = [0,0]`, `second = [1,2]`
 
 **Output:** `1`
 
@@ -17,8 +18,7 @@ Two knights start at coordinates first = [x1, y1] and second = [x2, y2] on an in
 
 ### Example 2
 
-**Input:** `first = [0,0]`
-**Input:** `second = [1,0]`
+**Input:** `first = [0,0]`, `second = [1,0]`
 
 **Output:** `3`
 
@@ -26,8 +26,7 @@ Two knights start at coordinates first = [x1, y1] and second = [x2, y2] on an in
 
 ### Example 3
 
-**Input:** `first = [7,-4]`
-**Input:** `second = [7,-4]`
+**Input:** `first = [7,-4]`, `second = [7,-4]`
 
 **Output:** `0`
 
@@ -35,7 +34,8 @@ Two knights start at coordinates first = [x1, y1] and second = [x2, y2] on an in
 
 ## Constraints
 
-- `first.length == second.length == 2-10^9 <= first[i], second[i] <= 10^9`
+- `first.length == second.length == 2`
+- `-10^9 <= first[i], second[i] <= 10^9`
 
 ## Solutions
 

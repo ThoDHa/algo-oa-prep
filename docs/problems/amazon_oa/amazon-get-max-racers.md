@@ -2,14 +2,21 @@
 
 **Medium** | **NN minutes** | **Sliding Window, Hash Table**
 
-$23
+HackerLand Sports Club wants to send a team for a relay race. There are n racers in the group indexed from 0 to n - 1. The ith racer has a speed of speed[i] units.
+    
+
+
+    The coach decided to send some contiguous subsegments of racers for the race i.e. racers with index i, i + 1, i + 2 ..., j such that each racer has the same speed in the group to ensure smooth baton transfer. To achieve the goal, the coach decided to remove some racers from the group such that the number of racers with the same speed in some contiguous segment is maximum.
+    
+
+
+    Given the array, racers, and an integer k, find the maximum possible number of racers in some contiguous segment of racers with the same speed after at most k racers are removed.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `speed = [1, 4, 4, 2, 2, 4]`
-**Input:** `k = 2`
+**Input:** `speed = [1, 4, 4, 2, 2, 4]`, `k = 2`
 
 **Output:** `3`
 

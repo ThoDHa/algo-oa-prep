@@ -2,14 +2,15 @@
 
 **Medium** | **NN minutes** | **Array, Sorting, Binary Search, Greedy**
 
-Given distinct integer stall positions stalls and an integer cows, place exactly cows cows in different stalls.Return the largest possible value of the minimum distance between every pair of placed cows.
+Given distinct integer stall positions stalls and an integer cows, place exactly cows cows in different stalls.
+
+Return the largest possible value of the minimum distance between every pair of placed cows.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `stalls = [1,2,4,8,9]`
-**Input:** `cows = 3`
+**Input:** `stalls = [1,2,4,8,9]`, `cows = 3`
 
 **Output:** `3`
 
@@ -17,8 +18,7 @@ Given distinct integer stall positions stalls and an integer cows, place exactly
 
 ### Example 2
 
-**Input:** `stalls = [10,1,2,7,5]`
-**Input:** `cows = 3`
+**Input:** `stalls = [10,1,2,7,5]`, `cows = 3`
 
 **Output:** `4`
 
@@ -26,8 +26,7 @@ Given distinct integer stall positions stalls and an integer cows, place exactly
 
 ### Example 3
 
-**Input:** `stalls = [0,5]`
-**Input:** `cows = 2`
+**Input:** `stalls = [0,5]`, `cows = 2`
 
 **Output:** `5`
 
@@ -35,7 +34,10 @@ Given distinct integer stall positions stalls and an integer cows, place exactly
 
 ## Constraints
 
-- `2 <= stalls.length <= 10^5.2 <= cows <= stalls.length.0 <= stalls[i] <= 10^9.All stall positions are distinct.`
+- `2 <= stalls.length <= 10^5.`
+- `2 <= cows <= stalls.length.`
+- `0 <= stalls[i] <= 10^9.`
+- `All stall positions are distinct.`
 
 ## Solutions
 

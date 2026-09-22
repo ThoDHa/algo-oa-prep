@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-remove-k-digits.md
 
-You are given a string num that represents a non-negative integer, and an integer k.Remove exactly k digits from num so the remaining digits stay in their original relative order and form the smallest
+You are given a string num that represents a non-negative integer, and an integer k.
 
   uv run python amazon_oa/amazon-remove-k-digits/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-remove-k-digits/              # run the test sets

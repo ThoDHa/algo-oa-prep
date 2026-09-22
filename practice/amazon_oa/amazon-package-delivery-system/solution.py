@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-package-delivery-system.md
 
-Each shipment scenario has a list of truck capacities and a list of package weights.A truck may deliver any package whose weight does not exceed its current capacity. After a successful delivery, that
+Each shipment scenario has a list of truck capacities and a list of package weights.
 
   uv run python amazon_oa/amazon-package-delivery-system/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-package-delivery-system/              # run the test sets

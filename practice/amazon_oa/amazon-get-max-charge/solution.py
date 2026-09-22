@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-max-charge.md
 
-$23
+A team of engineers at Amazon, using advanced simulation tools, are analyzing a series of interconnected systems, where each system has a charge value represented by charge[i] (which can be positive, 
 
   uv run python amazon_oa/amazon-get-max-charge/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-max-charge/              # run the test sets

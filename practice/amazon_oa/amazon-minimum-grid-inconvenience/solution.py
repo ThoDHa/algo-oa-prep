@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-minimum-grid-inconvenience.md
 
-A city is represented by a binary grid. A cell marked 1 is a delivery center, and a cell marked 0 is any other place.The distance between two cells is the maximum of the absolute row-coordinate differ
+A city is represented by a binary grid. A cell marked 1 is a delivery center, and a cell marked 0 is any other place.
 
   uv run python amazon_oa/amazon-minimum-grid-inconvenience/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-minimum-grid-inconvenience/              # run the test sets

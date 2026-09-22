@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-sliding-window-rate-limiter.md
 
-You receive requests in nondecreasing timestamp order. Each request has a user ID and an integer timestamp in seconds.A request is accepted when that user has fewer than 100 previously accepted reques
+You receive requests in nondecreasing timestamp order. Each request has a user ID and an integer timestamp in seconds.
 
   uv run python amazon_oa/amazon-sliding-window-rate-limiter/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-sliding-window-rate-limiter/              # run the test sets

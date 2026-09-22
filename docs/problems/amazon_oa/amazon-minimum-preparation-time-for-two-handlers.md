@@ -2,15 +2,17 @@
 
 **Medium** | **NN minutes** | **Dynamic Programming, Array**
 
-$23
+A work queue workList must be processed in order by two handlers. Each value in workList is a work type from 1 through m.
+
+For work type t, the first time a handler processes that type, or whenever the handler's previous job was a different type, that handler pays longPrepTime[t]. If the handler's previous job was the same type, that handler pays shortPrepTime[t] instead.
+
+Each job must be assigned to exactly one of the two handlers, and jobs must be processed in the order they appear. Return the minimum total preparation time.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `workList = [1, 2, 2]`
-**Input:** `longPrepTime = [4, 5]`
-**Input:** `shortPrepTime = [2, 3]`
+**Input:** `workList = [1, 2, 2]`, `longPrepTime = [4, 5]`, `shortPrepTime = [2, 3]`
 
 **Output:** `12`
 
@@ -18,9 +20,7 @@ $23
 
 ### Example 2
 
-**Input:** `workList = [1, 1, 1]`
-**Input:** `longPrepTime = [4]`
-**Input:** `shortPrepTime = [2]`
+**Input:** `workList = [1, 1, 1]`, `longPrepTime = [4]`, `shortPrepTime = [2]`
 
 **Output:** `8`
 
@@ -28,7 +28,9 @@ $23
 
 ## Constraints
 
-- `workList[i] identifies a work type between 1 and mlongPrepTime and shortPrepTime contain one entry per work type.Jobs must be processed in order.`
+- `workList[i] identifies a work type between 1 and m`
+- `longPrepTime and shortPrepTime contain one entry per work type.`
+- `Jobs must be processed in order.`
 
 ## Solutions
 

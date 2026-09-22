@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-maximize-product-of-sizes-of-subtrees.md
 
-$23
+BREAKING! Its sister question was found --> Checkout LC 343. Integer Break <-- 
 
   uv run python amazon_oa/amazon-maximize-product-of-sizes-of-subtrees/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-maximize-product-of-sizes-of-subtrees/              # run the test sets

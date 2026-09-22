@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-data-dependence-sum.md
 
-$23
+Data analysts at Amazon are analyzing time-series data. It was concluded that the data of the nth item was dependent on the data of some xth day if there is a positive integer k such that floor(n / k)
 
   uv run python amazon_oa/amazon-get-data-dependence-sum/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-data-dependence-sum/              # run the test sets

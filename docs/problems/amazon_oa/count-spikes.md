@@ -2,14 +2,19 @@
 
 **Medium** | **NN minutes** | **Array, Sorting**
 
-A k-Spike is an element that satisfies both the following conditions:  There are at least k elements from indices (0, i-1) that are less than prices[i]. There are at least k  elements from indices (i+1, n-1) that are less than prices[i].Count the number of k-Spikes in the given array.
+A k-Spike is an element that satisfies both the following conditions: 
+
+ There are at least k elements from indices (0, i-1) that are less than prices[i].
+
+ There are at least k  elements from indices (i+1, n-1) that are less than prices[i].
+
+Count the number of k-Spikes in the given array.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `prices = [1, 2, 8, 5, 3, 4]`
-**Input:** `k = 2`
+**Input:** `prices = [1, 2, 8, 5, 3, 4]`, `k = 2`
 
 **Output:** `2`
 

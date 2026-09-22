@@ -2,7 +2,9 @@
 
 **Hard** | **NN minutes** | **Linked List, Heap**
 
-You are given an array lists containing k linked-list heads. Every linked list is sorted in ascending order.Merge all of the linked lists into one ascending linked list and return its head.
+You are given an array lists containing k linked-list heads. Every linked list is sorted in ascending order.
+
+Merge all of the linked lists into one ascending linked list and return its head.
 
 ## Examples
 
@@ -12,7 +14,9 @@ You are given an array lists containing k linked-list heads. Every linked list i
 
 **Output:** `[1,1,2,3,4,4,5,6]`
 
-**Explanation:** The linked lists are:1 -> 4 -> 5
+**Explanation:** The linked lists are:
+
+1 -> 4 -> 5
 1 -> 3 -> 4
 2 -> 6Merging them produces the sorted linked list 1 -> 1 -> 2 -> 3 -> 4 -> 4 -> 5 -> 6.
 
@@ -30,7 +34,12 @@ You are given an array lists containing k linked-list heads. Every linked list i
 
 ## Constraints
 
-- `k == lists.length0 <= k <= 10^40 <= lists[i].length <= 500-10^4 <= lists[i][j] <= 10^4Each lists[i] is sorted in ascending order.The sum of all lists[i].length values does not exceed 10^4.`
+- `k == lists.length`
+- `0 <= k <= 10^4`
+- `0 <= lists[i].length <= 500`
+- `-10^4 <= lists[i][j] <= 10^4`
+- `Each lists[i] is sorted in ascending order.`
+- `The sum of all lists[i].length values does not exceed 10^4.`
 
 ## Solutions
 

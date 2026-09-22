@@ -2,7 +2,9 @@
 
 **Easy** | **NN minutes** | **Array, Two Pointers**
 
-You are given an array seats, where seats[i] = 1 means seat i is occupied and seats[i] = 0 means it is empty. At least one seat is empty and at least one seat is occupied.Choose an empty seat that maximizes its distance to the closest occupied seat, and return the zero-based index of that seat. If several seats have the same maximum distance, return the smallest index.
+You are given an array seats, where seats[i] = 1 means seat i is occupied and seats[i] = 0 means it is empty. At least one seat is empty and at least one seat is occupied.
+
+Choose an empty seat that maximizes its distance to the closest occupied seat, and return the zero-based index of that seat. If several seats have the same maximum distance, return the smallest index.
 
 ## Examples
 
@@ -40,7 +42,11 @@ You are given an array seats, where seats[i] = 1 means seat i is occupied and se
 
 ## Constraints
 
-- `2 <= seats.length <= 20000seats[i] is 0 or 1.At least one seat is empty.At least one seat is occupied.If several empty seats have the same best distance, return the smallest index.`
+- `2 <= seats.length <= 20000`
+- `seats[i] is 0 or 1.`
+- `At least one seat is empty.`
+- `At least one seat is occupied.`
+- `If several empty seats have the same best distance, return the smallest index.`
 
 ## Solutions
 

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/count-maximum-profitable-groups.md
 
-$23
+Special thanks: 🍓 1000 thanks to spike for spike's incredible help! 🥑
 
   uv run python amazon_oa/count-maximum-profitable-groups/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/count-maximum-profitable-groups/              # run the test sets

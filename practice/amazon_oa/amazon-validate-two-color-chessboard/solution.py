@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-validate-two-color-chessboard.md
 
-You are given a nonempty rectangular integer matrix board. Every cell is one of two colors, encoded as 0 or 1.Return true if board is a valid chessboard pattern: every pair of horizontally adjacent ce
+You are given a nonempty rectangular integer matrix board. Every cell is one of two colors, encoded as 0 or 1.
 
   uv run python amazon_oa/amazon-validate-two-color-chessboard/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-validate-two-color-chessboard/              # run the test sets

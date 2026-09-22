@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-find-recurring-names.md
 
-$23
+Amazon rewards its new users with a discount coupon that can be applied to their first purchase. Some users create more than one account in order to receive the offer multiple times. It was found that
 
   uv run python amazon_oa/amazon-find-recurring-names/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-find-recurring-names/              # run the test sets

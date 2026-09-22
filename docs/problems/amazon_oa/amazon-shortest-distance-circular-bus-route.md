@@ -2,15 +2,15 @@
 
 **Easy** | **NN minutes** | **Array, Prefix Sum**
 
-For this exercise, assume a bus route has n stops arranged in a circle. The array distance contains the distance from stop i to stop (i + 1) mod n.Given two distinct stops, start and destination, return the shorter travel distance between them. A bus may travel clockwise or counterclockwise around the circle.
+For this exercise, assume a bus route has n stops arranged in a circle. The array distance contains the distance from stop i to stop (i + 1) mod n.
+
+Given two distinct stops, start and destination, return the shorter travel distance between them. A bus may travel clockwise or counterclockwise around the circle.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `distance = [1,2,3,4]`
-**Input:** `start = 0`
-**Input:** `destination = 2`
+**Input:** `distance = [1,2,3,4]`, `start = 0`, `destination = 2`
 
 **Output:** `3`
 
@@ -18,9 +18,7 @@ For this exercise, assume a bus route has n stops arranged in a circle. The arra
 
 ### Example 2
 
-**Input:** `distance = [7,10,1,12]`
-**Input:** `start = 1`
-**Input:** `destination = 3`
+**Input:** `distance = [7,10,1,12]`, `start = 1`, `destination = 3`
 
 **Output:** `11`
 
@@ -28,7 +26,10 @@ For this exercise, assume a bus route has n stops arranged in a circle. The arra
 
 ## Constraints
 
-- `2 <= distance.length <= 1000001 <= distance[i] <= 100000 <= start, destination < distance.lengthstart != destination`
+- `2 <= distance.length <= 100000`
+- `1 <= distance[i] <= 10000`
+- `0 <= start, destination < distance.length`
+- `start != destination`
 
 ## Solutions
 

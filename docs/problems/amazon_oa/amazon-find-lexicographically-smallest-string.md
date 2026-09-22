@@ -2,7 +2,9 @@
 
 **Hard** | **NN minutes** | **String, Greedy**
 
-Given a lowercase string s, find the lexicographically smallest lowercase string t that has the same length as s, is strictly greater than s, and has no two equal adjacent characters.Lexicographic order uses the usual alphabet order from a through z. Return "-1" if no such string exists.
+Given a lowercase string s, find the lexicographically smallest lowercase string t that has the same length as s, is strictly greater than s, and has no two equal adjacent characters.
+
+Lexicographic order uses the usual alphabet order from a through z. Return "-1" if no such string exists.
 
 ## Examples
 

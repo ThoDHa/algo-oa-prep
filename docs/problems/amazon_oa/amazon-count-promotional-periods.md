@@ -2,7 +2,17 @@
 
 **unknown difficulty** | **NN minutes** | **unknown categories**
 
-Data analysts at Amazon are studying product order patterns. They classify a period of at least three consecutive days as a promotional period when the order counts on the first and last days are both greater than every order count on the days between them.More formally, for an array orders, a subarray from index i to index j is a promotional period if j - i + 1 >= 3 and min(orders[i], orders[j]) > max(orders[i + 1], orders[i + 2], ..., orders[j - 1]).Given the order statistics for n consecutive days, return the number of promotional periods.Function Description Complete the function countPromotionalPeriods.countPromotionalPeriods has the following parameter:int orders[n]: the order statistics for each dayReturns long: the number of promotional periods.
+Data analysts at Amazon are studying product order patterns. They classify a period of at least three consecutive days as a promotional period when the order counts on the first and last days are both greater than every order count on the days between them.
+
+More formally, for an array orders, a subarray from index i to index j is a promotional period if j - i + 1 >= 3 and min(orders[i], orders[j]) > max(orders[i + 1], orders[i + 2], ..., orders[j - 1]).
+
+Given the order statistics for n consecutive days, return the number of promotional periods.
+
+Function Description Complete the function countPromotionalPeriods.
+
+countPromotionalPeriods has the following parameter:
+
+int orders[n]: the order statistics for each dayReturns long: the number of promotional periods.
 
 ## Examples
 
@@ -24,7 +34,9 @@ Data analysts at Amazon are studying product order patterns. They classify a per
 
 ## Constraints
 
-- `3 <= n <= 2 x 10^51 <= orders[i] <= 10^9All integers in orders are distinct.`
+- `3 <= n <= 2 x 10^5`
+- `1 <= orders[i] <= 10^9`
+- `All integers in orders are distinct.`
 
 ## Solutions
 

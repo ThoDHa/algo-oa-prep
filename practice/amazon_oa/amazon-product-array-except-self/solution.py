@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-product-array-except-self.md
 
-Given an integer array nums, return an array answer where answer[i] equals the product of every element of nums except nums[i].Solve the problem without division in O(n) time. The output array does no
+Given an integer array nums, return an array answer where answer[i] equals the product of every element of nums except nums[i].
 
   uv run python amazon_oa/amazon-product-array-except-self/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-product-array-except-self/              # run the test sets

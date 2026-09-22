@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-min-errors.md
 
-$23
+Amazon's database doesn’t support very large numbers, so numbers are stored as a string of binary characters, '0' and '1'. Accidentally, a '!' was entered at some positions and it is unknown whether t
 
   uv run python amazon_oa/amazon-get-min-errors/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-min-errors/              # run the test sets

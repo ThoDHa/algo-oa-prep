@@ -4,16 +4,19 @@
 
 An online retailer offers products in n different dimensions as specified in the array dimensions. The category supervisor notices that several dimensions are redundant and do not offer a favorable customer experience. To optimize the available stock, the product should be offered in unique dimensions. The dimension of the i-th product, dimensions[i], can be augmented by one unit for a fee given in the adjustmentCosts array, adjustmentCosts[i].
     
+
+
     Determine the minimal total fee required to ensure that all product dimensions are unique.
     
+
+
     dimensions === size, cost === adjustmentCosts
 
 ## Examples
 
 ### Example 1
 
-**Input:** `dimensions = [3, 7, 9, 7, 8]`
-**Input:** `adjustmentCosts = [5, 2, 5, 7, 5]`
+**Input:** `dimensions = [3, 7, 9, 7, 8]`, `adjustmentCosts = [5, 2, 5, 7, 5]`
 
 **Output:** `6`
 
@@ -21,8 +24,7 @@ An online retailer offers products in n different dimensions as specified in the
 
 ### Example 2
 
-**Input:** `dimensions = [3, 3, 4, 5]`
-**Input:** `adjustmentCosts = [5, 2, 2, 1]`
+**Input:** `dimensions = [3, 3, 4, 5]`, `adjustmentCosts = [5, 2, 2, 1]`
 
 **Output:** `5`
 
@@ -34,8 +36,7 @@ An online retailer offers products in n different dimensions as specified in the
 
 ### Example 3
 
-**Input:** `dimensions = [2, 3, 3, 2]`
-**Input:** `adjustmentCosts = [2, 4, 5, 1]`
+**Input:** `dimensions = [2, 3, 3, 2]`, `adjustmentCosts = [2, 4, 5, 1]`
 
 **Output:** `7`
 

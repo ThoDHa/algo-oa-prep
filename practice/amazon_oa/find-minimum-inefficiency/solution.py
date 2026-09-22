@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/find-minimum-inefficiency.md
 
-$23
+Special thanks: 💐 1008th thank you to spike! 👏
 
   uv run python amazon_oa/find-minimum-inefficiency/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/find-minimum-inefficiency/              # run the test sets

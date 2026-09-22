@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-running-delivery-time-medians.md
 
-Given an array deliveryTimes, process the values from left to right. After each new delivery time arrives, output the median of all delivery times seen so far.When the number of seen values is even, u
+Given an array deliveryTimes, process the values from left to right. After each new delivery time arrives, output the median of all delivery times seen so far.
 
   uv run python amazon_oa/amazon-running-delivery-time-medians/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-running-delivery-time-medians/              # run the test sets

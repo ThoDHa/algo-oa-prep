@@ -32,7 +32,8 @@ Given a string s, return the length of the longest contiguous substring whose ch
 
 ## Constraints
 
-- `0 <= s.length <= 200000.s contains printable ASCII characters.`
+- `0 <= s.length <= 200000.`
+- `s contains printable ASCII characters.`
 
 ## Solutions
 

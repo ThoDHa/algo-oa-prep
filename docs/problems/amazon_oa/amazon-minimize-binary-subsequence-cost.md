@@ -2,15 +2,17 @@
 
 **unknown difficulty** | **NN minutes** | **unknown categories**
 
-You are given a string binaryString consisting only of '0', '1', and '!', and two integers x and y.Replace every '!' with either '0' or '1'. After replacement, every subsequence equal to "01" contributes cost x, and every subsequence equal to "10" contributes cost y.Return the minimum possible total cost modulo 1_000_000_007.
+You are given a string binaryString consisting only of '0', '1', and '!', and two integers x and y.
+
+Replace every '!' with either '0' or '1'. After replacement, every subsequence equal to "01" contributes cost x, and every subsequence equal to "10" contributes cost y.
+
+Return the minimum possible total cost modulo 1_000_000_007.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `binaryString = "101!1"`
-**Input:** `x = 2`
-**Input:** `y = 3`
+**Input:** `binaryString = "101!1"`, `x = 2`, `y = 3`
 
 **Output:** `9`
 
@@ -18,9 +20,7 @@ You are given a string binaryString consisting only of '0', '1', and '!', and tw
 
 ### Example 2
 
-**Input:** `binaryString = "!!!!!"`
-**Input:** `x = 2`
-**Input:** `y = 3`
+**Input:** `binaryString = "!!!!!"`, `x = 2`, `y = 3`
 
 **Output:** `0`
 
@@ -28,7 +28,9 @@ You are given a string binaryString consisting only of '0', '1', and '!', and tw
 
 ## Constraints
 
-- `1 <= binaryString.length <= 10^50 <= x, y <= 10^5binaryString contains only '0', '1', and '!'.`
+- `1 <= binaryString.length <= 10^5`
+- `0 <= x, y <= 10^5`
+- `binaryString contains only '0', '1', and '!'.`
 
 ## Solutions
 

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-word-search-ii.md
 
-Given an m x n board of lowercase English letters and an array of distinct lowercase words, return every word that can be formed on the board.A word is formed by starting at any cell and repeatedly mo
+Given an m x n board of lowercase English letters and an array of distinct lowercase words, return every word that can be formed on the board.
 
   uv run python amazon_oa/amazon-word-search-ii/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-word-search-ii/              # run the test sets

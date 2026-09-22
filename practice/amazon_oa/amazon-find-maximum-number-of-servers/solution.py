@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-find-maximum-number-of-servers.md
 
-$23
+Source note: 2026-07-02 — This problem duplicates Server Selection. Sighting dates were merged into this fuller official-source version, which remains the recommended practice page.
 
   uv run python amazon_oa/amazon-find-maximum-number-of-servers/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-find-maximum-number-of-servers/              # run the test sets

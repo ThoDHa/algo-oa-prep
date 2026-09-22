@@ -2,14 +2,20 @@
 
 **Medium** | **NN minutes** | **Greedy, Sorting**
 
-$23
+A lender lent money to a borrower, each day a different lender lent the money to the borrower.
+    The borrower borrowed money on the jth day should payback on the (j+1)th day to maintain good credit and avoid defaulting.
+    The borrower can payback the jth day loan from the (j+1)th day's borrowed money and can use the leftover money on that day.
+    Find the maximum number of days the borrower can survive before defaulting.
+    
+
+
+    lender[i] represents the ith lending amount, and payback[i] represents the ith payback amount.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `lender = [4, 6, 1, 8]`
-**Input:** `payback = [7, 10, 3, 9]`
+**Input:** `lender = [4, 6, 1, 8]`, `payback = [7, 10, 3, 9]`
 
 **Output:** `3`
 
@@ -18,8 +24,7 @@ $23
 
 ### Example 2
 
-**Input:** `lender = [2, 1, 5]`
-**Input:** `payback = [2, 2, 5]`
+**Input:** `lender = [2, 1, 5]`, `payback = [2, 2, 5]`
 
 **Output:** `3`
 
@@ -27,8 +32,7 @@ $23
 
 ### Example 3
 
-**Input:** `lender = [1, 1, 1, 2]`
-**Input:** `payback = [2, 2, 2, 3]`
+**Input:** `lender = [1, 1, 1, 2]`, `payback = [2, 2, 2, 3]`
 
 **Output:** `2`
 

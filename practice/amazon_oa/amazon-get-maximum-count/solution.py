@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-maximum-count.md
 
-$23
+Amazon has launched a "Play to Win" game where users get a chance to earn free gift vouchers. The game presents you with an array of integers (arr) and an integer k. You are allowed to choose any cont
 
   uv run python amazon_oa/amazon-get-maximum-count/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-maximum-count/              # run the test sets

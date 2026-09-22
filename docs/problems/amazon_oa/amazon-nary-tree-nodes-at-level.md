@@ -2,14 +2,15 @@
 
 **Easy** | **NN minutes** | **Tree, Breadth First Search**
 
-An N-ary tree uses node IDs from 0 through children.length - 1, with root ID 0. For each node ID, children[id] lists its child IDs from left to right.Return the node IDs at zero-based level in left-to-right breadth-first order. Return an empty array when no nodes exist at that level.
+An N-ary tree uses node IDs from 0 through children.length - 1, with root ID 0. For each node ID, children[id] lists its child IDs from left to right.
+
+Return the node IDs at zero-based level in left-to-right breadth-first order. Return an empty array when no nodes exist at that level.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `children = [[1,2,3],[4,5],[],[],[],[]]`
-**Input:** `level = 2`
+**Input:** `children = [[1,2,3],[4,5],[],[],[],[]]`, `level = 2`
 
 **Output:** `[4,5]`
 
@@ -17,8 +18,7 @@ An N-ary tree uses node IDs from 0 through children.length - 1, with root ID 0. 
 
 ### Example 2
 
-**Input:** `children = [[]]`
-**Input:** `level = 0`
+**Input:** `children = [[]]`, `level = 0`
 
 **Output:** `[0]`
 
@@ -26,8 +26,7 @@ An N-ary tree uses node IDs from 0 through children.length - 1, with root ID 0. 
 
 ### Example 3
 
-**Input:** `children = [[1],[2],[3],[]]`
-**Input:** `level = 3`
+**Input:** `children = [[1],[2],[3],[]]`, `level = 3`
 
 **Output:** `[3]`
 
@@ -35,7 +34,9 @@ An N-ary tree uses node IDs from 0 through children.length - 1, with root ID 0. 
 
 ## Constraints
 
-- `1 &le; children.length &le; 100000.The child lists describe one valid rooted tree containing every node exactly once.0 &le; level &le; 100000.`
+- `1 ≤ children.length ≤ 100000.`
+- `The child lists describe one valid rooted tree containing every node exactly once.`
+- `0 ≤ level ≤ 100000.`
 
 ## Solutions
 

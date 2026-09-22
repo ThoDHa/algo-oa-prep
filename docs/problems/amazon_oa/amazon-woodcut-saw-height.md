@@ -2,14 +2,15 @@
 
 **Medium** | **NN minutes** | **Array, Binary Search**
 
-You have vertical wooden poles with integer heights heights. Set a saw to a non-negative integer height h; every pole taller than h contributes height - h units of wood, and shorter poles contribute nothing.Given requiredWood, return the largest saw height that collects at least that much wood.
+You have vertical wooden poles with integer heights heights. Set a saw to a non-negative integer height h; every pole taller than h contributes height - h units of wood, and shorter poles contribute nothing.
+
+Given requiredWood, return the largest saw height that collects at least that much wood.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `heights = [20,15,10,17]`
-**Input:** `requiredWood = 7`
+**Input:** `heights = [20,15,10,17]`, `requiredWood = 7`
 
 **Output:** `15`
 
@@ -17,8 +18,7 @@ You have vertical wooden poles with integer heights heights. Set a saw to a non-
 
 ### Example 2
 
-**Input:** `heights = [4,42,40,26,46]`
-**Input:** `requiredWood = 20`
+**Input:** `heights = [4,42,40,26,46]`, `requiredWood = 20`
 
 **Output:** `36`
 
@@ -26,8 +26,7 @@ You have vertical wooden poles with integer heights heights. Set a saw to a non-
 
 ### Example 3
 
-**Input:** `heights = [5]`
-**Input:** `requiredWood = 5`
+**Input:** `heights = [5]`, `requiredWood = 5`
 
 **Output:** `0`
 
@@ -35,7 +34,9 @@ You have vertical wooden poles with integer heights heights. Set a saw to a non-
 
 ## Constraints
 
-- `1 <= heights.length <= 100000.1 <= heights[i] <= 10^9.1 <= requiredWood <= min(2 * 10^9, sum(heights)).`
+- `1 <= heights.length <= 100000.`
+- `1 <= heights[i] <= 10^9.`
+- `1 <= requiredWood <= min(2 * 10^9, sum(heights)).`
 
 ## Solutions
 

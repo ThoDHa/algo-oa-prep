@@ -2,7 +2,11 @@
 
 **Medium** | **NN minutes** | **Tree, Breadth First Search, Depth First Search**
 
-You are given a non-empty binary tree serialized as a level-order string array levelOrder. Each non-null token is a decimal integer, and "null" denotes a missing child.Replace every node's value with the sum of the original values of all its cousins. Two nodes are cousins when they are at the same depth and have different parents. If a node has no cousins, its replacement value is 0.All replacements are conceptually simultaneous. Return the updated tree using the same level-order array shape, preserving every "null" marker from the input.
+You are given a non-empty binary tree serialized as a level-order string array levelOrder. Each non-null token is a decimal integer, and "null" denotes a missing child.
+
+Replace every node's value with the sum of the original values of all its cousins. Two nodes are cousins when they are at the same depth and have different parents. If a node has no cousins, its replacement value is 0.
+
+All replacements are conceptually simultaneous. Return the updated tree using the same level-order array shape, preserving every "null" marker from the input.
 
 ## Examples
 

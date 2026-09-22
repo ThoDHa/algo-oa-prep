@@ -2,7 +2,9 @@
 
 **Medium** | **NN minutes** | **String, Array, Hash Table, Sorting**
 
-Group the strings in strs so that two strings appear in the same group exactly when they are anagrams.For deterministic output, sort the strings inside each group and then sort the groups lexicographically by their first string.
+Group the strings in strs so that two strings appear in the same group exactly when they are anagrams.
+
+For deterministic output, sort the strings inside each group and then sort the groups lexicographically by their first string.
 
 ## Examples
 

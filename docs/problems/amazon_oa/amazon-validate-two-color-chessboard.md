@@ -2,7 +2,9 @@
 
 **Easy** | **NN minutes** | **Matrix, Array**
 
-You are given a nonempty rectangular integer matrix board. Every cell is one of two colors, encoded as 0 or 1.Return true if board is a valid chessboard pattern: every pair of horizontally adjacent cells has different colors, and every pair of vertically adjacent cells has different colors. Otherwise, return false.
+You are given a nonempty rectangular integer matrix board. Every cell is one of two colors, encoded as 0 or 1.
+
+Return true if board is a valid chessboard pattern: every pair of horizontally adjacent cells has different colors, and every pair of vertically adjacent cells has different colors. Otherwise, return false.
 
 ## Examples
 
@@ -24,7 +26,10 @@ You are given a nonempty rectangular integer matrix board. Every cell is one of 
 
 ## Constraints
 
-- `1 <= board.length <= 1001 <= board[i].length <= 100Every row has the same length.board[i][j] is either 0 or 1.`
+- `1 <= board.length <= 100`
+- `1 <= board[i].length <= 100`
+- `Every row has the same length.`
+- `board[i][j] is either 0 or 1.`
 
 ## Solutions
 

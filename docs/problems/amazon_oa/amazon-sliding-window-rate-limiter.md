@@ -2,14 +2,17 @@
 
 **Medium** | **NN minutes** | **Queue, Hash Table, Sliding Window, Design**
 
-You receive requests in nondecreasing timestamp order. Each request has a user ID and an integer timestamp in seconds.A request is accepted when that user has fewer than 100 previously accepted requests in the interval (timestamp - 60, timestamp]. Otherwise it is rejected. Rejected requests do not consume capacity. Requests with the same timestamp are processed in input order.Return one boolean per input request, where true means accepted and false means rejected.
+You receive requests in nondecreasing timestamp order. Each request has a user ID and an integer timestamp in seconds.
+
+A request is accepted when that user has fewer than 100 previously accepted requests in the interval (timestamp - 60, timestamp]. Otherwise it is rejected. Rejected requests do not consume capacity. Requests with the same timestamp are processed in input order.
+
+Return one boolean per input request, where true means accepted and false means rejected.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `userIds = ["amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy"]`
-**Input:** `timestamps = [10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10]`
+**Input:** `userIds = ["amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy","amy"]`, `timestamps = [10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10]`
 
 **Output:** `[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,false]`
 
@@ -17,8 +20,7 @@ You receive requests in nondecreasing timestamp order. Each request has a user I
 
 ### Example 2
 
-**Input:** `userIds = ["a","b","a","a"]`
-**Input:** `timestamps = [0,0,59,60]`
+**Input:** `userIds = ["a","b","a","a"]`, `timestamps = [0,0,59,60]`
 
 **Output:** `[true,true,true,true]`
 
@@ -26,7 +28,11 @@ You receive requests in nondecreasing timestamp order. Each request has a user I
 
 ## Constraints
 
-- `0 <= userIds.length <= 5000.userIds.length == timestamps.length.User IDs contain 1 to 50 lowercase English letters or digits.0 <= timestamps[i] <= 10^9.Timestamps are nondecreasing.`
+- `0 <= userIds.length <= 5000.`
+- `userIds.length == timestamps.length.`
+- `User IDs contain 1 to 50 lowercase English letters or digits.`
+- `0 <= timestamps[i] <= 10^9.`
+- `Timestamps are nondecreasing.`
 
 ## Solutions
 

@@ -2,14 +2,15 @@
 
 **Medium** | **NN minutes** | **Graph, Breadth First Search, Hash Table**
 
-You are given currency conversion rates. Each row contains a source currency, a target currency, and the value of one unit of the source currency in the target currency.A conversion may use multiple rates. A listed rate may also be used in reverse by taking its reciprocal.
+You are given currency conversion rates. Each row contains a source currency, a target currency, and the value of one unit of the source currency in the target currency.
+
+A conversion may use multiple rates. A listed rate may also be used in reverse by taking its reciprocal.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `rates = [["USD","JPY","110"],["USD","AUD","1.45"],["JPY","GBP","0.0070"]]`
-**Input:** `query = ["GBP","AUD"]`
+**Input:** `rates = [["USD","JPY","110"],["USD","AUD","1.45"],["JPY","GBP","0.0070"]]`, `query = ["GBP","AUD"]`
 
 **Output:** `"1.88"`
 

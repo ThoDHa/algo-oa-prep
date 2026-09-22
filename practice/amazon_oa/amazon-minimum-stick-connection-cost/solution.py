@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-minimum-stick-connection-cost.md
 
-You are given an integer array sticks, where each element is the length of a stick.You may connect any two sticks with lengths x and y. The new stick has length x + y, and the cost of this operation i
+You are given an integer array sticks, where each element is the length of a stick.
 
   uv run python amazon_oa/amazon-minimum-stick-connection-cost/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-minimum-stick-connection-cost/              # run the test sets

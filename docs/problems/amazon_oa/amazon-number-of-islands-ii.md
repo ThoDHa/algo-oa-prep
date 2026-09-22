@@ -2,15 +2,17 @@
 
 **Hard** | **NN minutes** | **Array, Matrix, Graph, Union Find**
 
-Start with an m by n grid containing only water. For each distinct position [row, col] in positions, turn that cell into land and append the current number of islands to the result.An island is a maximal group of land cells connected vertically or horizontally. Diagonal cells are not connected.Interview follow-upThe rest of the discussion covered the DSU approach, how union-find works, edge cases, and the time and space complexity.
+Start with an m by n grid containing only water. For each distinct position [row, col] in positions, turn that cell into land and append the current number of islands to the result.
+
+An island is a maximal group of land cells connected vertically or horizontally. Diagonal cells are not connected.
+
+Interview follow-upThe rest of the discussion covered the DSU approach, how union-find works, edge cases, and the time and space complexity.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `m = 3`
-**Input:** `n = 3`
-**Input:** `positions = [[0,0],[0,1],[1,2],[2,1]]`
+**Input:** `m = 3`, `n = 3`, `positions = [[0,0],[0,1],[1,2],[2,1]]`
 
 **Output:** `[1,1,2,3]`
 
@@ -18,9 +20,7 @@ Start with an m by n grid containing only water. For each distinct position [row
 
 ### Example 2
 
-**Input:** `m = 2`
-**Input:** `n = 2`
-**Input:** `positions = [[0,0],[1,1],[0,1]]`
+**Input:** `m = 2`, `n = 2`, `positions = [[0,0],[1,1],[0,1]]`
 
 **Output:** `[1,2,1]`
 

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-prefix-search-collection.md
 
-Implement a dynamic collection of lowercase words. Process the finite array operations from left to right.Each operation has one of these forms:INSERT word: add word to the collection. Inserting a wor
+Implement a dynamic collection of lowercase words. Process the finite array operations from left to right.
 
   uv run python amazon_oa/amazon-prefix-search-collection/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-prefix-search-collection/              # run the test sets

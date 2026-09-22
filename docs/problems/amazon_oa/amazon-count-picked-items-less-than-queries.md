@@ -2,16 +2,17 @@
 
 **unknown difficulty** | **NN minutes** | **unknown categories**
 
-A warehouse has items represented by an array items, where items[i] is the value of the i-th item.There are several orders. The i-th order picks every item in the inclusive index range startIndex[i] through endIndex[i]. Across all orders, this creates one combined multiset of picked item values.For each value query[i], return how many picked items have value strictly less than query[i].
+A warehouse has items represented by an array items, where items[i] is the value of the i-th item.
+
+There are several orders. The i-th order picks every item in the inclusive index range startIndex[i] through endIndex[i]. Across all orders, this creates one combined multiset of picked item values.
+
+For each value query[i], return how many picked items have value strictly less than query[i].
 
 ## Examples
 
 ### Example 1
 
-**Input:** `items = [1,2,5,4,5]`
-**Input:** `startIndex = [0,0,1]`
-**Input:** `endIndex = [1,2,2]`
-**Input:** `query = [2,4]`
+**Input:** `items = [1,2,5,4,5]`, `startIndex = [0,0,1]`, `endIndex = [1,2,2]`, `query = [2,4]`
 
 **Output:** `[2,5]`
 
@@ -19,7 +20,9 @@ A warehouse has items represented by an array items, where items[i] is the value
 
 ## Constraints
 
-- `1 <= items.lengthstartIndex.length == endIndex.length0 <= startIndex[i] <= endIndex[i] < items.length`
+- `1 <= items.length`
+- `startIndex.length == endIndex.length`
+- `0 <= startIndex[i] <= endIndex[i] < items.length`
 
 ## Solutions
 

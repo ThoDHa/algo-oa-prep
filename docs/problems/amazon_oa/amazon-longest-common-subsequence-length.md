@@ -2,14 +2,15 @@
 
 **Medium** | **NN minutes** | **String, Dynamic Programming**
 
-Given two lowercase strings first and second, return the length of their longest common subsequence.A subsequence is formed by deleting zero or more characters without changing the relative order of the remaining characters. The characters in a common subsequence must appear in both strings in the same relative order; they do not need to occupy consecutive positions.
+Given two lowercase strings first and second, return the length of their longest common subsequence.
+
+A subsequence is formed by deleting zero or more characters without changing the relative order of the remaining characters. The characters in a common subsequence must appear in both strings in the same relative order; they do not need to occupy consecutive positions.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `first = "abcde"`
-**Input:** `second = "ace"`
+**Input:** `first = "abcde"`, `second = "ace"`
 
 **Output:** `3`
 
@@ -17,8 +18,7 @@ Given two lowercase strings first and second, return the length of their longest
 
 ### Example 2
 
-**Input:** `first = "abc"`
-**Input:** `second = "def"`
+**Input:** `first = "abc"`, `second = "def"`
 
 **Output:** `0`
 
@@ -26,7 +26,8 @@ Given two lowercase strings first and second, return the length of their longest
 
 ## Constraints
 
-- `0 <= first.length, second.length <= 1000first and second contain only lowercase English letters.`
+- `0 <= first.length, second.length <= 1000`
+- `first and second contain only lowercase English letters.`
 
 ## Solutions
 

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-rotting-oranges-variation.md
 
-You are given a rectangular grid whose cells contain 0, 1, or 2. A zero is empty, a one is fresh, and a two is already active.After each minute, every active cell makes each orthogonally adjacent fres
+You are given a rectangular grid whose cells contain 0, 1, or 2. A zero is empty, a one is fresh, and a two is already active.
 
   uv run python amazon_oa/amazon-rotting-oranges-variation/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-rotting-oranges-variation/              # run the test sets

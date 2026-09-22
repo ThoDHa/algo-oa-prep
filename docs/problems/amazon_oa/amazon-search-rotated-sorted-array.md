@@ -2,14 +2,17 @@
 
 **Medium** | **NN minutes** | **Array, Binary Search**
 
-Given an integer array nums that was sorted in strictly increasing order and then rotated at an unknown pivot, and an integer target, return the index of target.Return -1 when target does not appear in nums.All values in nums are distinct. Your solution must run in O(log n) time.
+Given an integer array nums that was sorted in strictly increasing order and then rotated at an unknown pivot, and an integer target, return the index of target.
+
+Return -1 when target does not appear in nums.
+
+All values in nums are distinct. Your solution must run in O(log n) time.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `nums = [4,5,6,7,0,1,2]`
-**Input:** `target = 0`
+**Input:** `nums = [4,5,6,7,0,1,2]`, `target = 0`
 
 **Output:** `4`
 
@@ -17,8 +20,7 @@ Given an integer array nums that was sorted in strictly increasing order and the
 
 ### Example 2
 
-**Input:** `nums = [4,5,6,7,0,1,2]`
-**Input:** `target = 3`
+**Input:** `nums = [4,5,6,7,0,1,2]`, `target = 3`
 
 **Output:** `-1`
 
@@ -26,8 +28,7 @@ Given an integer array nums that was sorted in strictly increasing order and the
 
 ### Example 3
 
-**Input:** `nums = [1]`
-**Input:** `target = 0`
+**Input:** `nums = [1]`, `target = 0`
 
 **Output:** `-1`
 
@@ -35,7 +36,11 @@ Given an integer array nums that was sorted in strictly increasing order and the
 
 ## Constraints
 
-- `1 <= nums.length <= 10^5-10^9 <= nums[i] <= 10^9nums contains distinct values.nums was sorted in strictly increasing order and rotated at an unknown pivot.-10^9 <= target <= 10^9`
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+- `nums contains distinct values.`
+- `nums was sorted in strictly increasing order and rotated at an unknown pivot.`
+- `-10^9 <= target <= 10^9`
 
 ## Solutions
 

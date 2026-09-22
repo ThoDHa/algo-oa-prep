@@ -2,14 +2,17 @@
 
 **Easy** | **NN minutes** | **Simulation, Hash Table, String**
 
-There are n servers with IDs s1, s2, ..., sn. You are given an array logs in chronological order. Each entry has the form "<server_id> <status>", where status is either success or error.Track consecutive errors separately for each server. An entry for another server does not interrupt a server's streak. A success resets that server's streak to zero. Whenever a server reaches three consecutive errors, it is considered faulty and is immediately replaced by a new server with the same ID; after replacement, that ID's error streak also resets to zero.Return the total number of server replacements recorded while processing all logs.
+There are n servers with IDs s1, s2, ..., sn. You are given an array logs in chronological order. Each entry has the form "<server_id> <status>", where status is either success or error.
+
+Track consecutive errors separately for each server. An entry for another server does not interrupt a server's streak. A success resets that server's streak to zero. Whenever a server reaches three consecutive errors, it is considered faulty and is immediately replaced by a new server with the same ID; after replacement, that ID's error streak also resets to zero.
+
+Return the total number of server replacements recorded while processing all logs.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `n = 2`
-**Input:** `logs = ["s1 error", "s1 error", "s2 error", "s1 error", "s1 error", "s2 success"]`
+**Input:** `n = 2`, `logs = ["s1 error", "s1 error", "s2 error", "s1 error", "s1 error", "s2 success"]`
 
 **Output:** `1`
 
@@ -17,7 +20,9 @@ There are n servers with IDs s1, s2, ..., sn. You are given an array logs in chr
 
 ## Constraints
 
-- `1 <= n <= 2001 <= logs.length <= 2 * 10^4Every log contains one of the server IDs s1 through sn followed by either success or error.`
+- `1 <= n <= 200`
+- `1 <= logs.length <= 2 * 10^4`
+- `Every log contains one of the server IDs s1 through sn followed by either success or error.`
 
 ## Solutions
 

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-find-encrypted-password.md
 
-The developers at Amazon employ several algorithms for encrypting passwords. In one algorithm, they encrypt palindromic passwords. A palindromic password reads the same forward and backward.The algori
+The developers at Amazon employ several algorithms for encrypting passwords. In one algorithm, they encrypt palindromic passwords. A palindromic password reads the same forward and backward.
 
   uv run python amazon_oa/amazon-find-encrypted-password/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-find-encrypted-password/              # run the test sets

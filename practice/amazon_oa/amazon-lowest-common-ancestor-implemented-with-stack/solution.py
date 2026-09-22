@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-lowest-common-ancestor-implemented-with-stack.md
 
-$24
+This question was reported for Amazon Fall Intern onsite.
 
   uv run python amazon_oa/amazon-lowest-common-ancestor-implemented-with-stack/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-lowest-common-ancestor-implemented-with-stack/              # run the test sets

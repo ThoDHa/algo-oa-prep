@@ -20,7 +20,8 @@ Given an array of meeting time intervals intervals, where intervals[i] = [start_
 
 ## Constraints
 
-- `1 <= intervals.length <= 10^40 <= start_i < end_i <= 10^6`
+- `1 <= intervals.length <= 10^4`
+- `0 <= start_i < end_i <= 10^6`
 
 ## Solutions
 

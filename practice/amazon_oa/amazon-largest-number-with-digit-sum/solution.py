@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-largest-number-with-digit-sum.md
 
-You are given three integers x, y, and n, where x and y are digits from 1 to 9.Construct the largest possible decimal number whose digits are only x and y, and whose digit sum is exactly n.It is guara
+You are given three integers x, y, and n, where x and y are digits from 1 to 9.
 
   uv run python amazon_oa/amazon-largest-number-with-digit-sum/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-largest-number-with-digit-sum/              # run the test sets

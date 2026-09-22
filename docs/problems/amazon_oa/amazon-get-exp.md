@@ -2,7 +2,23 @@
 
 **Easy** | **NN minutes** | **Sorting, Hash Table**
 
-$23
+Note --> Feel free to check the source image below for the original problem statement :)
+    
+
+
+    At a bustling tech company, there are n developers, each with their own set of experience points. The company is gearing up for an exciting hackathon and has come up with a unique way to form pairs of developers for the event. Their plan is to create pairs by matching the developer with the highest experience points with the one with the lowest experience points, and then move inward from both ends.
+    
+
+
+    As the developers are paired, the company is interested in analyzing the combined experience of each pair. The combined experience of a pair is calculated as the average of the experience points of the two developers.
+    
+
+
+    Your challenge is to determine how many unique values there are among these combined experience points.
+    
+
+
+    In simpler terms, given the list of experience points for all developers, you need to find out how many distinct average values result from pairing the highest and lowest remaining experience points iteratively.
 
 ## Examples
 
@@ -44,7 +60,9 @@ Thus, the number of unique combined experience values among the pairs is 2.
 
 ## Constraints
 
-- `2 ≤ n ≤ 10^50 ≤ exp[i] ≤ 10^9n is an even number`
+- `2 ≤ n ≤ 10^5`
+- `0 ≤ exp[i] ≤ 10^9`
+- `n is an even number`
 
 ## Solutions
 

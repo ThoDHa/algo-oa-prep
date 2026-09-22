@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-max-sum-of-non-overlapping-intervals.md
 
-$23
+AMZ Interval Collection (A group of problems focused on operations involving intervals :) - 
 
   uv run python amazon_oa/amazon-max-sum-of-non-overlapping-intervals/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-max-sum-of-non-overlapping-intervals/              # run the test sets

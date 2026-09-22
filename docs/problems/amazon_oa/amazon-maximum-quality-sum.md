@@ -3,19 +3,24 @@
 **Hard** | **NN minutes** | **Greedy, Sorting, Heap**
 
 Amazon's AWS provides fast and efficient server solutions. The developers want to stress-test the quality of the servers' channels. They must ensure the following:
-    Each of the packets must be sent via a single channel.Each of the channels must transfer at least one packet.
+    
+
+Each of the packets must be sent via a single channel.Each of the channels must transfer at least one packet.
     The quality of the transfer for a channel is defined by the median of the sizes of all the data packets sent through that channel.
     
+
+
     Note: The median of an array is the middle element if the array is sorted in non-decreasing order. If the number of elements in the array is even, the median is the average of the two middle elements.
     
+
+
     Find the maximum possible sum of the qualities of all channels. If the answer is a floating-point value, round it to the next higher integer.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `packets = [1, 2, 3, 4, 5]`
-**Input:** `channels = 2`
+**Input:** `packets = [1, 2, 3, 4, 5]`, `channels = 2`
 
 **Output:** `8`
 
@@ -27,8 +32,7 @@ The quality of transfer for channel 1 is (2 + 3)/2 = 2.5 and that of channel 2 i
 
 ### Example 2
 
-**Input:** `packets = [2, 2, 1, 5, 3]`
-**Input:** `channels = 2`
+**Input:** `packets = [2, 2, 1, 5, 3]`, `channels = 2`
 
 **Output:** `7`
 
@@ -36,8 +40,7 @@ The quality of transfer for channel 1 is (2 + 3)/2 = 2.5 and that of channel 2 i
 
 ### Example 3
 
-**Input:** `packets = [89, 48, 14]`
-**Input:** `channels = 3`
+**Input:** `packets = [89, 48, 14]`, `channels = 3`
 
 **Output:** `151`
 
@@ -45,7 +48,9 @@ The quality of transfer for channel 1 is (2 + 3)/2 = 2.5 and that of channel 2 i
 
 ## Constraints
 
-- `1 ≤ len(packets) ≤ 5×10^51 ≤ packets[i] ≤ 10^91 ≤ channels ≤ len(packets)`
+- `1 ≤ len(packets) ≤ 5×10^5`
+- `1 ≤ packets[i] ≤ 10^9`
+- `1 ≤ channels ≤ len(packets)`
 
 ## Solutions
 

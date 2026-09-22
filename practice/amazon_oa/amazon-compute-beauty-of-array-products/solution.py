@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-compute-beauty-of-array-products.md
 
-$23
+The Amazon distribution center consists of arrays of products, each possessing unique attributes. The task at hand is to compute the beauty of these product arrays, with the goal of achieving an effic
 
   uv run python amazon_oa/amazon-compute-beauty-of-array-products/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-compute-beauty-of-array-products/              # run the test sets

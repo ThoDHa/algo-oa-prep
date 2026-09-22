@@ -2,7 +2,9 @@
 
 **Medium** | **NN minutes** | **String, Dynamic Programming**
 
-Given a string s, return the length of its longest subsequence that reads the same from left to right and right to left.A subsequence keeps the relative order of selected characters but does not need to use contiguous positions.
+Given a string s, return the length of its longest subsequence that reads the same from left to right and right to left.
+
+A subsequence keeps the relative order of selected characters but does not need to use contiguous positions.
 
 ## Examples
 

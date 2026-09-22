@@ -2,7 +2,9 @@
 
 **Hard** | **NN minutes** | **String, Stack, Greedy**
 
-Given a lowercase string s, remove characters so that every distinct letter appears exactly once. The remaining characters must preserve their original relative order.Return the lexicographically largest possible result.
+Given a lowercase string s, remove characters so that every distinct letter appears exactly once. The remaining characters must preserve their original relative order.
+
+Return the lexicographically largest possible result.
 
 ## Examples
 
@@ -32,7 +34,8 @@ Given a lowercase string s, remove characters so that every distinct letter appe
 
 ## Constraints
 
-- `1 &le; s.length &le; 100000.s contains only lowercase English letters.`
+- `1 ≤ s.length ≤ 100000.`
+- `s contains only lowercase English letters.`
 
 ## Solutions
 

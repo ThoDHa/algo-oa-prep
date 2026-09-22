@@ -3,11 +3,17 @@
 **Hard** | **NN minutes** | **String, Binary Search, Prefix Sum**
 
 Given two strings s1 and s2, find till how many days is s2 a subsequence of s1 if on every day we delete all the strings in s1 from start to end inclusive.
-    Function Description 
+    
+
+Function Description 
       Complete the function findDaysS2SubsequenceOfS1 in the editor.
       
+
+
       findDaysS2SubsequenceOfS1 has the following parameters:
         
+
+
           1. String s1: the original string
           2. String s2: the subsequence to find
           3. int[] start: the start indices
@@ -19,10 +25,7 @@ Given two strings s1 and s2, find till how many days is s2 a subsequence of s1 i
 
 ### Example 1
 
-**Input:** `s1 = "abcdefghabc"`
-**Input:** `s2 = "abc"`
-**Input:** `start = [0, 0, 1, 2, 9]`
-**Input:** `end = [1, 2, 3, 3, 10]`
+**Input:** `s1 = "abcdefghabc"`, `s2 = "abc"`, `start = [0, 0, 1, 2, 9]`, `end = [1, 2, 3, 3, 10]`
 
 **Output:** `4`
 

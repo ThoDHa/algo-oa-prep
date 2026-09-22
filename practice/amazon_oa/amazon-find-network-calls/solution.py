@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-find-network-calls.md
 
-$23
+Source note: Example 2 was added on 2025-03-31; its relevant source image is included in Problem Source.
 
   uv run python amazon_oa/amazon-find-network-calls/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-find-network-calls/              # run the test sets

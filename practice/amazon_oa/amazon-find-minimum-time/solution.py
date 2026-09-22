@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-find-minimum-time.md
 
-$23
+In the context of an Amazon gaming product involving a snake and apples on a number line, the product simulates a set of unique coordinates representing the positions of the apples. The array named po
 
   uv run python amazon_oa/amazon-find-minimum-time/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-find-minimum-time/              # run the test sets

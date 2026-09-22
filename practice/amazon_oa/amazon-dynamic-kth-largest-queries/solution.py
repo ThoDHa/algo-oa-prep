@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-dynamic-kth-largest-queries.md
 
-You are given an initial list of integer values and a stream of operations. The list changes over time as values are inserted.Each operation is one of the following:"insert": insert the accompanying v
+You are given an initial list of integer values and a stream of operations. The list changes over time as values are inserted.
 
   uv run python amazon_oa/amazon-dynamic-kth-largest-queries/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-dynamic-kth-largest-queries/              # run the test sets

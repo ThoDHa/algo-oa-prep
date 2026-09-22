@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-most-out-of-the-data.md
 
-$23
+DAs at TomTom Global are deeply engaged in the analysis of the info gained when the company's re-inforcement learning AI model named Supa Helo is trained with different arrangements of exact the same 
 
   uv run python amazon_oa/amazon-get-most-out-of-the-data/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-most-out-of-the-data/              # run the test sets

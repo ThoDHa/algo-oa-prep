@@ -2,7 +2,11 @@
 
 **Medium** | **NN minutes** | **Array, Stack**
 
-You are given an integer array prices, where prices[i] is the price of ticket i.For each ticket, find the next strictly smaller price to its right. If no later ticket is cheaper, the answer for that ticket is -1.Return an array of the same length as prices containing those answers in index order.
+You are given an integer array prices, where prices[i] is the price of ticket i.
+
+For each ticket, find the next strictly smaller price to its right. If no later ticket is cheaper, the answer for that ticket is -1.
+
+Return an array of the same length as prices containing those answers in index order.
 
 ## Examples
 
@@ -32,7 +36,8 @@ You are given an integer array prices, where prices[i] is the price of ticket i.
 
 ## Constraints
 
-- `1 <= prices.length <= 10^5.1 <= prices[i] <= 10^9.`
+- `1 <= prices.length <= 10^5.`
+- `1 <= prices[i] <= 10^9.`
 
 ## Solutions
 

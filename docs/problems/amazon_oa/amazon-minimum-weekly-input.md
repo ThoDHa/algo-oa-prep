@@ -2,14 +2,13 @@
 
 **Medium** | **NN minutes** | **Dynamic Programming, Array**
 
-$23
+A company will launch a series of marketing campaigns over several weeks. Each campaign has a certain cost. They want to launch at least one campaign every week, and to plan the campaigns in a way that minimizes the total weekly input. The weekly input is the maximum cost of any campaign planned in that week. Given the cost of the campaigns in a list, costs, and the number of weeks, find the minimum sum of weekly inputs that can be achieved with optimal planning. The campaigns must be organized in the same order in which they appear in the list costs.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `costs = [1000, 500, 2000, 8000, 1500]`
-**Input:** `weeks = 3`
+**Input:** `costs = [1000, 500, 2000, 8000, 1500]`, `weeks = 3`
 
 **Output:** `9500`
 

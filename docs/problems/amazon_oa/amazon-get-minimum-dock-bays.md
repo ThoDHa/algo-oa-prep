@@ -2,14 +2,19 @@
 
 **Medium** | **NN minutes** | **Array, Binary Search, Heap**
 
-$23
+You are managing operations at a large Amazon warehouse. Loaded trucks arrive at the warehouse sequentially and must be unloaded within a specific timeframe to ensure timely delivery. Your task is to determine the minimum number of dock bays needed to unload all trucks within the given timeframe.
+
+Formally, given a scheduling array truckCargoSize of length n, where each unit in the array represents the amount of time in minutes that a dock bay will take to unload the cargo from the i-th truck, and a second integer maxTurnaroundTime representing the total allowed time to unload all trucks, find the smallest number of dock bays d that will enable you to unload all trucks within maxTurnaroundTime minutes.
+
+Notes:
+
+As soon as a dock bay becomes available after unloading a truck, it can immediately start processing the next truck.It is guaranteed that unloading all trucks is possible with some number of dock bays.Only the start times of unloading need to be considered in order, not the finish times.Trucks are processed in their given arrival order. With d dock bays, the trucks are distributed among the bays in arrival order so that each bay's total processing time is the sum of the cargo times of the trucks assigned to it. The overall time to unload all trucks equals the maximum total processing time over all d dock bays.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `truckCargoSize = [3, 4, 3, 2, 3]`
-**Input:** `maxTurnaroundTime = 8`
+**Input:** `truckCargoSize = [3, 4, 3, 2, 3]`, `maxTurnaroundTime = 8`
 
 **Output:** `3`
 
@@ -17,8 +22,7 @@ $23
 
 ### Example 2
 
-**Input:** `truckCargoSize = [2, 3, 1]`
-**Input:** `maxTurnaroundTime = 7`
+**Input:** `truckCargoSize = [2, 3, 1]`, `maxTurnaroundTime = 7`
 
 **Output:** `1`
 
@@ -26,7 +30,9 @@ $23
 
 ## Constraints
 
-- `1 ≤ n ≤ 5 * 10^41 ≤ maxTurnaroundTime ≤ 10^151 ≤ truckCargoSize[i] ≤ min(maxTurnaroundTime, 10^9)`
+- `1 ≤ n ≤ 5 * 10^4`
+- `1 ≤ maxTurnaroundTime ≤ 10^15`
+- `1 ≤ truckCargoSize[i] ≤ min(maxTurnaroundTime, 10^9)`
 
 ## Solutions
 

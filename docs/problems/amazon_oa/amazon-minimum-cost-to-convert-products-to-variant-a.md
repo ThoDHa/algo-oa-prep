@@ -2,14 +2,23 @@
 
 **Medium** | **NN minutes** | **Array, Sliding Window, Greedy**
 
-An inventory array product contains only 0 and 1, where 0 represents variant A and 1 represents variant B.In one operation, choose a subarray of length k. The cost of that operation is the sum of the values inside the chosen subarray. Then choose one index inside that subarray whose value is 1 and change it to 0.Return the minimum total cost needed to convert every product to variant A.Function Description Complete the function minCostToConvertAllToVariantA in the editor below.minCostToConvertAllToVariantA has the following parameters:int[] product: the product variantsint k: the fixed operation window lengthReturns int: the minimum total cost.
+An inventory array product contains only 0 and 1, where 0 represents variant A and 1 represents variant B.
+
+In one operation, choose a subarray of length k. The cost of that operation is the sum of the values inside the chosen subarray. Then choose one index inside that subarray whose value is 1 and change it to 0.
+
+Return the minimum total cost needed to convert every product to variant A.
+
+Function Description Complete the function minCostToConvertAllToVariantA in the editor below.
+
+minCostToConvertAllToVariantA has the following parameters:
+
+int[] product: the product variantsint k: the fixed operation window lengthReturns int: the minimum total cost.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `product = [1, 1, 1]`
-**Input:** `k = 2`
+**Input:** `product = [1, 1, 1]`, `k = 2`
 
 **Output:** `4`
 
@@ -17,8 +26,7 @@ An inventory array product contains only 0 and 1, where 0 represents variant A a
 
 ### Example 2
 
-**Input:** `product = [1, 0, 1]`
-**Input:** `k = 2`
+**Input:** `product = [1, 0, 1]`, `k = 2`
 
 **Output:** `2`
 
@@ -26,7 +34,9 @@ An inventory array product contains only 0 and 1, where 0 represents variant A a
 
 ## Constraints
 
-- `product[i] is either 0 or 11 <= k <= product.lengthEach operation must change exactly one 1 inside the chosen window to 0.`
+- `product[i] is either 0 or 1`
+- `1 <= k <= product.length`
+- `Each operation must change exactly one 1 inside the chosen window to 0.`
 
 ## Solutions
 

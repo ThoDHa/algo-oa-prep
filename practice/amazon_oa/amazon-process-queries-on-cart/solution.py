@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-process-queries-on-cart.md
 
-$23
+As an aspiring developer at Amazon, you are building a prototype for a cart management service.
 
   uv run python amazon_oa/amazon-process-queries-on-cart/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-process-queries-on-cart/              # run the test sets

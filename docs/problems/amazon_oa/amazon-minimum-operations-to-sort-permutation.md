@@ -2,7 +2,11 @@
 
 **unknown difficulty** | **NN minutes** | **unknown categories**
 
-You are given a permutation arr of size n, containing each integer from 1 to n exactly once.In one operation, you may do either of the following:Move the first element of the array to the end, shifting every other element one position to the left.Reverse the entire array.It is guaranteed that the array can be sorted into increasing order using these operations. Return the minimum number of operations needed to sort arr.
+You are given a permutation arr of size n, containing each integer from 1 to n exactly once.
+
+In one operation, you may do either of the following:
+
+Move the first element of the array to the end, shifting every other element one position to the left.Reverse the entire array.It is guaranteed that the array can be sorted into increasing order using these operations. Return the minimum number of operations needed to sort arr.
 
 ## Examples
 
@@ -32,7 +36,10 @@ You are given a permutation arr of size n, containing each integer from 1 to n e
 
 ## Constraints
 
-- `1 <= arr.length <= 10^51 <= arr[i] <= arr.lengtharr is a permutation of integers from 1 to arr.length.It is guaranteed that arr can be sorted using the given operations.`
+- `1 <= arr.length <= 10^5`
+- `1 <= arr[i] <= arr.length`
+- `arr is a permutation of integers from 1 to arr.length.`
+- `It is guaranteed that arr can be sorted using the given operations.`
 
 ## Solutions
 

@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-reorganize-string.md
 
-Rearrange a lowercase string so that no two adjacent characters are equal. If no such arrangement exists, return the empty string.To make the judged result deterministic, construct the answer with thi
+Rearrange a lowercase string so that no two adjacent characters are equal. If no such arrangement exists, return the empty string.
 
   uv run python amazon_oa/amazon-reorganize-string/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-reorganize-string/              # run the test sets

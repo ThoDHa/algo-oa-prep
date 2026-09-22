@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-first-word-segmentation.md
 
-Given a continuous lowercase string s and an array dictionary representing the words accepted by isWord, split s into a sequence of dictionary words whose concatenation is exactly s.At each position, 
+Given a continuous lowercase string s and an array dictionary representing the words accepted by isWord, split s into a sequence of dictionary words whose concatenation is exactly s.
 
   uv run python amazon_oa/amazon-first-word-segmentation/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-first-word-segmentation/              # run the test sets

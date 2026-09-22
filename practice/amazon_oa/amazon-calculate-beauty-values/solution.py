@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-calculate-beauty-values.md
 
-$23
+Source note: The judged core task matches the visible source at about 100%. The source images do not show numeric bounds or the original callable signature.
 
   uv run python amazon_oa/amazon-calculate-beauty-values/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-calculate-beauty-values/              # run the test sets

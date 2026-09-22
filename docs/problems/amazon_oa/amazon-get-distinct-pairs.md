@@ -2,14 +2,21 @@
 
 **Easy** | **NN minutes** | **Hash Table, Two Pointers**
 
-$23
+A financial strategist at Amazon Web Services (AWS) is analyzing a collection of profitable investments, each represented by an integer array. Every value in the array indicates the annual gain of a particular investment. The strategist's goal is to identify all unique investment pairs whose combined annual returns exactly match a given target value.
+    
+
+
+    Unique pairs are defined as combinations that vary by at least one element (i.e., their values are not at the exact same positions or do not have identical values in identical positions).
+    
+
+
+    Given the array of gains, compute the number of unique investment pairs whose sum equals the specified target return.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `stocksProfit = [5, 7, 9, 13, 11, 6, 6, 3, 3]`
-**Input:** `target = 12`
+**Input:** `stocksProfit = [5, 7, 9, 13, 11, 6, 6, 3, 3]`, `target = 12`
 
 **Output:** `3`
 
@@ -17,13 +24,17 @@ $23
 
 Therefore, the valid and unique pairs are:
 
+
+
 (5, 7)(3, 9)(6, 6)
 
 We return 3.
 
 ## Constraints
 
-- `1 ≤ n ≤ 5 x 10^50 ≤ investmentReturns[i] ≤ 10^90 ≤ goal ≤ 5 x 10^9`
+- `1 ≤ n ≤ 5 x 10^5`
+- `0 ≤ investmentReturns[i] ≤ 10^9`
+- `0 ≤ goal ≤ 5 x 10^9`
 
 ## Solutions
 

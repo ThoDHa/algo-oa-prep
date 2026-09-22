@@ -2,14 +2,25 @@
 
 **Hard** | **NN minutes** | **Intervals, Sorting, Greedy**
 
-$23
+An online marketplace has onboarded n retailers, each operating within a designated geographical range. Retailer i operates over the interval from regionStart[i] to regionEnd[i] (inclusive on both ends).
+
+A set of k retailers is said to be inclusive if there exists at least one retailer in the set whose operating interval intersects (overlaps with, or touches at an endpoint) the interval of each of the other k - 1 retailers individually. In other words, some chosen retailer must pairwise intersect every other retailer in the set; the other retailers do not need to intersect one another.
+
+The marketplace wants to relocate some retailers to a different location. A relocated retailer is removed from the remaining set (it no longer participates in forming the inclusive set). Determine the minimum number of retailers that must be relocated so that the remaining retailers form an inclusive set.
+
+Equivalently, if you select one retailer i to act as the hub, every retained retailer's interval must intersect retailer i's interval, and all retailers whose intervals do not intersect retailer i's interval must be relocated. The answer is the minimum number of relocations over all possible choices of hub, i.e. n minus the maximum, over all i, of the number of intervals (including i itself) that intersect interval i.
+
+Complete the function minimumRetailers in the editor below.
+
+minimumRetailers has the following parameters:
+
+int regionStart[n]: the left ends of the operating regionsint regionEnd[n]: the right ends of the operating regionsint: the minimum number of retailers to relocate
 
 ## Examples
 
 ### Example 1
 
-**Input:** `zoneStart = [1, 3, 4, 6, 9]`
-**Input:** `zoneEnd = [2, 8, 5, 7, 10]`
+**Input:** `zoneStart = [1, 3, 4, 6, 9]`, `zoneEnd = [2, 8, 5, 7, 10]`
 
 **Output:** `2`
 
@@ -17,8 +28,7 @@ $23
 
 ### Example 2
 
-**Input:** `zoneStart = [1, 2, 3, 4]`
-**Input:** `zoneEnd = [2, 3, 5, 5]`
+**Input:** `zoneStart = [1, 2, 3, 4]`, `zoneEnd = [2, 3, 5, 5]`
 
 **Output:** `1`
 
@@ -34,8 +44,7 @@ The minimum number of moves is 1, moving region 1 or 4
 
 ### Example 3
 
-**Input:** `zoneStart = [1, 2, 4]`
-**Input:** `zoneEnd = [7, 5, 6]`
+**Input:** `zoneStart = [1, 2, 4]`, `zoneEnd = [7, 5, 6]`
 
 **Output:** `0`
 
@@ -43,7 +52,9 @@ The minimum number of moves is 1, moving region 1 or 4
 
 ## Constraints
 
-- `1 ≤ n ≤ 10^51 ≤ regionStart[i] ≤ regionEnd[i] ≤ 10^9 (for each i, 0 ≤ i < n)Multiple regions may share the same start and end points.`
+- `1 ≤ n ≤ 10^5`
+- `1 ≤ regionStart[i] ≤ regionEnd[i] ≤ 10^9 (for each i, 0 ≤ i < n)`
+- `Multiple regions may share the same start and end points.`
 
 ## Solutions
 

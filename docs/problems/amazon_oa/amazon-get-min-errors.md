@@ -2,15 +2,29 @@
 
 **Hard** | **NN minutes** | **Dynamic Programming, String, Greedy**
 
-$23
+Amazon's database doesn’t support very large numbers, so numbers are stored as a string of binary characters, '0' and '1'. Accidentally, a '!' was entered at some positions and it is unknown whether they should be '0' or '1'.
+    
+
+
+    The string of incorrect data is made up of the characters '0', '1' and '!' where '!' is the character that got entered incorrectly. '!' can be replaced with either '0' or '1'. Due to some internal faults, some errors are generated every time '0' and '1' occur together as '01' or '10' in any subsequence of the string. It is observed that the number of errors a subsequence '01' generates is x, while a subsequence '10' generates y errors.
+    
+
+
+    Determine the minimum total errors generated. Since the answer can be very large, return it modulo 10^9+7.
+    
+
+
+    Note: A subsequence of a string is obtained by omitting zero or more characters from the original string without changing their order.
+    
+
+
+    Hint: It can be proved that (a + b) % c = ((a% c) + (b % c)) % c where a, b, and c are integers and % represents the modulo operation.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `errorString = "101!1"`
-**Input:** `x = 2`
-**Input:** `y = 3`
+**Input:** `errorString = "101!1"`, `x = 2`, `y = 3`
 
 **Output:** `9`
 
@@ -18,13 +32,11 @@ $23
    
 If the '!' is replaced with '1', the string is "10111". The subsequence 01 occurs 3 times and 10 occurs 1 time. The number of errors is 3 * x + y = 9.
       
-The minimum number of errors is min(9, 15) modulo (109 + 7) = 9.
+The minimum number of errors is min(9, 15) modulo (10^9 + 7) = 9.
 
 ### Example 2
 
-**Input:** `errorString = "01!0"`
-**Input:** `x = 2`
-**Input:** `y = 2`
+**Input:** `errorString = "01!0"`, `x = 2`, `y = 2`
 
 **Output:** `6`
 
@@ -34,9 +46,7 @@ The minimum number of errors is min(9, 15) modulo (109 + 7) = 9.
 
 ### Example 3
 
-**Input:** `errorString = "!!!!!!!"`
-**Input:** `x = 23`
-**Input:** `y = 27`
+**Input:** `errorString = "!!!!!!!"`, `x = 23`, `y = 27`
 
 **Output:** `0`
 
@@ -44,7 +54,9 @@ The minimum number of errors is min(9, 15) modulo (109 + 7) = 9.
 
 ## Constraints
 
-- `1<= len (errorString)<=1050 <= x, y <= 105s consists only of characters '0', '1', and 'l'`
+- `1<= len (errorString)<=105`
+- `0 <= x, y <= 105`
+- `s consists only of characters '0', '1', and 'l'`
 
 ## Solutions
 

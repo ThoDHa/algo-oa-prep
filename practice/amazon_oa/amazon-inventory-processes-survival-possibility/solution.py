@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-inventory-processes-survival-possibility.md
 
-There are n inventory processes. Process i initially controls bots[i] bots.In each round, choose any two remaining processes. The process with more bots defeats the other and absorbs all of its bots. 
+There are n inventory processes. Process i initially controls bots[i] bots.
 
   uv run python amazon_oa/amazon-inventory-processes-survival-possibility/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-inventory-processes-survival-possibility/              # run the test sets

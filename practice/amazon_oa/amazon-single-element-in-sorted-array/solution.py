@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-single-element-in-sorted-array.md
 
-Given a sorted integer array nums, every value appears exactly twice except for one value that appears exactly once.Return the value that appears once. Your solution must run in O(log n) time and use 
+Given a sorted integer array nums, every value appears exactly twice except for one value that appears exactly once.
 
   uv run python amazon_oa/amazon-single-element-in-sorted-array/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-single-element-in-sorted-array/              # run the test sets

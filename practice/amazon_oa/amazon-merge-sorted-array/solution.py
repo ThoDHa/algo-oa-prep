@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-merge-sorted-array.md
 
-You are given two integer arrays nums1 and nums2, each sorted in non-decreasing order, and two integers m and n representing the number of valid elements in the arrays.Merge the valid elements of nums
+You are given two integer arrays nums1 and nums2, each sorted in non-decreasing order, and two integers m and n representing the number of valid elements in the arrays.
 
   uv run python amazon_oa/amazon-merge-sorted-array/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-merge-sorted-array/              # run the test sets

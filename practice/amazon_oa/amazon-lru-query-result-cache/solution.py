@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-lru-query-result-cache.md
 
-Maintain a cache with positive integer capacity. Process each operation atomically in the supplied completed serialization order:[1, key] performs get(key). Return the stored value, or -1 when the key
+Maintain a cache with positive integer capacity. Process each operation atomically in the supplied completed serialization order:
 
   uv run python amazon_oa/amazon-lru-query-result-cache/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-lru-query-result-cache/              # run the test sets

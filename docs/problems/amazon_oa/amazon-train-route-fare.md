@@ -2,15 +2,15 @@
 
 **Easy** | **NN minutes** | **Array, Hash Table, Simulation**
 
-A train route is given as an ordered array of unique stop names. Traveling across one adjacent segment costs one fare unit in either direction.Implement calculateFare to return the fare between start and stop. Return -1 if either requested stop is absent.
+A train route is given as an ordered array of unique stop names. Traveling across one adjacent segment costs one fare unit in either direction.
+
+Implement calculateFare to return the fare between start and stop. Return -1 if either requested stop is absent.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `route = ["G","U","H","K","I"]`
-**Input:** `start = "G"`
-**Input:** `stop = "I"`
+**Input:** `route = ["G","U","H","K","I"]`, `start = "G"`, `stop = "I"`
 
 **Output:** `4`
 
@@ -18,9 +18,7 @@ A train route is given as an ordered array of unique stop names. Traveling acros
 
 ### Example 2
 
-**Input:** `route = ["A","B","C"]`
-**Input:** `start = "C"`
-**Input:** `stop = "A"`
+**Input:** `route = ["A","B","C"]`, `start = "C"`, `stop = "A"`
 
 **Output:** `2`
 
@@ -28,9 +26,7 @@ A train route is given as an ordered array of unique stop names. Traveling acros
 
 ### Example 3
 
-**Input:** `route = ["A","B"]`
-**Input:** `start = "A"`
-**Input:** `stop = "Z"`
+**Input:** `route = ["A","B"]`, `start = "A"`, `stop = "Z"`
 
 **Output:** `-1`
 
@@ -38,7 +34,9 @@ A train route is given as an ordered array of unique stop names. Traveling acros
 
 ## Constraints
 
-- `1 &le; route.length &le; 100000.Every route entry is a non-empty unique printable ASCII string.start and stop are non-empty printable ASCII strings.`
+- `1 ≤ route.length ≤ 100000.`
+- `Every route entry is a non-empty unique printable ASCII string.`
+- `start and stop are non-empty printable ASCII strings.`
 
 ## Solutions
 

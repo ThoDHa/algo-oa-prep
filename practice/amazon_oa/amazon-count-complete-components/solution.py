@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-count-complete-components.md
 
-You are given an integer n and an undirected graph whose vertices are numbered from 0 through n - 1. The array edges contains each undirected edge [u, v].A connected component is complete when every p
+You are given an integer n and an undirected graph whose vertices are numbered from 0 through n - 1. The array edges contains each undirected edge [u, v].
 
   uv run python amazon_oa/amazon-count-complete-components/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-count-complete-components/              # run the test sets

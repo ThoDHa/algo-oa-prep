@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-optimize-identifiers.md
 
-$23
+Special thanks: 𓇼 ⋆.˚Manyy Manyyy thanks to Nachos and spike!𓆝 𓆡⋆.˚ 𓇼
 
   uv run python amazon_oa/amazon-optimize-identifiers/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-optimize-identifiers/              # run the test sets

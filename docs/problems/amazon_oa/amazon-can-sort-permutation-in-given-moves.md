@@ -2,14 +2,17 @@
 
 **Medium** | **NN minutes** | **Math, Graph**
 
-$23
+Amazon recently conducted interviews where the candidates were asked to sort the permutation p of length n. Then the ith candidate sorted the permutation in moves[i] moves. To verify the result once more, the interviewer wants to find if it is possible to sort the given permutation in the given number of moves. Given the original permutation array p and the number of moves made by each of the q candidates, find whether you can sort the permutation p by performing exactly moves[i] moves. In one move, you swap the value at any two distinct indexes. Return the answer as a binary string of length q. The value at the ith index should be 1 if it is possible to sort the permutation in exactly moves[i] moves, otherwise the value should be 0.
+    
+
+
+    Note: A permutation is a sequence of n distinct integers such that each integer between [1, n] appears exactly once. For example, [1, 2, 3, 4] is a permutation of size 4, but [1, 3, 4, 5] or [1, 2, 2, 4] is not.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `p = [2, 3, 1, 4]`
-**Input:** `moves = [2, 3]`
+**Input:** `p = [2, 3, 1, 4]`, `moves = [2, 3]`
 
 **Output:** `"10"`
 
@@ -17,8 +20,7 @@ $23
 
 ### Example 2
 
-**Input:** `p = [4, 5, 1, 3, 2]`
-**Input:** `moves = [1, 2, 3]`
+**Input:** `p = [4, 5, 1, 3, 2]`, `moves = [1, 2, 3]`
 
 **Output:** `"001"`
 

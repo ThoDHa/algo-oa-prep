@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-maximum-non-adjacent-house-value.md
 
-You are given an array values where values[i] is the amount available in the ith house arranged in a line.You may choose any subset of houses, but you cannot choose two adjacent houses.Return the maxi
+You are given an array values where values[i] is the amount available in the ith house arranged in a line.
 
   uv run python amazon_oa/amazon-maximum-non-adjacent-house-value/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-maximum-non-adjacent-house-value/              # run the test sets

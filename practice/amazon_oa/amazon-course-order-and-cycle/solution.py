@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-course-order-and-cycle.md
 
-There are numCourses courses numbered from 0 through numCourses - 1. Each row [course, prerequisite] means the prerequisite must be completed before the course.Return a two-row result [order, cycle]:
+There are numCourses courses numbered from 0 through numCourses - 1. Each row [course, prerequisite] means the prerequisite must be completed before the course.
 
   uv run python amazon_oa/amazon-course-order-and-cycle/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-course-order-and-cycle/              # run the test sets

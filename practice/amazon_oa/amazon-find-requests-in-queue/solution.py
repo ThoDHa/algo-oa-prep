@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-find-requests-in-queue.md
 
-$23
+Amazon Web Services (AWS) is a cloud computing platform with multiple servers. One of the servers is assigned to serve customer requests. There are n customer requests placed sequentially in a queue, 
 
   uv run python amazon_oa/amazon-find-requests-in-queue/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-find-requests-in-queue/              # run the test sets

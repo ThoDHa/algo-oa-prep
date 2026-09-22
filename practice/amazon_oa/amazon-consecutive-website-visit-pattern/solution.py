@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-consecutive-website-visit-pattern.md
 
-You are given three equal-length arrays describing website visits. Entry i contains a username, an integer timestamp, and a website.For each user, sort visits by timestamp; when timestamps are equal, 
+You are given three equal-length arrays describing website visits. Entry i contains a username, an integer timestamp, and a website.
 
   uv run python amazon_oa/amazon-consecutive-website-visit-pattern/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-consecutive-website-visit-pattern/              # run the test sets

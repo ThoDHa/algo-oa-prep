@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-find-optimal-level.md
 
-$23
+Amazon is dedicated to leveraging advanced methods to streamline stock movement across its distribution centers. In this scenario, you are assigned a challenge involving a specific process with a sequ
 
   uv run python amazon_oa/amazon-find-optimal-level/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-find-optimal-level/              # run the test sets

@@ -2,14 +2,15 @@
 
 **Hard** | **NN minutes** | **Array, Dynamic Programming, Segment Tree**
 
-Given a non-empty integer array arr and a non-negative integer k, return the maximum length of a subsequence that satisfies all of the following:The selected values are strictly increasing.The difference between every pair of consecutive selected values is at most k.The selected values preserve their relative order in arr.A subsequence may delete any number of elements without changing the order of the remaining elements.
+Given a non-empty integer array arr and a non-negative integer k, return the maximum length of a subsequence that satisfies all of the following:
+
+The selected values are strictly increasing.The difference between every pair of consecutive selected values is at most k.The selected values preserve their relative order in arr.A subsequence may delete any number of elements without changing the order of the remaining elements.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `arr = [7,1,4,5,8,8,10,6,7,7,7,8]`
-**Input:** `k = 4`
+**Input:** `arr = [7,1,4,5,8,8,10,6,7,7,7,8]`, `k = 4`
 
 **Output:** `6`
 
@@ -17,8 +18,7 @@ Given a non-empty integer array arr and a non-negative integer k, return the max
 
 ### Example 2
 
-**Input:** `arr = [3,1,2,6,10,11,4,5]`
-**Input:** `k = 3`
+**Input:** `arr = [3,1,2,6,10,11,4,5]`, `k = 3`
 
 **Output:** `4`
 
@@ -26,8 +26,7 @@ Given a non-empty integer array arr and a non-negative integer k, return the max
 
 ### Example 3
 
-**Input:** `arr = [5,4,3,2,1]`
-**Input:** `k = 2`
+**Input:** `arr = [5,4,3,2,1]`, `k = 2`
 
 **Output:** `1`
 
@@ -35,7 +34,9 @@ Given a non-empty integer array arr and a non-negative integer k, return the max
 
 ## Constraints
 
-- `1 <= arr.length <= 2 * 10^5-10^9 <= arr[i] <= 10^90 <= k <= 2 * 10^9`
+- `1 <= arr.length <= 2 * 10^5`
+- `-10^9 <= arr[i] <= 10^9`
+- `0 <= k <= 2 * 10^9`
 
 ## Solutions
 

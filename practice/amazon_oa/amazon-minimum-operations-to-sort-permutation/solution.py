@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-minimum-operations-to-sort-permutation.md
 
-You are given a permutation arr of size n, containing each integer from 1 to n exactly once.In one operation, you may do either of the following:Move the first element of the array to the end, shiftin
+You are given a permutation arr of size n, containing each integer from 1 to n exactly once.
 
   uv run python amazon_oa/amazon-minimum-operations-to-sort-permutation/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-minimum-operations-to-sort-permutation/              # run the test sets

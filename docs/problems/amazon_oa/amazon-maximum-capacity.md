@@ -2,7 +2,13 @@
 
 **Easy** | **NN minutes** | **Sorting, Greedy**
 
-Amazon is optimizing the capacity of a cloud system with n servers. The memory capacity of the i-th server is memory[i].A system uses an even number of servers. If it uses 2x servers, exactly x are primary servers and the other x are backup servers. For every primary server P, it must be paired with a distinct backup server B whose memory capacity is at least that of P.The system memory capacity is the sum of the memory capacities of all primary servers. You may leave servers unused. Given memory, return the maximum system memory capacity that can be formed.Complete maximumCapacity, which receives the integer array memory and returns the maximum capacity as a long.
+Amazon is optimizing the capacity of a cloud system with n servers. The memory capacity of the i-th server is memory[i].
+
+A system uses an even number of servers. If it uses 2x servers, exactly x are primary servers and the other x are backup servers. For every primary server P, it must be paired with a distinct backup server B whose memory capacity is at least that of P.
+
+The system memory capacity is the sum of the memory capacities of all primary servers. You may leave servers unused. Given memory, return the maximum system memory capacity that can be formed.
+
+Complete maximumCapacity, which receives the integer array memory and returns the maximum capacity as a long.
 
 ## Examples
 

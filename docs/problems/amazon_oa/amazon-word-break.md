@@ -2,14 +2,15 @@
 
 **Medium** | **NN minutes** | **Array, Hash Table, String, Dynamic Programming**
 
-Given a string s and an array of distinct dictionary words wordDict, return true if s can be split into a sequence of one or more dictionary words.A dictionary word may be reused any number of times.
+Given a string s and an array of distinct dictionary words wordDict, return true if s can be split into a sequence of one or more dictionary words.
+
+A dictionary word may be reused any number of times.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `s = "leetcode"`
-**Input:** `wordDict = ["leet","code"]`
+**Input:** `s = "leetcode"`, `wordDict = ["leet","code"]`
 
 **Output:** `true`
 
@@ -17,8 +18,7 @@ Given a string s and an array of distinct dictionary words wordDict, return true
 
 ### Example 2
 
-**Input:** `s = "applepenapple"`
-**Input:** `wordDict = ["apple","pen"]`
+**Input:** `s = "applepenapple"`, `wordDict = ["apple","pen"]`
 
 **Output:** `true`
 
@@ -26,8 +26,7 @@ Given a string s and an array of distinct dictionary words wordDict, return true
 
 ### Example 3
 
-**Input:** `s = "catsandog"`
-**Input:** `wordDict = ["cats","dog","sand","and","cat"]`
+**Input:** `s = "catsandog"`, `wordDict = ["cats","dog","sand","and","cat"]`
 
 **Output:** `false`
 
@@ -35,7 +34,11 @@ Given a string s and an array of distinct dictionary words wordDict, return true
 
 ## Constraints
 
-- `1 <= s.length <= 300.1 <= wordDict.length <= 1000.1 <= wordDict[i].length <= 20.s and every dictionary word contain only lowercase English letters.All dictionary words are distinct.`
+- `1 <= s.length <= 300.`
+- `1 <= wordDict.length <= 1000.`
+- `1 <= wordDict[i].length <= 20.`
+- `s and every dictionary word contain only lowercase English letters.`
+- `All dictionary words are distinct.`
 
 ## Solutions
 

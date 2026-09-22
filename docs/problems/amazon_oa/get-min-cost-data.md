@@ -2,7 +2,11 @@
 
 **Medium** | **NN minutes** | **String, Greedy, Hash Table**
 
-You are given a string data containing lowercase English letters and question marks. Replace every ? with a lowercase English letter.The cost of a position is the number of earlier positions containing the same letter. Equivalently, if a letter appears f times in the completed string, it contributes f * (f - 1) / 2 to the total cost.Return a completed string with the minimum possible total cost. If several completed strings have that minimum cost, return the lexicographically smallest one.
+You are given a string data containing lowercase English letters and question marks. Replace every ? with a lowercase English letter.
+
+The cost of a position is the number of earlier positions containing the same letter. Equivalently, if a letter appears f times in the completed string, it contributes f * (f - 1) / 2 to the total cost.
+
+Return a completed string with the minimum possible total cost. If several completed strings have that minimum cost, return the lexicographically smallest one.
 
 ## Examples
 
@@ -32,7 +36,9 @@ You are given a string data containing lowercase English letters and question ma
 
 ## Constraints
 
-- `1 <= data.length <= 10^5data contains lowercase English letters and ? only.data contains at least one ?.`
+- `1 <= data.length <= 10^5`
+- `data contains lowercase English letters and ? only.`
+- `data contains at least one ?.`
 
 ## Solutions
 

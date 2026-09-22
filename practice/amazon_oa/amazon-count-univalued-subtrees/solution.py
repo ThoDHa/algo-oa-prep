@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-count-univalued-subtrees.md
 
-Given the root of a binary tree, return the number of subtrees whose nodes all have the same value.Every node defines one subtree consisting of that node and all of its descendants. A leaf is therefor
+Given the root of a binary tree, return the number of subtrees whose nodes all have the same value.
 
   uv run python amazon_oa/amazon-count-univalued-subtrees/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-count-univalued-subtrees/              # run the test sets

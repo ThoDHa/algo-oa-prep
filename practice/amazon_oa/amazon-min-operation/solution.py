@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-min-operation.md
 
-$23
+The manager of an Amazon warehouse needs to ship n products from different locations, the location of the ith product is represented by an array locations[i]. The manager is allowed to perform one ope
 
   uv run python amazon_oa/amazon-min-operation/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-min-operation/              # run the test sets

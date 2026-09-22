@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-loyal-customers.md
 
-You are given two arrays of website logs, dayOneLogs and dayTwoLogs. Each log entry contains exactly three strings in this order: timestamp, customerId, and pageId.A customer is loyal when both condit
+You are given two arrays of website logs, dayOneLogs and dayTwoLogs. Each log entry contains exactly three strings in this order: timestamp, customerId, and pageId.
 
   uv run python amazon_oa/amazon-loyal-customers/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-loyal-customers/              # run the test sets

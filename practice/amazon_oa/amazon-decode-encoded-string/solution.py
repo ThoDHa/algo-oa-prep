@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-decode-encoded-string.md
 
-An encoded string uses positive repeat counts followed by bracketed segments. Decode it using these rules:k[segment] means the decoded segment is repeated exactly k times.Segments may be nested.Letter
+An encoded string uses positive repeat counts followed by bracketed segments. Decode it using these rules:
 
   uv run python amazon_oa/amazon-decode-encoded-string/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-decode-encoded-string/              # run the test sets

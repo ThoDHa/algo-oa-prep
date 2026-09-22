@@ -2,7 +2,7 @@
 
 Write-up & approaches: ../../docs/problems/amazon_oa/amazon-get-smaller-items.md
 
-$23
+Special thanks: 🐳 Manyyy thanks to the GG of Error-Free Excellence 👉 ✨ spike ✨! 🐝
 
   uv run python amazon_oa/amazon-get-smaller-items/solution.py   # debug one case (see CASE below)
   uv run pytest amazon_oa/amazon-get-smaller-items/              # run the test sets

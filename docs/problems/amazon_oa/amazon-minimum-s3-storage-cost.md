@@ -2,16 +2,17 @@
 
 **unknown difficulty** | **NN minutes** | **unknown categories**
 
-A batch contains files numbered from 1 to 2^n. Some files are sensitive and require encryption; their indices are given in sensitiveFiles.For any contiguous batch of M files:If it contains X > 0 sensitive files, storing the whole batch costs M * X * encCost.If it contains no sensitive files, storing the whole batch costs flatCost.If the batch size is even, you may either store the whole batch or split it into two equal contiguous batches and pay the sum of their optimal costs. Return the minimum possible storage cost modulo 1_000_000_007.
+A batch contains files numbered from 1 to 2^n. Some files are sensitive and require encryption; their indices are given in sensitiveFiles.
+
+For any contiguous batch of M files:
+
+If it contains X > 0 sensitive files, storing the whole batch costs M * X * encCost.If it contains no sensitive files, storing the whole batch costs flatCost.If the batch size is even, you may either store the whole batch or split it into two equal contiguous batches and pay the sum of their optimal costs. Return the minimum possible storage cost modulo 1_000_000_007.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `n = 2`
-**Input:** `encCost = 2`
-**Input:** `flatCost = 1`
-**Input:** `sensitiveFiles = [1,3]`
+**Input:** `n = 2`, `encCost = 2`, `flatCost = 1`, `sensitiveFiles = [1,3]`
 
 **Output:** `6`
 
@@ -19,10 +20,7 @@ A batch contains files numbered from 1 to 2^n. Some files are sensitive and requ
 
 ### Example 2
 
-**Input:** `n = 3`
-**Input:** `encCost = 2`
-**Input:** `flatCost = 1`
-**Input:** `sensitiveFiles = [1,2,3,4,5,6,7,8]`
+**Input:** `n = 3`, `encCost = 2`, `flatCost = 1`, `sensitiveFiles = [1,2,3,4,5,6,7,8]`
 
 **Output:** `16`
 
@@ -30,10 +28,7 @@ A batch contains files numbered from 1 to 2^n. Some files are sensitive and requ
 
 ### Example 3
 
-**Input:** `n = 3`
-**Input:** `encCost = 2`
-**Input:** `flatCost = 1`
-**Input:** `sensitiveFiles = [7,1]`
+**Input:** `n = 3`, `encCost = 2`, `flatCost = 1`, `sensitiveFiles = [7,1]`
 
 **Output:** `8`
 
@@ -41,7 +36,10 @@ A batch contains files numbered from 1 to 2^n. Some files are sensitive and requ
 
 ## Constraints
 
-- `1 <= n <= 3 * 10^51 <= encCost, flatCost <= 10^51 <= sensitiveFiles.length <= 2^nEach sensitive file index is between 1 and 2^n.`
+- `1 <= n <= 3 * 10^5`
+- `1 <= encCost, flatCost <= 10^5`
+- `1 <= sensitiveFiles.length <= 2^n`
+- `Each sensitive file index is between 1 and 2^n.`
 
 ## Solutions
 
