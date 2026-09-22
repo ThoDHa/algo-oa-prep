@@ -240,7 +240,7 @@ def test_cases_from_record_skips_design_operation_sequences():
     assert "amazon-lru-query-result-cache" in result.skip_reason
 
 
-def test_cases_from_record_accepts_level_order_tree_output():
+def test_cases_from_record_skips_tree_typed_outputs_naming_the_slug():
     problem = dict(
         gen.extract_problem_record(FASTPREP_PAGE),
         id="amazon-tree-output",
@@ -257,9 +257,29 @@ def test_cases_from_record_accepts_level_order_tree_output():
         ],
     )
     result = gen.cases_from_record(problem)
-    assert result.cases == [
-        {"id": "example_1", "args": [[3, 9, 20], [9, 3, 20]], "expected": [3, 9, 20, None, None, 15, 7]}
-    ]
+    assert result.cases == []
+    assert "amazon-tree-output" in result.skip_reason
+    assert "TreeNode" in result.skip_reason
+
+
+def test_cases_from_record_rejects_null_anywhere_including_dict_values():
+    problem = dict(
+        gen.extract_problem_record(FASTPREP_PAGE),
+        id="amazon-nullish",
+        examples=[
+            {
+                "id": 1,
+                "inputText": [
+                    {"inputName": "grid", "inputValue": '{"a": [1, null]}', "inputType": "any"}
+                ],
+                "outputText": "1",
+                "outputType": "int",
+            }
+        ],
+    )
+    result = gen.cases_from_record(problem)
+    assert result.cases == []
+    assert "amazon-nullish" in result.skip_reason
 
 
 def test_cases_from_record_skips_examples_with_no_inputs():
@@ -300,11 +320,19 @@ def test_render_writeup_uses_placeholder_metadata_when_absent():
     assert "unknown difficulty" in text
 
 
+def seed_cache(monkeypatch, cache_dir, *slugs):
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    for slug in slugs:
+        (cache_dir / f"{slug}.html").write_text("<html>cached</html>", encoding="utf-8")
+    monkeypatch.setattr(gen, "FASTPREP_CACHE_DIR", cache_dir)
+
+
 def test_emit_scaffolds_tolerates_unparseable_pages(tmp_path, monkeypatch):
     docs_dir = tmp_path / "docs" / "problems" / "amazon_oa"
     practice_dir = tmp_path / "practice" / "amazon_oa"
     monkeypatch.setattr(gen, "DOCS_DIR", docs_dir)
     monkeypatch.setattr(gen, "PRACTICE_DIR", practice_dir)
+    seed_cache(monkeypatch, tmp_path / "cache", "amazon-gone")
     monkeypatch.setattr(
         gen,
         "fetch_problem_page",
@@ -331,6 +359,200 @@ def test_fetch_problem_page_without_network_never_leaves_the_cache(tmp_path):
     missed = gen.fetch_problem_page("amazon-never-fetched", cache_dir=cache_dir, network=False)
     assert "amazon-never-fetched" in missed
     assert not (cache_dir / "amazon-never-fetched.html").exists()
+
+
+# ---------------------------------------------------------------------------
+# Fix-round regressions (review findings R2-R10, S2)
+# ---------------------------------------------------------------------------
+
+
+CHECK_SIMILAR_PASSWORDS_CACHE = Path("/tmp/opencode/fastprep-cache/check-similar-passwords.html")
+
+
+def test_split_constraints_one_bullet_per_list_item():
+    raw = (
+        "<ul><li><code>2 &lt;= n &lt;= 1000</code></li>"
+        "<li><code>1 &lt;= grid[i][j] &lt;= 100</code></li>"
+        "<li>All values are unique.</li></ul>"
+    )
+    assert gen.split_constraints(raw) == [
+        "2 <= n <= 1000",
+        "1 <= grid[i][j] <= 100",
+        "All values are unique.",
+    ]
+
+
+def test_split_constraints_preserves_superscript_bounds():
+    raw = "<ul><li><code>1 &lt;= arr.length &lt;= 10<sup>5</sup></code></li>" "<li><code>1 &lt;= arr[i] &lt;= 10<sup>9</sup></code></li></ul>"
+    assert gen.split_constraints(raw) == ["1 <= arr.length <= 10^5", "1 <= arr[i] <= 10^9"]
+
+
+@pytest.mark.skipif(
+    not CHECK_SIMILAR_PASSWORDS_CACHE.exists(),
+    reason="cached check-similar-passwords page not present (offline run)",
+)
+def test_split_constraints_on_real_cached_page_has_no_glued_bounds():
+    problem = gen.extract_problem_record(CHECK_SIMILAR_PASSWORDS_CACHE.read_text(encoding="utf-8"))
+    glued = gen.split_constraints(problem["constraints"])
+    assert len(glued) >= 4
+    assert not any(re.search(r"[0-9][A-Za-z]{3,}", item) for item in glued)
+    assert any("10^5" in item for item in glued)
+
+
+def test_html_to_markdown_decodes_all_entities():
+    assert gen.html_to_markdown("a &lt; b &gt; c &amp; d &quot;e&quot; f&le;g &#39;h&#39;") == (
+        "a < b > c & d \"e\" f≤g 'h'"
+    )
+
+
+def test_html_to_markdown_renders_paragraph_breaks_and_strips_comments():
+    assert gen.html_to_markdown("<p>One</p><p>Two</p><!-- x -->") == "One\n\nTwo"
+
+
+def test_resolve_statement_recovers_statement_from_rendered_page():
+    record = {"problemStatement": "$23"}
+    page = (
+        "<section><div class=\"fp-statement-content\">"
+        "<p>Amazon would like to enforce a password policy.</p>"
+        "</div></section>"
+    )
+    statement = gen.html_to_markdown(gen.resolve_statement(record, page))
+    assert "password policy" in statement
+
+
+def test_resolve_statement_prefers_record_when_plausible():
+    record = {"problemStatement": "<p>A full statement well past the plausibility threshold.</p>"}
+    assert gen.resolve_statement(record, "<div class=\"fp-statement-content\"><p>other</p></div>") == record["problemStatement"]
+
+
+def test_resolve_statement_falls_back_to_record_when_no_rendered_section():
+    record = {"problemStatement": "$23"}
+    assert gen.resolve_statement(record, "<html><body>empty</body></html>") == "$23"
+
+
+def test_render_writeup_placeholder_when_statement_implausible_and_unrecoverable():
+    entry = {"slug": "amazon-shredded", "title": "T", "url": "https://x", "companies": ["Amazon"], "updated": "2026-09-19"}
+    text = gen.render_writeup(entry, {"problemStatement": "$23"}, statement_html="$23")
+    assert "Statement not parseable" in text
+    assert "$23" not in text
+
+
+def test_signature_args_suffixes_python_keywords():
+    problem = {
+        "examples": [
+            {
+                "inputText": [
+                    {"inputName": "class", "inputValue": "1", "inputType": "int"},
+                    {"inputName": "size", "inputValue": "2", "inputType": "int"},
+                ]
+            }
+        ]
+    }
+    assert gen._signature_args(problem) == ", class_, size"
+
+
+def test_render_writeup_single_comma_separated_input_line():
+    problem = dict(
+        gen.extract_problem_record(FASTPREP_PAGE),
+        examples=[
+            {
+                "id": 1,
+                "inputText": [
+                    {"inputName": "values", "inputValue": "[2,3]", "inputType": "int[]"},
+                    {"inputName": "k", "inputValue": "1", "inputType": "int"},
+                ],
+                "outputText": "3",
+                "outputType": "int",
+            }
+        ],
+    )
+    entry = {"slug": problem["id"], "title": problem["title"], "url": "https://x", "companies": ["Amazon"], "updated": "2026-09-19"}
+    text = gen.render_writeup(entry, problem)
+    input_lines = [line for line in text.splitlines() if line.startswith("**Input:**")]
+    assert input_lines == ["**Input:** `values = [2,3]`, `k = 1`"]
+
+
+def test_render_all_covers_every_scaffold_file():
+    problem = gen.extract_problem_record(FASTPREP_PAGE)
+    entry = {"slug": problem["id"], "title": problem["title"], "url": "https://x", "companies": ["Amazon"], "updated": "2026-09-19"}
+    parsed_cases = gen.cases_from_record(problem)
+    rendered = gen.render_all(entry, problem, parsed_cases, problem["problemStatement"])
+    assert set(rendered) == {
+        gen.DOCS_DIR / f"{problem['id']}.md",
+        gen.PRACTICE_DIR / problem["id"] / "solution.py",
+        gen.PRACTICE_DIR / problem["id"] / "cases.json",
+        gen.PRACTICE_DIR / problem["id"] / f"test_{problem['id']}.py",
+    }
+
+
+def test_emit_scaffolds_skips_uncached_slugs_without_overwriting(tmp_path, monkeypatch):
+    docs_dir = tmp_path / "docs" / "problems" / "amazon_oa"
+    practice_dir = tmp_path / "practice" / "amazon_oa"
+    monkeypatch.setattr(gen, "DOCS_DIR", docs_dir)
+    monkeypatch.setattr(gen, "PRACTICE_DIR", practice_dir)
+
+    cached_entry = {"slug": "amazon-cached", "title": "Cached", "url": "https://x/cached", "companies": ["Amazon"], "updated": "2026-09-19"}
+    uncached_entry = {"slug": "amazon-uncached", "title": "Uncached", "url": "https://x/uncached", "companies": ["Amazon"], "updated": "2026-09-19"}
+    good_cases = [{"id": "example_1", "args": [1], "expected": 1}]
+    seed_cache(monkeypatch, tmp_path / "cache", "amazon-cached")
+    monkeypatch.setattr(
+        gen,
+        "fetch_problem_page",
+        lambda slug, cache_dir=None, delay=True, network=True: FASTPREP_PAGE,
+    )
+    (practice_dir / "amazon-uncached").mkdir(parents=True)
+    (practice_dir / "amazon-uncached" / "cases.json").write_text(json.dumps(good_cases), encoding="utf-8")
+
+    stats = gen.emit_scaffolds([cached_entry, uncached_entry], fetch=False)
+    assert stats["skipped_no_cache"] == ["amazon-uncached"]
+    assert stats["generated"] == 1
+    assert json.loads((practice_dir / "amazon-uncached" / "cases.json").read_text()) == good_cases
+    assert json.loads((practice_dir / "amazon-cached" / "cases.json").read_text()) != []
+
+
+def test_emit_scaffolds_records_parse_status_on_entries(tmp_path, monkeypatch):
+    docs_dir = tmp_path / "docs" / "problems" / "amazon_oa"
+    practice_dir = tmp_path / "practice" / "amazon_oa"
+    monkeypatch.setattr(gen, "DOCS_DIR", docs_dir)
+    monkeypatch.setattr(gen, "PRACTICE_DIR", practice_dir)
+    seed_cache(monkeypatch, tmp_path / "cache", "amazon-ok", "amazon-dead")
+    monkeypatch.setattr(
+        gen,
+        "fetch_problem_page",
+        lambda slug, cache_dir=None, delay=True, network=True: (
+            FASTPREP_PAGE if slug == "amazon-ok" else "<html>no payload</html>"
+        ),
+    )
+    entry = {"slug": "amazon-ok", "title": "Ok", "url": "https://x", "companies": ["Amazon"], "updated": "2026-09-19"}
+    dead_entry = {"slug": "amazon-dead", "title": "Dead", "url": "https://x", "companies": ["Amazon"], "updated": "2026-09-19"}
+    stats = gen.emit_scaffolds([entry, dead_entry], fetch=False)
+    assert stats["generated"] == 2
+    assert entry["parse_status"] == "parsed-with-cases"
+    assert dead_entry["parse_status"] == "page-unparseable"
+
+
+def test_main_check_mode_does_not_rewrite_manifest(tmp_path, monkeypatch):
+    monkeypatch.setattr(
+        gen,
+        "DEFAULT_BANK_PAGES",
+        [FIXTURES_DIR / "bank_coding.md", FIXTURES_DIR / "bank_coding_page_2.md"],
+    )
+    monkeypatch.setattr(gen, "MANIFEST_PATH", tmp_path / "manifest.json")
+    monkeypatch.setattr(gen, "check", lambda manifest: 0)
+    writes = []
+    real_write = gen.write_manifest
+
+    def spy(manifest):
+        writes.append(len(manifest))
+        real_write(manifest)
+
+    monkeypatch.setattr(gen, "write_manifest", spy)
+    assert gen.main(["--check"]) == 0
+    assert writes == []
+
+    monkeypatch.setattr(gen, "write_manifest", real_write)
+    assert gen.main(["--manifest-only"]) == 0
+    assert (tmp_path / "manifest.json").exists()
 
 
 def test_render_test_skips_empty_cases_naming_the_slug():
