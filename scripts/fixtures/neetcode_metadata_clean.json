@@ -1,0 +1,18 @@
+{
+  "data": {
+    "id": "anagram-groups",
+    "name": "Group Anagrams",
+    "difficulty": "Medium",
+    "free": true,
+    "topics": [
+      "Array",
+      "Hash Table",
+      "String",
+      "Sorting"
+    ],
+    "description": "Given an array of strings `strs`, group all *anagrams* together into sublists. You may return the output in **any order**.\n\nAn **anagram** is a string that contains the exact same characters as another string, but the order of the characters can be different.\n\n**Example 1:**\n\n```java\nInput: strs = [\"act\",\"pots\",\"tops\",\"cat\",\"stop\",\"hat\"]\n\nOutput: [[\"hat\"],[\"act\", \"cat\"],[\"stop\", \"pots\", \"tops\"]]\n```\n\n**Example 2:**\n\n```java\nInput: strs = [\"x\"]\n\nOutput: [[\"x\"]]\n```\n\n**Example 3:**\n\n```java\nInput: strs = [\"\"]\n\nOutput: [[\"\"]]\n```\n\n**Constraints:**\n* `1 <= strs.length <= 10000`.\n* `0 <= strs[i].length <= 100`\n* `strs[i]` is made up of lowercase English letters.\n\n\n<br>\n<br>\n<details class=\"hint-accordion\">\n    <summary>Topics</summary>\n    <div class=\"company-tags-container\">\n    <br>\n      <a class=\"button company-tag-reveal-btn\" href=\"/practice/problem-list/array\" target=\"_blank\">Array</a>\n<a class=\"button company-tag-reveal-btn\" href=\"/practice/problem-list/hash-table\" target=\"_blank\">Hash Table</a>\n<a class=\"button company-tag-reveal-btn\" href=\"/practice/problem-list/string\" target=\"_blank\">String</a>\n<a class=\"button company-tag-reveal-btn\" href=\"/practice/problem-list/sorting\" target=\"_blank\">Sorting</a>\n    </div>\n</details>\n<br>\n<details class=\"hint-accordion\">  \n    <summary>Recommended Time & Space Complexity</summary>\n    <p>\n    You should aim for a solution with <code>O(m * n)</code> time and <code>O(m)</code> space, where <code>m</code> is the number of strings and <code>n</code> is the length of the longest string.\n    </p>\n</details>\n\n<br>\n<details class=\"hint-accordion\">  \n    <summary>Hint 1</summary>\n    <p>\n    A naive solution would be to sort each string and group them using a hash map. This would be an <code>O(m * nlogn)</code> solution. Though this solution is acceptable, can you think of a better way without sorting the strings?\n    </p>\n</details>\n\n<br>\n<details class=\"hint-accordion\">  \n    <summary>Hint 2</summary>\n    <p>\n    By the definition of an anagram, we only care about the frequency of each character in a string. How is this helpful in solving the problem?\n    </p>\n</details>\n\n<br>\n<details class=\"hint-accordion\">  \n    <summary>Hint 3</summary>\n    <p>\n    We can simply use an array of size <code>O(26)</code>, since the character set is <code>a</code> through <code>z</code> (<code>26</code> continuous characters), to count the frequency of each character in a string. Then, we can use this array as the key in the hash map to group the strings.\n    </p>\n</details>\n\n\n<br>\n<details class=\"company-tags-accordion\">\n    <summary>Company Tags</summary>\n    <p>Please upgrade to <a href=\"https://neetcode.io/pro\" target=\"_blank\">NeetCode Pro</a> to view company tags.</p>\n</details>",
+    "starterCode": {
+      "python": "class Solution:\n    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:\n        "
+    }
+  }
+}

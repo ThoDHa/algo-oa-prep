@@ -1,0 +1,23 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "example_2",
+    "args": [
+      [
+        0,
+        2
+      ]
+    ],
+    "expected": 1
+  }
+]

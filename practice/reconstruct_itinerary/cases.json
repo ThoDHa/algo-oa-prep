@@ -1,0 +1,57 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      [
+        [
+          "BUF",
+          "HOU"
+        ],
+        [
+          "HOU",
+          "SEA"
+        ],
+        [
+          "JFK",
+          "BUF"
+        ]
+      ]
+    ],
+    "expected": [
+      "JFK",
+      "BUF",
+      "HOU",
+      "SEA"
+    ]
+  },
+  {
+    "id": "example_2",
+    "args": [
+      [
+        [
+          "HOU",
+          "JFK"
+        ],
+        [
+          "SEA",
+          "JFK"
+        ],
+        [
+          "JFK",
+          "SEA"
+        ],
+        [
+          "JFK",
+          "HOU"
+        ]
+      ]
+    ],
+    "expected": [
+      "JFK",
+      "HOU",
+      "JFK",
+      "SEA",
+      "JFK"
+    ]
+  }
+]

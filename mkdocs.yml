@@ -131,6 +131,98 @@ nav:
       - Chat System: system_design/case_studies/chat_system.md
       - Web Crawler: system_design/case_studies/web_crawler.md
   - Problems:
+    - "NeetCode 150":
+      - "Group Anagrams": problems/group_anagrams.md
+      - "Top K Frequent Elements": problems/top_k_frequent_elements.md
+      - "Encode and Decode Strings": problems/encode_and_decode_strings.md
+      - "Valid Sudoku": problems/valid_sudoku.md
+      - "Longest Consecutive Sequence": problems/longest_consecutive_sequence.md
+      - "Two Sum II Input Array Is Sorted": problems/two_sum_ii_input_array_is_sorted.md
+      - "Longest Repeating Character Replacement": problems/longest_repeating_character_replacement.md
+      - "Permutation In String": problems/permutation_in_string.md
+      - "Sliding Window Maximum": problems/sliding_window_maximum.md
+      - "Daily Temperatures": problems/daily_temperatures.md
+      - "Car Fleet": problems/car_fleet.md
+      - "Search a 2D Matrix": problems/search_a_2d_matrix.md
+      - "Koko Eating Bananas": problems/koko_eating_bananas.md
+      - "Find Minimum In Rotated Sorted Array": problems/find_minimum_in_rotated_sorted_array.md
+      - "Median of Two Sorted Arrays": problems/median_of_two_sorted_arrays.md
+      - "Reorder List": problems/reorder_list.md
+      - "Remove Nth Node From End of List": problems/remove_nth_node_from_end_of_list.md
+      - "Copy List With Random Pointer": problems/copy_list_with_random_pointer.md
+      - "Add Two Numbers": problems/add_two_numbers.md
+      - "Find The Duplicate Number": problems/find_the_duplicate_number.md
+      - "Reverse Nodes In K Group": problems/reverse_nodes_in_k_group.md
+      - "Same Tree": problems/same_tree.md
+      - "Subtree of Another Tree": problems/subtree_of_another_tree.md
+      - "Count Good Nodes In Binary Tree": problems/count_good_nodes_in_binary_tree.md
+      - "Kth Largest Element In a Stream": problems/kth_largest_element_in_a_stream.md
+      - "Last Stone Weight": problems/last_stone_weight.md
+      - "Kth Largest Element In An Array": problems/kth_largest_element_in_an_array.md
+      - "Design Twitter": problems/design_twitter.md
+      - "Combination Sum II": problems/combination_sum_ii.md
+      - "Subsets II": problems/subsets_ii.md
+      - "Generate Parentheses": problems/generate_parentheses.md
+      - "Palindrome Partitioning": problems/palindrome_partitioning.md
+      - "N Queens": problems/n_queens.md
+      - "Design Add And Search Words Data Structure": problems/design_add_and_search_words_data_structure.md
+      - "Word Search II": problems/word_search_ii.md
+      - "Max Area of Island": problems/max_area_of_island.md
+      - "Walls And Gates": problems/walls_and_gates.md
+      - "Pacific Atlantic Water Flow": problems/pacific_atlantic_water_flow.md
+      - "Surrounded Regions": problems/surrounded_regions.md
+      - "Course Schedule II": problems/course_schedule_ii.md
+      - "Graph Valid Tree": problems/graph_valid_tree.md
+      - "Number of Connected Components In An Undirected Graph": problems/number_of_connected_components_in_an_undirected_graph.md
+      - "Redundant Connection": problems/redundant_connection.md
+      - "Network Delay Time": problems/network_delay_time.md
+      - "Reconstruct Itinerary": problems/reconstruct_itinerary.md
+      - "Min Cost to Connect All Points": problems/min_cost_to_connect_all_points.md
+      - "Swim In Rising Water": problems/swim_in_rising_water.md
+      - "Alien Dictionary": problems/alien_dictionary.md
+      - "Cheapest Flights Within K Stops": problems/cheapest_flights_within_k_stops.md
+      - "Min Cost Climbing Stairs": problems/min_cost_climbing_stairs.md
+      - "House Robber": problems/house_robber.md
+      - "House Robber II": problems/house_robber_ii.md
+      - "Palindromic Substrings": problems/palindromic_substrings.md
+      - "Decode Ways": problems/decode_ways.md
+      - "Maximum Product Subarray": problems/maximum_product_subarray.md
+      - "Longest Increasing Subsequence": problems/longest_increasing_subsequence.md
+      - "Longest Common Subsequence": problems/longest_common_subsequence.md
+      - "Best Time to Buy And Sell Stock With Cooldown": problems/best_time_to_buy_and_sell_stock_with_cooldown.md
+      - "Coin Change II": problems/coin_change_ii.md
+      - "Target Sum": problems/target_sum.md
+      - "Interleaving String": problems/interleaving_string.md
+      - "Longest Increasing Path In a Matrix": problems/longest_increasing_path_in_a_matrix.md
+      - "Distinct Subsequences": problems/distinct_subsequences.md
+      - "Edit Distance": problems/edit_distance.md
+      - "Burst Balloons": problems/burst_balloons.md
+      - "Regular Expression Matching": problems/regular_expression_matching.md
+      - "Jump Game": problems/jump_game.md
+      - "Jump Game II": problems/jump_game_ii.md
+      - "Gas Station": problems/gas_station.md
+      - "Hand of Straights": problems/hand_of_straights.md
+      - "Merge Triplets to Form Target Triplet": problems/merge_triplets_to_form_target_triplet.md
+      - "Partition Labels": problems/partition_labels.md
+      - "Valid Parenthesis String": problems/valid_parenthesis_string.md
+      - "Non Overlapping Intervals": problems/non_overlapping_intervals.md
+      - "Meeting Rooms": problems/meeting_rooms.md
+      - "Meeting Rooms II": problems/meeting_rooms_ii.md
+      - "Minimum Interval to Include Each Query": problems/minimum_interval_to_include_each_query.md
+      - "Rotate Image": problems/rotate_image.md
+      - "Set Matrix Zeroes": problems/set_matrix_zeroes.md
+      - "Happy Number": problems/happy_number.md
+      - "Plus One": problems/plus_one.md
+      - "Pow(x, n)": problems/powx_n.md
+      - "Multiply Strings": problems/multiply_strings.md
+      - "Detect Squares": problems/detect_squares.md
+      - "Single Number": problems/single_number.md
+      - "Number of 1 Bits": problems/number_of_1_bits.md
+      - "Counting Bits": problems/counting_bits.md
+      - "Reverse Bits": problems/reverse_bits.md
+      - "Missing Number": problems/missing_number.md
+      - "Sum of Two Integers": problems/sum_of_two_integers.md
+      - "Reverse Integer": problems/reverse_integer.md
     - "Amazon OA": problems/amazon_oa/index.md
     - "Two Sum": problems/two_sum.md
     - "Valid Parentheses": problems/valid_parentheses.md
