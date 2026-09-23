@@ -40,7 +40,7 @@ from typing import Optional
 
 PRACTICE_DIR = Path(__file__).resolve().parent
 STATE_FILE = PRACTICE_DIR / ".progress.json"
-DOCS_INDEX = PRACTICE_DIR.parent / "docs" / "index.md"
+DOCS_INDEX = PRACTICE_DIR.parent / "docs" / "problems" / "index.md"
 
 STATUS_SOLVED = "solved"
 STATUS_ATTEMPTED = "attempted"
@@ -87,40 +87,34 @@ def save_state(state: dict) -> None:
 def canonical_order(problems: list[str]) -> list[str]:
     """Return problems in canonical Grind75 study order.
 
-    Parses the problem table in docs/index.md: numbered rows first (by number),
-    the unnumbered extras last. Any problem missing from the table is appended
-    alphabetically. Falls back to alphabetical order if the table cannot be
-    parsed.
+    Parses the problem table in docs/problems/index.md, whose rows the
+    index-tables generator numbers 1..N continuously. Any problem missing
+    from the table is appended alphabetically. Falls back to alphabetical
+    order if the table cannot be read or has no numbered rows.
     """
     known = set(problems)
     row = re.compile(
-        r"^\|\s*(?:\[(\d+)\]\([^)]*\)|-)\s*\|\s*\[[^\]]+\]\(problems/([A-Za-z0-9_]+)\.md\)"
+        r"^\|\s*(\d+)\s*\|\s*\[[^\]]+\]\((?:problems/)?([A-Za-z0-9_]+)\.md\)"
     )
     numbered: list[tuple[int, str]] = []
-    extras: list[str] = []
     try:
         for line in DOCS_INDEX.read_text(encoding="utf-8").splitlines():
             match = row.match(line)
-            if match is None:
-                continue
-            number, slug = match.groups()
-            if number is not None:
-                numbered.append((int(number), slug))
-            else:
-                extras.append(slug)
+            if match is not None:
+                numbered.append((int(match.group(1)), match.group(2)))
     except OSError as exc:
         print(
             f"warning: could not read {DOCS_INDEX} ({exc}); listing alphabetically.",
             file=sys.stderr,
         )
         return sorted(problems)
-    if not numbered and not extras:
+    if not numbered:
         print(
             f"warning: no problem table found in {DOCS_INDEX}; listing alphabetically.",
             file=sys.stderr,
         )
         return sorted(problems)
-    ordered = [slug for _, slug in sorted(numbered)] + extras
+    ordered = [slug for _, slug in sorted(numbered)]
     ordered = [slug for slug in ordered if slug in known]
     ordered += sorted(known - set(ordered))
     return ordered

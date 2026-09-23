@@ -1,4 +1,4 @@
-"""Unit tests for the docs/index.md table generator.
+"""Unit tests for the docs/problems/index.md table generator.
 
 The generator merges scripts/grind75_table.json (the 77 hand-maintained
 Grind 75 rows) with scripts/neetcode150_manifest.json into one unified
@@ -239,13 +239,14 @@ def row_number(line):
 def unified_row_lc_slug(line):
     """Parse the LeetCode slug from a row's Problem cell link.
 
-    Write-up paths use the dirSlug form (underscores); the overlap set
-    speaks lcSlug (hyphens), so the slug converts back per the repo-wide
-    dirSlug = lcSlug.replace("-", "_") convention.
+    Write-up links are landing-relative (`<dirSlug>.md`, dirSlug using
+    underscores); the overlap set speaks lcSlug (hyphens), so the slug
+    converts back per the repo-wide dirSlug = lcSlug.replace("-", "_")
+    convention.
     """
     problem_cell = line.split("|")[2].strip()
     url = problem_cell[problem_cell.index("(") + 1 : problem_cell.index(")")]
-    return url.rstrip("/").rsplit("/", 1)[1].removesuffix(".md").replace("_", "-")
+    return url.rstrip("/").removesuffix(".md").replace("_", "-")
 
 
 # ---------------------------------------------------------------------------
@@ -516,7 +517,7 @@ def test_render_unified_section_emits_the_marker_bounded_six_column_table():
     row = [line for line in section.splitlines() if "two_sum" in line][0]
     assert row == (
         "| 1 "
-        "| [Two Sum](problems/two_sum.md) | Easy | Array, Hash Table "
+        "| [Two Sum](two_sum.md) | Easy | Array, Hash Table "
         "| Grind 75 + NeetCode 150 | 15 minutes |"
     )
 
@@ -544,6 +545,12 @@ def test_render_unified_section_appends_the_amazon_marker_to_overlapping_rows():
     assert gen.AMAZON_MARKER not in two_sum
 
 
+def test_render_unified_section_links_rows_landing_relative():
+    section = render_fixture_section()
+    assert "(two_sum.md)" in section
+    assert "(problems/" not in section
+
+
 def test_render_unified_section_marks_exactly_the_17_committed_amazon_overlap_rows():
     rows = unified_table_rows(committed_section())
     marked_slugs = {
@@ -563,7 +570,7 @@ def test_render_unified_section_excludes_grind_only_amazon_matches_from_the_mark
 def test_render_unified_section_carries_the_amazon_legend():
     section = render_fixture_section(amazon=fixture_amazon() + [amazon_entry_for("min-stack")])
     assert gen.AMAZON_LEGEND in section
-    assert "problems/amazon_oa/index.md" in section
+    assert "(amazon_oa/index.md)" in section
 
 
 def test_render_amazon_section_lists_rows_most_recent_first():
@@ -575,9 +582,15 @@ def test_render_amazon_section_lists_rows_most_recent_first():
     row = [line for line in section.splitlines() if "amazon-maximize" in line][0]
     assert row == (
         "| 1 | [Maximize Adjacent Difference With One Reversal]"
-        "(problems/amazon_oa/amazon-maximize-adjacent-difference-with-one-reversal.md)"
+        "(amazon_oa/amazon-maximize-adjacent-difference-with-one-reversal.md)"
         " | 2026-09-19 |"
     )
+
+
+def test_render_amazon_section_links_rows_landing_relative():
+    section = gen.render_amazon_section(fixture_amazon())
+    assert "(amazon_oa/index.md)" in section
+    assert "(problems/" not in section
 
 
 def test_render_amazon_section_numbers_rows_sequentially():
@@ -599,54 +612,54 @@ def test_render_sources_section_credits_all_three_lists():
 
 
 # ---------------------------------------------------------------------------
-# Emission into docs/index.md
+# Emission into docs/problems/index.md
 # ---------------------------------------------------------------------------
 
 
-def fresh_index(tmp_path):
-    index_path = tmp_path / "index.md"
-    index_path.write_text(
-        "# Home\n\nIntro prose.\n\n## Pattern Intuition\n\nProse.\n",
+def fresh_landing(tmp_path):
+    landing_path = tmp_path / "index.md"
+    landing_path.write_text(
+        "# Problems\n\nIntro prose.\n\n## Study Guide and Practice\n\nProse.\n",
         encoding="utf-8",
     )
-    return index_path
+    return landing_path
 
 
 def test_write_sections_splices_all_three_sections_before_the_anchor(tmp_path):
-    index_path = fresh_index(tmp_path)
-    changed = gen.write_sections(index_path=index_path)
+    landing_path = fresh_landing(tmp_path)
+    changed = gen.write_sections(landing_path=landing_path)
     assert changed is True
-    text = index_path.read_text(encoding="utf-8")
+    text = landing_path.read_text(encoding="utf-8")
     assert text.index(gen.UNIFIED_SECTION_START) < text.index(gen.AMAZON_SECTION_START)
     assert text.index(gen.AMAZON_SECTION_START) < text.index(gen.SOURCES_SECTION_START)
-    assert text.index(gen.SOURCES_SECTION_START) < text.index("## Pattern Intuition")
+    assert text.index(gen.SOURCES_SECTION_START) < text.index(gen.LANDING_ANCHOR)
 
 
 def test_write_sections_is_byte_stable_on_regeneration(tmp_path):
-    index_path = fresh_index(tmp_path)
-    gen.write_sections(index_path=index_path)
-    first = index_path.read_text(encoding="utf-8")
-    changed = gen.write_sections(index_path=index_path)
+    landing_path = fresh_landing(tmp_path)
+    gen.write_sections(landing_path=landing_path)
+    first = landing_path.read_text(encoding="utf-8")
+    changed = gen.write_sections(landing_path=landing_path)
     assert changed is False
-    assert index_path.read_text(encoding="utf-8") == first
+    assert landing_path.read_text(encoding="utf-8") == first
 
 
 def test_write_sections_replaces_a_mutated_row(tmp_path):
-    index_path = fresh_index(tmp_path)
-    gen.write_sections(index_path=index_path)
-    text = index_path.read_text(encoding="utf-8")
-    text = text.replace("[Two Sum](problems/two_sum.md)", "[Wrong Sum](problems/wrong_sum.md)")
-    index_path.write_text(text, encoding="utf-8")
-    changed = gen.write_sections(index_path=index_path)
+    landing_path = fresh_landing(tmp_path)
+    gen.write_sections(landing_path=landing_path)
+    text = landing_path.read_text(encoding="utf-8")
+    text = text.replace("[Two Sum](two_sum.md)", "[Wrong Sum](wrong_sum.md)")
+    landing_path.write_text(text, encoding="utf-8")
+    changed = gen.write_sections(landing_path=landing_path)
     assert changed is True
-    assert "[Two Sum](problems/two_sum.md)" in index_path.read_text(encoding="utf-8")
+    assert "[Two Sum](two_sum.md)" in landing_path.read_text(encoding="utf-8")
 
 
 def test_write_sections_requires_a_landing_anchor_when_markers_are_absent(tmp_path):
-    index_path = tmp_path / "index.md"
-    index_path.write_text("# Home\n\nNo tables here.\n", encoding="utf-8")
-    with pytest.raises(SystemExit, match="Pattern Intuition"):
-        gen.write_sections(index_path=index_path)
+    landing_path = tmp_path / "index.md"
+    landing_path.write_text("# Problems\n\nNo tables here.\n", encoding="utf-8")
+    with pytest.raises(SystemExit, match="Study Guide and Practice"):
+        gen.write_sections(landing_path=landing_path)
 
 
 # ---------------------------------------------------------------------------
@@ -655,25 +668,25 @@ def test_write_sections_requires_a_landing_anchor_when_markers_are_absent(tmp_pa
 
 
 def test_check_passes_after_emission(tmp_path):
-    index_path = fresh_index(tmp_path)
-    gen.write_sections(index_path=index_path)
-    assert gen.check(index_path=index_path) == 0
+    landing_path = fresh_landing(tmp_path)
+    gen.write_sections(landing_path=landing_path)
+    assert gen.check(landing_path=landing_path) == 0
 
 
 def test_check_fails_when_a_row_drifts(tmp_path):
-    index_path = fresh_index(tmp_path)
-    gen.write_sections(index_path=index_path)
-    text = index_path.read_text(encoding="utf-8")
-    index_path.write_text(
-        text.replace("[Two Sum](problems/two_sum.md)", "[Wrong Sum](problems/wrong_sum.md)"),
+    landing_path = fresh_landing(tmp_path)
+    gen.write_sections(landing_path=landing_path)
+    text = landing_path.read_text(encoding="utf-8")
+    landing_path.write_text(
+        text.replace("[Two Sum](two_sum.md)", "[Wrong Sum](wrong_sum.md)"),
         encoding="utf-8",
     )
-    assert gen.check(index_path=index_path) == 1
+    assert gen.check(landing_path=landing_path) == 1
 
 
 def test_check_fails_when_markers_are_missing(tmp_path):
-    index_path = fresh_index(tmp_path)
-    assert gen.check(index_path=index_path) == 1
+    landing_path = fresh_landing(tmp_path)
+    assert gen.check(landing_path=landing_path) == 1
 
 
 # ---------------------------------------------------------------------------
@@ -682,30 +695,226 @@ def test_check_fails_when_markers_are_missing(tmp_path):
 
 
 def test_main_emits_sections_and_exits_zero(tmp_path, monkeypatch, capsys):
-    index_path = fresh_index(tmp_path)
-    monkeypatch.setattr(gen, "INDEX_PATH", index_path)
+    landing_path = fresh_landing(tmp_path)
+    monkeypatch.setattr(gen, "PROBLEMS_INDEX_PATH", landing_path)
     assert gen.main([]) == 0
-    assert gen.UNIFIED_SECTION_START in index_path.read_text(encoding="utf-8")
+    assert gen.UNIFIED_SECTION_START in landing_path.read_text(encoding="utf-8")
     assert "sections written" in capsys.readouterr().out
 
 
 def test_main_check_mode_is_read_only_and_exits_zero(tmp_path, monkeypatch):
-    index_path = fresh_index(tmp_path)
-    gen.write_sections(index_path=index_path)
-    before = index_path.read_text(encoding="utf-8")
-    monkeypatch.setattr(gen, "INDEX_PATH", index_path)
+    landing_path = fresh_landing(tmp_path)
+    gen.write_sections(landing_path=landing_path)
+    before = landing_path.read_text(encoding="utf-8")
+    monkeypatch.setattr(gen, "PROBLEMS_INDEX_PATH", landing_path)
     assert gen.main(["--check"]) == 0
-    assert index_path.read_text(encoding="utf-8") == before
+    assert landing_path.read_text(encoding="utf-8") == before
 
 
 def test_main_check_mode_fails_on_drift(tmp_path, monkeypatch):
-    index_path = fresh_index(tmp_path)
-    gen.write_sections(index_path=index_path)
-    text = index_path.read_text(encoding="utf-8")
-    index_path.write_text(text.replace("## Sources", "## Credits"), encoding="utf-8")
-    monkeypatch.setattr(gen, "INDEX_PATH", index_path)
+    landing_path = fresh_landing(tmp_path)
+    gen.write_sections(landing_path=landing_path)
+    text = landing_path.read_text(encoding="utf-8")
+    landing_path.write_text(text.replace("## Sources", "## Credits"), encoding="utf-8")
+    monkeypatch.setattr(gen, "PROBLEMS_INDEX_PATH", landing_path)
     assert gen.main(["--check"]) == 1
 
 
-def test_committed_index_satisfies_the_check_gate():
+def test_committed_landing_page_lives_at_docs_problems_index_md():
+    assert gen.PROBLEMS_INDEX_PATH == gen.REPO_ROOT / "docs" / "problems" / "index.md"
+    assert gen.PROBLEMS_INDEX_PATH.exists()
+    text = gen.PROBLEMS_INDEX_PATH.read_text(encoding="utf-8")
+    assert text.startswith("# Problems\n")
+    assert gen.LANDING_ANCHOR in text
+
+
+def test_committed_landing_page_satisfies_the_check_gate():
     assert gen.check() == 0
+
+
+# ---------------------------------------------------------------------------
+# The mkdocs.yml Problems nav emission
+# ---------------------------------------------------------------------------
+
+
+def expected_nav_text(merged):
+    """Render the expected Problems nav block for the merged rows."""
+    lines = [
+        gen.NAV_PROBLEMS_MARKER,
+        "    - problems/index.md\n",
+        gen.NAV_LEETCODE_HEADER,
+    ]
+    for row in merged:
+        lines.append(f'      - "{row["title"]}": problems/{row["dirSlug"]}.md\n')
+    lines.append(gen.NAV_AMAZON_HEADER)
+    return "".join(lines)
+
+
+def mkdocs_shell(tmp_path, body="    - \"Two Sum\": problems/two_sum.md\n"):
+    """A two-line mkdocs.yml: a nav with a Problems section holding `body`."""
+    mkdocs_path = tmp_path / "mkdocs.yml"
+    mkdocs_path.write_text(
+        "nav:\n"
+        "  - Home: index.md\n"
+        "  - Problems:\n" + body,
+        encoding="utf-8",
+    )
+    return mkdocs_path
+
+
+def committed_nav_rows():
+    """The merged rows from the committed data sources."""
+    grind = gen.load_grind_table(GRIND_TABLE_PATH)
+    neetcode = gen.load_neetcode_manifest(NEETCODE_MANIFEST_PATH)
+    return gen.merge_tracks(grind, neetcode)
+
+
+def test_render_problems_nav_emits_landing_parent_and_two_subsections():
+    nav = gen.render_problems_nav(committed_nav_rows())
+    assert nav.startswith("  - Problems:\n")
+    assert "    - problems/index.md\n" in nav
+    assert nav.index("    - problems/index.md\n") < nav.index('    - "LeetCode":\n')
+    assert nav.index('    - "LeetCode":\n') < nav.index(
+        '    - "Amazon OA": problems/amazon_oa/index.md\n'
+    )
+    assert nav.rstrip().endswith('    - "Amazon OA": problems/amazon_oa/index.md')
+
+
+def test_render_problems_nav_lists_all_rows_at_one_level_in_merge_order():
+    rows = committed_nav_rows()
+    nav = gen.render_problems_nav(rows)
+    lines = nav.splitlines()
+    amazon_line = '    - "Amazon OA": problems/amazon_oa/index.md'
+    children = lines[lines.index('      - "Two Sum": problems/two_sum.md') : lines.index(amazon_line)]
+    assert len(children) == gen.UNIQUE_PROBLEM_COUNT
+    assert children == [
+        f'      - "{row["title"]}": problems/{row["dirSlug"]}.md' for row in rows
+    ]
+
+
+def test_write_problems_nav_replaces_a_flat_or_legacy_problems_section(tmp_path):
+    mkdocs_path = mkdocs_shell(
+        tmp_path,
+        body=(
+            '    - "NeetCode 150":\n'
+            '      - "A": problems/a.md\n'
+            '    - "Amazon OA": problems/amazon_oa/index.md\n'
+            '    - "Two Sum": problems/two_sum.md\n'
+        ),
+    )
+    changed = gen.write_problems_nav(mkdocs_path=mkdocs_path)
+    assert changed is True
+    text = mkdocs_path.read_text(encoding="utf-8")
+    assert expected_nav_text(committed_nav_rows()) in text
+    assert '"NeetCode 150"' not in text
+    assert text.count("  - Problems:\n") == 1
+
+
+def test_write_problems_nav_is_byte_stable_on_regeneration(tmp_path):
+    mkdocs_path = mkdocs_shell(tmp_path)
+    gen.write_problems_nav(mkdocs_path=mkdocs_path)
+    first = mkdocs_path.read_text(encoding="utf-8")
+    changed = gen.write_problems_nav(mkdocs_path=mkdocs_path)
+    assert changed is False
+    assert mkdocs_path.read_text(encoding="utf-8") == first
+
+
+def test_write_problems_nav_requires_a_problems_section(tmp_path):
+    mkdocs_path = tmp_path / "mkdocs.yml"
+    mkdocs_path.write_text("nav:\n  - Home: index.md\n", encoding="utf-8")
+    with pytest.raises(SystemExit, match="Problems"):
+        gen.write_problems_nav(mkdocs_path=mkdocs_path)
+
+
+def nav_children(mkdocs_text):
+    """The LeetCode subsection's child lines in file order."""
+    at = mkdocs_text.index(gen.NAV_LEETCODE_HEADER) + len(gen.NAV_LEETCODE_HEADER)
+    children = []
+    for line in mkdocs_text[at:].splitlines():
+        match = gen.NAV_LEETCODE_CHILD_PATTERN.match(line)
+        if match is None:
+            break
+        children.append(match.group(2))
+    return children
+
+
+def test_check_problems_nav_passes_after_emission(tmp_path):
+    mkdocs_path = mkdocs_shell(tmp_path)
+    gen.write_problems_nav(mkdocs_path=mkdocs_path)
+    assert gen.check_problems_nav(mkdocs_path=mkdocs_path) == 0
+
+
+def test_check_problems_nav_fails_on_an_extra_child(tmp_path):
+    mkdocs_path = mkdocs_shell(tmp_path)
+    gen.write_problems_nav(mkdocs_path=mkdocs_path)
+    text = mkdocs_path.read_text(encoding="utf-8")
+    text = text.replace(
+        '      - "Two Sum": problems/two_sum.md\n',
+        '      - "Two Sum": problems/two_sum.md\n'
+        '      - "Overlap Dup": problems/two_sum.md\n',
+    )
+    mkdocs_path.write_text(text, encoding="utf-8")
+    assert gen.check_problems_nav(mkdocs_path=mkdocs_path) == 1
+
+
+def test_check_problems_nav_fails_on_drifted_order(tmp_path):
+    mkdocs_path = mkdocs_shell(tmp_path)
+    gen.write_problems_nav(mkdocs_path=mkdocs_path)
+    text = mkdocs_path.read_text(encoding="utf-8")
+    text = text.replace('      - "Two Sum": problems/two_sum.md\n', "")
+    mkdocs_path.write_text(text, encoding="utf-8")
+    assert gen.check_problems_nav(mkdocs_path=mkdocs_path) == 1
+
+
+def test_check_problems_nav_fails_when_the_amazon_subsection_is_gone(tmp_path):
+    mkdocs_path = mkdocs_shell(tmp_path)
+    gen.write_problems_nav(mkdocs_path=mkdocs_path)
+    text = mkdocs_path.read_text(encoding="utf-8")
+    text = text.replace('    - "Amazon OA": problems/amazon_oa/index.md\n', "")
+    mkdocs_path.write_text(text, encoding="utf-8")
+    assert gen.check_problems_nav(mkdocs_path=mkdocs_path) == 1
+
+
+def test_check_problems_nav_fails_when_markers_are_missing(tmp_path):
+    mkdocs_path = mkdocs_shell(tmp_path)
+    assert gen.check_problems_nav(mkdocs_path=mkdocs_path) == 1
+
+
+def test_committed_mkdocs_nav_satisfies_the_check_gate():
+    assert gen.check_problems_nav() == 0
+
+
+def test_committed_nav_leetcode_subsection_holds_168_unique_pages_at_one_level():
+    mkdocs_text = gen.MKDOCS_PATH.read_text(encoding="utf-8")
+    children = nav_children(mkdocs_text)
+    assert len(children) == gen.NAV_ADMISSIBLE_SLUG_COUNT
+    assert len(set(children)) == len(children)
+    rows = committed_nav_rows()
+    assert children == [row["dirSlug"] for row in rows]
+
+
+def test_main_emits_landing_sections_and_nav(tmp_path, monkeypatch, capsys):
+    landing_path = fresh_landing(tmp_path)
+    mkdocs_path = mkdocs_shell(tmp_path)
+    monkeypatch.setattr(gen, "PROBLEMS_INDEX_PATH", landing_path)
+    monkeypatch.setattr(gen, "MKDOCS_PATH", mkdocs_path)
+    assert gen.main([]) == 0
+    assert gen.UNIFIED_SECTION_START in landing_path.read_text(encoding="utf-8")
+    assert expected_nav_text(committed_nav_rows()) in mkdocs_path.read_text(
+        encoding="utf-8"
+    )
+    assert "sections written" in capsys.readouterr().out
+
+
+def test_main_check_mode_covers_landing_and_nav(tmp_path, monkeypatch):
+    landing_path = fresh_landing(tmp_path)
+    mkdocs_path = mkdocs_shell(tmp_path)
+    gen.write_sections(landing_path=landing_path)
+    gen.write_problems_nav(mkdocs_path=mkdocs_path)
+    before_landing = landing_path.read_text(encoding="utf-8")
+    before_mkdocs = mkdocs_path.read_text(encoding="utf-8")
+    monkeypatch.setattr(gen, "PROBLEMS_INDEX_PATH", landing_path)
+    monkeypatch.setattr(gen, "MKDOCS_PATH", mkdocs_path)
+    assert gen.main(["--check"]) == 0
+    assert landing_path.read_text(encoding="utf-8") == before_landing
+    assert mkdocs_path.read_text(encoding="utf-8") == before_mkdocs

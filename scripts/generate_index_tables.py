@@ -1,4 +1,5 @@
-"""Generate the docs/index.md problem tables for grind75.
+"""Generate the docs/problems/index.md landing page and the mkdocs.yml
+Problems nav for grind75.
 
 Pipeline:
   1. Validate the three committed data sources: scripts/grind75_table.json
@@ -14,13 +15,19 @@ Pipeline:
   3. Cross-reference the Amazon OA bank: rows whose problem also appears
      there (amazon slug minus the amazon- prefix matching a NeetCode
      lcSlug) carry an "Amazon OA" marker with a legend under the table.
-  4. Emit three marker-bounded sections into docs/index.md: the unified
-     LeetCode table, the separate Amazon OA table, and the Sources credits.
-     --check compares the marker spans against a fresh render, so the
-     tables stay generator-owned and refreshable.
+  4. Emit three marker-bounded sections into docs/problems/index.md: the
+     unified LeetCode table, the separate Amazon OA table, and the Sources
+     credits. --check compares the marker spans against a fresh render, so
+     the tables stay generator-owned and refreshable.
+  5. Emit the mkdocs.yml Problems nav: the landing page as section parent
+     (navigation.indexes) with two subsections, LeetCode (all 168 problem
+     pages at one level, unified-table order) and Amazon OA (the bank
+     index). --check verifies the nav shape, so the subsections stay
+     generator-owned and refreshable.
 
 Offline contract: the committed JSON sources are the only inputs; nothing
-is fetched, and the marker-bounded spans are the only text ever rewritten.
+is fetched, and the marker-bounded spans (plus the nav's Problems section)
+are the only text ever rewritten.
 
 Usage (from the repository root):
   cd practice && uv run pytest ../scripts/          # run the generator tests
@@ -31,6 +38,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 from typing import List, Optional, Sequence
@@ -39,7 +47,8 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 GRIND_TABLE_PATH = REPO_ROOT / "scripts" / "grind75_table.json"
 NEETCODE_MANIFEST_PATH = REPO_ROOT / "scripts" / "neetcode150_manifest.json"
 AMAZON_MANIFEST_PATH = REPO_ROOT / "scripts" / "amazon_oa_manifest.json"
-INDEX_PATH = REPO_ROOT / "docs" / "index.md"
+PROBLEMS_INDEX_PATH = REPO_ROOT / "docs" / "problems" / "index.md"
+MKDOCS_PATH = REPO_ROOT / "mkdocs.yml"
 
 UNIFIED_SECTION_START = "<!-- unified-leetcode:start -->"
 UNIFIED_SECTION_END = "<!-- unified-leetcode:end -->"
@@ -49,7 +58,14 @@ SOURCES_SECTION_START = "<!-- sources:start -->"
 SOURCES_SECTION_END = "<!-- sources:end -->"
 # Fresh splices land immediately before this heading; marker-bounded
 # replacements keep their in-place position instead.
-LANDING_ANCHOR = "## Pattern Intuition"
+LANDING_ANCHOR = "## Study Guide and Practice"
+
+NAV_PROBLEMS_MARKER = "  - Problems:\n"
+NAV_LEETCODE_HEADER = '    - "LeetCode":\n'
+NAV_AMAZON_HEADER = '    - "Amazon OA": problems/amazon_oa/index.md\n'
+NAV_LEETCODE_CHILD_PATTERN = re.compile(r'^      - "(.+?)": problems/(.+?)\.md$')
+NAV_NEXT_TOP_PATTERN = re.compile(r"^  - ", re.M)
+NAV_ADMISSIBLE_SLUG_COUNT = 168
 
 GRIND_TRACK = "Grind 75"
 NEETCODE_TRACK = "NeetCode 150"
@@ -89,7 +105,7 @@ AMAZON_TABLE_HEADER = "| # | Problem | Updated |"
 AMAZON_MARKER = "· Amazon OA"
 AMAZON_LEGEND = (
     f"Rows marked {AMAZON_MARKER} also appear in the"
-    " [Amazon OA bank](problems/amazon_oa/index.md)."
+    " [Amazon OA bank](amazon_oa/index.md)."
 )
 
 
@@ -449,7 +465,7 @@ def render_unified_section(rows: Sequence[dict], overlap: set) -> str:
         "|---|---------|------------|----------|--------|------|",
     ]
     for position, row in enumerate(rows, start=1):
-        problem = f"[{row['title']}](problems/{row['dirSlug']}.md)"
+        problem = f"[{row['title']}]({row['dirSlug']}.md)"
         tracks = row["tracks"]
         if row["slug"] in overlap:
             tracks = f"{tracks} {AMAZON_MARKER}"
@@ -480,13 +496,13 @@ def render_amazon_section(entries: Sequence[dict]) -> str:
         AMAZON_SECTION_START,
         "## Amazon OA Problems",
         "",
-        f"The Amazon OA coding bank, separate from the LeetCode tables above:"
+        "The Amazon OA coding bank, separate from the LeetCode tables above:"
         f" {len(entries)} Amazon-tagged online-assessment problems, most recently"
         " updated first. The problems come from"
         " [perixtar/Tech-OA-Interview-Questions](https://github.com/perixtar/Tech-OA-Interview-Questions)"
         " with statement pages on [FastPrep](https://www.fastprep.io)."
         " The full bank index with companies lives at"
-        " [problems/amazon_oa/index.md](problems/amazon_oa/index.md);"
+        " [problems/amazon_oa/index.md](amazon_oa/index.md);"
         " practice stubs live under the"
         " [`practice/amazon_oa/`](https://github.com/ThoDHa/algo-oa-prep/tree/main/practice/amazon_oa)"
         " workspace.",
@@ -495,7 +511,7 @@ def render_amazon_section(entries: Sequence[dict]) -> str:
         "|---|---------|---------|",
     ]
     for position, entry in enumerate(entries, start=1):
-        problem = f"[{entry['title']}](problems/amazon_oa/{entry['slug']}.md)"
+        problem = f"[{entry['title']}](amazon_oa/{entry['slug']}.md)"
         lines.append(f"| {position} | {problem} | {entry['updated']} |")
     lines.append(AMAZON_SECTION_END)
     return "\n".join(lines) + "\n"
@@ -551,7 +567,7 @@ def load_validated_sources() -> tuple:
 
 
 def render_sections() -> List[tuple]:
-    """Render every docs/index.md section this generator owns.
+    """Render every docs/problems/index.md section this generator owns.
 
     Shared by the emission and check paths so the two can never drift.
 
@@ -580,15 +596,16 @@ def render_sections() -> List[tuple]:
 # ---------------------------------------------------------------------------
 
 
-def write_sections(index_path: Optional[Path] = None) -> bool:
-    """Emit the three marker-bounded sections into docs/index.md.
+def write_sections(landing_path: Optional[Path] = None) -> bool:
+    """Emit the three marker-bounded sections into docs/problems/index.md.
 
     Present marker spans are replaced in place; absent sections are spliced
     as one block immediately before the landing anchor. Only the marker
     spans (and the fresh splice point) are ever rewritten.
 
     Args:
-        index_path: Overrides the docs/index.md path (default: module constant).
+        landing_path: Overrides the docs/problems/index.md path (default:
+            module constant).
 
     Returns:
         True when the file was modified, False when it already matched.
@@ -596,8 +613,8 @@ def write_sections(index_path: Optional[Path] = None) -> bool:
     Raises:
         SystemExit: When markers are unclosed or no landing anchor exists.
     """
-    index_path = index_path if index_path is not None else INDEX_PATH
-    text = index_path.read_text(encoding="utf-8")
+    landing_path = landing_path if landing_path is not None else PROBLEMS_INDEX_PATH
+    text = landing_path.read_text(encoding="utf-8")
     original = text
     missing: List[str] = []
     for _name, start_marker, end_marker, rendered in render_sections():
@@ -613,14 +630,83 @@ def write_sections(index_path: Optional[Path] = None) -> bool:
         anchor_at = text.find(LANDING_ANCHOR)
         if anchor_at == -1:
             raise SystemExit(
-                f"{index_path} has no {LANDING_ANCHOR!r} anchor to splice the"
+                f"{landing_path} has no {LANDING_ANCHOR!r} anchor to splice the"
                 f" {len(missing)} missing section(s) against"
             )
         block = "\n\n".join(missing)
         text = text[:anchor_at] + block + "\n\n" + text[anchor_at:]
     if text == original:
         return False
-    index_path.write_text(text, encoding="utf-8")
+    landing_path.write_text(text, encoding="utf-8")
+    return True
+
+
+# ---------------------------------------------------------------------------
+# mkdocs.yml Problems nav
+# ---------------------------------------------------------------------------
+
+
+def render_problems_nav(merged: Sequence[dict]) -> str:
+    """Render the Problems nav block: landing parent plus two subsections.
+
+    The landing page is the section parent (mkdocs-material's
+    navigation.indexes renders it as the Problems index); the LeetCode
+    subsection carries every merged row at one level in unified-table order
+    (Grind 75 study order, then the NeetCode-only track order); the Amazon
+    OA subsection carries the bank index page.
+
+    Args:
+        merged: The validated merged rows (see `merge_tracks`).
+
+    Returns:
+        The nav block from the Problems marker through the Amazon OA line,
+        each line newline-terminated.
+    """
+    lines = [
+        NAV_PROBLEMS_MARKER,
+        "    - problems/index.md\n",
+        NAV_LEETCODE_HEADER,
+    ]
+    lines.extend(
+        f'      - "{row["title"]}": problems/{row["dirSlug"]}.md\n' for row in merged
+    )
+    lines.append(NAV_AMAZON_HEADER)
+    return "".join(lines)
+
+
+def write_problems_nav(mkdocs_path: Optional[Path] = None) -> bool:
+    """Replace the mkdocs.yml Problems nav section with the generated shape.
+
+    Everything between the Problems marker and the next top-level nav entry
+    (a line starting with exactly two spaces, a hyphen, and a space) or the
+    end of file is regenerated; everything outside the section is untouched.
+
+    Args:
+        mkdocs_path: Overrides the mkdocs.yml path (default: module constant).
+
+    Returns:
+        True when the file was modified, False when it already matched.
+
+    Raises:
+        SystemExit: When mkdocs.yml has no Problems nav section.
+    """
+    mkdocs_path = mkdocs_path if mkdocs_path is not None else MKDOCS_PATH
+    text = mkdocs_path.read_text(encoding="utf-8")
+    marker_at = text.find(NAV_PROBLEMS_MARKER)
+    if marker_at == -1:
+        raise SystemExit("mkdocs.yml has no Problems nav section to replace")
+    section_at = marker_at + len(NAV_PROBLEMS_MARKER)
+    next_top_at = len(text)
+    for match in NAV_NEXT_TOP_PATTERN.finditer(text[section_at:]):
+        next_top_at = section_at + match.start()
+        break
+    _grind, _neetcode, _amazon = load_validated_sources()
+    merged = merge_tracks(_grind, _neetcode)
+    verify_merge_shape(merged)
+    updated = text[:marker_at] + render_problems_nav(merged) + text[next_top_at:]
+    if updated == text:
+        return False
+    mkdocs_path.write_text(updated, encoding="utf-8")
     return True
 
 
@@ -629,43 +715,133 @@ def write_sections(index_path: Optional[Path] = None) -> bool:
 # ---------------------------------------------------------------------------
 
 
-def check(index_path: Optional[Path] = None) -> int:
-    """Exit 0 when every owned index section matches a fresh render.
+def check(landing_path: Optional[Path] = None) -> int:
+    """Exit 0 when every owned landing section matches a fresh render.
 
     Read-only: nothing is written or rewritten.
 
     Args:
-        index_path: Overrides the docs/index.md path (default: module constant).
+        landing_path: Overrides the docs/problems/index.md path (default:
+            module constant).
 
     Returns:
         A process exit code: 0 when identical, 1 with a diff summary otherwise.
     """
-    index_path = index_path if index_path is not None else INDEX_PATH
+    landing_path = landing_path if landing_path is not None else PROBLEMS_INDEX_PATH
     stale: List[str] = []
     sections = render_sections()
-    if not index_path.exists():
-        stale.append("docs/index.md (missing)")
+    if not landing_path.exists():
+        stale.append("docs/problems/index.md (missing)")
         text = ""
     else:
-        text = index_path.read_text(encoding="utf-8")
+        text = landing_path.read_text(encoding="utf-8")
     for name, start_marker, end_marker, rendered in sections:
         start_at = text.find(start_marker)
         if start_at == -1:
-            stale.append(f"docs/index.md (no {name} markers)")
+            stale.append(f"docs/problems/index.md (no {name} markers)")
             continue
         end_at = text.find(end_marker, start_at)
         if end_at == -1:
-            stale.append(f"docs/index.md ({name} markers unclosed)")
+            stale.append(f"docs/problems/index.md ({name} markers unclosed)")
             continue
         if text[start_at : end_at + len(end_marker)] != rendered.rstrip():
-            stale.append(f"docs/index.md ({name} section differs)")
+            stale.append(f"docs/problems/index.md ({name} section differs)")
     if stale:
         print(f"--check: {len(stale)} index section(s) differ from a fresh generation:")
         for item in stale[:20]:
             print(f"  {item}")
         return 1
     print(f"--check: {len(sections)} index sections up to date")
+    return check_problems_nav()
+
+
+def check_problems_nav(mkdocs_path: Optional[Path] = None) -> int:
+    """Exit 0 when the committed mkdocs.yml Problems nav matches a fresh render.
+
+    The audit compares the whole Problems span in mkdocs.yml (from the
+    Problems marker through the next top-level nav entry, or the end of
+    file) against a fresh render: rogue entries inside the section, child
+    order, duplicates, extras, and omissions are all drift. The landing
+    parent line and the Amazon OA subsection must both sit exactly where
+    the fresh render puts them.
+
+    Args:
+        mkdocs_path: Overrides the mkdocs.yml path (default: module constant).
+
+    Returns:
+        A process exit code: 0 when the nav matches, 1 with a diff summary
+        otherwise.
+    """
+    mkdocs_path = mkdocs_path if mkdocs_path is not None else MKDOCS_PATH
+    stale: List[str] = []
+    text = mkdocs_path.read_text(encoding="utf-8") if mkdocs_path.exists() else ""
+    _grind, _neetcode, _amazon = load_validated_sources()
+    merged = merge_tracks(_grind, _neetcode)
+    verify_merge_shape(merged)
+    fresh = render_problems_nav(merged)
+    if not text:
+        stale.append("mkdocs.yml (missing)")
+    elif text.count(NAV_PROBLEMS_MARKER) != 1:
+        stale.append("mkdocs.yml (Problems nav section not found exactly once)")
+    else:
+        at = text.find(NAV_PROBLEMS_MARKER)
+        section_at = at + len(NAV_PROBLEMS_MARKER)
+        next_top_at = len(text)
+        for match in NAV_NEXT_TOP_PATTERN.finditer(text[section_at:]):
+            next_top_at = section_at + match.start()
+            break
+        if text[at:next_top_at] != fresh:
+            actual_children = nav_leetcode_children(text[at:])
+            expected_children = [row["dirSlug"] for row in merged]
+            detail = []
+            if len(actual_children) != len(set(actual_children)):
+                dupes = sorted(
+                    {slug for slug in actual_children if actual_children.count(slug) > 1}
+                )
+                detail.append(f"duplicates: {', '.join(dupes[:5])}")
+            extras = sorted(set(actual_children) - set(expected_children))
+            if extras:
+                detail.append(f"extra: {', '.join(extras[:5])}")
+            missing = sorted(set(expected_children) - set(actual_children))
+            if missing:
+                detail.append(f"missing: {', '.join(missing[:5])}")
+            if not detail:
+                if actual_children != expected_children:
+                    detail.append("child order drifts from the unified table")
+                elif "    - problems/index.md" not in text[at:next_top_at]:
+                    detail.append("no problems/index.md landing parent")
+                else:
+                    detail.append("unrecognized entries inside the Problems section")
+            stale.append("mkdocs.yml (Problems nav drift: " + "; ".join(detail) + ")")
+    if stale:
+        print(f"--check: {len(stale)} nav audit finding(s):")
+        for item in stale[:20]:
+            print(f"  {item}")
+        return 1
+    print(f"--check: mkdocs Problems nav up to date ({len(merged)} LeetCode children)")
     return 0
+
+
+def nav_leetcode_children(problems_text: str) -> List[str]:
+    """Extract the LeetCode subsection's dirSlugs in file order.
+
+    Args:
+        problems_text: The mkdocs.yml text starting at the Problems marker.
+
+    Returns:
+        The child dirSlugs between the LeetCode header and the first line
+        that is not a LeetCode child; empty when the header is absent.
+    """
+    header_at = problems_text.find(NAV_LEETCODE_HEADER)
+    if header_at == -1:
+        return []
+    children: List[str] = []
+    for line in problems_text[header_at + len(NAV_LEETCODE_HEADER) :].splitlines():
+        match = NAV_LEETCODE_CHILD_PATTERN.match(line)
+        if match is None:
+            break
+        children.append(match.group(2))
+    return children
 
 
 # ---------------------------------------------------------------------------
@@ -696,10 +872,16 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         # --check is read-only verification: it never writes.
         return check()
 
-    if write_sections():
-        print("index: sections written")
+    landing_written = write_sections()
+    print(
+        "landing: sections written"
+        if landing_written
+        else "landing: sections already up to date"
+    )
+    if write_problems_nav():
+        print("nav: Problems section written")
     else:
-        print("index: sections already up to date")
+        print("nav: Problems section already up to date")
     return 0
 
 

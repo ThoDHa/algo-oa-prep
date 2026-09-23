@@ -10,10 +10,12 @@ Pipeline:
        - practice/<dirSlug>/solution.py    (NotSolved stub)
        - practice/<dirSlug>/cases.json     (parseable examples, else [])
        - practice/<dirSlug>/test_<dirSlug>.py (harness-driven tests)
-  3. Once every delta problem is scaffolded, add the nested NeetCode 150
-      group inside the mkdocs.yml Problems nav. The docs/index.md tables
-      are owned by scripts/generate_index_tables.py, which merges this
-      track with the Grind 75 rows into one unified table.
+  3. Once every delta problem is scaffolded, the mkdocs.yml Problems nav
+      and the docs/problems/index.md landing page are updated by their
+      owners: the nav's Problems section is owned by
+      scripts/generate_index_tables.py (which merges this track with the
+      Grind 75 rows into one flat LeetCode subsection), and the landing
+      page tables are owned by the same generator.
 
 Overlap problems (already in the bank) keep their single write-up and
 practice folder and are never scaffolded or modified.
@@ -51,7 +53,6 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 MANIFEST_PATH = REPO_ROOT / "scripts" / "neetcode150_manifest.json"
 DOCS_DIR = REPO_ROOT / "docs" / "problems"
 PRACTICE_DIR = REPO_ROOT / "practice"
-MKDOCS_PATH = REPO_ROOT / "mkdocs.yml"
 
 METADATA_URL = "https://neetcode.io/api/getProblemMetadataFunctionHttp"
 METADATA_CACHE_DIR = Path("/tmp/opencode/neetcode-cache")
@@ -98,9 +99,6 @@ MANIFEST_FIELDS = (
     "difficulty",
     "leetcodePremium",
 )
-
-NAV_GROUP_MARKER = "  - Problems:\n"
-NAV_GROUP_HEADER = '    - "NeetCode 150":\n'
 
 EXAMPLE_HEADER_PATTERN = re.compile(r"^\*\*Example\s*(\d+):?\*\*\s*$", re.M)
 FENCE_PATTERN = re.compile(r"^```.*?$", re.M)
@@ -1226,47 +1224,7 @@ def emit_scaffolds(entries: Sequence[dict], fetch: bool = True) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# Home-page index section and mkdocs nav group
-# ---------------------------------------------------------------------------
-
-
-def ensure_nav_group(entries: Sequence[dict], mkdocs_path: Optional[Path] = None) -> bool:
-    """Insert the nested NeetCode 150 group inside the mkdocs.yml Problems nav.
-
-    The group carries exactly the delta entries, so every problem appears in
-    the nav exactly once (overlap problems keep their existing entries) and
-    existing lines are untouched.
-
-    Args:
-        entries: The delta manifest entries in track order.
-        mkdocs_path: Overrides the mkdocs.yml path (default: module constant).
-
-    Returns:
-        True when mkdocs.yml was modified, False when the group already exists.
-
-    Raises:
-        SystemExit: When mkdocs.yml has no Problems nav section to extend.
-    """
-    mkdocs_path = mkdocs_path if mkdocs_path is not None else MKDOCS_PATH
-    text = mkdocs_path.read_text(encoding="utf-8")
-    if '"NeetCode 150":' in text:
-        return False
-    if NAV_GROUP_MARKER not in text:
-        raise SystemExit("mkdocs.yml has no Problems nav section to extend")
-    group_lines = [NAV_GROUP_HEADER]
-    for entry in entries:
-        group_lines.append(
-            f'      - "{entry["title"]}": problems/{entry["dirSlug"]}.md\n'
-        )
-    text = text.replace(
-        NAV_GROUP_MARKER, NAV_GROUP_MARKER + "".join(group_lines), 1
-    )
-    mkdocs_path.write_text(text, encoding="utf-8")
-    return True
-
-
-# ---------------------------------------------------------------------------
-# Idempotency check
+# Emission
 # ---------------------------------------------------------------------------
 
 
@@ -1305,67 +1263,6 @@ def check(entries: Sequence[dict]) -> int:
     return 0
 
 
-NAV_GROUP_ENTRY_PATTERN = re.compile(r'^      - "(.+?)": problems/(.+?)\.md$')
-
-
-def nav_group_entries(mkdocs_text: str) -> List[str]:
-    """Extract the dirSlugs inside the NeetCode 150 nav group, in file order.
-
-    Collection stops at the first non-child line, so a nested group added
-    after NeetCode 150 inside Problems never pollutes the result. Returns
-    an empty list when the group is absent.
-    """
-    header_at = mkdocs_text.find(NAV_GROUP_HEADER)
-    if header_at == -1:
-        return []
-    entries: List[str] = []
-    for line in mkdocs_text[header_at + len(NAV_GROUP_HEADER) :].splitlines():
-        match = NAV_GROUP_ENTRY_PATTERN.match(line)
-        if match is None:
-            break
-        entries.append(match.group(2))
-    return entries
-
-
-def check_site_integration(delta: Sequence[dict]) -> int:
-    """Extend `check` with the mkdocs nav group idempotency.
-
-    The nav group is compared exactly against the delta set: extra entries
-    (overlap duplicates) and missing entries are both drift. The
-    docs/index.md tables are owned by scripts/generate_index_tables.py and
-    are not checked here.
-
-    Args:
-        delta: The delta entries (nav group membership).
-
-    Returns:
-        A process exit code: 0 when the site files match, 1 otherwise.
-    """
-    stale: List[str] = []
-    mkdocs_text = (
-        MKDOCS_PATH.read_text(encoding="utf-8") if MKDOCS_PATH.exists() else ""
-    )
-    actual_nav = nav_group_entries(mkdocs_text)
-    expected_nav = [entry["dirSlug"] for entry in delta]
-    if not actual_nav:
-        stale.append("mkdocs.yml (no NeetCode 150 nav group)")
-    elif actual_nav != expected_nav:
-        extras = sorted(set(actual_nav) - set(expected_nav))
-        missing = sorted(set(expected_nav) - set(actual_nav))
-        detail = []
-        if extras:
-            detail.append(f"extra: {', '.join(extras[:5])}")
-        if missing:
-            detail.append(f"missing: {', '.join(missing[:5])}")
-        stale.append("mkdocs.yml (nav group drift: " + "; ".join(detail) + ")")
-    if stale:
-        print(f"--check: {len(stale)} site integration file(s) differ:")
-        for path in stale[:20]:
-            print(f"  {path}")
-        return 1
-    return 0
-
-
 # ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
@@ -1394,16 +1291,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     if args.check:
         # --check is read-only verification: it never fetches or writes.
-        # The scaffold check covers the generated problems; the site check
-        # covers the mkdocs nav (trivially absent when scaffolding is
-        # incomplete); docs/index.md is owned by generate_index_tables.py.
-        code = check(delta[: args.limit] if args.limit else delta)
-        if code != 0 or args.limit is not None:
-            return code
-        scaffolded_delta = [
-            entry for entry in manifest if entry.get("parse_status") is not None
-        ]
-        return check_site_integration(scaffolded_delta)
+        # It covers the generated scaffolds; the mkdocs Problems nav and
+        # the landing-page tables are owned by generate_index_tables.py.
+        return check(delta[: args.limit] if args.limit else delta)
 
     entries = delta[: args.limit] if args.limit else delta
     stats = emit_scaffolds(entries, fetch=not args.no_fetch)
@@ -1423,15 +1313,6 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         print(
             "skipped (no cache, fetch disabled, existing scaffolds kept): "
             + ", ".join(stats["skipped_no_cache"])
-        )
-
-    if not derive_delta(manifest):
-        # Every delta problem is scaffolded: the site integration may land.
-        # The nav group carries exactly the delta entries (the scaffolds this
-        # run or a previous run emitted); overlap entries exist already.
-        # docs/index.md is owned by generate_index_tables.py.
-        ensure_nav_group(
-            [entry for entry in manifest if entry.get("parse_status") is not None]
         )
     return 0
 

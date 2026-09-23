@@ -918,6 +918,18 @@ def sample_manifest(n=3):
     ][:n]
 
 
+def test_the_mkdocs_nav_is_owned_by_the_index_tables_generator():
+    # The nested NeetCode 150 nav group was superseded by the flat
+    # LeetCode subsection (scripts/generate_index_tables.py); nav emission
+    # and its --check must not creep back into this generator.
+    assert not hasattr(gen, "ensure_nav_group")
+    assert not hasattr(gen, "check_site_integration")
+    assert not hasattr(gen, "nav_group_entries")
+    assert not hasattr(gen, "MKDOCS_PATH")
+    assert not hasattr(gen, "NAV_GROUP_MARKER")
+    assert not hasattr(gen, "NAV_GROUP_HEADER")
+
+
 def test_the_docs_index_tables_are_owned_by_the_index_tables_generator():
     # The neet150 marker section was superseded by the unified table
     # (scripts/generate_index_tables.py); the index ownership must not
@@ -928,39 +940,6 @@ def test_the_docs_index_tables_are_owned_by_the_index_tables_generator():
     assert not hasattr(gen, "write_index_section")
     assert not hasattr(gen, "INDEX_PATH")
     assert not hasattr(gen, "INDEX_SECTION_START")
-
-
-def test_ensure_nav_group_inserts_nested_group_after_problems(tmp_path):
-    mkdocs_path = tmp_path / "mkdocs.yml"
-    mkdocs_path.write_text(
-        "nav:\n"
-        "  - Home: index.md\n"
-        '  - Problems:\n'
-        '    - "Two Sum": problems/two_sum.md\n',
-        encoding="utf-8",
-    )
-    delta = [dict(sample_manifest()[-1], parse_status="parsed-with-cases")]
-    changed = gen.ensure_nav_group(delta, mkdocs_path=mkdocs_path)
-    assert changed is True
-    text = mkdocs_path.read_text(encoding="utf-8")
-    assert '    - "NeetCode 150":\n' in text
-    assert '      - "Two Sum II": problems/two_sum_ii_input_array_is_sorted.md\n' in text
-    problems_at = text.index("  - Problems:")
-    group_at = text.index('"NeetCode 150"')
-    twosum_at = text.index('"Two Sum": problems/two_sum.md')
-    assert problems_at < group_at < twosum_at
-    first = text
-
-    changed = gen.ensure_nav_group(delta, mkdocs_path=mkdocs_path)
-    assert changed is False
-    assert mkdocs_path.read_text(encoding="utf-8") == first
-
-
-def test_ensure_nav_group_requires_problems_section(tmp_path):
-    mkdocs_path = tmp_path / "mkdocs.yml"
-    mkdocs_path.write_text("nav:\n  - Home: index.md\n", encoding="utf-8")
-    with pytest.raises(SystemExit, match="Problems"):
-        gen.ensure_nav_group([dict(sample_manifest()[0], parse_status="parsed-with-cases")], mkdocs_path=mkdocs_path)
 
 
 # ---------------------------------------------------------------------------
@@ -1006,7 +985,6 @@ def test_main_check_mode_does_not_rewrite_the_manifest(tmp_path, monkeypatch):
 
     monkeypatch.setattr(gen, "load_manifest", spy)
     monkeypatch.setattr(gen, "check", lambda entries: 0)
-    monkeypatch.setattr(gen, "check_site_integration", lambda delta: 0)
     assert gen.main(["--check"]) == 0
     assert len(reads) == 1
 
@@ -1027,43 +1005,6 @@ def test_main_runs_the_full_pipeline_shape(tmp_path, monkeypatch, capsys):
     out = capsys.readouterr().out
     assert "delta: 1 problems to scaffold" in out
     assert "generated" in out
-
-
-def test_check_site_integration_flags_extra_nav_entries(tmp_path, monkeypatch):
-    mkdocs_path = tmp_path / "mkdocs.yml"
-    mkdocs_path.write_text("nav:\n  - Problems:\n", encoding="utf-8")
-    delta = [dict(sample_manifest()[-1], parse_status="parsed-with-cases")]
-    gen.ensure_nav_group(delta, mkdocs_path=mkdocs_path)
-    # An overlap duplicate slipped into the group: drift, not success.
-    text = mkdocs_path.read_text(encoding="utf-8")
-    text = text.replace(
-        '      - "Two Sum II": problems/two_sum_ii_input_array_is_sorted.md\n',
-        '      - "Two Sum II": problems/two_sum_ii_input_array_is_sorted.md\n'
-        '      - "Two Sum": problems/two_sum.md\n',
-    )
-    mkdocs_path.write_text(text, encoding="utf-8")
-    monkeypatch.setattr(gen, "MKDOCS_PATH", mkdocs_path)
-    assert gen.check_site_integration(delta) == 1
-
-
-def test_check_site_integration_flags_missing_nav_group(tmp_path, monkeypatch):
-    mkdocs_path = tmp_path / "mkdocs.yml"
-    mkdocs_path.write_text("nav:\n  - Problems:\n", encoding="utf-8")
-    monkeypatch.setattr(gen, "MKDOCS_PATH", mkdocs_path)
-    assert gen.check_site_integration([dict(sample_manifest()[0], parse_status="parsed-with-cases")]) == 1
-
-
-def test_nav_group_entries_reads_the_group_in_order():
-    mkdocs_text = (
-        "nav:\n"
-        "  - Problems:\n"
-        '    - "NeetCode 150":\n'
-        '      - "A": problems/a.md\n'
-        '      - "B": problems/b.md\n'
-        '    - "Two Sum": problems/two_sum.md\n'
-    )
-    assert gen.nav_group_entries(mkdocs_text) == ["a", "b"]
-    assert gen.nav_group_entries("nav:\n  - Home: index.md\n") == []
 
 
 def test_emit_scaffolds_premium_note_lands_in_the_writeup(tmp_path, monkeypatch):
@@ -1250,20 +1191,6 @@ def test_render_writeup_explanation_drops_fences_and_broken_bold():
     example_one = text.split("### Example 1")[1].split("## Constraints")[0]
     assert "Solution solution = new Solution();" in example_one
     assert "```" in example_one
-
-
-def test_nav_group_entries_stops_at_the_first_non_child_line():
-    mkdocs_text = (
-        "nav:\n"
-        "  - Problems:\n"
-        '    - "NeetCode 150":\n'
-        '      - "A": problems/a.md\n'
-        '      - "B": problems/b.md\n'
-        '    - "Future Group":\n'
-        '      - "C": problems/c.md\n'
-        '    - "Two Sum": problems/two_sum.md\n'
-    )
-    assert gen.nav_group_entries(mkdocs_text) == ["a", "b"]
 
 
 def test_fetch_metadata_corrupt_cache_falls_through_to_refetch(tmp_path, monkeypatch):
