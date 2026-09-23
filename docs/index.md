@@ -15,174 +15,176 @@ The unified LeetCode problem set across the [Grind 75](https://www.techinterview
 
 | # | Problem | Difficulty | Category | Tracks | Time |
 |---|---------|------------|----------|--------|------|
-| [1](https://leetcode.com/problems/two-sum/) | [Two Sum](problems/two_sum.md) | Easy | Array, Hash Table | Grind 75 + NeetCode 150 | 15 minutes |
-| [2](https://leetcode.com/problems/valid-parentheses/) | [Valid Parentheses](problems/valid_parentheses.md) | Easy | Stack, String | Grind 75 + NeetCode 150 | 20 minutes |
-| [3](https://leetcode.com/problems/merge-two-sorted-lists/) | [Merge Two Sorted Lists](problems/merge_two_sorted_lists.md) | Easy | Linked List | Grind 75 + NeetCode 150 | 20 minutes |
-| [4](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | [Best Time to Buy and Sell Stock](problems/best_time_to_buy_and_sell_stock.md) | Easy | Array | Grind 75 + NeetCode 150 | 20 minutes |
-| [5](https://leetcode.com/problems/valid-palindrome/) | [Valid Palindrome](problems/valid_palindrome.md) | Easy | String | Grind 75 + NeetCode 150 | 15 minutes |
-| [6](https://leetcode.com/problems/invert-binary-tree/) | [Invert Binary Tree](problems/invert_binary_tree.md) | Easy | Tree | Grind 75 + NeetCode 150 | 15 minutes |
-| [7](https://leetcode.com/problems/valid-anagram/) | [Valid Anagram](problems/valid_anagram.md) | Easy | String | Grind 75 + NeetCode 150 | 15 minutes |
-| [8](https://leetcode.com/problems/binary-search/) | [Binary Search](problems/binary_search.md) | Easy | Binary Search | Grind 75 + NeetCode 150 | 15 minutes |
-| [9](https://leetcode.com/problems/flood-fill/) | [Flood Fill](problems/flood_fill.md) | Easy | Graph, DFS | Grind 75 | 20 minutes |
-| [10](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) | [Lowest Common Ancestor of a BST](problems/lowest_common_ancestor_of_a_binary_search_tree.md) | Medium | Tree | Grind 75 + NeetCode 150 | 20 minutes |
-| [11](https://leetcode.com/problems/balanced-binary-tree/) | [Balanced Binary Tree](problems/balanced_binary_tree.md) | Easy | Tree | Grind 75 + NeetCode 150 | 15 minutes |
-| [12](https://leetcode.com/problems/linked-list-cycle/) | [Linked List Cycle](problems/linked_list_cycle.md) | Easy | Linked List | Grind 75 + NeetCode 150 | 20 minutes |
-| [13](https://leetcode.com/problems/implement-queue-using-stacks/) | [Implement Queue using Stacks](problems/implement_queue_using_stacks.md) | Easy | Stack | Grind 75 | 20 minutes |
-| [14](https://leetcode.com/problems/first-bad-version/) | [First Bad Version](problems/first_bad_version.md) | Easy | Binary Search | Grind 75 | 20 minutes |
-| [15](https://leetcode.com/problems/ransom-note/) | [Ransom Note](problems/ransom_note.md) | Easy | Hash Table | Grind 75 | 15 minutes |
-| [16](https://leetcode.com/problems/climbing-stairs/) | [Climbing Stairs](problems/climbing_stairs.md) | Easy | Dynamic Programming | Grind 75 + NeetCode 150 | 20 minutes |
-| [17](https://leetcode.com/problems/longest-palindrome/) | [Longest Palindrome](problems/longest_palindrome.md) | Easy | String | Grind 75 | 20 minutes |
-| [18](https://leetcode.com/problems/reverse-linked-list/) | [Reverse Linked List](problems/reverse_linked_list.md) | Easy | Linked List | Grind 75 + NeetCode 150 | 20 minutes |
-| [19](https://leetcode.com/problems/majority-element/) | [Majority Element](problems/majority_element.md) | Easy | Array | Grind 75 | 20 minutes |
-| [20](https://leetcode.com/problems/add-binary/) | [Add Binary](problems/add_binary.md) | Easy | String | Grind 75 | 15 minutes |
-| [21](https://leetcode.com/problems/diameter-of-binary-tree/) | [Diameter of Binary Tree](problems/diameter_of_binary_tree.md) | Easy | Tree | Grind 75 + NeetCode 150 | 30 minutes |
-| [22](https://leetcode.com/problems/middle-of-the-linked-list/) | [Middle of the Linked List](problems/middle_of_the_linked_list.md) | Easy | Linked List | Grind 75 | 20 minutes |
-| [23](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | [Maximum Depth of Binary Tree](problems/maximum_depth_of_binary_tree.md) | Easy | Tree | Grind 75 + NeetCode 150 | 15 minutes |
-| [24](https://leetcode.com/problems/contains-duplicate/) | [Contains Duplicate](problems/contains_duplicate.md) | Easy | Array | Grind 75 + NeetCode 150 | 15 minutes |
-| [25](https://leetcode.com/problems/maximum-subarray/) | [Maximum Subarray](problems/maximum_subarray.md) | Medium | Array, Dynamic Programming | Grind 75 + NeetCode 150 | 20 minutes |
-| [26](https://leetcode.com/problems/insert-interval/) | [Insert Interval](problems/insert_interval.md) | Medium | Array | Grind 75 + NeetCode 150 | 25 minutes |
-| [27](https://leetcode.com/problems/01-matrix/) | [01 Matrix](problems/01_matrix.md) | Medium | BFS | Grind 75 | 30 minutes |
-| [28](https://leetcode.com/problems/k-closest-points-to-origin/) | [K Closest Points to Origin](problems/k_closest_points_to_origin.md) | Medium | Heap | Grind 75 + NeetCode 150 | 30 minutes |
-| [29](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | [Longest Substring Without Repeating Characters](problems/longest_substring_without_repeating_characters.md) | Medium | String | Grind 75 + NeetCode 150 | 30 minutes |
-| [30](https://leetcode.com/problems/3sum/) | [3Sum](problems/3sum.md) | Medium | Array | Grind 75 + NeetCode 150 | 30 minutes |
-| [31](https://leetcode.com/problems/binary-tree-level-order-traversal/) | [Binary Tree Level Order Traversal](problems/binary_tree_level_order_traversal.md) | Medium | Tree | Grind 75 + NeetCode 150 | 20 minutes |
-| [32](https://leetcode.com/problems/clone-graph/) | [Clone Graph](problems/clone_graph.md) | Medium | Graph | Grind 75 + NeetCode 150 | 25 minutes |
-| [33](https://leetcode.com/problems/evaluate-reverse-polish-notation/) | [Evaluate Reverse Polish Notation](problems/evaluate_reverse_polish_notation.md) | Medium | Stack | Grind 75 + NeetCode 150 | 30 minutes |
-| [34](https://leetcode.com/problems/course-schedule/) | [Course Schedule](problems/course_schedule.md) | Medium | Graph | Grind 75 + NeetCode 150 | 30 minutes |
-| [35](https://leetcode.com/problems/implement-trie-prefix-tree/) | [Implement Trie (Prefix Tree)](problems/implement_trie_prefix_tree.md) | Medium | Trie | Grind 75 + NeetCode 150 | 35 minutes |
-| [36](https://leetcode.com/problems/coin-change/) | [Coin Change](problems/coin_change.md) | Medium | Dynamic Programming | Grind 75 + NeetCode 150 | 25 minutes |
-| [37](https://leetcode.com/problems/product-of-array-except-self/) | [Product of Array Except Self](problems/product_of_array_except_self.md) | Medium | Array | Grind 75 + NeetCode 150 | 30 minutes |
-| [38](https://leetcode.com/problems/min-stack/) | [Minimum Stack](problems/min_stack.md) | Medium | Stack | Grind 75 + NeetCode 150 | 20 minutes |
-| [39](https://leetcode.com/problems/validate-binary-search-tree/) | [Validate Binary Search Tree](problems/validate_binary_search_tree.md) | Medium | Tree | Grind 75 + NeetCode 150 | 20 minutes |
-| [40](https://leetcode.com/problems/number-of-islands/) | [Number of Islands](problems/number_of_islands.md) | Medium | Graph | Grind 75 + NeetCode 150 | 25 minutes |
-| [41](https://leetcode.com/problems/rotting-oranges/) | [Rotting Oranges](problems/rotting_oranges.md) | Medium | BFS | Grind 75 + NeetCode 150 | 30 minutes |
-| [42](https://leetcode.com/problems/search-in-rotated-sorted-array/) | [Search in Rotated Sorted Array](problems/search_in_rotated_sorted_array.md) | Medium | Binary Search | Grind 75 + NeetCode 150 | 30 minutes |
-| [43](https://leetcode.com/problems/combination-sum/) | [Combination Sum](problems/combination_sum.md) | Medium | Backtracking | Grind 75 + NeetCode 150 | 30 minutes |
-| [44](https://leetcode.com/problems/permutations/) | [Permutations](problems/permutations.md) | Medium | Backtracking | Grind 75 + NeetCode 150 | 30 minutes |
-| [45](https://leetcode.com/problems/merge-intervals/) | [Merge Intervals](problems/merge_intervals.md) | Medium | Sorting | Grind 75 + NeetCode 150 | 30 minutes |
-| [46](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) | [Lowest Common Ancestor of a Binary Tree](problems/lowest_common_ancestor_of_a_binary_tree.md) | Medium | Tree | Grind 75 | 25 minutes |
-| [47](https://leetcode.com/problems/time-based-key-value-store/) | [Time Based Key-Value Store](problems/time_based_key_value_store.md) | Medium | Binary Search | Grind 75 + NeetCode 150 | 35 minutes |
-| [48](https://leetcode.com/problems/accounts-merge/) | [Accounts Merge](problems/accounts_merge.md) | Medium | Graph | Grind 75 | 30 minutes |
-| [49](https://leetcode.com/problems/sort-colors/) | [Sort Colors](problems/sort_colors.md) | Medium | Array | Grind 75 | 25 minutes |
-| [50](https://leetcode.com/problems/word-break/) | [Word Break](problems/word_break.md) | Medium | Dynamic Programming | Grind 75 + NeetCode 150 | 30 minutes |
-| [51](https://leetcode.com/problems/partition-equal-subset-sum/) | [Partition Equal Subset Sum](problems/partition_equal_subset_sum.md) | Medium | Dynamic Programming | Grind 75 + NeetCode 150 | 30 minutes |
-| [52](https://leetcode.com/problems/string-to-integer-atoi/) | [String to Integer (atoi)](problems/string_to_integer_atoi.md) | Medium | String | Grind 75 | 25 minutes |
-| [53](https://leetcode.com/problems/spiral-matrix/) | [Spiral Matrix](problems/spiral_matrix.md) | Medium | Array | Grind 75 + NeetCode 150 | 25 minutes |
-| [54](https://leetcode.com/problems/subsets/) | [Subsets](problems/subsets.md) | Medium | Backtracking | Grind 75 + NeetCode 150 | 30 minutes |
-| [55](https://leetcode.com/problems/binary-tree-right-side-view/) | [Binary Tree Right Side View](problems/binary_tree_right_side_view.md) | Medium | Tree | Grind 75 + NeetCode 150 | 20 minutes |
-| [56](https://leetcode.com/problems/longest-palindromic-substring/) | [Longest Palindromic Substring](problems/longest_palindromic_substring.md) | Medium | String | Grind 75 + NeetCode 150 | 25 minutes |
-| [57](https://leetcode.com/problems/unique-paths/) | [Unique Paths](problems/unique_paths.md) | Medium | Dynamic Programming | Grind 75 + NeetCode 150 | 20 minutes |
-| [58](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | [Construct Binary Tree from Preorder and Inorder Traversal](problems/construct_binary_tree_from_preorder_and_inorder_traversal.md) | Medium | Tree | Grind 75 + NeetCode 150 | 25 minutes |
-| [59](https://leetcode.com/problems/container-with-most-water/) | [Container With Most Water](problems/container_with_most_water.md) | Medium | Array | Grind 75 + NeetCode 150 | 35 minutes |
-| [60](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) | [Letter Combinations of a Phone Number](problems/letter_combinations_of_a_phone_number.md) | Medium | Backtracking | Grind 75 + NeetCode 150 | 30 minutes |
-| [61](https://leetcode.com/problems/word-search/) | [Word Search](problems/word_search.md) | Medium | Backtracking | Grind 75 + NeetCode 150 | 30 minutes |
-| [62](https://leetcode.com/problems/find-all-anagrams-in-a-string/) | [Find All Anagrams in a String](problems/find_all_anagrams_in_a_string.md) | Medium | String | Grind 75 | 30 minutes |
-| [63](https://leetcode.com/problems/minimum-height-trees/) | [Minimum Height Trees](problems/minimum_height_trees.md) | Medium | Graph | Grind 75 | 30 minutes |
-| [64](https://leetcode.com/problems/task-scheduler/) | [Task Scheduler](problems/task_scheduler.md) | Medium | Heap | Grind 75 + NeetCode 150 | 35 minutes |
-| [65](https://leetcode.com/problems/lru-cache/) | [LRU Cache](problems/lru_cache.md) | Medium | Linked List | Grind 75 + NeetCode 150 | 30 minutes |
-| [66](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | [Kth Smallest Element in a BST](problems/kth_smallest_element_in_a_bst.md) | Medium | Tree | Grind 75 + NeetCode 150 | 25 minutes |
-| [67](https://leetcode.com/problems/minimum-window-substring/) | [Minimum Window Substring](problems/minimum_window_substring.md) | Hard | String | Grind 75 + NeetCode 150 | 30 minutes |
-| [68](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) | [Serialize and Deserialize Binary Tree](problems/serialize_and_deserialize_binary_tree.md) | Hard | Tree | Grind 75 + NeetCode 150 | 40 minutes |
-| [69](https://leetcode.com/problems/trapping-rain-water/) | [Trapping Rain Water](problems/trapping_rain_water.md) | Hard | Stack | Grind 75 + NeetCode 150 | 35 minutes |
-| [70](https://leetcode.com/problems/find-median-from-data-stream/) | [Find Median from Data Stream](problems/find_median_from_data_stream.md) | Hard | Heap | Grind 75 + NeetCode 150 | 30 minutes |
-| [71](https://leetcode.com/problems/word-ladder/) | [Word Ladder](problems/word_ladder.md) | Hard | BFS | Grind 75 + NeetCode 150 | 45 minutes |
-| [72](https://leetcode.com/problems/basic-calculator/) | [Basic Calculator](problems/basic_calculator.md) | Hard | Stack | Grind 75 | 40 minutes |
-| [73](https://leetcode.com/problems/maximum-profit-in-job-scheduling/) | [Maximum Profit in Job Scheduling](problems/maximum_profit_in_job_scheduling.md) | Hard | Binary Search | Grind 75 | 45 minutes |
-| [74](https://leetcode.com/problems/merge-k-sorted-lists/) | [Merge k Sorted Lists](problems/merge_k_sorted_lists.md) | Hard | Linked List | Grind 75 + NeetCode 150 | 30 minutes |
-| [75](https://leetcode.com/problems/largest-rectangle-in-histogram/) | [Largest Rectangle in Histogram](problems/largest_rectangle_in_histogram.md) | Hard | Stack | Grind 75 + NeetCode 150 | 35 minutes |
-| - | [Binary Tree Maximum Path Sum](problems/binary_tree_maximum_path_sum.md) | - | - | Grind 75 + NeetCode 150 | - |
-| - | [Maximum Frequency Stack](problems/maximum_frequency_stack.md) | - | - | Grind 75 | - |
-| [4](https://leetcode.com/problems/group-anagrams/) | [Group Anagrams](problems/group_anagrams.md) | Medium | Arrays & Hashing | NeetCode 150 |  |
-| [5](https://leetcode.com/problems/top-k-frequent-elements/) | [Top K Frequent Elements](problems/top_k_frequent_elements.md) | Medium | Arrays & Hashing | NeetCode 150 |  |
-| [6](https://leetcode.com/problems/encode-and-decode-strings/) | [Encode and Decode Strings](problems/encode_and_decode_strings.md) | Medium | Arrays & Hashing | NeetCode 150 |  |
-| [8](https://leetcode.com/problems/valid-sudoku/) | [Valid Sudoku](problems/valid_sudoku.md) | Medium | Arrays & Hashing | NeetCode 150 |  |
-| [9](https://leetcode.com/problems/longest-consecutive-sequence/) | [Longest Consecutive Sequence](problems/longest_consecutive_sequence.md) | Medium | Arrays & Hashing | NeetCode 150 |  |
-| [11](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | [Two Sum II Input Array Is Sorted](problems/two_sum_ii_input_array_is_sorted.md) | Medium | Two Pointers | NeetCode 150 |  |
-| [17](https://leetcode.com/problems/longest-repeating-character-replacement/) | [Longest Repeating Character Replacement](problems/longest_repeating_character_replacement.md) | Medium | Sliding Window | NeetCode 150 |  |
-| [18](https://leetcode.com/problems/permutation-in-string/) | [Permutation In String](problems/permutation_in_string.md) | Medium | Sliding Window | NeetCode 150 |  |
-| [20](https://leetcode.com/problems/sliding-window-maximum/) | [Sliding Window Maximum](problems/sliding_window_maximum.md) | Hard | Sliding Window | NeetCode 150 |  |
-| [24](https://leetcode.com/problems/daily-temperatures/) | [Daily Temperatures](problems/daily_temperatures.md) | Medium | Stack | NeetCode 150 |  |
-| [25](https://leetcode.com/problems/car-fleet/) | [Car Fleet](problems/car_fleet.md) | Medium | Stack | NeetCode 150 |  |
-| [28](https://leetcode.com/problems/search-a-2d-matrix/) | [Search a 2D Matrix](problems/search_a_2d_matrix.md) | Medium | Binary Search | NeetCode 150 |  |
-| [29](https://leetcode.com/problems/koko-eating-bananas/) | [Koko Eating Bananas](problems/koko_eating_bananas.md) | Medium | Binary Search | NeetCode 150 |  |
-| [30](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) | [Find Minimum In Rotated Sorted Array](problems/find_minimum_in_rotated_sorted_array.md) | Medium | Binary Search | NeetCode 150 |  |
-| [33](https://leetcode.com/problems/median-of-two-sorted-arrays/) | [Median of Two Sorted Arrays](problems/median_of_two_sorted_arrays.md) | Hard | Binary Search | NeetCode 150 |  |
-| [37](https://leetcode.com/problems/reorder-list/) | [Reorder List](problems/reorder_list.md) | Medium | Linked List | NeetCode 150 |  |
-| [38](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) | [Remove Nth Node From End of List](problems/remove_nth_node_from_end_of_list.md) | Medium | Linked List | NeetCode 150 |  |
-| [39](https://leetcode.com/problems/copy-list-with-random-pointer/) | [Copy List With Random Pointer](problems/copy_list_with_random_pointer.md) | Medium | Linked List | NeetCode 150 |  |
-| [40](https://leetcode.com/problems/add-two-numbers/) | [Add Two Numbers](problems/add_two_numbers.md) | Medium | Linked List | NeetCode 150 |  |
-| [41](https://leetcode.com/problems/find-the-duplicate-number/) | [Find The Duplicate Number](problems/find_the_duplicate_number.md) | Medium | Linked List | NeetCode 150 |  |
-| [44](https://leetcode.com/problems/reverse-nodes-in-k-group/) | [Reverse Nodes In K Group](problems/reverse_nodes_in_k_group.md) | Hard | Linked List | NeetCode 150 |  |
-| [49](https://leetcode.com/problems/same-tree/) | [Same Tree](problems/same_tree.md) | Easy | Trees | NeetCode 150 |  |
-| [50](https://leetcode.com/problems/subtree-of-another-tree/) | [Subtree of Another Tree](problems/subtree_of_another_tree.md) | Easy | Trees | NeetCode 150 |  |
-| [54](https://leetcode.com/problems/count-good-nodes-in-binary-tree/) | [Count Good Nodes In Binary Tree](problems/count_good_nodes_in_binary_tree.md) | Medium | Trees | NeetCode 150 |  |
-| [60](https://leetcode.com/problems/kth-largest-element-in-a-stream/) | [Kth Largest Element In a Stream](problems/kth_largest_element_in_a_stream.md) | Easy | Heap / Priority Queue | NeetCode 150 |  |
-| [61](https://leetcode.com/problems/last-stone-weight/) | [Last Stone Weight](problems/last_stone_weight.md) | Easy | Heap / Priority Queue | NeetCode 150 |  |
-| [63](https://leetcode.com/problems/kth-largest-element-in-an-array/) | [Kth Largest Element In An Array](problems/kth_largest_element_in_an_array.md) | Medium | Heap / Priority Queue | NeetCode 150 |  |
-| [65](https://leetcode.com/problems/design-twitter/) | [Design Twitter](problems/design_twitter.md) | Medium | Heap / Priority Queue | NeetCode 150 |  |
-| [69](https://leetcode.com/problems/combination-sum-ii/) | [Combination Sum II](problems/combination_sum_ii.md) | Medium | Backtracking | NeetCode 150 |  |
-| [71](https://leetcode.com/problems/subsets-ii/) | [Subsets II](problems/subsets_ii.md) | Medium | Backtracking | NeetCode 150 |  |
-| [72](https://leetcode.com/problems/generate-parentheses/) | [Generate Parentheses](problems/generate_parentheses.md) | Medium | Backtracking | NeetCode 150 |  |
-| [74](https://leetcode.com/problems/palindrome-partitioning/) | [Palindrome Partitioning](problems/palindrome_partitioning.md) | Medium | Backtracking | NeetCode 150 |  |
-| [76](https://leetcode.com/problems/n-queens/) | [N Queens](problems/n_queens.md) | Hard | Backtracking | NeetCode 150 |  |
-| [78](https://leetcode.com/problems/design-add-and-search-words-data-structure/) | [Design Add And Search Words Data Structure](problems/design_add_and_search_words_data_structure.md) | Medium | Tries | NeetCode 150 |  |
-| [79](https://leetcode.com/problems/word-search-ii/) | [Word Search II](problems/word_search_ii.md) | Hard | Tries | NeetCode 150 |  |
-| [81](https://leetcode.com/problems/max-area-of-island/) | [Max Area of Island](problems/max_area_of_island.md) | Medium | Graphs | NeetCode 150 |  |
-| [83](https://leetcode.com/problems/walls-and-gates/) | [Walls And Gates](problems/walls_and_gates.md) | Medium | Graphs | NeetCode 150 |  |
-| [85](https://leetcode.com/problems/pacific-atlantic-water-flow/) | [Pacific Atlantic Water Flow](problems/pacific_atlantic_water_flow.md) | Medium | Graphs | NeetCode 150 |  |
-| [86](https://leetcode.com/problems/surrounded-regions/) | [Surrounded Regions](problems/surrounded_regions.md) | Medium | Graphs | NeetCode 150 |  |
-| [88](https://leetcode.com/problems/course-schedule-ii/) | [Course Schedule II](problems/course_schedule_ii.md) | Medium | Graphs | NeetCode 150 |  |
-| [89](https://leetcode.com/problems/graph-valid-tree/) | [Graph Valid Tree](problems/graph_valid_tree.md) | Medium | Graphs | NeetCode 150 |  |
-| [90](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) | [Number of Connected Components In An Undirected Graph](problems/number_of_connected_components_in_an_undirected_graph.md) | Medium | Graphs | NeetCode 150 |  |
-| [91](https://leetcode.com/problems/redundant-connection/) | [Redundant Connection](problems/redundant_connection.md) | Medium | Graphs | NeetCode 150 |  |
-| [93](https://leetcode.com/problems/network-delay-time/) | [Network Delay Time](problems/network_delay_time.md) | Medium | Advanced Graphs | NeetCode 150 |  |
-| [94](https://leetcode.com/problems/reconstruct-itinerary/) | [Reconstruct Itinerary](problems/reconstruct_itinerary.md) | Hard | Advanced Graphs | NeetCode 150 |  |
-| [95](https://leetcode.com/problems/min-cost-to-connect-all-points/) | [Min Cost to Connect All Points](problems/min_cost_to_connect_all_points.md) | Medium | Advanced Graphs | NeetCode 150 |  |
-| [96](https://leetcode.com/problems/swim-in-rising-water/) | [Swim In Rising Water](problems/swim_in_rising_water.md) | Hard | Advanced Graphs | NeetCode 150 |  |
-| [97](https://leetcode.com/problems/alien-dictionary/) | [Alien Dictionary](problems/alien_dictionary.md) | Hard | Advanced Graphs | NeetCode 150 |  |
-| [98](https://leetcode.com/problems/cheapest-flights-within-k-stops/) | [Cheapest Flights Within K Stops](problems/cheapest_flights_within_k_stops.md) | Medium | Advanced Graphs | NeetCode 150 |  |
-| [100](https://leetcode.com/problems/min-cost-climbing-stairs/) | [Min Cost Climbing Stairs](problems/min_cost_climbing_stairs.md) | Easy | 1-D Dynamic Programming | NeetCode 150 |  |
-| [101](https://leetcode.com/problems/house-robber/) | [House Robber](problems/house_robber.md) | Medium | 1-D Dynamic Programming | NeetCode 150 |  |
-| [102](https://leetcode.com/problems/house-robber-ii/) | [House Robber II](problems/house_robber_ii.md) | Medium | 1-D Dynamic Programming | NeetCode 150 |  |
-| [104](https://leetcode.com/problems/palindromic-substrings/) | [Palindromic Substrings](problems/palindromic_substrings.md) | Medium | 1-D Dynamic Programming | NeetCode 150 |  |
-| [105](https://leetcode.com/problems/decode-ways/) | [Decode Ways](problems/decode_ways.md) | Medium | 1-D Dynamic Programming | NeetCode 150 |  |
-| [107](https://leetcode.com/problems/maximum-product-subarray/) | [Maximum Product Subarray](problems/maximum_product_subarray.md) | Medium | 1-D Dynamic Programming | NeetCode 150 |  |
-| [109](https://leetcode.com/problems/longest-increasing-subsequence/) | [Longest Increasing Subsequence](problems/longest_increasing_subsequence.md) | Medium | 1-D Dynamic Programming | NeetCode 150 |  |
-| [112](https://leetcode.com/problems/longest-common-subsequence/) | [Longest Common Subsequence](problems/longest_common_subsequence.md) | Medium | 2-D Dynamic Programming | NeetCode 150 |  |
-| [113](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) | [Best Time to Buy And Sell Stock With Cooldown](problems/best_time_to_buy_and_sell_stock_with_cooldown.md) | Medium | 2-D Dynamic Programming | NeetCode 150 |  |
-| [114](https://leetcode.com/problems/coin-change-ii/) | [Coin Change II](problems/coin_change_ii.md) | Medium | 2-D Dynamic Programming | NeetCode 150 |  |
-| [115](https://leetcode.com/problems/target-sum/) | [Target Sum](problems/target_sum.md) | Medium | 2-D Dynamic Programming | NeetCode 150 |  |
-| [116](https://leetcode.com/problems/interleaving-string/) | [Interleaving String](problems/interleaving_string.md) | Medium | 2-D Dynamic Programming | NeetCode 150 |  |
-| [117](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) | [Longest Increasing Path In a Matrix](problems/longest_increasing_path_in_a_matrix.md) | Hard | 2-D Dynamic Programming | NeetCode 150 |  |
-| [118](https://leetcode.com/problems/distinct-subsequences/) | [Distinct Subsequences](problems/distinct_subsequences.md) | Hard | 2-D Dynamic Programming | NeetCode 150 |  |
-| [119](https://leetcode.com/problems/edit-distance/) | [Edit Distance](problems/edit_distance.md) | Medium | 2-D Dynamic Programming | NeetCode 150 |  |
-| [120](https://leetcode.com/problems/burst-balloons/) | [Burst Balloons](problems/burst_balloons.md) | Hard | 2-D Dynamic Programming | NeetCode 150 |  |
-| [121](https://leetcode.com/problems/regular-expression-matching/) | [Regular Expression Matching](problems/regular_expression_matching.md) | Hard | 2-D Dynamic Programming | NeetCode 150 |  |
-| [123](https://leetcode.com/problems/jump-game/) | [Jump Game](problems/jump_game.md) | Medium | Greedy | NeetCode 150 |  |
-| [124](https://leetcode.com/problems/jump-game-ii/) | [Jump Game II](problems/jump_game_ii.md) | Medium | Greedy | NeetCode 150 |  |
-| [125](https://leetcode.com/problems/gas-station/) | [Gas Station](problems/gas_station.md) | Medium | Greedy | NeetCode 150 |  |
-| [126](https://leetcode.com/problems/hand-of-straights/) | [Hand of Straights](problems/hand_of_straights.md) | Medium | Greedy | NeetCode 150 |  |
-| [127](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/) | [Merge Triplets to Form Target Triplet](problems/merge_triplets_to_form_target_triplet.md) | Medium | Greedy | NeetCode 150 |  |
-| [128](https://leetcode.com/problems/partition-labels/) | [Partition Labels](problems/partition_labels.md) | Medium | Greedy | NeetCode 150 |  |
-| [129](https://leetcode.com/problems/valid-parenthesis-string/) | [Valid Parenthesis String](problems/valid_parenthesis_string.md) | Medium | Greedy | NeetCode 150 |  |
-| [132](https://leetcode.com/problems/non-overlapping-intervals/) | [Non Overlapping Intervals](problems/non_overlapping_intervals.md) | Medium | Intervals | NeetCode 150 |  |
-| [133](https://leetcode.com/problems/meeting-rooms/) | [Meeting Rooms](problems/meeting_rooms.md) | Easy | Intervals | NeetCode 150 |  |
-| [134](https://leetcode.com/problems/meeting-rooms-ii/) | [Meeting Rooms II](problems/meeting_rooms_ii.md) | Medium | Intervals | NeetCode 150 |  |
-| [135](https://leetcode.com/problems/minimum-interval-to-include-each-query/) | [Minimum Interval to Include Each Query](problems/minimum_interval_to_include_each_query.md) | Hard | Intervals | NeetCode 150 |  |
-| [136](https://leetcode.com/problems/rotate-image/) | [Rotate Image](problems/rotate_image.md) | Medium | Math & Geometry | NeetCode 150 |  |
-| [138](https://leetcode.com/problems/set-matrix-zeroes/) | [Set Matrix Zeroes](problems/set_matrix_zeroes.md) | Medium | Math & Geometry | NeetCode 150 |  |
-| [139](https://leetcode.com/problems/happy-number/) | [Happy Number](problems/happy_number.md) | Easy | Math & Geometry | NeetCode 150 |  |
-| [140](https://leetcode.com/problems/plus-one/) | [Plus One](problems/plus_one.md) | Easy | Math & Geometry | NeetCode 150 |  |
-| [141](https://leetcode.com/problems/powx-n/) | [Pow(x, n)](problems/powx_n.md) | Medium | Math & Geometry | NeetCode 150 |  |
-| [142](https://leetcode.com/problems/multiply-strings/) | [Multiply Strings](problems/multiply_strings.md) | Medium | Math & Geometry | NeetCode 150 |  |
-| [143](https://leetcode.com/problems/detect-squares/) | [Detect Squares](problems/detect_squares.md) | Medium | Math & Geometry | NeetCode 150 |  |
-| [144](https://leetcode.com/problems/single-number/) | [Single Number](problems/single_number.md) | Easy | Bit Manipulation | NeetCode 150 |  |
-| [145](https://leetcode.com/problems/number-of-1-bits/) | [Number of 1 Bits](problems/number_of_1_bits.md) | Easy | Bit Manipulation | NeetCode 150 |  |
-| [146](https://leetcode.com/problems/counting-bits/) | [Counting Bits](problems/counting_bits.md) | Easy | Bit Manipulation | NeetCode 150 |  |
-| [147](https://leetcode.com/problems/reverse-bits/) | [Reverse Bits](problems/reverse_bits.md) | Easy | Bit Manipulation | NeetCode 150 |  |
-| [148](https://leetcode.com/problems/missing-number/) | [Missing Number](problems/missing_number.md) | Easy | Bit Manipulation | NeetCode 150 |  |
-| [149](https://leetcode.com/problems/sum-of-two-integers/) | [Sum of Two Integers](problems/sum_of_two_integers.md) | Medium | Bit Manipulation | NeetCode 150 |  |
-| [150](https://leetcode.com/problems/reverse-integer/) | [Reverse Integer](problems/reverse_integer.md) | Medium | Bit Manipulation | NeetCode 150 |  |
+| 1 | [Two Sum](problems/two_sum.md) | Easy | Array, Hash Table | Grind 75 + NeetCode 150 | 15 minutes |
+| 2 | [Valid Parentheses](problems/valid_parentheses.md) | Easy | Stack, String | Grind 75 + NeetCode 150 | 20 minutes |
+| 3 | [Merge Two Sorted Lists](problems/merge_two_sorted_lists.md) | Easy | Linked List | Grind 75 + NeetCode 150 | 20 minutes |
+| 4 | [Best Time to Buy and Sell Stock](problems/best_time_to_buy_and_sell_stock.md) | Easy | Array | Grind 75 + NeetCode 150 | 20 minutes |
+| 5 | [Valid Palindrome](problems/valid_palindrome.md) | Easy | String | Grind 75 + NeetCode 150 | 15 minutes |
+| 6 | [Invert Binary Tree](problems/invert_binary_tree.md) | Easy | Tree | Grind 75 + NeetCode 150 | 15 minutes |
+| 7 | [Valid Anagram](problems/valid_anagram.md) | Easy | String | Grind 75 + NeetCode 150 | 15 minutes |
+| 8 | [Binary Search](problems/binary_search.md) | Easy | Binary Search | Grind 75 + NeetCode 150 | 15 minutes |
+| 9 | [Flood Fill](problems/flood_fill.md) | Easy | Graph, DFS | Grind 75 | 20 minutes |
+| 10 | [Lowest Common Ancestor of a BST](problems/lowest_common_ancestor_of_a_binary_search_tree.md) | Medium | Tree | Grind 75 + NeetCode 150 | 20 minutes |
+| 11 | [Balanced Binary Tree](problems/balanced_binary_tree.md) | Easy | Tree | Grind 75 + NeetCode 150 | 15 minutes |
+| 12 | [Linked List Cycle](problems/linked_list_cycle.md) | Easy | Linked List | Grind 75 + NeetCode 150 | 20 minutes |
+| 13 | [Implement Queue using Stacks](problems/implement_queue_using_stacks.md) | Easy | Stack | Grind 75 | 20 minutes |
+| 14 | [First Bad Version](problems/first_bad_version.md) | Easy | Binary Search | Grind 75 | 20 minutes |
+| 15 | [Ransom Note](problems/ransom_note.md) | Easy | Hash Table | Grind 75 | 15 minutes |
+| 16 | [Climbing Stairs](problems/climbing_stairs.md) | Easy | Dynamic Programming | Grind 75 + NeetCode 150 | 20 minutes |
+| 17 | [Longest Palindrome](problems/longest_palindrome.md) | Easy | String | Grind 75 | 20 minutes |
+| 18 | [Reverse Linked List](problems/reverse_linked_list.md) | Easy | Linked List | Grind 75 + NeetCode 150 | 20 minutes |
+| 19 | [Majority Element](problems/majority_element.md) | Easy | Array | Grind 75 | 20 minutes |
+| 20 | [Add Binary](problems/add_binary.md) | Easy | String | Grind 75 | 15 minutes |
+| 21 | [Diameter of Binary Tree](problems/diameter_of_binary_tree.md) | Easy | Tree | Grind 75 + NeetCode 150 | 30 minutes |
+| 22 | [Middle of the Linked List](problems/middle_of_the_linked_list.md) | Easy | Linked List | Grind 75 | 20 minutes |
+| 23 | [Maximum Depth of Binary Tree](problems/maximum_depth_of_binary_tree.md) | Easy | Tree | Grind 75 + NeetCode 150 | 15 minutes |
+| 24 | [Contains Duplicate](problems/contains_duplicate.md) | Easy | Array | Grind 75 + NeetCode 150 | 15 minutes |
+| 25 | [Maximum Subarray](problems/maximum_subarray.md) | Medium | Array, Dynamic Programming | Grind 75 + NeetCode 150 | 20 minutes |
+| 26 | [Insert Interval](problems/insert_interval.md) | Medium | Array | Grind 75 + NeetCode 150 | 25 minutes |
+| 27 | [01 Matrix](problems/01_matrix.md) | Medium | BFS | Grind 75 | 30 minutes |
+| 28 | [K Closest Points to Origin](problems/k_closest_points_to_origin.md) | Medium | Heap | Grind 75 + NeetCode 150 | 30 minutes |
+| 29 | [Longest Substring Without Repeating Characters](problems/longest_substring_without_repeating_characters.md) | Medium | String | Grind 75 + NeetCode 150 · Amazon OA | 30 minutes |
+| 30 | [3Sum](problems/3sum.md) | Medium | Array | Grind 75 + NeetCode 150 | 30 minutes |
+| 31 | [Binary Tree Level Order Traversal](problems/binary_tree_level_order_traversal.md) | Medium | Tree | Grind 75 + NeetCode 150 | 20 minutes |
+| 32 | [Clone Graph](problems/clone_graph.md) | Medium | Graph | Grind 75 + NeetCode 150 | 25 minutes |
+| 33 | [Evaluate Reverse Polish Notation](problems/evaluate_reverse_polish_notation.md) | Medium | Stack | Grind 75 + NeetCode 150 | 30 minutes |
+| 34 | [Course Schedule](problems/course_schedule.md) | Medium | Graph | Grind 75 + NeetCode 150 · Amazon OA | 30 minutes |
+| 35 | [Implement Trie (Prefix Tree)](problems/implement_trie_prefix_tree.md) | Medium | Trie | Grind 75 + NeetCode 150 | 35 minutes |
+| 36 | [Coin Change](problems/coin_change.md) | Medium | Dynamic Programming | Grind 75 + NeetCode 150 | 25 minutes |
+| 37 | [Product of Array Except Self](problems/product_of_array_except_self.md) | Medium | Array | Grind 75 + NeetCode 150 | 30 minutes |
+| 38 | [Minimum Stack](problems/min_stack.md) | Medium | Stack | Grind 75 + NeetCode 150 | 20 minutes |
+| 39 | [Validate Binary Search Tree](problems/validate_binary_search_tree.md) | Medium | Tree | Grind 75 + NeetCode 150 | 20 minutes |
+| 40 | [Number of Islands](problems/number_of_islands.md) | Medium | Graph | Grind 75 + NeetCode 150 | 25 minutes |
+| 41 | [Rotting Oranges](problems/rotting_oranges.md) | Medium | BFS | Grind 75 + NeetCode 150 | 30 minutes |
+| 42 | [Search in Rotated Sorted Array](problems/search_in_rotated_sorted_array.md) | Medium | Binary Search | Grind 75 + NeetCode 150 | 30 minutes |
+| 43 | [Combination Sum](problems/combination_sum.md) | Medium | Backtracking | Grind 75 + NeetCode 150 | 30 minutes |
+| 44 | [Permutations](problems/permutations.md) | Medium | Backtracking | Grind 75 + NeetCode 150 | 30 minutes |
+| 45 | [Merge Intervals](problems/merge_intervals.md) | Medium | Sorting | Grind 75 + NeetCode 150 · Amazon OA | 30 minutes |
+| 46 | [Lowest Common Ancestor of a Binary Tree](problems/lowest_common_ancestor_of_a_binary_tree.md) | Medium | Tree | Grind 75 | 25 minutes |
+| 47 | [Time Based Key-Value Store](problems/time_based_key_value_store.md) | Medium | Binary Search | Grind 75 + NeetCode 150 | 35 minutes |
+| 48 | [Accounts Merge](problems/accounts_merge.md) | Medium | Graph | Grind 75 | 30 minutes |
+| 49 | [Sort Colors](problems/sort_colors.md) | Medium | Array | Grind 75 | 25 minutes |
+| 50 | [Word Break](problems/word_break.md) | Medium | Dynamic Programming | Grind 75 + NeetCode 150 · Amazon OA | 30 minutes |
+| 51 | [Partition Equal Subset Sum](problems/partition_equal_subset_sum.md) | Medium | Dynamic Programming | Grind 75 + NeetCode 150 | 30 minutes |
+| 52 | [String to Integer (atoi)](problems/string_to_integer_atoi.md) | Medium | String | Grind 75 | 25 minutes |
+| 53 | [Spiral Matrix](problems/spiral_matrix.md) | Medium | Array | Grind 75 + NeetCode 150 | 25 minutes |
+| 54 | [Subsets](problems/subsets.md) | Medium | Backtracking | Grind 75 + NeetCode 150 | 30 minutes |
+| 55 | [Binary Tree Right Side View](problems/binary_tree_right_side_view.md) | Medium | Tree | Grind 75 + NeetCode 150 | 20 minutes |
+| 56 | [Longest Palindromic Substring](problems/longest_palindromic_substring.md) | Medium | String | Grind 75 + NeetCode 150 | 25 minutes |
+| 57 | [Unique Paths](problems/unique_paths.md) | Medium | Dynamic Programming | Grind 75 + NeetCode 150 | 20 minutes |
+| 58 | [Construct Binary Tree from Preorder and Inorder Traversal](problems/construct_binary_tree_from_preorder_and_inorder_traversal.md) | Medium | Tree | Grind 75 + NeetCode 150 | 25 minutes |
+| 59 | [Container With Most Water](problems/container_with_most_water.md) | Medium | Array | Grind 75 + NeetCode 150 · Amazon OA | 35 minutes |
+| 60 | [Letter Combinations of a Phone Number](problems/letter_combinations_of_a_phone_number.md) | Medium | Backtracking | Grind 75 + NeetCode 150 | 30 minutes |
+| 61 | [Word Search](problems/word_search.md) | Medium | Backtracking | Grind 75 + NeetCode 150 | 30 minutes |
+| 62 | [Find All Anagrams in a String](problems/find_all_anagrams_in_a_string.md) | Medium | String | Grind 75 | 30 minutes |
+| 63 | [Minimum Height Trees](problems/minimum_height_trees.md) | Medium | Graph | Grind 75 | 30 minutes |
+| 64 | [Task Scheduler](problems/task_scheduler.md) | Medium | Heap | Grind 75 + NeetCode 150 · Amazon OA | 35 minutes |
+| 65 | [LRU Cache](problems/lru_cache.md) | Medium | Linked List | Grind 75 + NeetCode 150 | 30 minutes |
+| 66 | [Kth Smallest Element in a BST](problems/kth_smallest_element_in_a_bst.md) | Medium | Tree | Grind 75 + NeetCode 150 | 25 minutes |
+| 67 | [Minimum Window Substring](problems/minimum_window_substring.md) | Hard | String | Grind 75 + NeetCode 150 · Amazon OA | 30 minutes |
+| 68 | [Serialize and Deserialize Binary Tree](problems/serialize_and_deserialize_binary_tree.md) | Hard | Tree | Grind 75 + NeetCode 150 | 40 minutes |
+| 69 | [Trapping Rain Water](problems/trapping_rain_water.md) | Hard | Stack | Grind 75 + NeetCode 150 · Amazon OA | 35 minutes |
+| 70 | [Find Median from Data Stream](problems/find_median_from_data_stream.md) | Hard | Heap | Grind 75 + NeetCode 150 · Amazon OA | 30 minutes |
+| 71 | [Word Ladder](problems/word_ladder.md) | Hard | BFS | Grind 75 + NeetCode 150 | 45 minutes |
+| 72 | [Basic Calculator](problems/basic_calculator.md) | Hard | Stack | Grind 75 | 40 minutes |
+| 73 | [Maximum Profit in Job Scheduling](problems/maximum_profit_in_job_scheduling.md) | Hard | Binary Search | Grind 75 | 45 minutes |
+| 74 | [Merge k Sorted Lists](problems/merge_k_sorted_lists.md) | Hard | Linked List | Grind 75 + NeetCode 150 · Amazon OA | 30 minutes |
+| 75 | [Largest Rectangle in Histogram](problems/largest_rectangle_in_histogram.md) | Hard | Stack | Grind 75 + NeetCode 150 | 35 minutes |
+| 76 | [Binary Tree Maximum Path Sum](problems/binary_tree_maximum_path_sum.md) | - | - | Grind 75 + NeetCode 150 | - |
+| 77 | [Maximum Frequency Stack](problems/maximum_frequency_stack.md) | - | - | Grind 75 | - |
+| 78 | [Group Anagrams](problems/group_anagrams.md) | Medium | Arrays & Hashing | NeetCode 150 · Amazon OA |  |
+| 79 | [Top K Frequent Elements](problems/top_k_frequent_elements.md) | Medium | Arrays & Hashing | NeetCode 150 |  |
+| 80 | [Encode and Decode Strings](problems/encode_and_decode_strings.md) | Medium | Arrays & Hashing | NeetCode 150 |  |
+| 81 | [Valid Sudoku](problems/valid_sudoku.md) | Medium | Arrays & Hashing | NeetCode 150 |  |
+| 82 | [Longest Consecutive Sequence](problems/longest_consecutive_sequence.md) | Medium | Arrays & Hashing | NeetCode 150 |  |
+| 83 | [Two Sum II Input Array Is Sorted](problems/two_sum_ii_input_array_is_sorted.md) | Medium | Two Pointers | NeetCode 150 |  |
+| 84 | [Longest Repeating Character Replacement](problems/longest_repeating_character_replacement.md) | Medium | Sliding Window | NeetCode 150 |  |
+| 85 | [Permutation In String](problems/permutation_in_string.md) | Medium | Sliding Window | NeetCode 150 |  |
+| 86 | [Sliding Window Maximum](problems/sliding_window_maximum.md) | Hard | Sliding Window | NeetCode 150 · Amazon OA |  |
+| 87 | [Daily Temperatures](problems/daily_temperatures.md) | Medium | Stack | NeetCode 150 |  |
+| 88 | [Car Fleet](problems/car_fleet.md) | Medium | Stack | NeetCode 150 |  |
+| 89 | [Search a 2D Matrix](problems/search_a_2d_matrix.md) | Medium | Binary Search | NeetCode 150 |  |
+| 90 | [Koko Eating Bananas](problems/koko_eating_bananas.md) | Medium | Binary Search | NeetCode 150 |  |
+| 91 | [Find Minimum In Rotated Sorted Array](problems/find_minimum_in_rotated_sorted_array.md) | Medium | Binary Search | NeetCode 150 |  |
+| 92 | [Median of Two Sorted Arrays](problems/median_of_two_sorted_arrays.md) | Hard | Binary Search | NeetCode 150 |  |
+| 93 | [Reorder List](problems/reorder_list.md) | Medium | Linked List | NeetCode 150 |  |
+| 94 | [Remove Nth Node From End of List](problems/remove_nth_node_from_end_of_list.md) | Medium | Linked List | NeetCode 150 |  |
+| 95 | [Copy List With Random Pointer](problems/copy_list_with_random_pointer.md) | Medium | Linked List | NeetCode 150 |  |
+| 96 | [Add Two Numbers](problems/add_two_numbers.md) | Medium | Linked List | NeetCode 150 |  |
+| 97 | [Find The Duplicate Number](problems/find_the_duplicate_number.md) | Medium | Linked List | NeetCode 150 |  |
+| 98 | [Reverse Nodes In K Group](problems/reverse_nodes_in_k_group.md) | Hard | Linked List | NeetCode 150 |  |
+| 99 | [Same Tree](problems/same_tree.md) | Easy | Trees | NeetCode 150 |  |
+| 100 | [Subtree of Another Tree](problems/subtree_of_another_tree.md) | Easy | Trees | NeetCode 150 |  |
+| 101 | [Count Good Nodes In Binary Tree](problems/count_good_nodes_in_binary_tree.md) | Medium | Trees | NeetCode 150 |  |
+| 102 | [Kth Largest Element In a Stream](problems/kth_largest_element_in_a_stream.md) | Easy | Heap / Priority Queue | NeetCode 150 |  |
+| 103 | [Last Stone Weight](problems/last_stone_weight.md) | Easy | Heap / Priority Queue | NeetCode 150 |  |
+| 104 | [Kth Largest Element In An Array](problems/kth_largest_element_in_an_array.md) | Medium | Heap / Priority Queue | NeetCode 150 |  |
+| 105 | [Design Twitter](problems/design_twitter.md) | Medium | Heap / Priority Queue | NeetCode 150 |  |
+| 106 | [Combination Sum II](problems/combination_sum_ii.md) | Medium | Backtracking | NeetCode 150 |  |
+| 107 | [Subsets II](problems/subsets_ii.md) | Medium | Backtracking | NeetCode 150 |  |
+| 108 | [Generate Parentheses](problems/generate_parentheses.md) | Medium | Backtracking | NeetCode 150 |  |
+| 109 | [Palindrome Partitioning](problems/palindrome_partitioning.md) | Medium | Backtracking | NeetCode 150 |  |
+| 110 | [N Queens](problems/n_queens.md) | Hard | Backtracking | NeetCode 150 |  |
+| 111 | [Design Add And Search Words Data Structure](problems/design_add_and_search_words_data_structure.md) | Medium | Tries | NeetCode 150 |  |
+| 112 | [Word Search II](problems/word_search_ii.md) | Hard | Tries | NeetCode 150 · Amazon OA |  |
+| 113 | [Max Area of Island](problems/max_area_of_island.md) | Medium | Graphs | NeetCode 150 |  |
+| 114 | [Walls And Gates](problems/walls_and_gates.md) | Medium | Graphs | NeetCode 150 |  |
+| 115 | [Pacific Atlantic Water Flow](problems/pacific_atlantic_water_flow.md) | Medium | Graphs | NeetCode 150 |  |
+| 116 | [Surrounded Regions](problems/surrounded_regions.md) | Medium | Graphs | NeetCode 150 |  |
+| 117 | [Course Schedule II](problems/course_schedule_ii.md) | Medium | Graphs | NeetCode 150 · Amazon OA |  |
+| 118 | [Graph Valid Tree](problems/graph_valid_tree.md) | Medium | Graphs | NeetCode 150 |  |
+| 119 | [Number of Connected Components In An Undirected Graph](problems/number_of_connected_components_in_an_undirected_graph.md) | Medium | Graphs | NeetCode 150 |  |
+| 120 | [Redundant Connection](problems/redundant_connection.md) | Medium | Graphs | NeetCode 150 |  |
+| 121 | [Network Delay Time](problems/network_delay_time.md) | Medium | Advanced Graphs | NeetCode 150 |  |
+| 122 | [Reconstruct Itinerary](problems/reconstruct_itinerary.md) | Hard | Advanced Graphs | NeetCode 150 |  |
+| 123 | [Min Cost to Connect All Points](problems/min_cost_to_connect_all_points.md) | Medium | Advanced Graphs | NeetCode 150 |  |
+| 124 | [Swim In Rising Water](problems/swim_in_rising_water.md) | Hard | Advanced Graphs | NeetCode 150 |  |
+| 125 | [Alien Dictionary](problems/alien_dictionary.md) | Hard | Advanced Graphs | NeetCode 150 |  |
+| 126 | [Cheapest Flights Within K Stops](problems/cheapest_flights_within_k_stops.md) | Medium | Advanced Graphs | NeetCode 150 · Amazon OA |  |
+| 127 | [Min Cost Climbing Stairs](problems/min_cost_climbing_stairs.md) | Easy | 1-D Dynamic Programming | NeetCode 150 |  |
+| 128 | [House Robber](problems/house_robber.md) | Medium | 1-D Dynamic Programming | NeetCode 150 |  |
+| 129 | [House Robber II](problems/house_robber_ii.md) | Medium | 1-D Dynamic Programming | NeetCode 150 |  |
+| 130 | [Palindromic Substrings](problems/palindromic_substrings.md) | Medium | 1-D Dynamic Programming | NeetCode 150 |  |
+| 131 | [Decode Ways](problems/decode_ways.md) | Medium | 1-D Dynamic Programming | NeetCode 150 |  |
+| 132 | [Maximum Product Subarray](problems/maximum_product_subarray.md) | Medium | 1-D Dynamic Programming | NeetCode 150 |  |
+| 133 | [Longest Increasing Subsequence](problems/longest_increasing_subsequence.md) | Medium | 1-D Dynamic Programming | NeetCode 150 |  |
+| 134 | [Longest Common Subsequence](problems/longest_common_subsequence.md) | Medium | 2-D Dynamic Programming | NeetCode 150 |  |
+| 135 | [Best Time to Buy And Sell Stock With Cooldown](problems/best_time_to_buy_and_sell_stock_with_cooldown.md) | Medium | 2-D Dynamic Programming | NeetCode 150 |  |
+| 136 | [Coin Change II](problems/coin_change_ii.md) | Medium | 2-D Dynamic Programming | NeetCode 150 |  |
+| 137 | [Target Sum](problems/target_sum.md) | Medium | 2-D Dynamic Programming | NeetCode 150 |  |
+| 138 | [Interleaving String](problems/interleaving_string.md) | Medium | 2-D Dynamic Programming | NeetCode 150 · Amazon OA |  |
+| 139 | [Longest Increasing Path In a Matrix](problems/longest_increasing_path_in_a_matrix.md) | Hard | 2-D Dynamic Programming | NeetCode 150 |  |
+| 140 | [Distinct Subsequences](problems/distinct_subsequences.md) | Hard | 2-D Dynamic Programming | NeetCode 150 |  |
+| 141 | [Edit Distance](problems/edit_distance.md) | Medium | 2-D Dynamic Programming | NeetCode 150 |  |
+| 142 | [Burst Balloons](problems/burst_balloons.md) | Hard | 2-D Dynamic Programming | NeetCode 150 |  |
+| 143 | [Regular Expression Matching](problems/regular_expression_matching.md) | Hard | 2-D Dynamic Programming | NeetCode 150 |  |
+| 144 | [Jump Game](problems/jump_game.md) | Medium | Greedy | NeetCode 150 |  |
+| 145 | [Jump Game II](problems/jump_game_ii.md) | Medium | Greedy | NeetCode 150 |  |
+| 146 | [Gas Station](problems/gas_station.md) | Medium | Greedy | NeetCode 150 |  |
+| 147 | [Hand of Straights](problems/hand_of_straights.md) | Medium | Greedy | NeetCode 150 |  |
+| 148 | [Merge Triplets to Form Target Triplet](problems/merge_triplets_to_form_target_triplet.md) | Medium | Greedy | NeetCode 150 |  |
+| 149 | [Partition Labels](problems/partition_labels.md) | Medium | Greedy | NeetCode 150 |  |
+| 150 | [Valid Parenthesis String](problems/valid_parenthesis_string.md) | Medium | Greedy | NeetCode 150 |  |
+| 151 | [Non Overlapping Intervals](problems/non_overlapping_intervals.md) | Medium | Intervals | NeetCode 150 |  |
+| 152 | [Meeting Rooms](problems/meeting_rooms.md) | Easy | Intervals | NeetCode 150 |  |
+| 153 | [Meeting Rooms II](problems/meeting_rooms_ii.md) | Medium | Intervals | NeetCode 150 · Amazon OA |  |
+| 154 | [Minimum Interval to Include Each Query](problems/minimum_interval_to_include_each_query.md) | Hard | Intervals | NeetCode 150 |  |
+| 155 | [Rotate Image](problems/rotate_image.md) | Medium | Math & Geometry | NeetCode 150 |  |
+| 156 | [Set Matrix Zeroes](problems/set_matrix_zeroes.md) | Medium | Math & Geometry | NeetCode 150 |  |
+| 157 | [Happy Number](problems/happy_number.md) | Easy | Math & Geometry | NeetCode 150 |  |
+| 158 | [Plus One](problems/plus_one.md) | Easy | Math & Geometry | NeetCode 150 |  |
+| 159 | [Pow(x, n)](problems/powx_n.md) | Medium | Math & Geometry | NeetCode 150 |  |
+| 160 | [Multiply Strings](problems/multiply_strings.md) | Medium | Math & Geometry | NeetCode 150 |  |
+| 161 | [Detect Squares](problems/detect_squares.md) | Medium | Math & Geometry | NeetCode 150 |  |
+| 162 | [Single Number](problems/single_number.md) | Easy | Bit Manipulation | NeetCode 150 |  |
+| 163 | [Number of 1 Bits](problems/number_of_1_bits.md) | Easy | Bit Manipulation | NeetCode 150 |  |
+| 164 | [Counting Bits](problems/counting_bits.md) | Easy | Bit Manipulation | NeetCode 150 |  |
+| 165 | [Reverse Bits](problems/reverse_bits.md) | Easy | Bit Manipulation | NeetCode 150 |  |
+| 166 | [Missing Number](problems/missing_number.md) | Easy | Bit Manipulation | NeetCode 150 |  |
+| 167 | [Sum of Two Integers](problems/sum_of_two_integers.md) | Medium | Bit Manipulation | NeetCode 150 |  |
+| 168 | [Reverse Integer](problems/reverse_integer.md) | Medium | Bit Manipulation | NeetCode 150 |  |
+
+Rows marked · Amazon OA also appear in the [Amazon OA bank](problems/amazon_oa/index.md).
 <!-- unified-leetcode:end -->
 
 

@@ -106,6 +106,29 @@ def fixture_amazon():
     ]
 
 
+EXPECTED_AMAZON_OVERLAP_LC_SLUGS = frozenset(
+    {
+        "cheapest-flights-within-k-stops",
+        "container-with-most-water",
+        "course-schedule",
+        "course-schedule-ii",
+        "find-median-from-data-stream",
+        "group-anagrams",
+        "interleaving-string",
+        "longest-substring-without-repeating-characters",
+        "meeting-rooms-ii",
+        "merge-intervals",
+        "merge-k-sorted-lists",
+        "minimum-window-substring",
+        "sliding-window-maximum",
+        "task-scheduler",
+        "trapping-rain-water",
+        "word-break",
+        "word-search-ii",
+    }
+)
+
+
 def write_json(tmp_path, name, payload):
     path = tmp_path / name
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
@@ -168,6 +191,61 @@ def valid_amazon(count=gen.AMAZON_ROW_COUNT):
         }
         for n in range(count, 0, -1)
     ]
+
+
+def amazon_entry_for(lc_slug):
+    """A synthetic Amazon OA entry whose slug mirrors a LeetCode slug."""
+    return {
+        "slug": f"{gen.AMAZON_SLUG_PREFIX}{lc_slug}",
+        "title": f"Amazon {lc_slug}",
+        "url": f"https://www.fastprep.io/problems/{gen.AMAZON_SLUG_PREFIX}{lc_slug}",
+        "companies": ["Amazon"],
+        "updated": "2026-09-17",
+        "parse_status": "parsed-with-cases",
+    }
+
+
+def render_fixture_section(amazon=None):
+    """Render the unified section for the synthetic fixtures.
+
+    Args:
+        amazon: Amazon manifest override (default: fixture_amazon(), which
+            matches nothing on the synthetic track).
+
+    Returns:
+        The rendered unified section text.
+    """
+    neetcode = fixture_neetcode()
+    amazon = fixture_amazon() if amazon is None else amazon
+    rows = gen.merge_tracks(fixture_grind(), neetcode)
+    overlap = gen.amazon_overlap_lc_slugs(neetcode, amazon)
+    return gen.render_unified_section(rows, overlap)
+
+
+def unified_table_rows(section):
+    """Extract the table row lines (excluding the header) from a section."""
+    return [
+        line
+        for line in section.splitlines()
+        if line.startswith("| ") and not line.startswith("| #")
+    ]
+
+
+def row_number(line):
+    """Parse the continuous row number from a table row line."""
+    return int(line.split("|")[1].strip())
+
+
+def unified_row_lc_slug(line):
+    """Parse the LeetCode slug from a row's Problem cell link.
+
+    Write-up paths use the dirSlug form (underscores); the overlap set
+    speaks lcSlug (hyphens), so the slug converts back per the repo-wide
+    dirSlug = lcSlug.replace("-", "_") convention.
+    """
+    problem_cell = line.split("|")[2].strip()
+    url = problem_cell[problem_cell.index("(") + 1 : problem_cell.index(")")]
+    return url.rstrip("/").rsplit("/", 1)[1].removesuffix(".md").replace("_", "-")
 
 
 # ---------------------------------------------------------------------------
@@ -334,7 +412,6 @@ def test_merge_tracks_keeps_grind_metadata_for_overlap_rows():
     assert min_stack["difficulty"] == "Medium"
     assert min_stack["category"] == "Stack"
     assert min_stack["time"] == "20 minutes"
-    assert min_stack["number"] == 2
 
 
 def test_merge_tracks_leaves_time_empty_for_neetcode_only_rows():
@@ -347,7 +424,35 @@ def test_merge_tracks_uses_the_neetcode_section_as_category_for_neetcode_only_ro
     rows = gen.merge_tracks(fixture_grind(), fixture_neetcode())
     jump_game = next(row for row in rows if row["slug"] == "jump-game")
     assert jump_game["category"] == "Greedy"
-    assert jump_game["number"] == 7
+
+
+# ---------------------------------------------------------------------------
+# The Amazon overlap rule
+# ---------------------------------------------------------------------------
+
+
+def test_amazon_overlap_lc_slugs_strips_the_amazon_prefix_and_matches_lc_slugs():
+    amazon = fixture_amazon() + [amazon_entry_for("min-stack")]
+    assert gen.amazon_overlap_lc_slugs(fixture_neetcode(), amazon) == {"min-stack"}
+
+
+def test_amazon_overlap_lc_slugs_ignores_amazon_slugs_outside_the_track():
+    amazon = fixture_amazon() + [amazon_entry_for("flood-fill")]
+    assert gen.amazon_overlap_lc_slugs(fixture_neetcode(), amazon) == set()
+
+
+def test_amazon_overlap_lc_slugs_ignores_entries_without_the_amazon_prefix():
+    entry = amazon_entry_for("min-stack")
+    entry["slug"] = "min-stack"
+    assert gen.amazon_overlap_lc_slugs(fixture_neetcode(), [entry]) == set()
+
+
+def test_committed_amazon_overlap_rule_yields_exactly_the_17_listed_problems():
+    overlap = gen.amazon_overlap_lc_slugs(
+        gen.load_neetcode_manifest(NEETCODE_MANIFEST_PATH),
+        gen.load_amazon_manifest(AMAZON_MANIFEST_PATH),
+    )
+    assert overlap == EXPECTED_AMAZON_OVERLAP_LC_SLUGS
 
 
 # ---------------------------------------------------------------------------
@@ -367,12 +472,21 @@ def test_committed_merge_yields_the_expected_universe_split():
     assert gen.UNIQUE_PROBLEM_COUNT == gen.GRIND_ROW_COUNT + gen.NEETCODE_ONLY_COUNT
 
 
+def committed_section():
+    """Render the unified section from the committed data sources.
+
+    Returns:
+        The rendered unified section text with the committed Amazon overlap.
+    """
+    grind = gen.load_grind_table(GRIND_TABLE_PATH)
+    neetcode = gen.load_neetcode_manifest(NEETCODE_MANIFEST_PATH)
+    amazon = gen.load_amazon_manifest(AMAZON_MANIFEST_PATH)
+    rows = gen.merge_tracks(grind, neetcode)
+    return gen.render_unified_section(rows, gen.amazon_overlap_lc_slugs(neetcode, amazon))
+
+
 def test_committed_unified_section_states_the_merge_counts():
-    rows = gen.merge_tracks(
-        gen.load_grind_table(GRIND_TABLE_PATH),
-        gen.load_neetcode_manifest(NEETCODE_MANIFEST_PATH),
-    )
-    section = gen.render_unified_section(rows)
+    section = committed_section()
     assert str(gen.UNIQUE_PROBLEM_COUNT) in section
     assert str(gen.OVERLAP_COUNT) in section
 
@@ -394,29 +508,62 @@ def test_committed_merge_first_and_last_rows_follow_the_contract():
 
 
 def test_render_unified_section_emits_the_marker_bounded_six_column_table():
-    section = gen.render_unified_section(gen.merge_tracks(fixture_grind(), fixture_neetcode()))
+    section = render_fixture_section()
     assert section.startswith(gen.UNIFIED_SECTION_START)
     assert section.rstrip().endswith(gen.UNIFIED_SECTION_END)
     assert "## Problem List" in section
     assert "| # | Problem | Difficulty | Category | Tracks | Time |" in section
-    row = [line for line in section.splitlines() if "two-sum" in line][0]
+    row = [line for line in section.splitlines() if "two_sum" in line][0]
     assert row == (
-        "| [1](https://leetcode.com/problems/two-sum/) "
+        "| 1 "
         "| [Two Sum](problems/two_sum.md) | Easy | Array, Hash Table "
         "| Grind 75 + NeetCode 150 | 15 minutes |"
     )
 
 
-def test_render_unified_section_renders_unnumbered_rows_with_a_dash():
-    section = gen.render_unified_section(gen.merge_tracks(fixture_grind(), fixture_neetcode()))
-    row = [line for line in section.splitlines() if "flood_fill" in line][0]
-    assert row == "| - | [Flood Fill](problems/flood_fill.md) | Easy | Graph, DFS | Grind 75 | 20 minutes |"
+def test_render_unified_section_numbers_rows_continuously_in_emitted_order():
+    section = render_fixture_section()
+    rows = unified_table_rows(section)
+    assert [row_number(row) for row in rows] == [1, 2, 3, 4]
 
 
-def test_render_unified_section_leaves_neetcode_only_time_cells_empty():
-    section = gen.render_unified_section(gen.merge_tracks(fixture_grind(), fixture_neetcode()))
-    row = [line for line in section.splitlines() if "jump-game" in line][0]
-    assert row.endswith("| NeetCode 150 |  |")
+def test_committed_unified_section_numbers_rows_one_through_168_with_no_gaps_or_dupes():
+    rows = unified_table_rows(committed_section())
+    assert len(rows) == gen.UNIQUE_PROBLEM_COUNT
+    assert [row_number(row) for row in rows] == list(
+        range(1, gen.UNIQUE_PROBLEM_COUNT + 1)
+    )
+
+
+def test_render_unified_section_appends_the_amazon_marker_to_overlapping_rows():
+    amazon = fixture_amazon() + [amazon_entry_for("min-stack")]
+    section = render_fixture_section(amazon=amazon)
+    min_stack = [line for line in section.splitlines() if "min_stack" in line][0]
+    assert min_stack.endswith(f"| Grind 75 + NeetCode 150 {gen.AMAZON_MARKER} | 20 minutes |")
+    two_sum = [line for line in section.splitlines() if "two_sum" in line][0]
+    assert gen.AMAZON_MARKER not in two_sum
+
+
+def test_render_unified_section_marks_exactly_the_17_committed_amazon_overlap_rows():
+    rows = unified_table_rows(committed_section())
+    marked_slugs = {
+        unified_row_lc_slug(row) for row in rows if gen.AMAZON_MARKER in row
+    }
+    assert marked_slugs == EXPECTED_AMAZON_OVERLAP_LC_SLUGS
+    assert sum(gen.AMAZON_MARKER in row for row in rows) == 17
+
+
+def test_render_unified_section_excludes_grind_only_amazon_matches_from_the_marker():
+    amazon = fixture_amazon() + [amazon_entry_for("flood-fill")]
+    section = render_fixture_section(amazon=amazon)
+    flood_fill = [line for line in section.splitlines() if "flood_fill" in line][0]
+    assert gen.AMAZON_MARKER not in flood_fill
+
+
+def test_render_unified_section_carries_the_amazon_legend():
+    section = render_fixture_section(amazon=fixture_amazon() + [amazon_entry_for("min-stack")])
+    assert gen.AMAZON_LEGEND in section
+    assert "problems/amazon_oa/index.md" in section
 
 
 def test_render_amazon_section_lists_rows_most_recent_first():

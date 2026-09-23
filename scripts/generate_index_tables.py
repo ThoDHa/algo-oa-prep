@@ -8,8 +8,13 @@ Pipeline:
      bank, most recently updated first).
   2. Merge the two LeetCode tracks into one unified table: 168 unique
      problems, 59 of them on both tracks (one row, both credited), Grind 75
-     order first, then the NeetCode-only problems in track order.
-  3. Emit three marker-bounded sections into docs/index.md: the unified
+     order first, then the NeetCode-only problems in track order. Rows are
+     numbered 1..168 continuously in emitted order, so the hand-table's
+     original Grind numbers never collide with the NeetCode track orders.
+  3. Cross-reference the Amazon OA bank: rows whose problem also appears
+     there (amazon slug minus the amazon- prefix matching a NeetCode
+     lcSlug) carry an "Amazon OA" marker with a legend under the table.
+  4. Emit three marker-bounded sections into docs/index.md: the unified
      LeetCode table, the separate Amazon OA table, and the Sources credits.
      --check compares the marker spans against a fresh render, so the
      tables stay generator-owned and refreshable.
@@ -78,9 +83,14 @@ AMAZON_MANIFEST_FIELDS = (
 )
 DIFFICULTIES = ("Easy", "Medium", "Hard")
 
-LC_PROBLEM_URL_TEMPLATE = "https://leetcode.com/problems/{slug}/"
+AMAZON_SLUG_PREFIX = "amazon-"
 UNIFIED_TABLE_HEADER = "| # | Problem | Difficulty | Category | Tracks | Time |"
 AMAZON_TABLE_HEADER = "| # | Problem | Updated |"
+AMAZON_MARKER = "· Amazon OA"
+AMAZON_LEGEND = (
+    f"Rows marked {AMAZON_MARKER} also appear in the"
+    " [Amazon OA bank](problems/amazon_oa/index.md)."
+)
 
 
 class SourceError(ValueError):
@@ -293,15 +303,18 @@ def merge_tracks(grind: Sequence[dict], neetcode: Sequence[dict]) -> List[dict]:
     hand-table order; NeetCode-only problems follow in track order with the
     section as category and an empty Time cell (NeetCode publishes no
     minutes). Overlaps merge by lcSlug into one row carrying both track
-    names, keeping the Grind 75 metadata.
+    names, keeping the Grind 75 metadata. Rows carry no sequence number:
+    the unified table is numbered continuously at render time, so the
+    hand-table's original Grind numbers cannot collide with the NeetCode
+    track orders.
 
     Args:
         grind: The validated grind75_table.json rows.
         neetcode: The validated neetcode150_manifest.json entries.
 
     Returns:
-        Unified rows with number, slug, dirSlug, title, difficulty,
-        category, tracks, and time.
+        Unified rows with slug, dirSlug, title, difficulty, category,
+        tracks, and time.
     """
     neet_by_lc_slug = {entry["lcSlug"]: entry for entry in neetcode}
     grind_slugs = {row["slug"] for row in grind}
@@ -309,7 +322,6 @@ def merge_tracks(grind: Sequence[dict], neetcode: Sequence[dict]) -> List[dict]:
     for row in grind:
         rows.append(
             {
-                "number": row["number"],
                 "slug": row["slug"],
                 "dirSlug": row["slug"].replace("-", "_"),
                 "title": row["title"],
@@ -324,7 +336,6 @@ def merge_tracks(grind: Sequence[dict], neetcode: Sequence[dict]) -> List[dict]:
             continue
         rows.append(
             {
-                "number": entry["order"],
                 "slug": entry["lcSlug"],
                 "dirSlug": entry["dirSlug"],
                 "title": entry["title"],
@@ -372,19 +383,51 @@ def verify_merge_shape(rows: Sequence[dict]) -> None:
 
 
 # ---------------------------------------------------------------------------
+# Amazon overlap
+# ---------------------------------------------------------------------------
+
+
+def amazon_overlap_lc_slugs(neetcode: Sequence[dict], amazon: Sequence[dict]) -> set:
+    """Find the unified-table problems that also appear in the Amazon bank.
+
+    The match rule: an Amazon slug minus the ``amazon-`` prefix equals a
+    NeetCode lcSlug. Requiring the lcSlug match keeps the marker on the
+    rows a reader reaches through the unified table's problem set; Grind-only
+    problems absent from the NeetCode track stay unmarked.
+
+    Args:
+        neetcode: The NeetCode manifest entries.
+        amazon: The Amazon OA manifest entries.
+
+    Returns:
+        The matching LeetCode slugs.
+    """
+    lc_slugs = {entry["lcSlug"] for entry in neetcode}
+    return {
+        entry["slug"][len(AMAZON_SLUG_PREFIX) :]
+        for entry in amazon
+        if entry["slug"].startswith(AMAZON_SLUG_PREFIX)
+        and entry["slug"][len(AMAZON_SLUG_PREFIX) :] in lc_slugs
+    }
+
+
+# ---------------------------------------------------------------------------
 # Renderers
 # ---------------------------------------------------------------------------
 
 
-def render_unified_section(rows: Sequence[dict]) -> str:
+def render_unified_section(rows: Sequence[dict], overlap: set) -> str:
     """Render the marker-bounded unified LeetCode table section.
 
     Columns `| # | Problem | Difficulty | Category | Tracks | Time |`;
-    `#` links the LeetCode problem, `Problem` links the write-up, unnumbered
-    Grind rows render a `-`.
+    `#` is the continuous row position (1..N in emitted order, so the
+    hand-table Grind numbers never collide with the NeetCode track orders)
+    and `Problem` links the write-up. Rows in the overlap set carry the
+    Amazon OA marker in the Tracks cell, with a legend under the table.
 
     Args:
         rows: The merged unified rows.
+        overlap: LeetCode slugs from these rows also in the Amazon OA bank.
 
     Returns:
         The section text: start marker through end marker, trailing newline.
@@ -405,16 +448,18 @@ def render_unified_section(rows: Sequence[dict]) -> str:
         UNIFIED_TABLE_HEADER,
         "|---|---------|------------|----------|--------|------|",
     ]
-    for row in rows:
+    for position, row in enumerate(rows, start=1):
         problem = f"[{row['title']}](problems/{row['dirSlug']}.md)"
-        if row["number"] is None:
-            number_cell = "-"
-        else:
-            number_cell = f"[{row['number']}]({LC_PROBLEM_URL_TEMPLATE.format(slug=row['slug'])})"
+        tracks = row["tracks"]
+        if row["slug"] in overlap:
+            tracks = f"{tracks} {AMAZON_MARKER}"
         lines.append(
-            f"| {number_cell} | {problem} | {row['difficulty']}"
-            f" | {row['category']} | {row['tracks']} | {row['time']} |"
+            f"| {position} | {problem} | {row['difficulty']}"
+            f" | {row['category']} | {tracks} | {row['time']} |"
         )
+    if any(row["slug"] in overlap for row in rows):
+        lines.append("")
+        lines.append(AMAZON_LEGEND)
     lines.append(UNIFIED_SECTION_END)
     return "\n".join(lines) + "\n"
 
@@ -515,13 +560,15 @@ def render_sections() -> List[tuple]:
         section, in document order.
     """
     grind, neetcode, amazon = load_validated_sources()
-    verify_merge_shape(merge_tracks(grind, neetcode))
+    merged = merge_tracks(grind, neetcode)
+    verify_merge_shape(merged)
+    overlap = amazon_overlap_lc_slugs(neetcode, amazon)
     return [
         (
             "unified-leetcode",
             UNIFIED_SECTION_START,
             UNIFIED_SECTION_END,
-            render_unified_section(merge_tracks(grind, neetcode)),
+            render_unified_section(merged, overlap),
         ),
         ("amazon-oa", AMAZON_SECTION_START, AMAZON_SECTION_END, render_amazon_section(amazon)),
         ("sources", SOURCES_SECTION_START, SOURCES_SECTION_END, render_sources_section()),
