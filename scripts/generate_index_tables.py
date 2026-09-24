@@ -529,7 +529,7 @@ def _section_anchor_slug(
         slug = SECTION_SLUG_ANCHORS[section]
         if slug not in {row["slug"] for row in backbone}:
             raise SourceError(
-                f"pinned Sliding Window anchor {slug!r} is not a Grind 75 row;"
+                f"pinned anchor {slug!r} for {section!r} is not a Grind 75 row;"
                 " refresh SECTION_SLUG_ANCHORS"
             )
         return slug
@@ -545,12 +545,7 @@ def _section_anchor_slug(
     return None
 
 
-def _section_end_index(
-    merged: Sequence[dict],
-    target: str,
-    section_members: dict,
-    backbone: Sequence[dict],
-) -> int:
+def _section_end_index(merged: Sequence[dict], target: str) -> int:
     """Find the last row of a target topic block in the merged order.
 
     The block spans the target section's own rows plus any Grind 75 rows
@@ -559,8 +554,6 @@ def _section_end_index(
     Args:
         merged: The rows merged so far.
         target: The section name whose block the caller extends past.
-        section_members: lcSlugs per NeetCode section (overlaps included).
-        backbone: The Grind 75 rows in study order.
 
     Returns:
         The index of the block's last row.
@@ -631,7 +624,7 @@ def interleave_study_order(rows: Sequence[dict], neetcode: Sequence[dict]) -> Li
         target = SECTION_AFTER_ANCHORS.get(section)
         if target is None or section not in groups:
             continue
-        end = _section_end_index(merged, target, section_members, backbone)
+        end = _section_end_index(merged, target)
         merged[end + 1 : end + 1] = groups[section]
     return merged
 
@@ -706,6 +699,19 @@ def practice_at_cell(row: dict) -> str:
     return f"[{PRACTICE_LEETCODE}]({LEETCODE_PROBLEM_URL}{row['slug']}/)"
 
 
+def track_link(track: str) -> str:
+    """Render one track name as a link to its curator's list page.
+
+    Args:
+        track: The track name (Grind 75 or NeetCode 150).
+
+    Returns:
+        The markdown link for the track.
+    """
+    url = GRIND_TRACK_URL if track == GRIND_TRACK else NEETCODE_TRACK_URL
+    return f"[{track}]({url})"
+
+
 def tracks_cell(row: dict) -> str:
     """Render a unified row's Tracks cell, linking each curator's list.
 
@@ -713,16 +719,13 @@ def tracks_cell(row: dict) -> str:
         row: One unified row.
 
     Returns:
-        The track names joined with " + ", each linking its list page;
-        Amazon-overlapping rows append the plain Amazon OA marker.
+        The track names joined with " + ", each linking its list page.
     """
-    if row["tracks"] == GRIND_TRACK:
-        names = f"[{GRIND_TRACK}]({GRIND_TRACK_URL})"
-    elif row["tracks"] == NEETCODE_TRACK:
-        names = f"[{NEETCODE_TRACK}]({NEETCODE_TRACK_URL})"
+    if row["tracks"] == BOTH_TRACKS:
+        tracks = (GRIND_TRACK, NEETCODE_TRACK)
     else:
-        names = f"[{GRIND_TRACK}]({GRIND_TRACK_URL}) + [{NEETCODE_TRACK}]({NEETCODE_TRACK_URL})"
-    return names
+        tracks = (row["tracks"],)
+    return " + ".join(track_link(track) for track in tracks)
 
 
 def render_unified_section(rows: Sequence[dict], overlap: set) -> str:
