@@ -1196,6 +1196,13 @@ def test_render_amazon_section_links_rows_landing_relative():
     assert "](problems/" not in section
 
 
+def test_track_link_uses_the_content_serving_neetcode_list_url():
+    assert gen.NEETCODE_TRACK_URL == "https://neetcode.io/practice/practice/neetcode150"
+    assert f"[{gen.NEETCODE_TRACK}]({gen.NEETCODE_TRACK_URL})" == gen.track_link(
+        gen.NEETCODE_TRACK
+    )
+
+
 def test_render_sources_section_credits_all_three_lists():
     section = gen.render_sources_section()
     assert section.startswith(gen.SOURCES_SECTION_START)

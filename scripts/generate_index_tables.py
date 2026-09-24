@@ -107,7 +107,7 @@ AMAZON_SLUG_PREFIX = "amazon-"
 LEETCODE_PROBLEM_URL = "https://leetcode.com/problems/"
 NEETCODE_PROBLEM_URL = "https://neetcode.io/problems/"
 GRIND_TRACK_URL = "https://www.techinterviewhandbook.org/grind75?order=grind75-order"
-NEETCODE_TRACK_URL = "https://neetcode.io/practice/neetcode150"
+NEETCODE_TRACK_URL = "https://neetcode.io/practice/practice/neetcode150"
 PRACTICE_LEETCODE = "LeetCode"
 PRACTICE_NEETCODE = "NeetCode"
 PRACTICE_FASTPREP = "FastPrep"
@@ -167,8 +167,10 @@ SECTION_TAG_ANCHORS = {
     "Math & Geometry": ("Math", "Geometry"),
 }
 SECTION_SLUG_ANCHORS = {
-    # Grind 75 has no Sliding Window category; its first window problem
-    # anchors the section instead.
+    # Pinned to the first Medium/Hard window problem on purpose: the tag
+    # rule would otherwise anchor at best-time-to-buy-and-sell-stock (an
+    # Easy backbone row in the first 20) and park the whole window block
+    # ahead of its difficulty peers.
     "Sliding Window": "longest-substring-without-repeating-characters",
 }
 SECTION_AFTER_ANCHORS = {
