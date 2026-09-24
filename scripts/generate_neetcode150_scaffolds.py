@@ -2,7 +2,7 @@
 
 Pipeline:
   1. Validate the committed scripts/neetcode150_manifest.json (150 entries,
-     18 canonical sections, Easy 28 / Medium 101 / Hard 21, unique slugs).
+     18 canonical sections, Easy 28 / Medium 102 / Hard 20, unique slugs).
   2. For each delta problem (no existing docs write-up and practice folder),
      fetch its metadata from neetcode.io (disk cache, polite delay), parse
      the statement markdown, and emit:
@@ -68,7 +68,7 @@ NC_PROBLEM_URL_TEMPLATE = "https://neetcode.io/problems/{slug}"
 TEMPLATE_LINK = "_TEMPLATE.md"
 
 TRACK_SIZE = 150
-DIFFICULTY_TOTALS = {"Easy": 28, "Medium": 101, "Hard": 21}
+DIFFICULTY_TOTALS = {"Easy": 28, "Medium": 102, "Hard": 20}
 SECTION_COUNTS = {
     "Arrays & Hashing": 9,
     "Two Pointers": 5,
@@ -190,7 +190,7 @@ def validate_manifest(entries: Sequence[dict]) -> None:
     The contract: exactly 150 entries numbered 1..150 in canonical section
     order; every required field present; unique lcSlugs and dirSlugs; each
     dirSlug derived from its lcSlug; difficulties in {Easy, Medium, Hard}
-    totalling Easy 28 / Medium 101 / Hard 21; sections from the canonical 18
+    totalling Easy 28 / Medium 102 / Hard 20; sections from the canonical 18
     with per-section counts matching the track. All violations are collected
     before raising; the input is never mutated.
 

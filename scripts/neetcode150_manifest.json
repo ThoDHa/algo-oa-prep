@@ -1422,7 +1422,7 @@
     "lcSlug": "minimum-interval-to-include-each-query",
     "dirSlug": "minimum_interval_to_include_each_query",
     "ncSlug": "minimum-interval-including-query",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "leetcodePremium": false,
     "parse_status": "parsed-with-cases"
   },
