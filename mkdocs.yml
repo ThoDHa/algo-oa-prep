@@ -134,14 +134,43 @@ nav:
     - problems/index.md
     - "LeetCode":
       - "Two Sum": problems/two_sum.md
+      - "Group Anagrams": problems/group_anagrams.md
+      - "Top K Frequent Elements": problems/top_k_frequent_elements.md
+      - "Encode and Decode Strings": problems/encode_and_decode_strings.md
+      - "Valid Sudoku": problems/valid_sudoku.md
+      - "Longest Consecutive Sequence": problems/longest_consecutive_sequence.md
       - "Valid Parentheses": problems/valid_parentheses.md
+      - "Daily Temperatures": problems/daily_temperatures.md
+      - "Car Fleet": problems/car_fleet.md
       - "Merge Two Sorted Lists": problems/merge_two_sorted_lists.md
+      - "Reorder List": problems/reorder_list.md
+      - "Remove Nth Node From End of List": problems/remove_nth_node_from_end_of_list.md
+      - "Copy List With Random Pointer": problems/copy_list_with_random_pointer.md
+      - "Add Two Numbers": problems/add_two_numbers.md
+      - "Find The Duplicate Number": problems/find_the_duplicate_number.md
+      - "Reverse Nodes In K Group": problems/reverse_nodes_in_k_group.md
       - "Best Time to Buy and Sell Stock": problems/best_time_to_buy_and_sell_stock.md
       - "Valid Palindrome": problems/valid_palindrome.md
+      - "Two Sum II Input Array Is Sorted": problems/two_sum_ii_input_array_is_sorted.md
       - "Invert Binary Tree": problems/invert_binary_tree.md
+      - "Same Tree": problems/same_tree.md
+      - "Subtree of Another Tree": problems/subtree_of_another_tree.md
+      - "Count Good Nodes In Binary Tree": problems/count_good_nodes_in_binary_tree.md
       - "Valid Anagram": problems/valid_anagram.md
       - "Binary Search": problems/binary_search.md
+      - "Search a 2D Matrix": problems/search_a_2d_matrix.md
+      - "Koko Eating Bananas": problems/koko_eating_bananas.md
+      - "Find Minimum In Rotated Sorted Array": problems/find_minimum_in_rotated_sorted_array.md
+      - "Median of Two Sorted Arrays": problems/median_of_two_sorted_arrays.md
       - "Flood Fill": problems/flood_fill.md
+      - "Max Area of Island": problems/max_area_of_island.md
+      - "Walls And Gates": problems/walls_and_gates.md
+      - "Pacific Atlantic Water Flow": problems/pacific_atlantic_water_flow.md
+      - "Surrounded Regions": problems/surrounded_regions.md
+      - "Course Schedule II": problems/course_schedule_ii.md
+      - "Graph Valid Tree": problems/graph_valid_tree.md
+      - "Number of Connected Components In An Undirected Graph": problems/number_of_connected_components_in_an_undirected_graph.md
+      - "Redundant Connection": problems/redundant_connection.md
       - "Lowest Common Ancestor of a BST": problems/lowest_common_ancestor_of_a_binary_search_tree.md
       - "Balanced Binary Tree": problems/balanced_binary_tree.md
       - "Linked List Cycle": problems/linked_list_cycle.md
@@ -149,6 +178,13 @@ nav:
       - "First Bad Version": problems/first_bad_version.md
       - "Ransom Note": problems/ransom_note.md
       - "Climbing Stairs": problems/climbing_stairs.md
+      - "Min Cost Climbing Stairs": problems/min_cost_climbing_stairs.md
+      - "House Robber": problems/house_robber.md
+      - "House Robber II": problems/house_robber_ii.md
+      - "Palindromic Substrings": problems/palindromic_substrings.md
+      - "Decode Ways": problems/decode_ways.md
+      - "Maximum Product Subarray": problems/maximum_product_subarray.md
+      - "Longest Increasing Subsequence": problems/longest_increasing_subsequence.md
       - "Longest Palindrome": problems/longest_palindrome.md
       - "Reverse Linked List": problems/reverse_linked_list.md
       - "Majority Element": problems/majority_element.md
@@ -158,16 +194,43 @@ nav:
       - "Maximum Depth of Binary Tree": problems/maximum_depth_of_binary_tree.md
       - "Contains Duplicate": problems/contains_duplicate.md
       - "Maximum Subarray": problems/maximum_subarray.md
+      - "Jump Game": problems/jump_game.md
+      - "Jump Game II": problems/jump_game_ii.md
+      - "Gas Station": problems/gas_station.md
+      - "Hand of Straights": problems/hand_of_straights.md
+      - "Merge Triplets to Form Target Triplet": problems/merge_triplets_to_form_target_triplet.md
+      - "Partition Labels": problems/partition_labels.md
+      - "Valid Parenthesis String": problems/valid_parenthesis_string.md
+      - "Non Overlapping Intervals": problems/non_overlapping_intervals.md
+      - "Meeting Rooms": problems/meeting_rooms.md
+      - "Meeting Rooms II": problems/meeting_rooms_ii.md
+      - "Minimum Interval to Include Each Query": problems/minimum_interval_to_include_each_query.md
+      - "Single Number": problems/single_number.md
+      - "Number of 1 Bits": problems/number_of_1_bits.md
+      - "Counting Bits": problems/counting_bits.md
+      - "Reverse Bits": problems/reverse_bits.md
+      - "Missing Number": problems/missing_number.md
+      - "Sum of Two Integers": problems/sum_of_two_integers.md
+      - "Reverse Integer": problems/reverse_integer.md
       - "Insert Interval": problems/insert_interval.md
       - "01 Matrix": problems/01_matrix.md
       - "K Closest Points to Origin": problems/k_closest_points_to_origin.md
+      - "Kth Largest Element In a Stream": problems/kth_largest_element_in_a_stream.md
+      - "Last Stone Weight": problems/last_stone_weight.md
+      - "Kth Largest Element In An Array": problems/kth_largest_element_in_an_array.md
+      - "Design Twitter": problems/design_twitter.md
       - "Longest Substring Without Repeating Characters": problems/longest_substring_without_repeating_characters.md
+      - "Longest Repeating Character Replacement": problems/longest_repeating_character_replacement.md
+      - "Permutation In String": problems/permutation_in_string.md
+      - "Sliding Window Maximum": problems/sliding_window_maximum.md
       - "3Sum": problems/3sum.md
       - "Binary Tree Level Order Traversal": problems/binary_tree_level_order_traversal.md
       - "Clone Graph": problems/clone_graph.md
       - "Evaluate Reverse Polish Notation": problems/evaluate_reverse_polish_notation.md
       - "Course Schedule": problems/course_schedule.md
       - "Implement Trie (Prefix Tree)": problems/implement_trie_prefix_tree.md
+      - "Design Add And Search Words Data Structure": problems/design_add_and_search_words_data_structure.md
+      - "Word Search II": problems/word_search_ii.md
       - "Coin Change": problems/coin_change.md
       - "Product of Array Except Self": problems/product_of_array_except_self.md
       - "Minimum Stack": problems/min_stack.md
@@ -176,6 +239,11 @@ nav:
       - "Rotting Oranges": problems/rotting_oranges.md
       - "Search in Rotated Sorted Array": problems/search_in_rotated_sorted_array.md
       - "Combination Sum": problems/combination_sum.md
+      - "Combination Sum II": problems/combination_sum_ii.md
+      - "Subsets II": problems/subsets_ii.md
+      - "Generate Parentheses": problems/generate_parentheses.md
+      - "Palindrome Partitioning": problems/palindrome_partitioning.md
+      - "N Queens": problems/n_queens.md
       - "Permutations": problems/permutations.md
       - "Merge Intervals": problems/merge_intervals.md
       - "Lowest Common Ancestor of a Binary Tree": problems/lowest_common_ancestor_of_a_binary_tree.md
@@ -186,10 +254,27 @@ nav:
       - "Partition Equal Subset Sum": problems/partition_equal_subset_sum.md
       - "String to Integer (atoi)": problems/string_to_integer_atoi.md
       - "Spiral Matrix": problems/spiral_matrix.md
+      - "Rotate Image": problems/rotate_image.md
+      - "Set Matrix Zeroes": problems/set_matrix_zeroes.md
+      - "Happy Number": problems/happy_number.md
+      - "Plus One": problems/plus_one.md
+      - "Pow(x, n)": problems/powx_n.md
+      - "Multiply Strings": problems/multiply_strings.md
+      - "Detect Squares": problems/detect_squares.md
       - "Subsets": problems/subsets.md
       - "Binary Tree Right Side View": problems/binary_tree_right_side_view.md
       - "Longest Palindromic Substring": problems/longest_palindromic_substring.md
       - "Unique Paths": problems/unique_paths.md
+      - "Longest Common Subsequence": problems/longest_common_subsequence.md
+      - "Best Time to Buy And Sell Stock With Cooldown": problems/best_time_to_buy_and_sell_stock_with_cooldown.md
+      - "Coin Change II": problems/coin_change_ii.md
+      - "Target Sum": problems/target_sum.md
+      - "Interleaving String": problems/interleaving_string.md
+      - "Longest Increasing Path In a Matrix": problems/longest_increasing_path_in_a_matrix.md
+      - "Distinct Subsequences": problems/distinct_subsequences.md
+      - "Edit Distance": problems/edit_distance.md
+      - "Burst Balloons": problems/burst_balloons.md
+      - "Regular Expression Matching": problems/regular_expression_matching.md
       - "Construct Binary Tree from Preorder and Inorder Traversal": problems/construct_binary_tree_from_preorder_and_inorder_traversal.md
       - "Container With Most Water": problems/container_with_most_water.md
       - "Letter Combinations of a Phone Number": problems/letter_combinations_of_a_phone_number.md
@@ -204,101 +289,16 @@ nav:
       - "Trapping Rain Water": problems/trapping_rain_water.md
       - "Find Median from Data Stream": problems/find_median_from_data_stream.md
       - "Word Ladder": problems/word_ladder.md
-      - "Basic Calculator": problems/basic_calculator.md
-      - "Maximum Profit in Job Scheduling": problems/maximum_profit_in_job_scheduling.md
-      - "Merge k Sorted Lists": problems/merge_k_sorted_lists.md
-      - "Largest Rectangle in Histogram": problems/largest_rectangle_in_histogram.md
-      - "Binary Tree Maximum Path Sum": problems/binary_tree_maximum_path_sum.md
-      - "Maximum Frequency Stack": problems/maximum_frequency_stack.md
-      - "Group Anagrams": problems/group_anagrams.md
-      - "Top K Frequent Elements": problems/top_k_frequent_elements.md
-      - "Encode and Decode Strings": problems/encode_and_decode_strings.md
-      - "Valid Sudoku": problems/valid_sudoku.md
-      - "Longest Consecutive Sequence": problems/longest_consecutive_sequence.md
-      - "Two Sum II Input Array Is Sorted": problems/two_sum_ii_input_array_is_sorted.md
-      - "Longest Repeating Character Replacement": problems/longest_repeating_character_replacement.md
-      - "Permutation In String": problems/permutation_in_string.md
-      - "Sliding Window Maximum": problems/sliding_window_maximum.md
-      - "Daily Temperatures": problems/daily_temperatures.md
-      - "Car Fleet": problems/car_fleet.md
-      - "Search a 2D Matrix": problems/search_a_2d_matrix.md
-      - "Koko Eating Bananas": problems/koko_eating_bananas.md
-      - "Find Minimum In Rotated Sorted Array": problems/find_minimum_in_rotated_sorted_array.md
-      - "Median of Two Sorted Arrays": problems/median_of_two_sorted_arrays.md
-      - "Reorder List": problems/reorder_list.md
-      - "Remove Nth Node From End of List": problems/remove_nth_node_from_end_of_list.md
-      - "Copy List With Random Pointer": problems/copy_list_with_random_pointer.md
-      - "Add Two Numbers": problems/add_two_numbers.md
-      - "Find The Duplicate Number": problems/find_the_duplicate_number.md
-      - "Reverse Nodes In K Group": problems/reverse_nodes_in_k_group.md
-      - "Same Tree": problems/same_tree.md
-      - "Subtree of Another Tree": problems/subtree_of_another_tree.md
-      - "Count Good Nodes In Binary Tree": problems/count_good_nodes_in_binary_tree.md
-      - "Kth Largest Element In a Stream": problems/kth_largest_element_in_a_stream.md
-      - "Last Stone Weight": problems/last_stone_weight.md
-      - "Kth Largest Element In An Array": problems/kth_largest_element_in_an_array.md
-      - "Design Twitter": problems/design_twitter.md
-      - "Combination Sum II": problems/combination_sum_ii.md
-      - "Subsets II": problems/subsets_ii.md
-      - "Generate Parentheses": problems/generate_parentheses.md
-      - "Palindrome Partitioning": problems/palindrome_partitioning.md
-      - "N Queens": problems/n_queens.md
-      - "Design Add And Search Words Data Structure": problems/design_add_and_search_words_data_structure.md
-      - "Word Search II": problems/word_search_ii.md
-      - "Max Area of Island": problems/max_area_of_island.md
-      - "Walls And Gates": problems/walls_and_gates.md
-      - "Pacific Atlantic Water Flow": problems/pacific_atlantic_water_flow.md
-      - "Surrounded Regions": problems/surrounded_regions.md
-      - "Course Schedule II": problems/course_schedule_ii.md
-      - "Graph Valid Tree": problems/graph_valid_tree.md
-      - "Number of Connected Components In An Undirected Graph": problems/number_of_connected_components_in_an_undirected_graph.md
-      - "Redundant Connection": problems/redundant_connection.md
       - "Network Delay Time": problems/network_delay_time.md
       - "Reconstruct Itinerary": problems/reconstruct_itinerary.md
       - "Min Cost to Connect All Points": problems/min_cost_to_connect_all_points.md
       - "Swim In Rising Water": problems/swim_in_rising_water.md
       - "Alien Dictionary": problems/alien_dictionary.md
       - "Cheapest Flights Within K Stops": problems/cheapest_flights_within_k_stops.md
-      - "Min Cost Climbing Stairs": problems/min_cost_climbing_stairs.md
-      - "House Robber": problems/house_robber.md
-      - "House Robber II": problems/house_robber_ii.md
-      - "Palindromic Substrings": problems/palindromic_substrings.md
-      - "Decode Ways": problems/decode_ways.md
-      - "Maximum Product Subarray": problems/maximum_product_subarray.md
-      - "Longest Increasing Subsequence": problems/longest_increasing_subsequence.md
-      - "Longest Common Subsequence": problems/longest_common_subsequence.md
-      - "Best Time to Buy And Sell Stock With Cooldown": problems/best_time_to_buy_and_sell_stock_with_cooldown.md
-      - "Coin Change II": problems/coin_change_ii.md
-      - "Target Sum": problems/target_sum.md
-      - "Interleaving String": problems/interleaving_string.md
-      - "Longest Increasing Path In a Matrix": problems/longest_increasing_path_in_a_matrix.md
-      - "Distinct Subsequences": problems/distinct_subsequences.md
-      - "Edit Distance": problems/edit_distance.md
-      - "Burst Balloons": problems/burst_balloons.md
-      - "Regular Expression Matching": problems/regular_expression_matching.md
-      - "Jump Game": problems/jump_game.md
-      - "Jump Game II": problems/jump_game_ii.md
-      - "Gas Station": problems/gas_station.md
-      - "Hand of Straights": problems/hand_of_straights.md
-      - "Merge Triplets to Form Target Triplet": problems/merge_triplets_to_form_target_triplet.md
-      - "Partition Labels": problems/partition_labels.md
-      - "Valid Parenthesis String": problems/valid_parenthesis_string.md
-      - "Non Overlapping Intervals": problems/non_overlapping_intervals.md
-      - "Meeting Rooms": problems/meeting_rooms.md
-      - "Meeting Rooms II": problems/meeting_rooms_ii.md
-      - "Minimum Interval to Include Each Query": problems/minimum_interval_to_include_each_query.md
-      - "Rotate Image": problems/rotate_image.md
-      - "Set Matrix Zeroes": problems/set_matrix_zeroes.md
-      - "Happy Number": problems/happy_number.md
-      - "Plus One": problems/plus_one.md
-      - "Pow(x, n)": problems/powx_n.md
-      - "Multiply Strings": problems/multiply_strings.md
-      - "Detect Squares": problems/detect_squares.md
-      - "Single Number": problems/single_number.md
-      - "Number of 1 Bits": problems/number_of_1_bits.md
-      - "Counting Bits": problems/counting_bits.md
-      - "Reverse Bits": problems/reverse_bits.md
-      - "Missing Number": problems/missing_number.md
-      - "Sum of Two Integers": problems/sum_of_two_integers.md
-      - "Reverse Integer": problems/reverse_integer.md
+      - "Basic Calculator": problems/basic_calculator.md
+      - "Maximum Profit in Job Scheduling": problems/maximum_profit_in_job_scheduling.md
+      - "Merge k Sorted Lists": problems/merge_k_sorted_lists.md
+      - "Largest Rectangle in Histogram": problems/largest_rectangle_in_histogram.md
+      - "Binary Tree Maximum Path Sum": problems/binary_tree_maximum_path_sum.md
+      - "Maximum Frequency Stack": problems/maximum_frequency_stack.md
     - "Amazon OA": problems/amazon_oa/index.md

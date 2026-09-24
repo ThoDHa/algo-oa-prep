@@ -8,10 +8,12 @@ Pipeline:
      track), and scripts/amazon_oa_manifest.json (the 350-entry Amazon OA
      bank, most recently updated first).
   2. Merge the two LeetCode tracks into one unified table: 168 unique
-     problems, 59 of them on both tracks (one row, both credited), Grind 75
-     order first, then the NeetCode-only problems in track order. Rows are
-     numbered 1..168 continuously in emitted order, so the hand-table's
-     original Grind numbers never collide with the NeetCode track orders.
+     problems, 59 of them on both tracks (one row, both credited). The
+     Grind 75 sequence is the study-order backbone; each NeetCode-only
+     problem is slotted next to the most related Grind 75 problem (or at
+     the section boundary where its topic first appears) per the pinned
+     anchor tables below. Rows carry no sequence numbers: the table is a
+     study order, not a numbering scheme.
   3. Cross-reference the Amazon OA bank: rows whose problem also appears
      there (amazon slug minus the amazon- prefix matching a NeetCode
      lcSlug) carry an "Amazon OA" marker with a legend under the table.
@@ -21,9 +23,9 @@ Pipeline:
      the tables stay generator-owned and refreshable.
   5. Emit the mkdocs.yml Problems nav: the landing page as section parent
      (navigation.indexes) with two subsections, LeetCode (all 168 problem
-     pages at one level, unified-table order) and Amazon OA (the bank
-     index). --check verifies the nav shape, so the subsections stay
-     generator-owned and refreshable.
+     pages at one level, in the same interleaved study order) and Amazon OA
+     (the bank index). --check verifies the nav shape, so the subsections
+     stay generator-owned and refreshable.
 
 Offline contract: the committed JSON sources are the only inputs; nothing
 is fetched, and the marker-bounded spans (plus the nav's Problems section)
@@ -88,6 +90,8 @@ NEETCODE_MANIFEST_FIELDS = (
     "lcSlug",
     "dirSlug",
     "difficulty",
+    "ncSlug",
+    "leetcodePremium",
 )
 AMAZON_MANIFEST_FIELDS = (
     "slug",
@@ -100,13 +104,79 @@ AMAZON_MANIFEST_FIELDS = (
 DIFFICULTIES = ("Easy", "Medium", "Hard")
 
 AMAZON_SLUG_PREFIX = "amazon-"
-UNIFIED_TABLE_HEADER = "| # | Problem | Difficulty | Category | Tracks | Time |"
-AMAZON_TABLE_HEADER = "| # | Problem | Updated |"
+LEETCODE_PROBLEM_URL = "https://leetcode.com/problems/"
+NEETCODE_PROBLEM_URL = "https://neetcode.io/problems/"
+GRIND_TRACK_URL = "https://www.techinterviewhandbook.org/grind75?order=grind75-order"
+NEETCODE_TRACK_URL = "https://neetcode.io/practice/neetcode150"
+PRACTICE_LEETCODE = "LeetCode"
+PRACTICE_NEETCODE = "NeetCode"
+PRACTICE_FASTPREP = "FastPrep"
+
+# The seven LeetCode-premium problems on the NeetCode track, pinned as
+# lcSlug -> ncSlug: their "Practice at" cell links the NeetCode page (the
+# free mirror) instead of the paywalled LeetCode one.
+EXPECTED_PREMIUM_NC_SLUGS = {
+    "encode-and-decode-strings": "string-encode-and-decode",
+    "walls-and-gates": "islands-and-treasure",
+    "graph-valid-tree": "valid-tree",
+    "number-of-connected-components-in-an-undirected-graph": "count-connected-components",
+    "alien-dictionary": "foreign-dictionary",
+    "meeting-rooms": "meeting-schedule",
+    "meeting-rooms-ii": "meeting-schedule-ii",
+}
+
+UNIFIED_TABLE_HEADER = "| Problem | Difficulty | Category | Practice at | Tracks | Time |"
+UNIFIED_TABLE_SEPARATOR = "|---|---------|------------|----------|--------|------|"
+AMAZON_TABLE_HEADER = "| Problem | Updated | Practice at |"
+AMAZON_TABLE_SEPARATOR = "|---|---------|---------|"
+PROBLEM_COLUMN = 0
+PRACTICE_AT_COLUMN = 3
 AMAZON_MARKER = "· Amazon OA"
 AMAZON_LEGEND = (
     f"Rows marked {AMAZON_MARKER} also appear in the"
     " [Amazon OA bank](amazon_oa/index.md)."
 )
+
+# The interleave anchor tables pin how each NeetCode section attaches to
+# the Grind 75 backbone. Resolution per section, in track order:
+#   1. SECTION_SLUG_ANCHORS: right after the named Grind 75 problem.
+#   2. SECTION_TAG_ANCHORS: right after the first Grind 75 problem whose
+#      comma-separated Category shares one of the tags.
+#   3. Fallback: right after the first Grind 75 problem that itself sits
+#      in the section (opener), when neither table matches.
+#   4. No anchor at all: the section's rows append at the end.
+# SECTION_AFTER_ANCHORS overrides the outcome instead: the section lands
+# immediately after the last row of its target topic block (the target
+# section's own rows plus any Grind 75 rows in its tags), which keeps
+# boundary topics after everything they extend. Only NeetCode-only rows
+# move; overlap problems keep their Grind 75 slots.
+SECTION_TAG_ANCHORS = {
+    "Arrays & Hashing": ("Array", "Hash Table"),
+    "Two Pointers": ("Two Pointers", "Sliding Window"),
+    "Sliding Window": ("Sliding Window",),
+    "Stack": ("Stack",),
+    "Binary Search": ("Binary Search",),
+    "Linked List": ("Linked List",),
+    "Trees": ("Tree",),
+    "Tries": ("Trie",),
+    "Heap / Priority Queue": ("Heap",),
+    "Backtracking": ("Backtracking",),
+    "Graphs": ("Graph", "DFS", "BFS"),
+    "1-D Dynamic Programming": ("Dynamic Programming",),
+    "Greedy": ("Greedy",),
+    "Math & Geometry": ("Math", "Geometry"),
+}
+SECTION_SLUG_ANCHORS = {
+    # Grind 75 has no Sliding Window category; its first window problem
+    # anchors the section instead.
+    "Sliding Window": "longest-substring-without-repeating-characters",
+}
+SECTION_AFTER_ANCHORS = {
+    "Advanced Graphs": "Graphs",
+    "2-D Dynamic Programming": "1-D Dynamic Programming",
+    "Intervals": "Greedy",
+    "Bit Manipulation": "Intervals",
+}
 
 
 class SourceError(ValueError):
@@ -235,7 +305,8 @@ def validate_neetcode_manifest(entries: Sequence[dict]) -> None:
     The full track contract (sections, difficulty totals) is owned by the
     NeetCode generator; this validates what the unified table consumes:
     NEETCODE_TRACK_SIZE entries, orders 1..150, unique lcSlugs and
-    dirSlugs, canonical difficulties.
+    dirSlugs, canonical difficulties, a non-empty ncSlug per entry, and a
+    leetcodePremium flag of True, False, or None.
 
     Args:
         entries: The loaded manifest entries.
@@ -251,8 +322,10 @@ def validate_neetcode_manifest(entries: Sequence[dict]) -> None:
     orders = [entry["order"] for entry in entries]
     if orders != list(range(1, NEETCODE_TRACK_SIZE + 1)):
         raise SourceError(f"NeetCode 150 orders must be 1..{NEETCODE_TRACK_SIZE} in order")
-    for slug_field in ("lcSlug", "dirSlug"):
+    for slug_field in ("lcSlug", "dirSlug", "ncSlug"):
         slugs = [entry[slug_field] for entry in entries]
+        if not all(isinstance(slug, str) and slug for slug in slugs):
+            raise SourceError(f"NeetCode 150 {slug_field} must be a non-empty string")
         duplicates = sorted({slug for slug in slugs if slugs.count(slug) > 1})
         if duplicates:
             raise SourceError(
@@ -262,6 +335,10 @@ def validate_neetcode_manifest(entries: Sequence[dict]) -> None:
         if entry["difficulty"] not in DIFFICULTIES:
             raise SourceError(
                 f"NeetCode 150 difficulty must be one of {', '.join(DIFFICULTIES)}: {entry}"
+            )
+        if entry["leetcodePremium"] not in (True, False, None):
+            raise SourceError(
+                f"NeetCode 150 leetcodePremium must be a boolean or null: {entry}"
             )
 
 
@@ -287,7 +364,7 @@ def validate_amazon_manifest(entries: Sequence[dict]) -> None:
     fields, unique slugs, sorted most recently updated first.
 
     Args:
-        entries: The loaded manifest entries.
+        entries: The loaded Amazon OA manifest entries.
 
     Raises:
         SourceError: On any contract violation.
@@ -319,10 +396,10 @@ def merge_tracks(grind: Sequence[dict], neetcode: Sequence[dict]) -> List[dict]:
     hand-table order; NeetCode-only problems follow in track order with the
     section as category and an empty Time cell (NeetCode publishes no
     minutes). Overlaps merge by lcSlug into one row carrying both track
-    names, keeping the Grind 75 metadata. Rows carry no sequence number:
-    the unified table is numbered continuously at render time, so the
-    hand-table's original Grind numbers cannot collide with the NeetCode
-    track orders.
+    names, keeping the Grind 75 metadata. Every row records which NeetCode
+    section it belongs to (None for Grind 75 rows) and whether the NeetCode
+    track flags it as LeetCode premium (only NeetCode-only rows can be);
+    the study order and the Practice-at column consume both.
 
     Args:
         grind: The validated grind75_table.json rows.
@@ -330,7 +407,7 @@ def merge_tracks(grind: Sequence[dict], neetcode: Sequence[dict]) -> List[dict]:
 
     Returns:
         Unified rows with slug, dirSlug, title, difficulty, category,
-        tracks, and time.
+        tracks, time, section, and premium.
     """
     neet_by_lc_slug = {entry["lcSlug"]: entry for entry in neetcode}
     grind_slugs = {row["slug"] for row in grind}
@@ -345,6 +422,8 @@ def merge_tracks(grind: Sequence[dict], neetcode: Sequence[dict]) -> List[dict]:
                 "category": row["category"],
                 "tracks": BOTH_TRACKS if row["slug"] in neet_by_lc_slug else GRIND_TRACK,
                 "time": row["time"],
+                "section": None,
+                "premium": False,
             }
         )
     for entry in neetcode:
@@ -359,6 +438,8 @@ def merge_tracks(grind: Sequence[dict], neetcode: Sequence[dict]) -> List[dict]:
                 "category": entry["section"],
                 "tracks": NEETCODE_TRACK,
                 "time": "",
+                "section": entry["section"],
+                "premium": entry["leetcodePremium"] is True,
             }
         )
     return rows
@@ -396,6 +477,181 @@ def verify_merge_shape(rows: Sequence[dict]) -> None:
             f" (expected {expected}, got {actual});"
             " refresh grind75_table.json / neetcode150_manifest.json and the constants together"
         )
+    premium = sorted(row["slug"] for row in rows if row["premium"])
+    expected_premium = sorted(EXPECTED_PREMIUM_NC_SLUGS)
+    if premium != expected_premium:
+        raise SourceError(
+            "premium rows drifted from EXPECTED_PREMIUM_NC_SLUGS"
+            f" (expected {expected_premium}, got {premium});"
+            " refresh the constant and the manifest together"
+        )
+
+
+# ---------------------------------------------------------------------------
+# Interleaved study order
+# ---------------------------------------------------------------------------
+
+
+def category_tags(category: str) -> tuple:
+    """Split a Grind 75 Category cell into its whitespace-trimmed tags.
+
+    Args:
+        category: The comma-separated category string (e.g. "Graph, DFS").
+
+    Returns:
+        The individual tags.
+    """
+    return tuple(tag.strip() for tag in category.split(","))
+
+
+def _section_anchor_slug(
+    section: str, backbone: Sequence[dict], section_members: dict
+) -> Optional[str]:
+    """Resolve the Grind 75 slug one section's rows slot in after.
+
+    Resolution order: the pinned slug anchor, then the first backbone row
+    sharing a pinned category tag, then the first backbone row that itself
+    sits in the section (opener), then None (append at the end).
+
+    Args:
+        section: The NeetCode section name.
+        backbone: The Grind 75 rows in study order.
+        section_members: lcSlugs per NeetCode section (overlaps included).
+
+    Returns:
+        The anchor slug, or None when the section has no anchor.
+
+    Raises:
+        SourceError: When the pinned slug anchor is absent from the
+            backbone (the pin and the Grind 75 table drifted apart).
+    """
+    if section in SECTION_SLUG_ANCHORS:
+        slug = SECTION_SLUG_ANCHORS[section]
+        if slug not in {row["slug"] for row in backbone}:
+            raise SourceError(
+                f"pinned Sliding Window anchor {slug!r} is not a Grind 75 row;"
+                " refresh SECTION_SLUG_ANCHORS"
+            )
+        return slug
+    tags = set(SECTION_TAG_ANCHORS.get(section, ()))
+    if tags:
+        for row in backbone:
+            if tags & set(category_tags(row["category"])):
+                return row["slug"]
+    backbone_slugs = {row["slug"] for row in backbone}
+    for slug in section_members.get(section, []):
+        if slug in backbone_slugs:
+            return slug
+    return None
+
+
+def _section_end_index(
+    merged: Sequence[dict],
+    target: str,
+    section_members: dict,
+    backbone: Sequence[dict],
+) -> int:
+    """Find the last row of a target topic block in the merged order.
+
+    The block spans the target section's own rows plus any Grind 75 rows
+    in its pinned category tags.
+
+    Args:
+        merged: The rows merged so far.
+        target: The section name whose block the caller extends past.
+        section_members: lcSlugs per NeetCode section (overlaps included).
+        backbone: The Grind 75 rows in study order.
+
+    Returns:
+        The index of the block's last row.
+
+    Raises:
+        SourceError: When the target owns no rows and no Grind 75 category
+            matches, so the boundary cannot be resolved.
+    """
+    tags = set(SECTION_TAG_ANCHORS.get(target, ()))
+    candidates = [
+        index
+        for index, row in enumerate(merged)
+        if row["section"] == target
+        or (row["section"] is None and tags and tags & set(category_tags(row["category"])))
+    ]
+    if not candidates:
+        raise SourceError(
+            f"cannot place the section after {target!r}: the topic block is empty;"
+            " refresh SECTION_AFTER_ANCHORS"
+        )
+    return max(candidates)
+
+
+def interleave_study_order(rows: Sequence[dict], neetcode: Sequence[dict]) -> List[dict]:
+    """Reorder merged rows into the interleaved study order.
+
+    The Grind 75 sequence stays the backbone. Each NeetCode-only section's
+    rows (kept contiguous, in track order) slot in after the anchor that
+    `_section_anchor_slug` resolves; a SECTION_AFTER_ANCHORS entry moves
+    the whole group past its target topic block instead. Only NeetCode-only
+    rows move; overlap problems keep their Grind 75 slots.
+
+    Args:
+        rows: The merged rows (see `merge_tracks`).
+        neetcode: The validated NeetCode manifest entries (section order).
+
+    Returns:
+        The interleaved rows.
+
+    Raises:
+        SourceError: When an anchor cannot be resolved.
+    """
+    sections = list(dict.fromkeys(entry["section"] for entry in neetcode))
+    section_members: dict = {}
+    for entry in neetcode:
+        section_members.setdefault(entry["section"], []).append(entry["lcSlug"])
+    backbone = [row for row in rows if row["section"] is None]
+    groups: dict = {}
+    for row in rows:
+        if row["section"] is not None:
+            groups.setdefault(row["section"], []).append(row)
+    pending: dict = {}
+    tail: List[dict] = []
+    for section in sections:
+        if section in SECTION_AFTER_ANCHORS or section not in groups:
+            continue
+        anchor = _section_anchor_slug(section, backbone, section_members)
+        if anchor is None:
+            tail.extend(groups[section])
+        else:
+            pending.setdefault(anchor, []).extend(groups[section])
+    merged: List[dict] = []
+    for row in backbone:
+        merged.append(row)
+        merged.extend(pending.get(row["slug"], []))
+    merged.extend(tail)
+    for section in sections:
+        target = SECTION_AFTER_ANCHORS.get(section)
+        if target is None or section not in groups:
+            continue
+        end = _section_end_index(merged, target, section_members, backbone)
+        merged[end + 1 : end + 1] = groups[section]
+    return merged
+
+
+def study_order_rows(grind: Sequence[dict], neetcode: Sequence[dict]) -> List[dict]:
+    """Merge the tracks and interleave them into the study order.
+
+    Shared by the landing renderer and the nav renderer so the table and
+    the sidebar can never disagree.
+
+    Args:
+        grind: The validated grind75_table.json rows.
+        neetcode: The validated neetcode150_manifest.json entries.
+
+    Returns:
+        The interleaved unified rows.
+    """
+    merged = merge_tracks(grind, neetcode)
+    verify_merge_shape(merged)
+    return interleave_study_order(merged, neetcode)
 
 
 # ---------------------------------------------------------------------------
@@ -432,17 +688,55 @@ def amazon_overlap_lc_slugs(neetcode: Sequence[dict], amazon: Sequence[dict]) ->
 # ---------------------------------------------------------------------------
 
 
+def practice_at_cell(row: dict) -> str:
+    """Render a unified row's Practice-at cell.
+
+    LeetCode-premium rows link the problem's NeetCode page (the free
+    mirror); every other row links the canonical leetcode.com page.
+
+    Args:
+        row: One unified row.
+
+    Returns:
+        The markdown link for the cell.
+    """
+    if row["premium"]:
+        slug = EXPECTED_PREMIUM_NC_SLUGS[row["slug"]]
+        return f"[{PRACTICE_NEETCODE}]({NEETCODE_PROBLEM_URL}{slug})"
+    return f"[{PRACTICE_LEETCODE}]({LEETCODE_PROBLEM_URL}{row['slug']}/)"
+
+
+def tracks_cell(row: dict) -> str:
+    """Render a unified row's Tracks cell, linking each curator's list.
+
+    Args:
+        row: One unified row.
+
+    Returns:
+        The track names joined with " + ", each linking its list page;
+        Amazon-overlapping rows append the plain Amazon OA marker.
+    """
+    if row["tracks"] == GRIND_TRACK:
+        names = f"[{GRIND_TRACK}]({GRIND_TRACK_URL})"
+    elif row["tracks"] == NEETCODE_TRACK:
+        names = f"[{NEETCODE_TRACK}]({NEETCODE_TRACK_URL})"
+    else:
+        names = f"[{GRIND_TRACK}]({GRIND_TRACK_URL}) + [{NEETCODE_TRACK}]({NEETCODE_TRACK_URL})"
+    return names
+
+
 def render_unified_section(rows: Sequence[dict], overlap: set) -> str:
     """Render the marker-bounded unified LeetCode table section.
 
-    Columns `| # | Problem | Difficulty | Category | Tracks | Time |`;
-    `#` is the continuous row position (1..N in emitted order, so the
-    hand-table Grind numbers never collide with the NeetCode track orders)
-    and `Problem` links the write-up. Rows in the overlap set carry the
-    Amazon OA marker in the Tracks cell, with a legend under the table.
+    Columns `| Problem | Difficulty | Category | Practice at | Tracks |
+    Time |`; rows carry no sequence numbers. `Problem` links the write-up,
+    `Practice at` links where the problem lives (LeetCode, or the NeetCode
+    page for premium problems), and `Tracks` links each curator's list.
+    Rows in the overlap set carry the Amazon OA marker in the Tracks cell,
+    with a legend under the table.
 
     Args:
-        rows: The merged unified rows.
+        rows: The interleaved unified rows.
         overlap: LeetCode slugs from these rows also in the Amazon OA bank.
 
     Returns:
@@ -457,21 +751,24 @@ def render_unified_section(rows: Sequence[dict], overlap: set) -> str:
         f" [Grind 75](https://www.techinterviewhandbook.org/grind75)"
         f" and the [NeetCode 150](https://neetcode.io/practice/practice/neetcode150):"
         f" {len(rows)} unique problems, {overlap_count} on both tracks and credited to each."
-        " Grind 75 study order first, then the NeetCode-only problems in track order."
-        " Tracks names the plan(s) a problem belongs to; Time carries the Grind 75"
-        " suggested minutes and stays empty for NeetCode-only problems.",
+        " Rows follow one interleaved study order: the Grind 75 sequence as the backbone,"
+        " with each NeetCode-only problem slotted next to its closest Grind 75 topic."
+        " Practice at links where the problem lives:"
+        f" {PRACTICE_LEETCODE} for free problems, {PRACTICE_NEETCODE} for LeetCode-premium ones."
+        " Tracks names the plan(s) a problem belongs to and links each curator's list;"
+        " Time carries the Grind 75 suggested minutes and stays empty for NeetCode-only problems.",
         "",
         UNIFIED_TABLE_HEADER,
-        "|---|---------|------------|----------|--------|------|",
+        UNIFIED_TABLE_SEPARATOR,
     ]
-    for position, row in enumerate(rows, start=1):
+    for row in rows:
         problem = f"[{row['title']}]({row['dirSlug']}.md)"
-        tracks = row["tracks"]
+        tracks = tracks_cell(row)
         if row["slug"] in overlap:
             tracks = f"{tracks} {AMAZON_MARKER}"
         lines.append(
-            f"| {position} | {problem} | {row['difficulty']}"
-            f" | {row['category']} | {tracks} | {row['time']} |"
+            f"| {problem} | {row['difficulty']}"
+            f" | {row['category']} | {practice_at_cell(row)} | {tracks} | {row['time']} |"
         )
     if any(row["slug"] in overlap for row in rows):
         lines.append("")
@@ -483,8 +780,9 @@ def render_unified_section(rows: Sequence[dict], overlap: set) -> str:
 def render_amazon_section(entries: Sequence[dict]) -> str:
     """Render the marker-bounded Amazon OA table section.
 
-    Separate from the LeetCode tables: columns `| # | Problem | Updated |`,
-    most recently updated first, `Problem` linking the write-up page.
+    Separate from the LeetCode tables: columns `| Problem | Updated |
+    Practice at |`, most recently updated first, `Problem` linking the
+    write-up page and `Practice at` linking the problem's FastPrep page.
 
     Args:
         entries: The validated Amazon OA manifest entries.
@@ -508,11 +806,12 @@ def render_amazon_section(entries: Sequence[dict]) -> str:
         " workspace.",
         "",
         AMAZON_TABLE_HEADER,
-        "|---|---------|---------|",
+        AMAZON_TABLE_SEPARATOR,
     ]
-    for position, entry in enumerate(entries, start=1):
+    for entry in entries:
         problem = f"[{entry['title']}](amazon_oa/{entry['slug']}.md)"
-        lines.append(f"| {position} | {problem} | {entry['updated']} |")
+        practice = f"[{PRACTICE_FASTPREP}]({entry['url']})"
+        lines.append(f"| {problem} | {entry['updated']} | {practice} |")
     lines.append(AMAZON_SECTION_END)
     return "\n".join(lines) + "\n"
 
@@ -576,8 +875,7 @@ def render_sections() -> List[tuple]:
         section, in document order.
     """
     grind, neetcode, amazon = load_validated_sources()
-    merged = merge_tracks(grind, neetcode)
-    verify_merge_shape(merged)
+    merged = study_order_rows(grind, neetcode)
     overlap = amazon_overlap_lc_slugs(neetcode, amazon)
     return [
         (
@@ -624,7 +922,7 @@ def write_sections(landing_path: Optional[Path] = None) -> bool:
             continue
         end_at = text.find(end_marker, start_at)
         if end_at == -1:
-            raise SystemExit(f"{index_path} has {start_marker!r} without {end_marker!r}")
+            raise SystemExit(f"{landing_path} has {start_marker!r} without {end_marker!r}")
         text = text[:start_at] + rendered.rstrip() + text[end_at + len(end_marker) :]
     if missing:
         anchor_at = text.find(LANDING_ANCHOR)
@@ -651,12 +949,12 @@ def render_problems_nav(merged: Sequence[dict]) -> str:
 
     The landing page is the section parent (mkdocs-material's
     navigation.indexes renders it as the Problems index); the LeetCode
-    subsection carries every merged row at one level in unified-table order
-    (Grind 75 study order, then the NeetCode-only track order); the Amazon
-    OA subsection carries the bank index page.
+    subsection carries every merged row at one level in the interleaved
+    study order (the unified table's order); the Amazon OA subsection
+    carries the bank index page.
 
     Args:
-        merged: The validated merged rows (see `merge_tracks`).
+        merged: The validated interleaved rows (see `study_order_rows`).
 
     Returns:
         The nav block from the Problems marker through the Amazon OA line,
@@ -701,8 +999,7 @@ def write_problems_nav(mkdocs_path: Optional[Path] = None) -> bool:
         next_top_at = section_at + match.start()
         break
     _grind, _neetcode, _amazon = load_validated_sources()
-    merged = merge_tracks(_grind, _neetcode)
-    verify_merge_shape(merged)
+    merged = study_order_rows(_grind, _neetcode)
     updated = text[:marker_at] + render_problems_nav(merged) + text[next_top_at:]
     if updated == text:
         return False
@@ -776,8 +1073,7 @@ def check_problems_nav(mkdocs_path: Optional[Path] = None) -> int:
     stale: List[str] = []
     text = mkdocs_path.read_text(encoding="utf-8") if mkdocs_path.exists() else ""
     _grind, _neetcode, _amazon = load_validated_sources()
-    merged = merge_tracks(_grind, _neetcode)
-    verify_merge_shape(merged)
+    merged = study_order_rows(_grind, _neetcode)
     fresh = render_problems_nav(merged)
     if not text:
         stale.append("mkdocs.yml (missing)")

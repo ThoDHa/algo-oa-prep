@@ -7,7 +7,7 @@ it is personal (gitignored) and never read by the tests.
 
   uv run python progress.py scan                 # run the suite, record per-problem status
   uv run python progress.py rate two_sum shaky   # record a confidence rating
-  uv run python progress.py status               # full board in canonical Grind75 order
+  uv run python progress.py status               # full board in canonical study order
   uv run python progress.py due                  # just the review queue
 
 Status semantics: `scan` reports the tests honestly. A problem is `solved`
@@ -85,37 +85,34 @@ def save_state(state: dict) -> None:
 
 
 def canonical_order(problems: list[str]) -> list[str]:
-    """Return problems in canonical Grind75 study order.
+    """Return problems in canonical study order.
 
     Parses the problem table in docs/problems/index.md, whose rows the
-    index-tables generator numbers 1..N continuously. Any problem missing
-    from the table is appended alphabetically. Falls back to alphabetical
-    order if the table cannot be read or has no numbered rows.
+    index-tables generator emits in the interleaved study order. Any
+    problem missing from the table is appended alphabetically. Falls back
+    to alphabetical order if the table cannot be read or has no rows.
     """
     known = set(problems)
-    row = re.compile(
-        r"^\|\s*(\d+)\s*\|\s*\[[^\]]+\]\((?:problems/)?([A-Za-z0-9_]+)\.md\)"
-    )
-    numbered: list[tuple[int, str]] = []
+    row = re.compile(r"^\|\s*\[[^\]]+\]\((?:problems/)?([A-Za-z0-9_]+)\.md\)")
+    ordered_rows: list[str] = []
     try:
         for line in DOCS_INDEX.read_text(encoding="utf-8").splitlines():
             match = row.match(line)
             if match is not None:
-                numbered.append((int(match.group(1)), match.group(2)))
+                ordered_rows.append(match.group(1))
     except OSError as exc:
         print(
             f"warning: could not read {DOCS_INDEX} ({exc}); listing alphabetically.",
             file=sys.stderr,
         )
         return sorted(problems)
-    if not numbered:
+    if not ordered_rows:
         print(
             f"warning: no problem table found in {DOCS_INDEX}; listing alphabetically.",
             file=sys.stderr,
         )
         return sorted(problems)
-    ordered = [slug for _, slug in sorted(numbered)]
-    ordered = [slug for slug in ordered if slug in known]
+    ordered = [slug for slug in ordered_rows if slug in known]
     ordered += sorted(known - set(ordered))
     return ordered
 
@@ -339,7 +336,7 @@ def build_parser() -> argparse.ArgumentParser:
     rate.add_argument("slug", help="problem directory name, e.g. two_sum")
     rate.add_argument("level", help=f"confidence: {', '.join(CONFIDENCE_LEVELS)}")
     rate.set_defaults(func=cmd_rate)
-    status = sub.add_parser("status", help="show the full board in canonical Grind75 order")
+    status = sub.add_parser("status", help="show the full board in canonical study order")
     status.set_defaults(func=cmd_status)
     due = sub.add_parser("due", help="show only the problems due for review")
     due.set_defaults(func=cmd_due)
