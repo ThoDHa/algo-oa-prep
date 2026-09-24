@@ -2,8 +2,8 @@
 
 The generator merges scripts/grind75_table.json (the 77 hand-maintained
 Grind 75 rows) with scripts/neetcode150_manifest.json into one unified
-LeetCode table, renders the Amazon OA bank table separately, and credits
-the list sources. Run with:
+LeetCode table in the interleaved study order, renders the Amazon OA bank
+table separately, and credits the list sources. Run with:
 
     cd practice && uv run pytest ../scripts/
 """
@@ -65,6 +65,8 @@ def fixture_neetcode():
             "lcSlug": "two-sum",
             "dirSlug": "two_sum",
             "difficulty": "Easy",
+            "ncSlug": "two-integer-sum",
+            "leetcodePremium": None,
         },
         {
             "order": 2,
@@ -73,6 +75,8 @@ def fixture_neetcode():
             "lcSlug": "min-stack",
             "dirSlug": "min_stack",
             "difficulty": "Medium",
+            "ncSlug": "min-stack",
+            "leetcodePremium": None,
         },
         {
             "order": 7,
@@ -81,6 +85,8 @@ def fixture_neetcode():
             "lcSlug": "jump-game",
             "dirSlug": "jump_game",
             "difficulty": "Medium",
+            "ncSlug": "jump-game",
+            "leetcodePremium": None,
         },
     ]
 
@@ -173,6 +179,8 @@ def valid_neetcode(count=gen.NEETCODE_TRACK_SIZE):
             "lcSlug": f"track-problem-{n}",
             "dirSlug": f"track_problem_{n}",
             "difficulty": "Easy",
+            "ncSlug": f"nc-problem-{n}",
+            "leetcodePremium": False,
         }
         for n in range(1, count + 1)
     ]
@@ -205,6 +213,20 @@ def amazon_entry_for(lc_slug):
     }
 
 
+def neetcode_entry_for(section, lc_slug, premium=False, nc_slug=None):
+    """A synthetic NeetCode entry for one problem in one section."""
+    return {
+        "order": 1,
+        "section": section,
+        "title": lc_slug.replace("-", " ").title(),
+        "lcSlug": lc_slug,
+        "dirSlug": lc_slug.replace("-", "_"),
+        "difficulty": "Medium",
+        "ncSlug": nc_slug or lc_slug,
+        "leetcodePremium": premium,
+    }
+
+
 def render_fixture_section(amazon=None):
     """Render the unified section for the synthetic fixtures.
 
@@ -217,23 +239,19 @@ def render_fixture_section(amazon=None):
     """
     neetcode = fixture_neetcode()
     amazon = fixture_amazon() if amazon is None else amazon
-    rows = gen.merge_tracks(fixture_grind(), neetcode)
+    rows = gen.interleave_study_order(gen.merge_tracks(fixture_grind(), neetcode), neetcode)
     overlap = gen.amazon_overlap_lc_slugs(neetcode, amazon)
     return gen.render_unified_section(rows, overlap)
 
 
 def unified_table_rows(section):
     """Extract the table row lines (excluding the header) from a section."""
-    return [
-        line
-        for line in section.splitlines()
-        if line.startswith("| ") and not line.startswith("| #")
-    ]
+    return [line for line in section.splitlines() if line.startswith("| [")]
 
 
-def row_number(line):
-    """Parse the continuous row number from a table row line."""
-    return int(line.split("|")[1].strip())
+def cell(line, column):
+    """Return one cell's text from a table row line (0 = first cell)."""
+    return line.split("|")[column + 1].strip()
 
 
 def unified_row_lc_slug(line):
@@ -244,8 +262,8 @@ def unified_row_lc_slug(line):
     converts back per the repo-wide dirSlug = lcSlug.replace("-", "_")
     convention.
     """
-    problem_cell = line.split("|")[2].strip()
-    url = problem_cell[problem_cell.index("(") + 1 : problem_cell.index(")")]
+    problem_cell = cell(line, gen.PROBLEM_COLUMN)
+    url = problem_cell.rpartition("](")[2].rstrip(")")
     return url.rstrip("/").removesuffix(".md").replace("_", "-")
 
 
@@ -304,6 +322,16 @@ def test_committed_neetcode_manifest_passes_merge_validation():
     gen.validate_neetcode_manifest(gen.load_neetcode_manifest(NEETCODE_MANIFEST_PATH))
 
 
+def test_committed_neetcode_manifest_flags_exactly_the_seven_premium_entries():
+    entries = gen.load_neetcode_manifest(NEETCODE_MANIFEST_PATH)
+    premium = {
+        entry["lcSlug"]: entry["ncSlug"]
+        for entry in entries
+        if entry["leetcodePremium"] is True
+    }
+    assert premium == gen.EXPECTED_PREMIUM_NC_SLUGS
+
+
 def test_committed_amazon_manifest_passes_validation():
     gen.validate_amazon_manifest(gen.load_amazon_manifest(AMAZON_MANIFEST_PATH))
 
@@ -353,6 +381,22 @@ def test_load_neetcode_manifest_rejects_duplicate_lc_slugs(tmp_path):
     entries[1]["lcSlug"] = entries[0]["lcSlug"]
     path = write_json(tmp_path, "neet.json", entries)
     with pytest.raises(gen.SourceError, match="track-problem-1"):
+        gen.validate_neetcode_manifest(gen.load_neetcode_manifest(path))
+
+
+def test_load_neetcode_manifest_rejects_a_missing_nc_slug(tmp_path):
+    entries = valid_neetcode()
+    del entries[0]["ncSlug"]
+    path = write_json(tmp_path, "neet.json", entries)
+    with pytest.raises(gen.SourceError, match="ncSlug"):
+        gen.validate_neetcode_manifest(gen.load_neetcode_manifest(path))
+
+
+def test_load_neetcode_manifest_rejects_a_non_boolean_premium_flag(tmp_path):
+    entries = valid_neetcode()
+    entries[0]["leetcodePremium"] = "yes"
+    path = write_json(tmp_path, "neet.json", entries)
+    with pytest.raises(gen.SourceError, match="leetcodePremium"):
         gen.validate_neetcode_manifest(gen.load_neetcode_manifest(path))
 
 
@@ -427,6 +471,435 @@ def test_merge_tracks_uses_the_neetcode_section_as_category_for_neetcode_only_ro
     assert jump_game["category"] == "Greedy"
 
 
+def test_merge_tracks_records_the_neetcode_section_on_neetcode_only_rows_only():
+    rows = gen.merge_tracks(fixture_grind(), fixture_neetcode())
+    grind_rows = [row for row in rows if row["tracks"] in (gen.GRIND_TRACK, gen.BOTH_TRACKS)]
+    assert all(row["section"] is None for row in grind_rows)
+    jump_game = next(row for row in rows if row["slug"] == "jump-game")
+    assert jump_game["section"] == "Greedy"
+
+
+def test_merge_tracks_flags_premium_neetcode_only_rows():
+    neetcode = fixture_neetcode()[:-1] + [
+        neetcode_entry_for("Stack", "encode-and-decode-strings", premium=True)
+    ]
+    rows = gen.merge_tracks(fixture_grind(), neetcode)
+    encode = next(row for row in rows if row["slug"] == "encode-and-decode-strings")
+    assert encode["premium"] is True
+
+
+def test_merge_tracks_never_flags_premium_on_grind_rows():
+    neetcode = fixture_neetcode()[:-1] + [
+        neetcode_entry_for("Stack", "min-stack", premium=True)
+    ]
+    rows = gen.merge_tracks(fixture_grind(), neetcode)
+    grind_rows = [row for row in rows if row["tracks"] != gen.NEETCODE_TRACK]
+    assert all(row["premium"] is False for row in grind_rows)
+
+
+# ---------------------------------------------------------------------------
+# The interleaved study order
+# ---------------------------------------------------------------------------
+
+
+def test_interleave_slots_a_neetcode_section_after_its_category_anchor():
+    grind = [
+        {"number": 1, "slug": "stack-problem", "title": "Stack Problem",
+         "difficulty": "Easy", "category": "Stack", "time": "10 minutes"},
+        {"number": None, "slug": "graph-problem", "title": "Graph Problem",
+         "difficulty": "Easy", "category": "Graph, DFS", "time": "10 minutes"},
+    ]
+    neetcode = [
+        neetcode_entry_for("Graphs", "clone-graph"),
+        neetcode_entry_for("Stack", "daily-temperatures"),
+    ]
+    rows = gen.interleave_study_order(gen.merge_tracks(grind, neetcode), neetcode)
+    assert [row["slug"] for row in rows] == [
+        "stack-problem",
+        "daily-temperatures",
+        "graph-problem",
+        "clone-graph",
+    ]
+
+
+def test_interleave_prefers_the_pinned_slug_anchor_over_the_category_anchor():
+    grind = [
+        {"number": 1, "slug": "first-string-problem", "title": "First String Problem",
+         "difficulty": "Easy", "category": "String", "time": "10 minutes"},
+        {"number": 2, "slug": "longest-substring-without-repeating-characters",
+         "title": "Longest Substring Without Repeating Characters",
+         "difficulty": "Medium", "category": "String", "time": "30 minutes"},
+    ]
+    neetcode = [
+        neetcode_entry_for("Sliding Window", "best-time-to-buy-and-sell-stock"),
+        neetcode_entry_for("Sliding Window", "permutation-in-string"),
+    ]
+    rows = gen.interleave_study_order(gen.merge_tracks(grind, neetcode), neetcode)
+    assert [row["slug"] for row in rows] == [
+        "first-string-problem",
+        "longest-substring-without-repeating-characters",
+        "best-time-to-buy-and-sell-stock",
+        "permutation-in-string",
+    ]
+
+
+def test_interleave_falls_back_to_the_first_track_member_as_anchor():
+    grind = [
+        {"number": 1, "slug": "maximum-subarray", "title": "Maximum Subarray",
+         "difficulty": "Medium", "category": "Array, Dynamic Programming",
+         "time": "20 minutes"},
+    ]
+    neetcode = [
+        neetcode_entry_for("Greedy", "maximum-subarray"),
+        neetcode_entry_for("Greedy", "jump-game"),
+    ]
+    rows = gen.interleave_study_order(gen.merge_tracks(grind, neetcode), neetcode)
+    assert [row["slug"] for row in rows] == [
+        "maximum-subarray",
+        "jump-game",
+    ]
+
+
+def test_interleave_appends_sections_without_any_anchor_at_the_end():
+    grind = [
+        {"number": 1, "slug": "unrelated-problem", "title": "Unrelated Problem",
+         "difficulty": "Easy", "category": "String", "time": "10 minutes"},
+    ]
+    neetcode = [neetcode_entry_for("Greedy", "jump-game")]
+    rows = gen.interleave_study_order(gen.merge_tracks(grind, neetcode), neetcode)
+    assert [row["slug"] for row in rows] == ["unrelated-problem", "jump-game"]
+
+
+def test_interleave_places_an_after_anchored_section_after_the_whole_topic_block():
+    grind = [
+        {"number": 1, "slug": "climbing-stairs", "title": "Climbing Stairs",
+         "difficulty": "Easy", "category": "Dynamic Programming", "time": "15 minutes"},
+        {"number": 2, "slug": "unique-paths", "title": "Unique Paths",
+         "difficulty": "Medium", "category": "Dynamic Programming", "time": "20 minutes"},
+    ]
+    neetcode = [
+        neetcode_entry_for("1-D Dynamic Programming", "house-robber"),
+        neetcode_entry_for("2-D Dynamic Programming", "edit-distance"),
+    ]
+    rows = gen.interleave_study_order(gen.merge_tracks(grind, neetcode), neetcode)
+    assert [row["slug"] for row in rows] == [
+        "climbing-stairs",
+        "house-robber",
+        "unique-paths",
+        "edit-distance",
+    ]
+
+
+def test_interleave_keeps_each_committed_section_contiguous_and_in_track_order():
+    grind = gen.load_grind_table(GRIND_TABLE_PATH)
+    neetcode = gen.load_neetcode_manifest(NEETCODE_MANIFEST_PATH)
+    rows = gen.study_order_rows(grind, neetcode)
+    sections = list(dict.fromkeys(entry["section"] for entry in neetcode))
+    for section in sections:
+        group = [row for row in rows if row["section"] == section]
+        track_order = [
+            entry["lcSlug"]
+            for entry in neetcode
+            if entry["section"] == section and entry["lcSlug"] not in {r["slug"] for r in grind}
+        ]
+        assert [row["slug"] for row in group] == track_order, section
+
+
+def test_interleave_raises_when_a_pinned_slug_anchor_is_absent():
+    grind = [
+        {"number": 1, "slug": "unrelated-problem", "title": "Unrelated Problem",
+         "difficulty": "Easy", "category": "String", "time": "10 minutes"},
+    ]
+    neetcode = [neetcode_entry_for("Sliding Window", "permutation-in-string")]
+    with pytest.raises(gen.SourceError, match="longest-substring-without-repeating-characters"):
+        gen.interleave_study_order(gen.merge_tracks(grind, neetcode), neetcode)
+
+
+def test_interleave_raises_when_an_after_anchor_target_has_no_topic_rows():
+    grind = [
+        {"number": 1, "slug": "unrelated-problem", "title": "Unrelated Problem",
+         "difficulty": "Easy", "category": "String", "time": "10 minutes"},
+    ]
+    neetcode = [neetcode_entry_for("Advanced Graphs", "network-delay-time")]
+    with pytest.raises(gen.SourceError, match="Graphs"):
+        gen.interleave_study_order(gen.merge_tracks(grind, neetcode), neetcode)
+
+
+# ---------------------------------------------------------------------------
+# The committed interleaved study order (pinned)
+# ---------------------------------------------------------------------------
+
+
+EXPECTED_STUDY_ORDER = [
+    "two-sum",
+    "group-anagrams",
+    "top-k-frequent-elements",
+    "encode-and-decode-strings",
+    "valid-sudoku",
+    "longest-consecutive-sequence",
+    "valid-parentheses",
+    "daily-temperatures",
+    "car-fleet",
+    "merge-two-sorted-lists",
+    "reorder-list",
+    "remove-nth-node-from-end-of-list",
+    "copy-list-with-random-pointer",
+    "add-two-numbers",
+    "find-the-duplicate-number",
+    "reverse-nodes-in-k-group",
+    "best-time-to-buy-and-sell-stock",
+    "valid-palindrome",
+    "two-sum-ii-input-array-is-sorted",
+    "invert-binary-tree",
+    "same-tree",
+    "subtree-of-another-tree",
+    "count-good-nodes-in-binary-tree",
+    "valid-anagram",
+    "binary-search",
+    "search-a-2d-matrix",
+    "koko-eating-bananas",
+    "find-minimum-in-rotated-sorted-array",
+    "median-of-two-sorted-arrays",
+    "flood-fill",
+    "max-area-of-island",
+    "walls-and-gates",
+    "pacific-atlantic-water-flow",
+    "surrounded-regions",
+    "course-schedule-ii",
+    "graph-valid-tree",
+    "number-of-connected-components-in-an-undirected-graph",
+    "redundant-connection",
+    "lowest-common-ancestor-of-a-binary-search-tree",
+    "balanced-binary-tree",
+    "linked-list-cycle",
+    "implement-queue-using-stacks",
+    "first-bad-version",
+    "ransom-note",
+    "climbing-stairs",
+    "min-cost-climbing-stairs",
+    "house-robber",
+    "house-robber-ii",
+    "palindromic-substrings",
+    "decode-ways",
+    "maximum-product-subarray",
+    "longest-increasing-subsequence",
+    "longest-palindrome",
+    "reverse-linked-list",
+    "majority-element",
+    "add-binary",
+    "diameter-of-binary-tree",
+    "middle-of-the-linked-list",
+    "maximum-depth-of-binary-tree",
+    "contains-duplicate",
+    "maximum-subarray",
+    "jump-game",
+    "jump-game-ii",
+    "gas-station",
+    "hand-of-straights",
+    "merge-triplets-to-form-target-triplet",
+    "partition-labels",
+    "valid-parenthesis-string",
+    "non-overlapping-intervals",
+    "meeting-rooms",
+    "meeting-rooms-ii",
+    "minimum-interval-to-include-each-query",
+    "single-number",
+    "number-of-1-bits",
+    "counting-bits",
+    "reverse-bits",
+    "missing-number",
+    "sum-of-two-integers",
+    "reverse-integer",
+    "insert-interval",
+    "01-matrix",
+    "k-closest-points-to-origin",
+    "kth-largest-element-in-a-stream",
+    "last-stone-weight",
+    "kth-largest-element-in-an-array",
+    "design-twitter",
+    "longest-substring-without-repeating-characters",
+    "longest-repeating-character-replacement",
+    "permutation-in-string",
+    "sliding-window-maximum",
+    "3sum",
+    "binary-tree-level-order-traversal",
+    "clone-graph",
+    "evaluate-reverse-polish-notation",
+    "course-schedule",
+    "implement-trie-prefix-tree",
+    "design-add-and-search-words-data-structure",
+    "word-search-ii",
+    "coin-change",
+    "product-of-array-except-self",
+    "min-stack",
+    "validate-binary-search-tree",
+    "number-of-islands",
+    "rotting-oranges",
+    "search-in-rotated-sorted-array",
+    "combination-sum",
+    "combination-sum-ii",
+    "subsets-ii",
+    "generate-parentheses",
+    "palindrome-partitioning",
+    "n-queens",
+    "permutations",
+    "merge-intervals",
+    "lowest-common-ancestor-of-a-binary-tree",
+    "time-based-key-value-store",
+    "accounts-merge",
+    "sort-colors",
+    "word-break",
+    "partition-equal-subset-sum",
+    "string-to-integer-atoi",
+    "spiral-matrix",
+    "rotate-image",
+    "set-matrix-zeroes",
+    "happy-number",
+    "plus-one",
+    "powx-n",
+    "multiply-strings",
+    "detect-squares",
+    "subsets",
+    "binary-tree-right-side-view",
+    "longest-palindromic-substring",
+    "unique-paths",
+    "longest-common-subsequence",
+    "best-time-to-buy-and-sell-stock-with-cooldown",
+    "coin-change-ii",
+    "target-sum",
+    "interleaving-string",
+    "longest-increasing-path-in-a-matrix",
+    "distinct-subsequences",
+    "edit-distance",
+    "burst-balloons",
+    "regular-expression-matching",
+    "construct-binary-tree-from-preorder-and-inorder-traversal",
+    "container-with-most-water",
+    "letter-combinations-of-a-phone-number",
+    "word-search",
+    "find-all-anagrams-in-a-string",
+    "minimum-height-trees",
+    "task-scheduler",
+    "lru-cache",
+    "kth-smallest-element-in-a-bst",
+    "minimum-window-substring",
+    "serialize-and-deserialize-binary-tree",
+    "trapping-rain-water",
+    "find-median-from-data-stream",
+    "word-ladder",
+    "network-delay-time",
+    "reconstruct-itinerary",
+    "min-cost-to-connect-all-points",
+    "swim-in-rising-water",
+    "alien-dictionary",
+    "cheapest-flights-within-k-stops",
+    "basic-calculator",
+    "maximum-profit-in-job-scheduling",
+    "merge-k-sorted-lists",
+    "largest-rectangle-in-histogram",
+    "binary-tree-maximum-path-sum",
+    "maximum-frequency-stack",
+]
+
+
+def committed_study_order():
+    """The interleaved study order from the committed data sources."""
+    return [
+        row["slug"]
+        for row in gen.study_order_rows(
+            gen.load_grind_table(GRIND_TABLE_PATH),
+            gen.load_neetcode_manifest(NEETCODE_MANIFEST_PATH),
+        )
+    ]
+
+
+def test_committed_study_order_pins_the_full_168_row_sequence():
+    assert committed_study_order() == EXPECTED_STUDY_ORDER
+
+
+def assert_precedes(earlier, later):
+    """Assert two slugs sit in that exact adjacency in the pinned order."""
+    order = committed_study_order()
+    assert order.index(earlier) == order.index(later) - 1, (earlier, later)
+
+
+def test_committed_interleave_puts_arrays_and_hashing_after_two_sum():
+    assert_precedes("two-sum", "group-anagrams")
+
+
+def test_committed_interleave_puts_stack_after_valid_parentheses():
+    assert_precedes("valid-parentheses", "daily-temperatures")
+
+
+def test_committed_interleave_puts_linked_list_after_merge_two_sorted_lists():
+    assert_precedes("merge-two-sorted-lists", "reorder-list")
+
+
+def test_committed_interleave_puts_two_pointers_after_valid_palindrome():
+    assert_precedes("valid-palindrome", "two-sum-ii-input-array-is-sorted")
+
+
+def test_committed_interleave_puts_trees_after_invert_binary_tree():
+    assert_precedes("invert-binary-tree", "same-tree")
+
+
+def test_committed_interleave_puts_binary_search_after_binary_search():
+    assert_precedes("binary-search", "search-a-2d-matrix")
+
+
+def test_committed_interleave_puts_graphs_after_flood_fill():
+    assert_precedes("flood-fill", "max-area-of-island")
+
+
+def test_committed_interleave_puts_heap_after_k_closest_points_to_origin():
+    assert_precedes("k-closest-points-to-origin", "kth-largest-element-in-a-stream")
+
+
+def test_committed_interleave_puts_backtracking_after_combination_sum():
+    assert_precedes("combination-sum", "combination-sum-ii")
+
+
+def test_committed_interleave_puts_tries_after_implement_trie_prefix_tree():
+    assert_precedes("implement-trie-prefix-tree", "design-add-and-search-words-data-structure")
+
+
+def test_committed_interleave_puts_sliding_window_after_its_pinned_anchor():
+    assert_precedes(
+        "longest-substring-without-repeating-characters",
+        "longest-repeating-character-replacement",
+    )
+
+
+def test_committed_interleave_puts_greedy_after_maximum_subarray():
+    assert_precedes("maximum-subarray", "jump-game")
+
+
+def test_committed_interleave_puts_math_and_geometry_after_spiral_matrix():
+    assert_precedes("spiral-matrix", "rotate-image")
+
+
+def test_committed_interleave_puts_2d_dp_after_the_last_dynamic_programming_row():
+    assert_precedes("unique-paths", "longest-common-subsequence")
+
+
+def test_committed_interleave_puts_advanced_graphs_after_the_graph_block():
+    assert_precedes("word-ladder", "network-delay-time")
+
+
+def test_committed_interleave_puts_intervals_after_the_greedy_block():
+    assert_precedes("valid-parenthesis-string", "non-overlapping-intervals")
+
+
+def test_committed_interleave_puts_bit_manipulation_after_the_intervals_block():
+    assert_precedes("minimum-interval-to-include-each-query", "single-number")
+
+
+def test_committed_study_order_starts_and_ends_with_the_backbone():
+    order = committed_study_order()
+    assert order[0] == "two-sum"
+    assert order[-1] == "maximum-frequency-stack"
+
+
 # ---------------------------------------------------------------------------
 # The Amazon overlap rule
 # ---------------------------------------------------------------------------
@@ -464,7 +937,7 @@ def test_committed_amazon_overlap_rule_yields_exactly_the_17_listed_problems():
 def test_committed_merge_yields_the_expected_universe_split():
     grind = gen.load_grind_table(GRIND_TABLE_PATH)
     neetcode = gen.load_neetcode_manifest(NEETCODE_MANIFEST_PATH)
-    rows = gen.merge_tracks(grind, neetcode)
+    rows = gen.study_order_rows(grind, neetcode)
     tracks = [row["tracks"] for row in rows]
     assert len(rows) == gen.UNIQUE_PROBLEM_COUNT
     assert tracks.count(gen.BOTH_TRACKS) == gen.OVERLAP_COUNT
@@ -482,7 +955,7 @@ def committed_section():
     grind = gen.load_grind_table(GRIND_TABLE_PATH)
     neetcode = gen.load_neetcode_manifest(NEETCODE_MANIFEST_PATH)
     amazon = gen.load_amazon_manifest(AMAZON_MANIFEST_PATH)
-    rows = gen.merge_tracks(grind, neetcode)
+    rows = gen.study_order_rows(grind, neetcode)
     return gen.render_unified_section(rows, gen.amazon_overlap_lc_slugs(neetcode, amazon))
 
 
@@ -492,15 +965,20 @@ def test_committed_unified_section_states_the_merge_counts():
     assert str(gen.OVERLAP_COUNT) in section
 
 
-def test_committed_merge_first_and_last_rows_follow_the_contract():
-    rows = gen.merge_tracks(
+def test_committed_unified_section_describes_the_interleaved_study_order():
+    section = committed_section()
+    assert "interleaved study order" in section
+    assert "Grind 75 study order first" not in section
+
+
+def test_committed_merge_starts_and_ends_per_the_study_order():
+    rows = gen.study_order_rows(
         gen.load_grind_table(GRIND_TABLE_PATH),
         gen.load_neetcode_manifest(NEETCODE_MANIFEST_PATH),
     )
     assert rows[0]["slug"] == "two-sum"
-    assert rows[-1]["slug"] == "reverse-integer"
-    assert rows[-1]["tracks"] == gen.NEETCODE_TRACK
-    assert rows[-1]["time"] == ""
+    assert rows[-1]["slug"] == "maximum-frequency-stack"
+    assert rows[-1]["tracks"] == gen.GRIND_TRACK
 
 
 # ---------------------------------------------------------------------------
@@ -508,39 +986,146 @@ def test_committed_merge_first_and_last_rows_follow_the_contract():
 # ---------------------------------------------------------------------------
 
 
-def test_render_unified_section_emits_the_marker_bounded_six_column_table():
+def test_render_unified_section_emits_the_marker_bounded_five_column_table():
     section = render_fixture_section()
     assert section.startswith(gen.UNIFIED_SECTION_START)
     assert section.rstrip().endswith(gen.UNIFIED_SECTION_END)
     assert "## Problem List" in section
-    assert "| # | Problem | Difficulty | Category | Tracks | Time |" in section
+    assert gen.UNIFIED_TABLE_HEADER in section
+    assert "| #" not in section
+    assert "|---|---------|------------|----------|--------|------|" in section
+
+
+def test_render_unified_section_formats_the_both_tracks_row():
+    section = render_fixture_section()
     row = [line for line in section.splitlines() if "two_sum" in line][0]
     assert row == (
-        "| 1 "
         "| [Two Sum](two_sum.md) | Easy | Array, Hash Table "
-        "| Grind 75 + NeetCode 150 | 15 minutes |"
+        f"| [{gen.PRACTICE_LEETCODE}]({gen.LEETCODE_PROBLEM_URL}two-sum/) "
+        f"| [{gen.GRIND_TRACK}]({gen.GRIND_TRACK_URL})"
+        f" + [{gen.NEETCODE_TRACK}]({gen.NEETCODE_TRACK_URL})"
+        " | 15 minutes |"
     )
 
 
-def test_render_unified_section_numbers_rows_continuously_in_emitted_order():
+def test_render_unified_section_carries_no_row_numbers():
     section = render_fixture_section()
     rows = unified_table_rows(section)
-    assert [row_number(row) for row in rows] == [1, 2, 3, 4]
+    assert len(rows) == 4
+    for line in rows:
+        assert cell(line, 0).startswith("[")
+        assert not cell(line, 0).rstrip().isdigit()
 
 
-def test_committed_unified_section_numbers_rows_one_through_168_with_no_gaps_or_dupes():
+def test_render_unified_section_formats_the_grind_only_row():
+    section = render_fixture_section()
+    row = [line for line in section.splitlines() if "flood_fill" in line][0]
+    assert row == (
+        "| [Flood Fill](flood_fill.md) | Easy | Graph, DFS "
+        f"| [{gen.PRACTICE_LEETCODE}]({gen.LEETCODE_PROBLEM_URL}flood-fill/) "
+        f"| [{gen.GRIND_TRACK}]({gen.GRIND_TRACK_URL})"
+        " | 20 minutes |"
+    )
+
+
+def test_render_unified_section_formats_the_neetcode_only_row():
+    section = render_fixture_section()
+    row = [line for line in section.splitlines() if "jump_game" in line][0]
+    assert row == (
+        "| [Jump Game](jump_game.md) | Medium | Greedy "
+        f"| [{gen.PRACTICE_LEETCODE}]({gen.LEETCODE_PROBLEM_URL}jump-game/) "
+        f"| [{gen.NEETCODE_TRACK}]({gen.NEETCODE_TRACK_URL})"
+        " |  |"
+    )
+
+
+def test_render_unified_section_swaps_premium_rows_to_the_neetcode_page():
+    grind = fixture_grind()
+    neetcode = fixture_neetcode()[:-1] + [
+        neetcode_entry_for(
+            "Stack", "encode-and-decode-strings",
+            premium=True, nc_slug="string-encode-and-decode",
+        )
+    ]
+    rows = gen.interleave_study_order(gen.merge_tracks(grind, neetcode), neetcode)
+    section = gen.render_unified_section(rows, set())
+    encode = [line for line in section.splitlines() if "encode_and_decode_strings" in line][0]
+    assert f"[{gen.PRACTICE_NEETCODE}]({gen.NEETCODE_PROBLEM_URL}string-encode-and-decode)" in encode
+    assert f"({gen.LEETCODE_PROBLEM_URL}encode-and-decode-strings/)" not in encode
+
+
+def test_render_unified_section_orders_the_premium_fixture_row_into_its_section():
+    grind = fixture_grind()
+    neetcode = fixture_neetcode()[:-1] + [
+        neetcode_entry_for(
+            "Stack", "encode-and-decode-strings",
+            premium=True, nc_slug="string-encode-and-decode",
+        )
+    ]
+    rows = gen.interleave_study_order(gen.merge_tracks(grind, neetcode), neetcode)
+    assert [row["slug"] for row in rows] == [
+        "two-sum",
+        "min-stack",
+        "encode-and-decode-strings",
+        "flood-fill",
+    ]
+
+
+def test_committed_unified_section_swaps_exactly_the_seven_premium_rows():
+    rows = unified_table_rows(committed_section())
+    neetcode_practice = [
+        cell(row, gen.PRACTICE_AT_COLUMN) for row in rows
+        if gen.PRACTICE_NEETCODE in cell(row, gen.PRACTICE_AT_COLUMN)
+    ]
+    assert len(neetcode_practice) == len(gen.EXPECTED_PREMIUM_NC_SLUGS)
+    for practice_cell in neetcode_practice:
+        slug = practice_cell.rsplit("/", 1)[1].rstrip(")")
+        assert slug in gen.EXPECTED_PREMIUM_NC_SLUGS.values()
+
+
+def test_committed_unified_section_practice_at_resolves_every_row():
     rows = unified_table_rows(committed_section())
     assert len(rows) == gen.UNIQUE_PROBLEM_COUNT
-    assert [row_number(row) for row in rows] == list(
-        range(1, gen.UNIQUE_PROBLEM_COUNT + 1)
+    leetcode_count = sum(
+        f"({gen.LEETCODE_PROBLEM_URL}" in cell(row, gen.PRACTICE_AT_COLUMN)
+        for row in rows
     )
+    neetcode_count = sum(
+        f"({gen.NEETCODE_PROBLEM_URL}" in cell(row, gen.PRACTICE_AT_COLUMN)
+        for row in rows
+    )
+    assert leetcode_count == gen.UNIQUE_PROBLEM_COUNT - len(gen.EXPECTED_PREMIUM_NC_SLUGS)
+    assert neetcode_count == len(gen.EXPECTED_PREMIUM_NC_SLUGS)
+
+
+def test_committed_unified_section_practice_at_links_match_the_leetcode_slug_pattern():
+    rows = unified_table_rows(committed_section())
+    pattern = f"({gen.LEETCODE_PROBLEM_URL}"
+    for row in rows:
+        practice_cell = cell(row, gen.PRACTICE_AT_COLUMN)
+        if pattern not in practice_cell:
+            continue
+        link = practice_cell[practice_cell.index(pattern) + 1 :].split(")")[0]
+        slug = link[len(gen.LEETCODE_PROBLEM_URL) :].rstrip("/")
+        assert slug == unified_row_lc_slug(row), row
+
+
+def test_committed_unified_section_tracks_cells_link_the_track_list_pages():
+    rows = unified_table_rows(committed_section())
+    grind_links = sum(f"]({gen.GRIND_TRACK_URL})" in row for row in rows)
+    neetcode_links = sum(f"]({gen.NEETCODE_TRACK_URL})" in row for row in rows)
+    assert grind_links == gen.GRIND_ROW_COUNT
+    assert neetcode_links == gen.OVERLAP_COUNT + gen.NEETCODE_ONLY_COUNT
 
 
 def test_render_unified_section_appends_the_amazon_marker_to_overlapping_rows():
     amazon = fixture_amazon() + [amazon_entry_for("min-stack")]
     section = render_fixture_section(amazon=amazon)
     min_stack = [line for line in section.splitlines() if "min_stack" in line][0]
-    assert min_stack.endswith(f"| Grind 75 + NeetCode 150 {gen.AMAZON_MARKER} | 20 minutes |")
+    assert min_stack.endswith(
+        f"{gen.AMAZON_MARKER} | 20 minutes |"
+    )
+    assert f"]({gen.GRIND_TRACK_URL})" in min_stack
     two_sum = [line for line in section.splitlines() if "two_sum" in line][0]
     assert gen.AMAZON_MARKER not in two_sum
 
@@ -548,7 +1133,7 @@ def test_render_unified_section_appends_the_amazon_marker_to_overlapping_rows():
 def test_render_unified_section_links_rows_landing_relative():
     section = render_fixture_section()
     assert "(two_sum.md)" in section
-    assert "(problems/" not in section
+    assert "](problems/" not in section
 
 
 def test_render_unified_section_marks_exactly_the_17_committed_amazon_overlap_rows():
@@ -573,31 +1158,42 @@ def test_render_unified_section_carries_the_amazon_legend():
     assert "(amazon_oa/index.md)" in section
 
 
-def test_render_amazon_section_lists_rows_most_recent_first():
+def test_render_amazon_section_emits_the_three_column_table():
     section = gen.render_amazon_section(fixture_amazon())
     assert section.startswith(gen.AMAZON_SECTION_START)
     assert section.rstrip().endswith(gen.AMAZON_SECTION_END)
     assert "## Amazon OA Problems" in section
-    assert "| # | Problem | Updated |" in section
+    assert gen.AMAZON_TABLE_HEADER in section
+    assert "| #" not in section
+    assert "|---|---------|---------|" in section
+
+
+def test_render_amazon_section_links_rows_to_fastprep():
+    section = gen.render_amazon_section(fixture_amazon())
     row = [line for line in section.splitlines() if "amazon-maximize" in line][0]
     assert row == (
-        "| 1 | [Maximize Adjacent Difference With One Reversal]"
+        "| [Maximize Adjacent Difference With One Reversal]"
         "(amazon_oa/amazon-maximize-adjacent-difference-with-one-reversal.md)"
-        " | 2026-09-19 |"
+        " | 2026-09-19"
+        f" | [{gen.PRACTICE_FASTPREP}]"
+        "(https://www.fastprep.io/problems/amazon-maximize-adjacent-difference-with-one-reversal)"
+        " |"
     )
+
+
+def test_committed_amazon_section_gives_every_row_a_fastprep_link():
+    amazon = gen.load_amazon_manifest(AMAZON_MANIFEST_PATH)
+    section = gen.render_amazon_section(amazon)
+    rows = unified_table_rows(section)
+    assert len(rows) == gen.AMAZON_ROW_COUNT
+    for entry, row in zip(amazon, rows):
+        assert f"[{gen.PRACTICE_FASTPREP}]({entry['url']})" in row, entry["slug"]
 
 
 def test_render_amazon_section_links_rows_landing_relative():
     section = gen.render_amazon_section(fixture_amazon())
     assert "(amazon_oa/index.md)" in section
-    assert "(problems/" not in section
-
-
-def test_render_amazon_section_numbers_rows_sequentially():
-    section = gen.render_amazon_section(fixture_amazon())
-    rows = [line for line in section.splitlines() if line.startswith("| ")]
-    numbers = [line.split("|")[1].strip() for line in rows if line.split("|")[1].strip().isdigit()]
-    assert numbers == ["1", "2"]
+    assert "](problems/" not in section
 
 
 def test_render_sources_section_credits_all_three_lists():
@@ -696,7 +1292,9 @@ def test_check_fails_when_markers_are_missing(tmp_path):
 
 def test_main_emits_sections_and_exits_zero(tmp_path, monkeypatch, capsys):
     landing_path = fresh_landing(tmp_path)
+    mkdocs_path = mkdocs_shell(tmp_path)
     monkeypatch.setattr(gen, "PROBLEMS_INDEX_PATH", landing_path)
+    monkeypatch.setattr(gen, "MKDOCS_PATH", mkdocs_path)
     assert gen.main([]) == 0
     assert gen.UNIFIED_SECTION_START in landing_path.read_text(encoding="utf-8")
     assert "sections written" in capsys.readouterr().out
@@ -763,10 +1361,11 @@ def mkdocs_shell(tmp_path, body="    - \"Two Sum\": problems/two_sum.md\n"):
 
 
 def committed_nav_rows():
-    """The merged rows from the committed data sources."""
-    grind = gen.load_grind_table(GRIND_TABLE_PATH)
-    neetcode = gen.load_neetcode_manifest(NEETCODE_MANIFEST_PATH)
-    return gen.merge_tracks(grind, neetcode)
+    """The interleaved merged rows from the committed data sources."""
+    return gen.study_order_rows(
+        gen.load_grind_table(GRIND_TABLE_PATH),
+        gen.load_neetcode_manifest(NEETCODE_MANIFEST_PATH),
+    )
 
 
 def test_render_problems_nav_emits_landing_parent_and_two_subsections():
@@ -780,7 +1379,7 @@ def test_render_problems_nav_emits_landing_parent_and_two_subsections():
     assert nav.rstrip().endswith('    - "Amazon OA": problems/amazon_oa/index.md')
 
 
-def test_render_problems_nav_lists_all_rows_at_one_level_in_merge_order():
+def test_render_problems_nav_lists_all_rows_at_one_level_in_study_order():
     rows = committed_nav_rows()
     nav = gen.render_problems_nav(rows)
     lines = nav.splitlines()
@@ -891,6 +1490,12 @@ def test_committed_nav_leetcode_subsection_holds_168_unique_pages_at_one_level()
     assert len(set(children)) == len(children)
     rows = committed_nav_rows()
     assert children == [row["dirSlug"] for row in rows]
+
+
+def test_committed_nav_follows_the_interleaved_study_order():
+    mkdocs_text = gen.MKDOCS_PATH.read_text(encoding="utf-8")
+    children = nav_children(mkdocs_text)
+    assert children == [slug.replace("-", "_") for slug in EXPECTED_STUDY_ORDER]
 
 
 def test_main_emits_landing_sections_and_nav(tmp_path, monkeypatch, capsys):
