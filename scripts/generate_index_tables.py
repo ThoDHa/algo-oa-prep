@@ -21,11 +21,13 @@ Pipeline:
      unified LeetCode table, the separate Amazon OA table, and the Sources
      credits. --check compares the marker spans against a fresh render, so
      the tables stay generator-owned and refreshable.
-  5. Emit the mkdocs.yml Problems nav: the landing page as section parent
-     (navigation.indexes) with two subsections, LeetCode (all 168 problem
-     pages at one level, in the same interleaved study order) and Amazon OA
-     (the bank index). --check verifies the nav shape, so the subsections
-     stay generator-owned and refreshable.
+   5. Emit the mkdocs.yml Problems nav: the landing page as section parent
+      (navigation.indexes) with two subsections, LeetCode (all 168 problem
+      pages at one level, in the same interleaved study order) and Amazon
+      OA (a section-with-page: the bank index is the section's own entry,
+      with all 350 problem pages at one level beneath it, most recently
+      updated first). --check verifies the nav shape, so the subsections
+      stay generator-owned and refreshable.
 
 Offline contract: the committed sources (JSON manifests and write-up
 headers) are the only inputs; nothing is fetched, and the marker-bounded
@@ -63,9 +65,12 @@ SOURCES_SECTION_END = "<!-- sources:end -->"
 LANDING_ANCHOR = "## Study Guide and Practice"
 
 NAV_PROBLEMS_MARKER = "  - Problems:\n"
+NAV_LANDING_ENTRY = "    - problems/index.md\n"
 NAV_LEETCODE_HEADER = '    - "LeetCode":\n'
-NAV_AMAZON_HEADER = '    - "Amazon OA": problems/amazon_oa/index.md\n'
+NAV_AMAZON_HEADER = '    - "Amazon OA":\n'
+NAV_AMAZON_INDEX_ENTRY = "      - problems/amazon_oa/index.md\n"
 NAV_LEETCODE_CHILD_PATTERN = re.compile(r'^      - "(.+?)": problems/(.+?)\.md$')
+NAV_AMAZON_CHILD_PATTERN = re.compile(r'^      - "(.+?)": problems/amazon_oa/(.+?)\.md$')
 NAV_NEXT_TOP_PATTERN = re.compile(r"^  - ", re.M)
 
 GRIND_TRACK = "Grind 75"
@@ -1054,31 +1059,40 @@ def write_sections(landing_path: Optional[Path] = None) -> bool:
 # ---------------------------------------------------------------------------
 
 
-def render_problems_nav(merged: Sequence[dict]) -> str:
+def render_problems_nav(merged: Sequence[dict], amazon: Sequence[dict]) -> str:
     """Render the Problems nav block: landing parent plus two subsections.
 
     The landing page is the section parent (mkdocs-material's
     navigation.indexes renders it as the Problems index); the LeetCode
     subsection carries every merged row at one level in the interleaved
     study order (the unified table's order); the Amazon OA subsection
-    carries the bank index page.
+    carries the bank index as its own link (the section's first entry,
+    which navigation.indexes turns into the subsection link) with every
+    bank entry beneath it at one level, most recently updated first (the
+    manifest order, the bank table's order).
 
     Args:
         merged: The validated interleaved rows (see `study_order_rows`).
+        amazon: The validated Amazon OA manifest entries.
 
     Returns:
-        The nav block from the Problems marker through the Amazon OA line,
-        each line newline-terminated.
+        The nav block from the Problems marker through the last Amazon OA
+        child, each line newline-terminated.
     """
     lines = [
         NAV_PROBLEMS_MARKER,
-        "    - problems/index.md\n",
+        NAV_LANDING_ENTRY,
         NAV_LEETCODE_HEADER,
     ]
     lines.extend(
         f'      - "{row["title"]}": problems/{row["dirSlug"]}.md\n' for row in merged
     )
     lines.append(NAV_AMAZON_HEADER)
+    lines.append(NAV_AMAZON_INDEX_ENTRY)
+    lines.extend(
+        f'      - "{entry["title"]}": problems/amazon_oa/{entry["slug"]}.md\n'
+        for entry in amazon
+    )
     return "".join(lines)
 
 
@@ -1110,7 +1124,7 @@ def write_problems_nav(mkdocs_path: Optional[Path] = None) -> bool:
         break
     _grind, _neetcode, _amazon = load_validated_sources()
     merged = study_order_rows(_grind, _neetcode)
-    updated = text[:marker_at] + render_problems_nav(merged) + text[next_top_at:]
+    updated = text[:marker_at] + render_problems_nav(merged, _amazon) + text[next_top_at:]
     if updated == text:
         return False
     mkdocs_path.write_text(updated, encoding="utf-8")
@@ -1169,8 +1183,8 @@ def check_problems_nav(mkdocs_path: Optional[Path] = None) -> int:
     Problems marker through the next top-level nav entry, or the end of
     file) against a fresh render: rogue entries inside the section, child
     order, duplicates, extras, and omissions are all drift. The landing
-    parent line and the Amazon OA subsection must both sit exactly where
-    the fresh render puts them.
+    parent line, both subsection headers, and the Amazon OA children must
+    all sit exactly where the fresh render puts them.
 
     Args:
         mkdocs_path: Overrides the mkdocs.yml path (default: module constant).
@@ -1184,7 +1198,7 @@ def check_problems_nav(mkdocs_path: Optional[Path] = None) -> int:
     text = mkdocs_path.read_text(encoding="utf-8") if mkdocs_path.exists() else ""
     _grind, _neetcode, _amazon = load_validated_sources()
     merged = study_order_rows(_grind, _neetcode)
-    fresh = render_problems_nav(merged)
+    fresh = render_problems_nav(merged, _amazon)
     if not text:
         stale.append("mkdocs.yml (missing)")
     elif text.count(NAV_PROBLEMS_MARKER) != 1:
@@ -1197,35 +1211,61 @@ def check_problems_nav(mkdocs_path: Optional[Path] = None) -> int:
             next_top_at = section_at + match.start()
             break
         if text[at:next_top_at] != fresh:
-            actual_children = nav_leetcode_children(text[at:])
-            expected_children = [row["dirSlug"] for row in merged]
-            detail = []
-            if len(actual_children) != len(set(actual_children)):
-                dupes = sorted(
-                    {slug for slug in actual_children if actual_children.count(slug) > 1}
-                )
-                detail.append(f"duplicates: {', '.join(dupes[:5])}")
-            extras = sorted(set(actual_children) - set(expected_children))
-            if extras:
-                detail.append(f"extra: {', '.join(extras[:5])}")
-            missing = sorted(set(expected_children) - set(actual_children))
-            if missing:
-                detail.append(f"missing: {', '.join(missing[:5])}")
-            if not detail:
-                if actual_children != expected_children:
-                    detail.append("child order drifts from the unified table")
-                elif "    - problems/index.md" not in text[at:next_top_at]:
-                    detail.append("no problems/index.md landing parent")
-                else:
-                    detail.append("unrecognized entries inside the Problems section")
-            stale.append("mkdocs.yml (Problems nav drift: " + "; ".join(detail) + ")")
+            stale.append(
+                "mkdocs.yml (Problems nav drift: " + nav_child_drift_detail(text[at:]) + ")"
+            )
     if stale:
         print(f"--check: {len(stale)} nav audit finding(s):")
         for item in stale[:20]:
             print(f"  {item}")
         return 1
-    print(f"--check: mkdocs Problems nav up to date ({len(merged)} LeetCode children)")
+    print(
+        f"--check: mkdocs Problems nav up to date ({len(merged)} LeetCode children,"
+        f" {len(_amazon)} Amazon OA children)"
+    )
     return 0
+
+
+def nav_child_drift_detail(problems_text: str) -> str:
+    """Describe how one Problems nav span drifts from a fresh render.
+
+    Compares both subsections' children against the fresh renders of the
+    committed sources and names the first recognizable kind of drift.
+
+    Args:
+        problems_text: The mkdocs.yml text starting at the Problems marker.
+
+    Returns:
+        A short human-readable drift summary.
+    """
+    _grind, _neetcode, _amazon = load_validated_sources()
+    merged = study_order_rows(_grind, _neetcode)
+    actual_leetcode = nav_leetcode_children(problems_text)
+    expected_leetcode = [row["dirSlug"] for row in merged]
+    actual_amazon = nav_amazon_children(problems_text)
+    expected_amazon = [entry["slug"] for entry in _amazon]
+    detail = []
+    for label, actual, expected in (
+        ("LeetCode", actual_leetcode, expected_leetcode),
+        ("Amazon OA", actual_amazon, expected_amazon),
+    ):
+        if len(actual) != len(set(actual)):
+            dupes = sorted({slug for slug in actual if actual.count(slug) > 1})
+            detail.append(f"{label} duplicates: {', '.join(dupes[:5])}")
+        extras = sorted(set(actual) - set(expected))
+        if extras:
+            detail.append(f"{label} extra: {', '.join(extras[:5])}")
+        missing = sorted(set(expected) - set(actual))
+        if missing:
+            detail.append(f"{label} missing: {', '.join(missing[:5])}")
+        if not detail and actual != expected:
+            detail.append(f"{label} child order drifts from the manifest table")
+    if not detail:
+        if NAV_LANDING_ENTRY not in problems_text:
+            detail.append("no problems/index.md landing parent")
+        else:
+            detail.append("unrecognized entries inside the Problems section")
+    return "; ".join(detail)
 
 
 def nav_leetcode_children(problems_text: str) -> List[str]:
@@ -1244,6 +1284,38 @@ def nav_leetcode_children(problems_text: str) -> List[str]:
     children: List[str] = []
     for line in problems_text[header_at + len(NAV_LEETCODE_HEADER) :].splitlines():
         match = NAV_LEETCODE_CHILD_PATTERN.match(line)
+        if match is None:
+            break
+        children.append(match.group(2))
+    return children
+
+
+def nav_amazon_children(problems_text: str) -> List[str]:
+    """Extract the Amazon OA subsection's bank slugs in file order.
+
+    The subsection opens with the bank index entry (the subsection's own
+    link); the bounded child scan starts after it and stops at the first
+    line that does not match an Amazon child, so the Problems span ending
+    at the next top-level nav entry or the end of file cannot leak
+    trailing entries into the list.
+
+    Args:
+        problems_text: The mkdocs.yml text starting at the Problems marker.
+
+    Returns:
+        The child bank slugs between the bank index entry and the first
+        line that is not an Amazon child; empty when the header or the
+        index entry is absent.
+    """
+    header_at = problems_text.find(NAV_AMAZON_HEADER)
+    if header_at == -1:
+        return []
+    body_at = header_at + len(NAV_AMAZON_HEADER)
+    if not problems_text.startswith(NAV_AMAZON_INDEX_ENTRY, body_at):
+        return []
+    children: List[str] = []
+    for line in problems_text[body_at + len(NAV_AMAZON_INDEX_ENTRY) :].splitlines():
+        match = NAV_AMAZON_CHILD_PATTERN.match(line)
         if match is None:
             break
         children.append(match.group(2))
