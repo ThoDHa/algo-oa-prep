@@ -753,13 +753,12 @@ def amazon_writeup_difficulty(slug: str, docs_dir: Optional[Path] = None) -> Opt
     if not writeup_path.exists():
         raise SourceError(f"Amazon OA write-up not found: {writeup_path}")
     lines = writeup_path.read_text(encoding="utf-8").splitlines()
-    if len(lines) < AMAZON_WRITEUP_DIFFICULTY_LINE:
-        raise SourceError(
-            f"Amazon OA write-up {slug} has no **difficulty** header at line"
-            f" {AMAZON_WRITEUP_DIFFICULTY_LINE}: {writeup_path}"
-        )
-    header = lines[AMAZON_WRITEUP_DIFFICULTY_LINE - 1]
-    match = AMAZON_WRITEUP_HEADER_PATTERN.match(header)
+    header = (
+        lines[AMAZON_WRITEUP_DIFFICULTY_LINE - 1]
+        if len(lines) >= AMAZON_WRITEUP_DIFFICULTY_LINE
+        else None
+    )
+    match = AMAZON_WRITEUP_HEADER_PATTERN.match(header) if header is not None else None
     if match is None:
         raise SourceError(
             f"Amazon OA write-up {slug} has no **difficulty** header at line"
