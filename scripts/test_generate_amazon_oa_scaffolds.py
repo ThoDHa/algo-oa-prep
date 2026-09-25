@@ -767,6 +767,14 @@ def test_main_warns_when_bank_pages_are_absent_and_slugs_are_skipped(tmp_path, m
         json.dumps([UNPARSEABLE_ENTRY], indent=2) + "\n", encoding="utf-8"
     )
     monkeypatch.setattr(gen, "MANIFEST_PATH", manifest_path)
+    monkeypatch.setattr(gen, "FASTPREP_CACHE_DIR", tmp_path / "empty-cache")
+    mkdocs_path = tmp_path / "mkdocs.yml"
+    mkdocs_path.write_text(
+        'nav:\n  - Home: index.md\n  - Problems:\n    - "Amazon OA":'
+        " problems/amazon_oa/index.md\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(gen, "MKTABS_PATH", mkdocs_path)
     redirect_check_paths(tmp_path, monkeypatch)
     write_scaffold_set(tmp_path, UNPARSEABLE_ENTRY)
     (gen.DOCS_DIR / "index.md").write_text(gen.render_index([UNPARSEABLE_ENTRY]), encoding="utf-8")

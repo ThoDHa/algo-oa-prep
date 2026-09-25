@@ -1017,6 +1017,12 @@ def test_committed_merge_yields_the_expected_universe_split():
     assert gen.UNIQUE_PROBLEM_COUNT == gen.GRIND_ROW_COUNT + gen.NEETCODE_ONLY_COUNT
 
 
+def test_verify_merge_shape_accepts_the_committed_premium_mapping():
+    neetcode = gen.load_neetcode_manifest(NEETCODE_MANIFEST_PATH)
+    rows = gen.merge_tracks(gen.load_grind_table(GRIND_TABLE_PATH), neetcode)
+    gen.verify_merge_shape(rows, neetcode)
+
+
 def test_verify_merge_shape_rejects_a_drifted_premium_nc_slug():
     neetcode = gen.load_neetcode_manifest(NEETCODE_MANIFEST_PATH)
     rows = gen.merge_tracks(gen.load_grind_table(GRIND_TABLE_PATH), neetcode)
@@ -1648,7 +1654,7 @@ def test_committed_mkdocs_nav_satisfies_the_check_gate():
 def test_committed_nav_leetcode_subsection_holds_168_unique_pages_at_one_level():
     mkdocs_text = gen.MKDOCS_PATH.read_text(encoding="utf-8")
     children = nav_children(mkdocs_text)
-    assert len(children) == gen.NAV_ADMISSIBLE_SLUG_COUNT
+    assert len(children) == gen.UNIQUE_PROBLEM_COUNT
     assert len(set(children)) == len(children)
     rows = committed_nav_rows()
     assert children == [row["dirSlug"] for row in rows]
