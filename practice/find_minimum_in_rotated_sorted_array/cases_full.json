@@ -1,0 +1,121 @@
+[
+  {
+    "id": "not_rotated",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "rotated_once",
+    "args": [
+      [
+        5,
+        1,
+        2,
+        3,
+        4
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "min_at_end",
+    "args": [
+      [
+        2,
+        3,
+        4,
+        5,
+        1
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "two_elements_rotated",
+    "args": [
+      [
+        2,
+        1
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "two_elements_sorted",
+    "args": [
+      [
+        1,
+        2
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "single_element",
+    "args": [
+      [
+        10
+      ]
+    ],
+    "expected": 10
+  },
+  {
+    "id": "negative_values",
+    "args": [
+      [
+        3,
+        4,
+        -5,
+        -1,
+        2
+      ]
+    ],
+    "expected": -5
+  },
+  {
+    "id": "all_negative_rotated",
+    "args": [
+      [
+        -1,
+        -2,
+        -3,
+        -4
+      ]
+    ],
+    "expected": -4
+  },
+  {
+    "id": "short_rotation",
+    "args": [
+      [
+        2,
+        3,
+        1
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "drop_late",
+    "args": [
+      [
+        4,
+        5,
+        6,
+        7,
+        0,
+        1,
+        2
+      ]
+    ],
+    "expected": 0
+  }
+]

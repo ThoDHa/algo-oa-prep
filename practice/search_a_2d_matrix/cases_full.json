@@ -1,0 +1,209 @@
+[
+  {
+    "id": "single_cell_hit",
+    "args": [
+      [
+        [
+          5
+        ]
+      ],
+      5
+    ],
+    "expected": true
+  },
+  {
+    "id": "single_cell_miss",
+    "args": [
+      [
+        [
+          5
+        ]
+      ],
+      4
+    ],
+    "expected": false
+  },
+  {
+    "id": "single_row_hit",
+    "args": [
+      [
+        [
+          1,
+          3,
+          5,
+          7
+        ]
+      ],
+      5
+    ],
+    "expected": true
+  },
+  {
+    "id": "single_row_miss_below",
+    "args": [
+      [
+        [
+          1,
+          3,
+          5,
+          7
+        ]
+      ],
+      0
+    ],
+    "expected": false
+  },
+  {
+    "id": "single_row_miss_above",
+    "args": [
+      [
+        [
+          1,
+          3,
+          5,
+          7
+        ]
+      ],
+      9
+    ],
+    "expected": false
+  },
+  {
+    "id": "single_column_hit",
+    "args": [
+      [
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          5
+        ]
+      ],
+      3
+    ],
+    "expected": true
+  },
+  {
+    "id": "single_column_miss_gap",
+    "args": [
+      [
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          5
+        ]
+      ],
+      4
+    ],
+    "expected": false
+  },
+  {
+    "id": "first_element",
+    "args": [
+      [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      1
+    ],
+    "expected": true
+  },
+  {
+    "id": "last_element",
+    "args": [
+      [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      4
+    ],
+    "expected": true
+  },
+  {
+    "id": "between_rows_gap",
+    "args": [
+      [
+        [
+          1,
+          5
+        ],
+        [
+          10,
+          11
+        ]
+      ],
+      7
+    ],
+    "expected": false
+  },
+  {
+    "id": "row_boundary_first_of_row",
+    "args": [
+      [
+        [
+          1,
+          4
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      7
+    ],
+    "expected": true
+  },
+  {
+    "id": "negative_values_hit",
+    "args": [
+      [
+        [
+          -10,
+          -5
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      -5
+    ],
+    "expected": true
+  },
+  {
+    "id": "negative_target_miss",
+    "args": [
+      [
+        [
+          -10,
+          -5
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      -1
+    ],
+    "expected": false
+  }
+]

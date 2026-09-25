@@ -1,0 +1,160 @@
+[
+  {
+    "id": "single_car",
+    "args": [
+      10,
+      [
+        0
+      ],
+      [
+        1
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "two_never_catch",
+    "args": [
+      12,
+      [
+        10,
+        8
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "expected": 2
+  },
+  {
+    "id": "two_catch_at_target",
+    "args": [
+      10,
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "middle_never_catches",
+    "args": [
+      10,
+      [
+        6,
+        8
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "expected": 2
+  },
+  {
+    "id": "three_merge_two_fleets",
+    "args": [
+      10,
+      [
+        0,
+        4,
+        2
+      ],
+      [
+        4,
+        2,
+        2
+      ]
+    ],
+    "expected": 2
+  },
+  {
+    "id": "all_same_position_never",
+    "args": [
+      10,
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    "expected": 3
+  },
+  {
+    "id": "catch_up_at_target_road",
+    "args": [
+      100,
+      [
+        0,
+        50
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "exact_catch_then_block",
+    "args": [
+      10,
+      [
+        0,
+        5,
+        6
+      ],
+      [
+        5,
+        2,
+        2
+      ]
+    ],
+    "expected": 2
+  },
+  {
+    "id": "catch_before_target",
+    "args": [
+      20,
+      [
+        0,
+        10
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "all_merge_into_one",
+    "args": [
+      10,
+      [
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        9,
+        8,
+        7,
+        6
+      ]
+    ],
+    "expected": 1
+  }
+]

@@ -1,0 +1,162 @@
+[
+  {
+    "id": "single_day",
+    "args": [
+      [
+        72
+      ]
+    ],
+    "expected": [
+      0
+    ]
+  },
+  {
+    "id": "two_days_warmer",
+    "args": [
+      [
+        70,
+        71
+      ]
+    ],
+    "expected": [
+      1,
+      0
+    ]
+  },
+  {
+    "id": "two_days_colder",
+    "args": [
+      [
+        71,
+        70
+      ]
+    ],
+    "expected": [
+      0,
+      0
+    ]
+  },
+  {
+    "id": "equal_temperatures",
+    "args": [
+      [
+        73,
+        73,
+        73
+      ]
+    ],
+    "expected": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "strictly_increasing",
+    "args": [
+      [
+        30,
+        40,
+        50,
+        60
+      ]
+    ],
+    "expected": [
+      1,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "id": "strictly_decreasing",
+    "args": [
+      [
+        60,
+        50,
+        40,
+        30
+      ]
+    ],
+    "expected": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "valley_then_peak",
+    "args": [
+      [
+        70,
+        60,
+        80
+      ]
+    ],
+    "expected": [
+      2,
+      1,
+      0
+    ]
+  },
+  {
+    "id": "peak_first",
+    "args": [
+      [
+        100,
+        90,
+        80,
+        60
+      ]
+    ],
+    "expected": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "wait_until_end",
+    "args": [
+      [
+        55,
+        54,
+        53,
+        90
+      ]
+    ],
+    "expected": [
+      3,
+      2,
+      1,
+      0
+    ]
+  },
+  {
+    "id": "mixed_with_equal_runs",
+    "args": [
+      [
+        73,
+        74,
+        75,
+        71,
+        69,
+        72,
+        76,
+        73
+      ]
+    ],
+    "expected": [
+      1,
+      1,
+      4,
+      2,
+      1,
+      1,
+      0,
+      0
+    ]
+  }
+]
