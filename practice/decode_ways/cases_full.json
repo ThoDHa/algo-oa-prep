@@ -1,0 +1,112 @@
+[
+  {
+    "id": "single_digit",
+    "args": ["1"],
+    "expected": 1
+  },
+  {
+    "id": "single_zero",
+    "args": ["0"],
+    "expected": 0
+  },
+  {
+    "id": "pair_boundary_26",
+    "args": ["26"],
+    "expected": 2
+  },
+  {
+    "id": "pair_over_26",
+    "args": ["27"],
+    "expected": 1
+  },
+  {
+    "id": "pair_lower_bound_10",
+    "args": ["10"],
+    "expected": 1
+  },
+  {
+    "id": "pair_twenty",
+    "args": ["20"],
+    "expected": 1
+  },
+  {
+    "id": "pair_thirty",
+    "args": ["30"],
+    "expected": 0
+  },
+  {
+    "id": "leading_zero_pair",
+    "args": ["06"],
+    "expected": 0
+  },
+  {
+    "id": "leading_zero_longer",
+    "args": ["012"],
+    "expected": 0
+  },
+  {
+    "id": "zero_between_valid_pair",
+    "args": ["110"],
+    "expected": 1
+  },
+  {
+    "id": "zero_tail_after_pair",
+    "args": ["260"],
+    "expected": 0
+  },
+  {
+    "id": "double_zero_tail",
+    "args": ["100"],
+    "expected": 0
+  },
+  {
+    "id": "zero_one_tail",
+    "args": ["101"],
+    "expected": 1
+  },
+  {
+    "id": "double_ten",
+    "args": ["1010"],
+    "expected": 1
+  },
+  {
+    "id": "three_zero_pair",
+    "args": ["301"],
+    "expected": 0
+  },
+  {
+    "id": "classic_226",
+    "args": ["226"],
+    "expected": 3
+  },
+  {
+    "id": "alternating_small",
+    "args": ["1212"],
+    "expected": 5
+  },
+  {
+    "id": "mixed_with_blocked_pair",
+    "args": ["11106"],
+    "expected": 2
+  },
+  {
+    "id": "all_ones_fibonacci",
+    "args": ["111111"],
+    "expected": 13
+  },
+  {
+    "id": "all_ones_length_22",
+    "args": ["1111111111111111111111"],
+    "expected": 28657
+  },
+  {
+    "id": "nines_single_only",
+    "args": ["9999999999"],
+    "expected": 1
+  },
+  {
+    "id": "tail_pair_rescue",
+    "args": ["626"],
+    "expected": 2
+  }
+]
