@@ -776,8 +776,6 @@ def test_main_warns_when_bank_pages_are_absent_and_slugs_are_skipped(tmp_path, m
     )
     monkeypatch.setattr(gen, "MKTABS_PATH", mkdocs_path)
     redirect_check_paths(tmp_path, monkeypatch)
-    write_scaffold_set(tmp_path, UNPARSEABLE_ENTRY)
-    (gen.DOCS_DIR / "index.md").write_text(gen.render_index([UNPARSEABLE_ENTRY]), encoding="utf-8")
     assert gen.main([]) == 0
     out = capsys.readouterr().out
     assert "amazon-gone" in out
