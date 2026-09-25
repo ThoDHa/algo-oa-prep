@@ -1,6 +1,6 @@
 # [Minimum Interval to Include Each Query](https://leetcode.com/problems/minimum-interval-to-include-each-query/)
 
-**Medium** | **NN minutes** | **Array, Binary Search, Sweep Line, Sorting, Heap (Priority Queue)**
+**Medium** | **25 minutes** | **Array, Binary Search, Sweep Line, Sorting, Heap (Priority Queue)**
 
 You are given a 2D integer array `intervals`, where `intervals[i] = [left_i, right_i]` represents the `ith` interval starting at `left_i` and ending at `right_i` **(inclusive)**.
 
