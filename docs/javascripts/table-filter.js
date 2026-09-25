@@ -1,8 +1,9 @@
 // Client-side filtering for the problem tables.
 //
 // Companion to tablesort-init.js: the two problem tables on the problems
-// landing get a filter toolbar (problem text, difficulty, tracks where those
-// columns exist, a live visible count, and a clear button). A table counts as
+// landing get a compact filter toolbar (problem text, difficulty, tracks
+// where those columns exist, a live visible count, a clear button, and the
+// reset-sort action folded in from tablesort-init). A table counts as
 // filterable when its header row has a Problem column and a Time or Updated
 // column, so every other article table (pattern guides, sources) stays
 // untouched. Like tablesort-init.js, per-page work subscribes to document$
@@ -11,15 +12,17 @@
 // DOM above the table, so instant navigation caches it together with its
 // listeners and whatever filter state the visitor left behind.
 //
+// Filterable tables supersede tablesort-init's standalone "Reset sort"
+// button: at install time that button is still the table's previous sibling
+// (the sort module's subscription runs first), so it is removed by its
+// marker attribute and rebuilt as a compact toolbar control bound to the
+// same resetTablesortState. Tables without a toolbar keep the standalone
+// button, and both files degrade independently when the other is absent.
+//
 // Filtering only toggles row visibility, never row order, so Tablesort keeps
 // working on the DOM it sees: hidden rows move with a sort but stay hidden,
-// and Clear filters leaves sort state (aria-sort and row order) alone.
-
-const PROBLEM_HEADER = "problem";
-const DIFFICULTY_HEADER = "difficulty";
-const TRACKS_HEADER = "tracks";
-const TIME_HEADER = "time";
-const UPDATED_HEADER = "updated";
+// and Clear filters leaves sort state (aria-sort and row order) alone, while
+// Reset sort leaves filter state alone.
 
 // The Amazon OA table has no Difficulty column; its Time cell carries the
 // difficulty-based estimates the table prose documents (Easy 15 / Medium 25 /
@@ -33,7 +36,9 @@ const UNKNOWN_DIFFICULTY = "Unknown";
 const DIFFICULTY_OPTIONS = ["Easy", "Medium", "Hard"];
 const TRACK_OPTIONS = ["Grind 75", "NeetCode 150", "Amazon OA"];
 const ALL_OPTION_VALUE = "";
-const PROBLEM_INPUT_WIDTH = "16rem";
+const TOOLBAR_GAP = "0.4rem";
+const PROBLEM_INPUT_WIDTH = "14rem";
+const BUTTON_COMPACT_PADDING = "0.2rem 0.8rem";
 
 /** Maps each filterable column's header text to its cell index. */
 const columnMap = (table) => {
@@ -106,12 +111,19 @@ const buildCount = () => {
   return count;
 };
 
-/** Builds the clear button that empties every control without touching sort state. */
-const buildClearButton = (table, controls) => {
+/** Builds a compact toolbar button: Material's md-button at md-typeset scale. */
+const buildToolbarButton = (label) => {
   const button = document.createElement("button");
   button.type = "button";
   button.className = "md-button";
-  button.textContent = "Clear filters";
+  button.textContent = label;
+  button.style.padding = BUTTON_COMPACT_PADDING;
+  return button;
+};
+
+/** Builds the compact clear button that empties every control without touching sort state. */
+const buildClearButton = (table, controls) => {
+  const button = buildToolbarButton("Clear filters");
   button.setAttribute("aria-controls", table.id);
   button.addEventListener("click", () => {
     controls.text.value = "";
@@ -121,6 +133,25 @@ const buildClearButton = (table, controls) => {
     applyFilters(table, controls);
   });
   return button;
+};
+
+/** Builds the compact reset control restoring default row order and sort state; null when the sort module is absent. */
+const buildResetButton = (table) => {
+  if (typeof resetTablesortState !== "function") {
+    return null;
+  }
+  const button = buildToolbarButton("Reset sort");
+  button.setAttribute("aria-controls", table.id);
+  button.addEventListener("click", () => resetTablesortState(table));
+  return button;
+};
+
+/** Removes tablesort-init's standalone reset button; the toolbar's reset control supersedes it here. */
+const removeStandaloneReset = (table) => {
+  const standalone = table.previousElementSibling;
+  if (standalone?.matches("button[data-tablesort-reset]")) {
+    standalone.remove();
+  }
 };
 
 /** Hides non-matching rows and updates the live count. */
@@ -166,7 +197,7 @@ const installFilterControls = (table) => {
   toolbar.style.display = "flex";
   toolbar.style.flexWrap = "wrap";
   toolbar.style.alignItems = "center";
-  toolbar.style.gap = "0.8rem";
+  toolbar.style.gap = TOOLBAR_GAP;
   toolbar.style.marginBottom = "0.6rem";
   toolbar.append(controls.text);
   if (columns.difficulty !== -1 || columns.time !== -1) {
@@ -186,6 +217,11 @@ const installFilterControls = (table) => {
     toolbar.append(controls.tracks);
   }
   toolbar.append(controls.count, buildClearButton(table, controls));
+  const resetButton = buildResetButton(table);
+  if (resetButton) {
+    toolbar.append(resetButton);
+  }
+  removeStandaloneReset(table);
   controls.text.addEventListener("input", () => applyFilters(table, controls));
   for (const select of controls.selects) {
     select.addEventListener("change", () => applyFilters(table, controls));
