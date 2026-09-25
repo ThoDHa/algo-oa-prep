@@ -1,9 +1,9 @@
 // Control-row filtering for the problem tables.
 //
 // Companion to tablesort-init.js: the two problem tables on the problems
-// landing get a slim control row directly above the table - the live visible
-// count on the left, a funnel toggle and a reset-sort icon on the right -
-// and the funnel drops a compact filter panel between the row and the table:
+// landing get a slim control row directly above the table - a funnel toggle
+// and a reset-sort icon, right-aligned - and the funnel drops a compact
+// filter panel between the row and the table:
 // a case-insensitive problem-name search input, a Difficulty select (on the
 // Amazon OA table the Time cell is the difficulty source, so its select
 // offers the estimate-derived Unknown), and a Tracks select where that
@@ -56,7 +56,6 @@ const ALL_OPTION_LABEL = "All";
 const CONTROL_ROW_FONT_SIZE = "0.64rem";
 const CONTROL_ROW_GAP = "0.6rem";
 const BUTTON_GAP = "0.4rem";
-const MUTED_OPACITY = "0.75";
 const PROBLEM_INPUT_WIDTH = "12rem";
 const PANEL_GAP = "0.6rem";
 const PANEL_PADDING = "0.4rem 0.6rem";
@@ -223,14 +222,6 @@ const buildSelect = (label, allOptionLabel, optionLabels) => {
   return select;
 };
 
-/** Builds the aria-live span announcing how many rows are visible. */
-const buildCountLabel = () => {
-  const count = document.createElement("span");
-  count.setAttribute("aria-live", "polite");
-  count.style.opacity = MUTED_OPACITY;
-  return count;
-};
-
 /** Builds the small clear button emptying every control without touching sort state. */
 const buildClearButton = (table, controls) => {
   const button = document.createElement("button");
@@ -275,13 +266,12 @@ const isFilterActive = (controls) =>
   controls.text.value.trim() !== "" ||
   controls.selects.some((select) => select.value !== ALL_OPTION_VALUE);
 
-/** Hides non-matching rows, updates the live count, and mirrors the funnel badge. */
+/** Hides non-matching rows and mirrors the funnel badge. */
 const applyFilters = (table, controls) => {
   const query = controls.text.value.trim().toLowerCase();
   const difficulty = controls.difficulty ? controls.difficulty.value : "";
   const track = controls.tracks ? controls.tracks.value.toLowerCase() : "";
   const requiredIndices = requiredColumns(controls.columns);
-  let visible = 0;
   for (const body of table.tBodies) {
     for (const row of body.rows) {
       if (!rowCoversColumns(row, requiredIndices)) {
@@ -294,12 +284,8 @@ const applyFilters = (table, controls) => {
         (!track ||
           cellText(row, controls.columns.tracks).toLowerCase().includes(track));
       row.style.display = matches ? "" : "none";
-      if (matches) {
-        visible += 1;
-      }
     }
   }
-  controls.count.textContent = `${visible} of ${controls.total} problems`;
   controls.badge.style.display = isFilterActive(controls) ? "block" : "none";
 };
 
@@ -355,18 +341,12 @@ const buildFilterPanel = (table, controls) => {
 
 /** Inserts the control row, the filter panel, and the event wiring above the table. */
 const installFilterControls = (table, columns) => {
-  let total = 0;
-  for (const body of table.tBodies) {
-    total += body.rows.length;
-  }
   const controls = {
     columns,
-    total,
     text: buildTextInput(),
     difficulty: null,
     tracks: null,
     selects: [],
-    count: buildCountLabel(),
     funnelButton: null,
     badge: null,
     panel: null,
@@ -416,10 +396,10 @@ const installFilterControls = (table, columns) => {
   const row = document.createElement("div");
   row.style.display = "flex";
   row.style.alignItems = "center";
-  row.style.justifyContent = "space-between";
+  row.style.justifyContent = "flex-end";
   row.style.gap = CONTROL_ROW_GAP;
   row.style.fontSize = CONTROL_ROW_FONT_SIZE;
-  row.append(controls.count, buttons);
+  row.append(buttons);
 
   removeStandaloneReset(table);
   table.before(row, controls.panel);
