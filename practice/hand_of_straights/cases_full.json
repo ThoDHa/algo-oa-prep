@@ -1,0 +1,258 @@
+[
+  {
+    "id": "example_1_shape",
+    "args": [
+      [
+        1,
+        2,
+        4,
+        2,
+        3,
+        5,
+        3,
+        4
+      ],
+      4
+    ],
+    "expected": true
+  },
+  {
+    "id": "example_2_shape",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      4
+    ],
+    "expected": false
+  },
+  {
+    "id": "single_card_gs1",
+    "args": [
+      [
+        7
+      ],
+      1
+    ],
+    "expected": true
+  },
+  {
+    "id": "single_card_gs_more",
+    "args": [
+      [
+        7
+      ],
+      2
+    ],
+    "expected": false
+  },
+  {
+    "id": "pair_consecutive",
+    "args": [
+      [
+        1,
+        2
+      ],
+      2
+    ],
+    "expected": true
+  },
+  {
+    "id": "pair_gap",
+    "args": [
+      [
+        1,
+        3
+      ],
+      2
+    ],
+    "expected": false
+  },
+  {
+    "id": "perfect_pairs",
+    "args": [
+      [
+        1,
+        1,
+        2,
+        2,
+        3,
+        3
+      ],
+      2
+    ],
+    "expected": false
+  },
+  {
+    "id": "pairs_cannot_tile",
+    "args": [
+      [
+        1,
+        1,
+        2,
+        2,
+        3,
+        3
+      ],
+      3
+    ],
+    "expected": true
+  },
+  {
+    "id": "all_same",
+    "args": [
+      [
+        5,
+        5,
+        5,
+        5
+      ],
+      2
+    ],
+    "expected": false
+  },
+  {
+    "id": "all_same_gs1",
+    "args": [
+      [
+        5,
+        5,
+        5,
+        5
+      ],
+      1
+    ],
+    "expected": true
+  },
+  {
+    "id": "zero_valued",
+    "args": [
+      [
+        0,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      3
+    ],
+    "expected": false
+  },
+  {
+    "id": "gaps_only",
+    "args": [
+      [
+        8,
+        10,
+        12
+      ],
+      3
+    ],
+    "expected": false
+  },
+  {
+    "id": "wrap_never",
+    "args": [
+      [
+        9,
+        14,
+        15,
+        9,
+        5,
+        4,
+        14,
+        15,
+        5,
+        4
+      ],
+      5
+    ],
+    "expected": false
+  },
+  {
+    "id": "long_run",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      3
+    ],
+    "expected": true
+  },
+  {
+    "id": "long_run_broken",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      5
+    ],
+    "expected": false
+  },
+  {
+    "id": "duplicates_sparse",
+    "args": [
+      [
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3
+      ],
+      3
+    ],
+    "expected": true
+  },
+  {
+    "id": "duplicates_sparse_gs9",
+    "args": [
+      [
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3
+      ],
+      9
+    ],
+    "expected": false
+  },
+  {
+    "id": "tail_overflow",
+    "args": [
+      [
+        3,
+        4,
+        5,
+        6
+      ],
+      2
+    ],
+    "expected": true
+  }
+]

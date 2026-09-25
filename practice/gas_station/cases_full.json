@@ -1,0 +1,290 @@
+[
+  {
+    "id": "single_exact",
+    "args": [
+      [
+        5
+      ],
+      [
+        5
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "single_surplus",
+    "args": [
+      [
+        5
+      ],
+      [
+        4
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "single_deficit",
+    "args": [
+      [
+        4
+      ],
+      [
+        5
+      ]
+    ],
+    "expected": -1
+  },
+  {
+    "id": "example_1",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        2,
+        2,
+        4,
+        1
+      ]
+    ],
+    "expected": 3
+  },
+  {
+    "id": "example_2",
+    "args": [
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        2,
+        3,
+        2
+      ]
+    ],
+    "expected": -1
+  },
+  {
+    "id": "zero_cost_lap",
+    "args": [
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        2
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "all_zero",
+    "args": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "late_answer",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      [
+        3,
+        4,
+        5,
+        1,
+        2
+      ]
+    ],
+    "expected": 3
+  },
+  {
+    "id": "answer_at_zero_after_wrap",
+    "args": [
+      [
+        2,
+        3,
+        4
+      ],
+      [
+        3,
+        4,
+        3
+      ]
+    ],
+    "expected": -1
+  },
+  {
+    "id": "tight_chain",
+    "args": [
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        1,
+        2,
+        2
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "deficit_everywhere",
+    "args": [
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        2
+      ]
+    ],
+    "expected": -1
+  },
+  {
+    "id": "long_mixed",
+    "args": [
+      [
+        4,
+        5,
+        2,
+        6,
+        5,
+        8
+      ],
+      [
+        5,
+        6,
+        1,
+        6,
+        7,
+        6
+      ]
+    ],
+    "expected": -1
+  },
+  {
+    "id": "zero_gas_start",
+    "args": [
+      [
+        0,
+        4,
+        2
+      ],
+      [
+        0,
+        3,
+        3
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "max_values_surplus",
+    "args": [
+      [
+        1000,
+        1000
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "max_values_deficit",
+    "args": [
+      [
+        0,
+        0
+      ],
+      [
+        1000,
+        1000
+      ]
+    ],
+    "expected": -1
+  },
+  {
+    "id": "surplus_only",
+    "args": [
+      [
+        3,
+        4,
+        5
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "alternating",
+    "args": [
+      [
+        2,
+        0,
+        2,
+        0
+      ],
+      [
+        0,
+        2,
+        0,
+        2
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "big_late_rescue",
+    "args": [
+      [
+        1,
+        1,
+        1,
+        10
+      ],
+      [
+        2,
+        2,
+        2,
+        2
+      ]
+    ],
+    "expected": 3
+  }
+]

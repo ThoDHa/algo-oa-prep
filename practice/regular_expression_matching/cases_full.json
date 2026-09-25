@@ -1,0 +1,202 @@
+[
+  {
+    "id": "single_char_match",
+    "args": [
+      "a",
+      "a"
+    ],
+    "expected": true
+  },
+  {
+    "id": "single_char_mismatch",
+    "args": [
+      "a",
+      "b"
+    ],
+    "expected": false
+  },
+  {
+    "id": "dot_matches_one",
+    "args": [
+      "a",
+      "."
+    ],
+    "expected": true
+  },
+  {
+    "id": "dot_mismatch_length",
+    "args": [
+      "aa",
+      "."
+    ],
+    "expected": false
+  },
+  {
+    "id": "empty_string_empty_pattern",
+    "args": [
+      "",
+      ""
+    ],
+    "expected": true
+  },
+  {
+    "id": "empty_string_star_pattern",
+    "args": [
+      "",
+      "c*"
+    ],
+    "expected": true
+  },
+  {
+    "id": "empty_string_plain",
+    "args": [
+      "",
+      "a"
+    ],
+    "expected": false
+  },
+  {
+    "id": "star_zero_copies",
+    "args": [
+      "aab",
+      "c*a*b"
+    ],
+    "expected": true
+  },
+  {
+    "id": "star_all_copies",
+    "args": [
+      "aaaa",
+      "a*"
+    ],
+    "expected": true
+  },
+  {
+    "id": "star_literal_after",
+    "args": [
+      "aaa",
+      "a*a"
+    ],
+    "expected": true
+  },
+  {
+    "id": "two_stars_split",
+    "args": [
+      "aaaa",
+      "a*a*"
+    ],
+    "expected": true
+  },
+  {
+    "id": "dot_star_everything",
+    "args": [
+      "abcabc",
+      ".*"
+    ],
+    "expected": true
+  },
+  {
+    "id": "dot_star_then_char",
+    "args": [
+      "xyz",
+      ".*z"
+    ],
+    "expected": true
+  },
+  {
+    "id": "dot_star_empty",
+    "args": [
+      "",
+      ".*"
+    ],
+    "expected": true
+  },
+  {
+    "id": "double_star_absorb",
+    "args": [
+      "aaaa",
+      "aa*"
+    ],
+    "expected": true
+  },
+  {
+    "id": "mismatch_after_star_run",
+    "args": [
+      "aaab",
+      "a*ab"
+    ],
+    "expected": true
+  },
+  {
+    "id": "classic_false",
+    "args": [
+      "mississippi",
+      "mis*is*p*."
+    ],
+    "expected": false
+  },
+  {
+    "id": "classic_true",
+    "args": [
+      "mississippi",
+      "mis*is*ip*."
+    ],
+    "expected": true
+  },
+  {
+    "id": "star_needs_next_match",
+    "args": [
+      "baaaa",
+      "a..aa"
+    ],
+    "expected": false
+  },
+  {
+    "id": "nested_star_trap",
+    "args": [
+      "aaa",
+      "ab*a*c*a"
+    ],
+    "expected": true
+  },
+  {
+    "id": "three_stars_interleave",
+    "args": [
+      "abab",
+      "a*b*a*b*"
+    ],
+    "expected": true
+  },
+  {
+    "id": "dot_star_long_chain",
+    "args": [
+      "aaaaaaaaab",
+      ".*b"
+    ],
+    "expected": true
+  },
+  {
+    "id": "char_dot_char_exact",
+    "args": [
+      "xaz",
+      "x.z"
+    ],
+    "expected": true
+  },
+  {
+    "id": "mismatch_tail",
+    "args": [
+      "xa",
+      "xaz"
+    ],
+    "expected": false
+  },
+  {
+    "id": "star_fewer_than_available",
+    "args": [
+      "aaaa",
+      "a*a"
+    ],
+    "expected": true
+  }
+]

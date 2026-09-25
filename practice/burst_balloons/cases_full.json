@@ -1,0 +1,232 @@
+[
+  {
+    "id": "single_balloon",
+    "args": [
+      [
+        5
+      ]
+    ],
+    "expected": 5
+  },
+  {
+    "id": "single_zero",
+    "args": [
+      [
+        0
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "single_max_value",
+    "args": [
+      [
+        100
+      ]
+    ],
+    "expected": 100
+  },
+  {
+    "id": "two_ascending",
+    "args": [
+      [
+        3,
+        1
+      ]
+    ],
+    "expected": 6
+  },
+  {
+    "id": "two_descending",
+    "args": [
+      [
+        1,
+        5
+      ]
+    ],
+    "expected": 10
+  },
+  {
+    "id": "two_with_zero",
+    "args": [
+      [
+        0,
+        7
+      ]
+    ],
+    "expected": 7
+  },
+  {
+    "id": "three_sandwich",
+    "args": [
+      [
+        9,
+        1,
+        9
+      ]
+    ],
+    "expected": 171
+  },
+  {
+    "id": "three_with_zero_middle",
+    "args": [
+      [
+        6,
+        0,
+        4
+      ]
+    ],
+    "expected": 30
+  },
+  {
+    "id": "all_equal",
+    "args": [
+      [
+        2,
+        2,
+        2,
+        2
+      ]
+    ],
+    "expected": 22
+  },
+  {
+    "id": "all_max",
+    "args": [
+      [
+        100,
+        100
+      ]
+    ],
+    "expected": 10100
+  },
+  {
+    "id": "peak_in_middle",
+    "args": [
+      [
+        1,
+        9,
+        1,
+        9,
+        1
+      ]
+    ],
+    "expected": 189
+  },
+  {
+    "id": "valley_in_middle",
+    "args": [
+      [
+        9,
+        1,
+        9,
+        1,
+        9
+      ]
+    ],
+    "expected": 981
+  },
+  {
+    "id": "zeros_at_ends",
+    "args": [
+      [
+        0,
+        4,
+        0,
+        3
+      ]
+    ],
+    "expected": 16
+  },
+  {
+    "id": "ascending_run",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    ],
+    "expected": 110
+  },
+  {
+    "id": "descending_run",
+    "args": [
+      [
+        5,
+        4,
+        3,
+        2,
+        1
+      ]
+    ],
+    "expected": 110
+  },
+  {
+    "id": "lc_classic",
+    "args": [
+      [
+        3,
+        1,
+        5,
+        8
+      ]
+    ],
+    "expected": 167
+  },
+  {
+    "id": "example_value",
+    "args": [
+      [
+        4,
+        2,
+        3,
+        7
+      ]
+    ],
+    "expected": 143
+  },
+  {
+    "id": "max_values_run",
+    "args": [
+      [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ]
+    ],
+    "expected": 4010100
+  },
+  {
+    "id": "zero_head_spikes",
+    "args": [
+      [
+        0,
+        0,
+        7,
+        0,
+        6
+      ]
+    ],
+    "expected": 49
+  },
+  {
+    "id": "mixed_digit_salad",
+    "args": [
+      [
+        7,
+        9,
+        8,
+        0,
+        2,
+        5
+      ]
+    ],
+    "expected": 906
+  }
+]

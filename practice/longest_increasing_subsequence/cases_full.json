@@ -1,0 +1,270 @@
+[
+  {
+    "id": "single_element",
+    "args": [
+      [
+        42
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "min_value",
+    "args": [
+      [
+        -1000
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "max_value",
+    "args": [
+      [
+        1000
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "already_ascending",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    ],
+    "expected": 8
+  },
+  {
+    "id": "strictly_descending",
+    "args": [
+      [
+        9,
+        8,
+        7,
+        6,
+        5
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "all_equal",
+    "args": [
+      [
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "two_elements_strict",
+    "args": [
+      [
+        1,
+        2
+      ]
+    ],
+    "expected": 2
+  },
+  {
+    "id": "two_elements_equal",
+    "args": [
+      [
+        7,
+        7
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "alternating_pairs",
+    "args": [
+      [
+        1,
+        1,
+        2,
+        2,
+        3,
+        3
+      ]
+    ],
+    "expected": 3
+  },
+  {
+    "id": "decreasing_then_increasing",
+    "args": [
+      [
+        5,
+        4,
+        3,
+        2,
+        1,
+        6,
+        7
+      ]
+    ],
+    "expected": 3
+  },
+  {
+    "id": "increase_then_decrease",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4,
+        3,
+        2,
+        1
+      ]
+    ],
+    "expected": 4
+  },
+  {
+    "id": "best_in_middle",
+    "args": [
+      [
+        10,
+        1,
+        2,
+        3,
+        0
+      ]
+    ],
+    "expected": 3
+  },
+  {
+    "id": "long_tail_restart",
+    "args": [
+      [
+        100,
+        1,
+        101,
+        2,
+        102,
+        3,
+        103
+      ]
+    ],
+    "expected": 4
+  },
+  {
+    "id": "equal_blocks",
+    "args": [
+      [
+        -2,
+        -2,
+        -1,
+        -1,
+        0,
+        0,
+        1,
+        1
+      ]
+    ],
+    "expected": 4
+  },
+  {
+    "id": "strictness_dupes_mixed",
+    "args": [
+      [
+        4,
+        10,
+        4,
+        3,
+        8,
+        9
+      ]
+    ],
+    "expected": 3
+  },
+  {
+    "id": "negatives_descending",
+    "args": [
+      [
+        0,
+        -1,
+        -2,
+        -3,
+        -4
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "negatives_mixed",
+    "args": [
+      [
+        -5,
+        -4,
+        -9,
+        -8,
+        -7,
+        3,
+        7,
+        1,
+        2
+      ]
+    ],
+    "expected": 5
+  },
+  {
+    "id": "plateau_spikes",
+    "args": [
+      [
+        3,
+        5,
+        5,
+        4,
+        6,
+        4,
+        7,
+        2,
+        8
+      ]
+    ],
+    "expected": 5
+  },
+  {
+    "id": "longest_not_suffix",
+    "args": [
+      [
+        7,
+        1,
+        2,
+        3,
+        0,
+        -1
+      ]
+    ],
+    "expected": 3
+  },
+  {
+    "id": "zigzag",
+    "args": [
+      [
+        1,
+        5,
+        2,
+        6,
+        3,
+        7,
+        4,
+        8
+      ]
+    ],
+    "expected": 5
+  }
+]

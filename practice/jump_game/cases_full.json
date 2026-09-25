@@ -1,0 +1,223 @@
+[
+  {
+    "id": "single_index",
+    "args": [
+      [
+        0
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "single_index_with_fuel",
+    "args": [
+      [
+        5
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "two_take_larger",
+    "args": [
+      [
+        1,
+        0
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "two_frozen_start",
+    "args": [
+      [
+        0,
+        1
+      ]
+    ],
+    "expected": false
+  },
+  {
+    "id": "example_true",
+    "args": [
+      [
+        1,
+        2,
+        0,
+        1,
+        0
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "example_false",
+    "args": [
+      [
+        1,
+        2,
+        1,
+        0,
+        1
+      ]
+    ],
+    "expected": false
+  },
+  {
+    "id": "all_frozen_after_first",
+    "args": [
+      [
+        10,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "all_ones",
+    "args": [
+      [
+        1,
+        1,
+        1,
+        1
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "zeros_gap",
+    "args": [
+      [
+        1,
+        0,
+        2,
+        0,
+        3
+      ]
+    ],
+    "expected": false
+  },
+  {
+    "id": "zeros_gap_unbridgeable",
+    "args": [
+      [
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    ],
+    "expected": false
+  },
+  {
+    "id": "big_first_over_gap",
+    "args": [
+      [
+        4,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "big_first_short",
+    "args": [
+      [
+        3,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "expected": false
+  },
+  {
+    "id": "exact_bridge",
+    "args": [
+      [
+        2,
+        0,
+        1,
+        0,
+        1
+      ]
+    ],
+    "expected": false
+  },
+  {
+    "id": "desc_to_zero",
+    "args": [
+      [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0,
+        0
+      ]
+    ],
+    "expected": false
+  },
+  {
+    "id": "late_trap",
+    "args": [
+      [
+        2,
+        0,
+        2,
+        0,
+        2
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "max_width_run",
+    "args": [
+      [
+        1,
+        1000,
+        0,
+        0,
+        1
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "long_chain",
+    "args": [
+      [
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "double_frozen",
+    "args": [
+      [
+        2,
+        0,
+        0
+      ]
+    ],
+    "expected": true
+  }
+]
