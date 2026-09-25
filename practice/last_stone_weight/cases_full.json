@@ -1,0 +1,212 @@
+[
+  {
+    "id": "single_stone_min_weight",
+    "args": [
+      [
+        1
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "single_stone_max_weight",
+    "args": [
+      [
+        100
+      ]
+    ],
+    "expected": 100
+  },
+  {
+    "id": "two_equal_stones_destroy_both",
+    "args": [
+      [
+        8,
+        8
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "two_unequal_stones",
+    "args": [
+      [
+        3,
+        7
+      ]
+    ],
+    "expected": 4
+  },
+  {
+    "id": "max_weight_pair_differs_by_one",
+    "args": [
+      [
+        100,
+        99
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "three_stones_pair_destroys_leave_diff",
+    "args": [
+      [
+        4,
+        4,
+        9
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "all_equal_odd_count_single_survivor",
+    "args": [
+      [
+        9,
+        9,
+        9
+      ]
+    ],
+    "expected": 9
+  },
+  {
+    "id": "max_length_all_equal_even_destroy_all",
+    "args": [
+      [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "descending_order_cascade",
+    "args": [
+      [
+        100,
+        90,
+        80,
+        70,
+        60
+      ]
+    ],
+    "expected": 40
+  },
+  {
+    "id": "ascending_order_cascade",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "survivor_larger_than_difference",
+    "args": [
+      [
+        10,
+        6,
+        3,
+        2,
+        1
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "difference_equal_to_untouched_stone",
+    "args": [
+      [
+        50,
+        30,
+        20,
+        15,
+        5
+      ]
+    ],
+    "expected": 10
+  },
+  {
+    "id": "alternating_heavy_light",
+    "args": [
+      [
+        100,
+        1,
+        100,
+        1,
+        100
+      ]
+    ],
+    "expected": 98
+  },
+  {
+    "id": "geometric_cascade",
+    "args": [
+      [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "random_mix_leaves_three",
+    "args": [
+      [
+        29,
+        64,
+        12,
+        97,
+        41,
+        76,
+        18
+      ]
+    ],
+    "expected": 3
+  },
+  {
+    "id": "random_mix_full_span",
+    "args": [
+      [
+        54,
+        8,
+        91,
+        27,
+        63,
+        12,
+        78,
+        45,
+        33,
+        60
+      ]
+    ],
+    "expected": 1
+  }
+]
