@@ -67,7 +67,6 @@ NAV_LEETCODE_HEADER = '    - "LeetCode":\n'
 NAV_AMAZON_HEADER = '    - "Amazon OA": problems/amazon_oa/index.md\n'
 NAV_LEETCODE_CHILD_PATTERN = re.compile(r'^      - "(.+?)": problems/(.+?)\.md$')
 NAV_NEXT_TOP_PATTERN = re.compile(r"^  - ", re.M)
-NAV_ADMISSIBLE_SLUG_COUNT = 168
 
 GRIND_TRACK = "Grind 75"
 NEETCODE_TRACK = "NeetCode 150"
@@ -81,7 +80,6 @@ GRIND_ONLY_COUNT = 18
 OVERLAP_COUNT = 59
 NEETCODE_ONLY_COUNT = 91
 UNIQUE_PROBLEM_COUNT = GRIND_ROW_COUNT + NEETCODE_ONLY_COUNT
-NAV_ADMISSIBLE_SLUG_COUNT = UNIQUE_PROBLEM_COUNT
 
 GRIND_TABLE_FIELDS = ("number", "slug", "title", "difficulty", "category", "time")
 NEETCODE_MANIFEST_FIELDS = (
@@ -699,7 +697,9 @@ def study_order_rows(grind: Sequence[dict], neetcode: Sequence[dict]) -> List[di
 # ---------------------------------------------------------------------------
 
 
-def amazon_overlap_lc_slugs(neetcode: Sequence[dict], amazon: Sequence[dict]) -> set:
+def amazon_overlap_lc_slugs(
+    neetcode: Sequence[dict], amazon: Sequence[dict]
+) -> AbstractSet[str]:
     """Find the unified-table problems that also appear in the Amazon bank.
 
     The match rule: an Amazon slug minus the ``amazon-`` prefix equals a
@@ -827,7 +827,7 @@ def tracks_cell(row: dict) -> str:
     return " + ".join(track_link(track) for track in tracks)
 
 
-def render_unified_section(rows: Sequence[dict], overlap: set) -> str:
+def render_unified_section(rows: Sequence[dict], overlap: AbstractSet[str]) -> str:
     """Render the marker-bounded unified LeetCode table section.
 
     Columns `| Problem | Difficulty | Category | Practice at | Tracks |
@@ -910,9 +910,9 @@ def render_amazon_section(entries: Sequence[dict]) -> str:
         " [problems/amazon_oa/index.md](amazon_oa/index.md);"
         " practice stubs live under the"
         " [`practice/amazon_oa/`](https://github.com/ThoDHa/algo-oa-prep/tree/main/practice/amazon_oa)"
-        " workspace. Time carries the difficulty-based estimates"
+        " workspace. Time carries difficulty-based estimates"
         " (Easy 15 / Medium 25 / Hard 40 minutes, a dash where the difficulty"
-        " is unknown) parsed from each write-up's header.",
+        " is unknown), parsed from each write-up's difficulty header.",
         "",
         AMAZON_TABLE_HEADER,
         AMAZON_TABLE_SEPARATOR,

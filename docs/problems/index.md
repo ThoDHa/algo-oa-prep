@@ -190,7 +190,7 @@ Rows marked · Amazon OA also appear in the [Amazon OA bank](amazon_oa/index.md)
 <!-- amazon-oa:start -->
 ## Amazon OA Problems
 
-The Amazon OA coding bank, separate from the LeetCode tables above: 350 Amazon-tagged online-assessment problems, most recently updated first. The problems come from [perixtar/Tech-OA-Interview-Questions](https://github.com/perixtar/Tech-OA-Interview-Questions) with statement pages on [FastPrep](https://www.fastprep.io). The full bank index with companies lives at [problems/amazon_oa/index.md](amazon_oa/index.md); practice stubs live under the [`practice/amazon_oa/`](https://github.com/ThoDHa/algo-oa-prep/tree/main/practice/amazon_oa) workspace. Time carries the difficulty-based estimates (Easy 15 / Medium 25 / Hard 40 minutes, a dash where the difficulty is unknown) parsed from each write-up's header.
+The Amazon OA coding bank, separate from the LeetCode tables above: 350 Amazon-tagged online-assessment problems, most recently updated first. The problems come from [perixtar/Tech-OA-Interview-Questions](https://github.com/perixtar/Tech-OA-Interview-Questions) with statement pages on [FastPrep](https://www.fastprep.io). The full bank index with companies lives at [problems/amazon_oa/index.md](amazon_oa/index.md); practice stubs live under the [`practice/amazon_oa/`](https://github.com/ThoDHa/algo-oa-prep/tree/main/practice/amazon_oa) workspace. Time carries difficulty-based estimates (Easy 15 / Medium 25 / Hard 40 minutes, a dash where the difficulty is unknown), parsed from each write-up's difficulty header.
 
 | Problem | Updated | Practice at | Time |
 |---|---------|---------|------|
