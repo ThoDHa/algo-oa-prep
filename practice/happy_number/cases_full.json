@@ -1,0 +1,79 @@
+[
+  {
+    "id": "one",
+    "args": [
+      1
+    ],
+    "expected": true
+  },
+  {
+    "id": "smallest_unhappy",
+    "args": [
+      2
+    ],
+    "expected": false
+  },
+  {
+    "id": "cycle_entry_four",
+    "args": [
+      4
+    ],
+    "expected": false
+  },
+  {
+    "id": "single_digit_seven",
+    "args": [
+      7
+    ],
+    "expected": true
+  },
+  {
+    "id": "two_digit_nineteen",
+    "args": [
+      19
+    ],
+    "expected": true
+  },
+  {
+    "id": "cycle_member_forty_two",
+    "args": [
+      42
+    ],
+    "expected": false
+  },
+  {
+    "id": "cycle_member_eighty_nine",
+    "args": [
+      89
+    ],
+    "expected": false
+  },
+  {
+    "id": "cycle_member_one_forty_five",
+    "args": [
+      145
+    ],
+    "expected": false
+  },
+  {
+    "id": "happy_two_digit_sixty_eight",
+    "args": [
+      68
+    ],
+    "expected": true
+  },
+  {
+    "id": "upper_bound_thousand",
+    "args": [
+      1000
+    ],
+    "expected": true
+  },
+  {
+    "id": "all_nines_three_digits",
+    "args": [
+      999
+    ],
+    "expected": false
+  }
+]

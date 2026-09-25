@@ -1,0 +1,3 @@
+[
+  {"id": "example_2_full_precision", "args": [1.1, 10], "expected": 2.593742460100002}
+]

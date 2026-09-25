@@ -1,0 +1,82 @@
+[
+  {
+    "id": "zero_both",
+    "args": [
+      "0",
+      "0"
+    ],
+    "expected": "0"
+  },
+  {
+    "id": "zero_left",
+    "args": [
+      "0",
+      "12345"
+    ],
+    "expected": "0"
+  },
+  {
+    "id": "zero_right",
+    "args": [
+      "999",
+      "0"
+    ],
+    "expected": "0"
+  },
+  {
+    "id": "single_one",
+    "args": [
+      "1",
+      "1"
+    ],
+    "expected": "1"
+  },
+  {
+    "id": "single_no_carry",
+    "args": [
+      "3",
+      "4"
+    ],
+    "expected": "12"
+  },
+  {
+    "id": "single_carry",
+    "args": [
+      "9",
+      "9"
+    ],
+    "expected": "81"
+  },
+  {
+    "id": "all_nines_cascade",
+    "args": [
+      "999",
+      "999"
+    ],
+    "expected": "998001"
+  },
+  {
+    "id": "one_times_big",
+    "args": [
+      "1",
+      "999999999999999999999999999999"
+    ],
+    "expected": "999999999999999999999999999999"
+  },
+  {
+    "id": "mixed_carry_chain",
+    "args": [
+      "123456789",
+      "987654321"
+    ],
+    "expected": "121932631112635269"
+  },
+  {
+    "id": "leading_digit_small",
+    "args": [
+      "123",
+      "45"
+    ],
+    "expected": "5535"
+  }
+]
