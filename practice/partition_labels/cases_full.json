@@ -1,0 +1,119 @@
+[
+  {
+    "id": "single_letter",
+    "args": [
+      "a"
+    ],
+    "expected": [
+      1
+    ]
+  },
+  {
+    "id": "two_distinct_letters",
+    "args": [
+      "ab"
+    ],
+    "expected": [
+      1,
+      1
+    ]
+  },
+  {
+    "id": "all_same_letter",
+    "args": [
+      "bbbb"
+    ],
+    "expected": [
+      4
+    ]
+  },
+  {
+    "id": "letter_returns_after_gap",
+    "args": [
+      "abab"
+    ],
+    "expected": [
+      4
+    ]
+  },
+  {
+    "id": "first_partition_blocks_second",
+    "args": [
+      "abbcbc"
+    ],
+    "expected": [
+      1,
+      5
+    ]
+  },
+  {
+    "id": "trailing_singletons",
+    "args": [
+      "aabcddd"
+    ],
+    "expected": [
+      2,
+      1,
+      1,
+      3
+    ]
+  },
+  {
+    "id": "early_singleton_then_merge",
+    "args": [
+      "abcdabcd"
+    ],
+    "expected": [
+      8
+    ]
+  },
+  {
+    "id": "interleaved_pairs",
+    "args": [
+      "abba"
+    ],
+    "expected": [
+      4
+    ]
+  },
+  {
+    "id": "nested_reach_shrinks_window",
+    "args": [
+      "abcba"
+    ],
+    "expected": [
+      5
+    ]
+  },
+  {
+    "id": "alternating_singletons",
+    "args": [
+      "abcde"
+    ],
+    "expected": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "repeat_after_singletons",
+    "args": [
+      "xyxyzzxy"
+    ],
+    "expected": [
+      8
+    ]
+  },
+  {
+    "id": "long_mixed",
+    "args": [
+      "qiejxqfnqieoxnsf"
+    ],
+    "expected": [
+      16
+    ]
+  }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "id": "empty_reading_all_stars",
+    "args": [
+      "*"
+    ],
+    "expected": true
+  },
+  {
+    "id": "single_open",
+    "args": [
+      "("
+    ],
+    "expected": false
+  },
+  {
+    "id": "single_close",
+    "args": [
+      ")"
+    ],
+    "expected": false
+  },
+  {
+    "id": "plain_balanced_pair",
+    "args": [
+      "()"
+    ],
+    "expected": true
+  },
+  {
+    "id": "star_closes_open",
+    "args": [
+      "(*"
+    ],
+    "expected": true
+  },
+  {
+    "id": "star_cannot_revive_close_first",
+    "args": [
+      ")*"
+    ],
+    "expected": false
+  },
+  {
+    "id": "two_stars_around_nothing",
+    "args": [
+      "**"
+    ],
+    "expected": true
+  },
+  {
+    "id": "close_surplus_early",
+    "args": [
+      "())"
+    ],
+    "expected": false
+  },
+  {
+    "id": "star_rescues_close_surplus",
+    "args": [
+      "())*"
+    ],
+    "expected": false
+  },
+  {
+    "id": "nested_with_trailing_star",
+    "args": [
+      "((*)"
+    ],
+    "expected": true
+  },
+  {
+    "id": "all_stars_long",
+    "args": [
+      "****"
+    ],
+    "expected": true
+  },
+  {
+    "id": "open_surplus_unfixable",
+    "args": [
+      "((()"
+    ],
+    "expected": false
+  },
+  {
+    "id": "open_surplus_fixed_by_star",
+    "args": [
+      "((()*"
+    ],
+    "expected": false
+  },
+  {
+    "id": "interleaved_stars_both_sides",
+    "args": [
+      "*(**)"
+    ],
+    "expected": true
+  },
+  {
+    "id": "close_then_open_never_fixable",
+    "args": [
+      ")("
+    ],
+    "expected": false
+  },
+  {
+    "id": "star_as_empty_only_path",
+    "args": [
+      "(((**)"
+    ],
+    "expected": true
+  }
+]

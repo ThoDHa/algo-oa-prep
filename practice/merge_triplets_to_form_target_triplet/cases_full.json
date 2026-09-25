@@ -1,0 +1,283 @@
+[
+  {
+    "id": "single_triplet_equals_target",
+    "args": [
+      [
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      [
+        5,
+        5,
+        5
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "single_triplet_short_one_component",
+    "args": [
+      [
+        [
+          5,
+          5,
+          4
+        ]
+      ],
+      [
+        5,
+        5,
+        5
+      ]
+    ],
+    "expected": false
+  },
+  {
+    "id": "single_triplet_overshoots",
+    "args": [
+      [
+        [
+          6,
+          5,
+          5
+        ]
+      ],
+      [
+        5,
+        5,
+        5
+      ]
+    ],
+    "expected": false
+  },
+  {
+    "id": "components_scattered_across_triplets",
+    "args": [
+      [
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      [
+        2,
+        2,
+        2
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "one_triplet_supplies_two_components",
+    "args": [
+      [
+        [
+          4,
+          4,
+          1
+        ],
+        [
+          1,
+          1,
+          5
+        ]
+      ],
+      [
+        4,
+        4,
+        5
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "component_match_only_in_discarded",
+    "args": [
+      [
+        [
+          5,
+          5,
+          9
+        ],
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      [
+        5,
+        5,
+        2
+      ]
+    ],
+    "expected": false
+  },
+  {
+    "id": "all_triplets_overshoot",
+    "args": [
+      [
+        [
+          9,
+          1,
+          1
+        ],
+        [
+          1,
+          9,
+          1
+        ],
+        [
+          1,
+          1,
+          9
+        ]
+      ],
+      [
+        2,
+        2,
+        2
+      ]
+    ],
+    "expected": false
+  },
+  {
+    "id": "duplicate_triplets_exact",
+    "args": [
+      [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "boundary_values_assemble",
+    "args": [
+      [
+        [
+          100,
+          1,
+          1
+        ],
+        [
+          1,
+          100,
+          1
+        ],
+        [
+          1,
+          1,
+          100
+        ]
+      ],
+      [
+        100,
+        100,
+        100
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "partial_assemble_missing_component",
+    "args": [
+      [
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          1,
+          3
+        ]
+      ],
+      [
+        2,
+        2,
+        2
+      ]
+    ],
+    "expected": false
+  },
+  {
+    "id": "overshoot_blocks_merge_chain",
+    "args": [
+      [
+        [
+          5,
+          1,
+          1
+        ],
+        [
+          1,
+          9,
+          2
+        ]
+      ],
+      [
+        5,
+        1,
+        2
+      ]
+    ],
+    "expected": false
+  },
+  {
+    "id": "target_midway_survivor_supplies_all",
+    "args": [
+      [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ]
+      ],
+      [
+        3,
+        3,
+        3
+      ]
+    ],
+    "expected": true
+  }
+]

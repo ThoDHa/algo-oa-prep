@@ -1,0 +1,252 @@
+[
+  {
+    "id": "single_interval_covered",
+    "args": [
+      [
+        [
+          2,
+          5
+        ]
+      ],
+      [
+        3
+      ]
+    ],
+    "expected": [
+      4
+    ]
+  },
+  {
+    "id": "single_interval_missed",
+    "args": [
+      [
+        [
+          2,
+          5
+        ]
+      ],
+      [
+        6
+      ]
+    ],
+    "expected": [
+      -1
+    ]
+  },
+  {
+    "id": "single_point_interval_exact_hit",
+    "args": [
+      [
+        [
+          4,
+          4
+        ]
+      ],
+      [
+        4
+      ]
+    ],
+    "expected": [
+      1
+    ]
+  },
+  {
+    "id": "single_point_interval_missed",
+    "args": [
+      [
+        [
+          4,
+          4
+        ]
+      ],
+      [
+        5
+      ]
+    ],
+    "expected": [
+      -1
+    ]
+  },
+  {
+    "id": "query_at_left_endpoint",
+    "args": [
+      [
+        [
+          1,
+          10
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      [
+        1
+      ]
+    ],
+    "expected": [
+      10
+    ]
+  },
+  {
+    "id": "query_at_right_endpoint",
+    "args": [
+      [
+        [
+          1,
+          10
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      [
+        10
+      ]
+    ],
+    "expected": [
+      10
+    ]
+  },
+  {
+    "id": "tie_same_size_different_right",
+    "args": [
+      [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      [
+        2,
+        4,
+        5
+      ]
+    ],
+    "expected": [
+      4,
+      4,
+      4
+    ]
+  },
+  {
+    "id": "small_interval_buried_under_big",
+    "args": [
+      [
+        [
+          1,
+          100
+        ],
+        [
+          40,
+          50
+        ]
+      ],
+      [
+        20,
+        45,
+        60
+      ]
+    ],
+    "expected": [
+      100,
+      11,
+      100
+    ]
+  },
+  {
+    "id": "queries_before_all_intervals",
+    "args": [
+      [
+        [
+          5,
+          8
+        ]
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "expected": [
+      -1,
+      -1
+    ]
+  },
+  {
+    "id": "identical_intervals",
+    "args": [
+      [
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      [
+        4
+      ]
+    ],
+    "expected": [
+      4
+    ]
+  },
+  {
+    "id": "nesting_picks_inner",
+    "args": [
+      [
+        [
+          1,
+          20
+        ],
+        [
+          5,
+          12
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      [
+        8
+      ]
+    ],
+    "expected": [
+      3
+    ]
+  },
+  {
+    "id": "interval_reused_after_expiry_window",
+    "args": [
+      [
+        [
+          1,
+          5
+        ],
+        [
+          10,
+          14
+        ]
+      ],
+      [
+        3,
+        7,
+        12
+      ]
+    ],
+    "expected": [
+      5,
+      -1,
+      5
+    ]
+  }
+]
