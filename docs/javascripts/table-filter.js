@@ -4,13 +4,16 @@
 // landing get a compact filter toolbar (problem text, difficulty, tracks
 // where those columns exist, a live visible count, a clear button, and the
 // reset-sort action folded in from tablesort-init). A table counts as
-// filterable when its header row has a Problem column and a Time or Updated
-// column, so every other article table (pattern guides, sources) stays
-// untouched. Like tablesort-init.js, per-page work subscribes to document$
-// for instant navigation, and the data attribute guard keeps repeat emissions
-// from stacking duplicate toolbars: the toolbar is inserted into the article
-// DOM above the table, so instant navigation caches it together with its
-// listeners and whatever filter state the visitor left behind.
+// filterable when its header row has a Problem column and a Difficulty or
+// Time column - the columns the toolbar can actually filter on - so every
+// other article table (pattern guides, sources, the Amazon OA bank index,
+// whose Problem/Updated/Companies header offers no difficulty source)
+// stays untouched. Like tablesort-init.js, per-page work subscribes to
+// document$ for instant navigation, and the data attribute guard keeps
+// repeat emissions from stacking duplicate toolbars: the toolbar is
+// inserted into the article DOM above the table, so instant navigation
+// caches it together with its listeners and whatever filter state the
+// visitor left behind.
 //
 // Filterable tables supersede tablesort-init's standalone "Reset sort"
 // button: at install time that button is still the table's previous sibling
@@ -48,7 +51,6 @@ const columnMap = (table) => {
     difficulty: -1,
     tracks: -1,
     time: -1,
-    updated: -1,
   };
   Array.from(headerRow.cells).forEach((cell, index) => {
     const name = cell.textContent.trim().toLowerCase();
@@ -59,14 +61,27 @@ const columnMap = (table) => {
   return columns;
 };
 
-/** True when the table is one of the problem tables: a Problem column plus a Time or Updated column. */
-const isFilterable = (table) => {
-  const columns = columnMap(table);
-  return (
-    columns.problem !== -1 &&
-    (columns.time !== -1 || columns.updated !== -1)
-  );
+/** True when the column map has the problem-table shape: a Problem column plus a Difficulty or Time column. */
+const isFilterable = (columns) =>
+  columns.problem !== -1 && (columns.difficulty !== -1 || columns.time !== -1);
+
+/** Indices applyFilters reads from a row; a short row missing any of them degrades to unfiltered. */
+const requiredColumns = (columns) => {
+  const indices = [columns.problem];
+  if (columns.difficulty !== -1) {
+    indices.push(columns.difficulty);
+  } else if (columns.time !== -1) {
+    indices.push(columns.time);
+  }
+  if (columns.tracks !== -1) {
+    indices.push(columns.tracks);
+  }
+  return indices;
 };
+
+/** True when the row has a cell at every index applyFilters reads. */
+const rowCoversColumns = (row, requiredIndices) =>
+  requiredIndices.every((index) => index < row.cells.length);
 
 /** Trimmed text of the row's cell at the column index. */
 const cellText = (row, columnIndex) => row.cells[columnIndex].textContent.trim();
@@ -135,9 +150,18 @@ const buildClearButton = (table, controls) => {
   return button;
 };
 
-/** Builds the compact reset control restoring default row order and sort state; null when the sort module is absent. */
+/** True when tablesort-init stamped the rows with their default order. */
+const isDefaultOrderStamped = (table) => {
+  const firstRow = table.tBodies[0]?.rows[0];
+  return firstRow !== undefined && firstRow.dataset.defaultIndex !== undefined;
+};
+
+/** Builds the compact reset control restoring default row order and sort state; null when the sort module is absent or the table carries no default-order stamps (unstamped rows would be reordered into a scrambled, NaN-driven order). */
 const buildResetButton = (table) => {
-  if (typeof resetTablesortState !== "function") {
+  if (
+    typeof resetTablesortState !== "function" ||
+    !isDefaultOrderStamped(table)
+  ) {
     return null;
   }
   const button = buildToolbarButton("Reset sort");
@@ -158,16 +182,20 @@ const removeStandaloneReset = (table) => {
 const applyFilters = (table, controls) => {
   const query = controls.text.value.trim().toLowerCase();
   const difficulty = controls.difficulty ? controls.difficulty.value : "";
-  const track = controls.tracks ? controls.tracks.value : "";
+  const track = controls.tracks ? controls.tracks.value.toLowerCase() : "";
+  const requiredIndices = requiredColumns(controls.columns);
   let visible = 0;
   for (const body of table.tBodies) {
     for (const row of body.rows) {
+      if (!rowCoversColumns(row, requiredIndices)) {
+        continue;
+      }
       const matches =
         (!query ||
           cellText(row, controls.columns.problem).toLowerCase().includes(query)) &&
         (!difficulty || difficultyOf(row, controls.columns) === difficulty) &&
         (!track ||
-          cellText(row, controls.columns.tracks).toLowerCase().includes(track.toLowerCase()));
+          cellText(row, controls.columns.tracks).toLowerCase().includes(track));
       row.style.display = matches ? "" : "none";
       if (matches) {
         visible += 1;
@@ -178,8 +206,7 @@ const applyFilters = (table, controls) => {
 };
 
 /** Inserts the filter toolbar in one row above the table and wires the control events. */
-const installFilterControls = (table) => {
-  const columns = columnMap(table);
+const installFilterControls = (table, columns) => {
   let total = 0;
   for (const body of table.tBodies) {
     total += body.rows.length;
@@ -235,11 +262,12 @@ if (typeof document$ !== "undefined") {
     for (const table of document.querySelectorAll(
       "article table:not([data-table-filter])"
     )) {
-      if (!isFilterable(table)) {
+      const columns = columnMap(table);
+      if (!isFilterable(columns)) {
         continue;
       }
       table.setAttribute("data-table-filter", "");
-      installFilterControls(table);
+      installFilterControls(table, columns);
     }
   });
 }
