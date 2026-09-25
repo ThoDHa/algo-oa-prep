@@ -20,7 +20,14 @@
 // an already-sorted table, which would stack duplicate click handlers. The
 // same guard keeps one reset control per table: the control is inserted
 // into the article DOM next to the table, so it is cached and re-shown by
-// instant navigation together with the stamped rows and its listener.
+// instant navigation together with the stamped rows and its listener. The
+// id assignment sits behind the same guard, so a cached table never gets a
+// second content-table-N number after an instant-navigation round trip.
+//
+// Stamping and control installation run before the Tablesort constructor:
+// a header carrying data-sort-default makes the constructor sort the rows
+// immediately, and stamping afterwards would record that sorted order as
+// the default.
 
 const DASH_ONLY_CELL = /^[-\u2013\u2014]*$/;
 const MINUTES_CELL = /^\d+\s*minutes?$/;
@@ -64,6 +71,11 @@ const resetTablesortState = (table) => {
   }
 };
 
+// Module scope so the numbering survives instant navigation: a counter
+// reset per document$ emission could hand out an id already held by a
+// cached table on another page.
+let contentTableCount = 0;
+
 const installResetControl = (table) => {
   let index = 0;
   for (const body of table.tBodies) {
@@ -76,8 +88,9 @@ const installResetControl = (table) => {
   resetButton.type = "button";
   resetButton.className = "md-button";
   resetButton.textContent = "Reset sort";
+  resetButton.setAttribute("aria-controls", table.id);
   resetButton.addEventListener("click", () => resetTablesortState(table));
-  table.parentNode.insertBefore(resetButton, table);
+  table.before(resetButton);
 };
 
 document$.subscribe(() => {
@@ -86,7 +99,11 @@ document$.subscribe(() => {
   }
   for (const table of document.querySelectorAll("article table:not([data-tablesort])")) {
     table.setAttribute("data-tablesort", "");
-    new Tablesort(table);
+    if (!table.id) {
+      contentTableCount += 1;
+      table.id = `content-table-${contentTableCount}`;
+    }
     installResetControl(table);
+    new Tablesort(table);
   }
 });
