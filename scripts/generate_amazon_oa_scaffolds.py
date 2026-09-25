@@ -1094,6 +1094,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             "skipped (no cache, fetch disabled, existing scaffolds kept): "
             + ", ".join(stats["skipped_no_cache"])
         )
+        if not bank_available:
+            print(
+                "warning: the Tech-OA bank pages are absent and the fastprep"
+                " cache has no entry for the skipped slug(s); their existing"
+                " scaffolds were left untouched"
+            )
     return 0
 
 

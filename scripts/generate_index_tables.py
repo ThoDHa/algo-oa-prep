@@ -43,7 +43,7 @@ import json
 import re
 import sys
 from pathlib import Path
-from typing import List, Optional, Sequence
+from typing import AbstractSet, List, Optional, Sequence
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 GRIND_TABLE_PATH = REPO_ROOT / "scripts" / "grind75_table.json"
@@ -81,6 +81,7 @@ GRIND_ONLY_COUNT = 18
 OVERLAP_COUNT = 59
 NEETCODE_ONLY_COUNT = 91
 UNIQUE_PROBLEM_COUNT = GRIND_ROW_COUNT + NEETCODE_ONLY_COUNT
+NAV_ADMISSIBLE_SLUG_COUNT = UNIQUE_PROBLEM_COUNT
 
 GRIND_TABLE_FIELDS = ("number", "slug", "title", "difficulty", "category", "time")
 NEETCODE_MANIFEST_FIELDS = (
@@ -129,13 +130,6 @@ UNIFIED_TABLE_HEADER = "| Problem | Difficulty | Category | Practice at | Tracks
 UNIFIED_TABLE_SEPARATOR = "|---|---------|------------|----------|--------|------|"
 AMAZON_TABLE_HEADER = "| Problem | Updated | Practice at | Time |"
 AMAZON_TABLE_SEPARATOR = "|---|---------|---------|------|"
-PROBLEM_COLUMN = 0
-DIFFICULTY_COLUMN = 1
-TIME_COLUMN = 5
-PRACTICE_AT_COLUMN = 3
-AMAZON_UPDATED_COLUMN = 1
-AMAZON_PRACTICE_AT_COLUMN = 2
-AMAZON_TIME_COLUMN = 3
 AMAZON_MARKER = "· Amazon OA"
 AMAZON_LEGEND = (
     f"Rows marked {AMAZON_MARKER} also appear in the"
@@ -492,18 +486,22 @@ def merge_tracks(grind: Sequence[dict], neetcode: Sequence[dict]) -> List[dict]:
     return rows
 
 
-def verify_merge_shape(rows: Sequence[dict]) -> None:
+def verify_merge_shape(rows: Sequence[dict], neetcode: Sequence[dict]) -> None:
     """Check the committed merge against the expected universe split.
 
     Guards the constants against upstream data drift: a Grind 75 or
     NeetCode refresh that changes the overlap must update the constants
-    consciously.
+    consciously. The premium guard compares the full lcSlug -> ncSlug
+    mapping of the premium rows against EXPECTED_PREMIUM_NC_SLUGS, so a
+    changed NeetCode page slug for a premium problem is caught too.
 
     Args:
         rows: The merged rows.
+        neetcode: The validated NeetCode manifest entries (ncSlug source).
 
     Raises:
-        SourceError: When the track split no longer matches the constants.
+        SourceError: When the track split or the premium mapping no longer
+            matches the constants.
     """
     tracks = [row["tracks"] for row in rows]
     actual = {
@@ -524,12 +522,14 @@ def verify_merge_shape(rows: Sequence[dict]) -> None:
             f" (expected {expected}, got {actual});"
             " refresh grind75_table.json / neetcode150_manifest.json and the constants together"
         )
-    premium = sorted(row["slug"] for row in rows if row["premium"])
-    expected_premium = sorted(EXPECTED_PREMIUM_NC_SLUGS)
-    if premium != expected_premium:
+    nc_slug_by_lc_slug = {entry["lcSlug"]: entry["ncSlug"] for entry in neetcode}
+    actual_premium = {
+        row["slug"]: nc_slug_by_lc_slug[row["slug"]] for row in rows if row["premium"]
+    }
+    if actual_premium != EXPECTED_PREMIUM_NC_SLUGS:
         raise SourceError(
             "premium rows drifted from EXPECTED_PREMIUM_NC_SLUGS"
-            f" (expected {expected_premium}, got {premium});"
+            f" (expected {EXPECTED_PREMIUM_NC_SLUGS}, got {actual_premium});"
             " refresh the constant and the manifest together"
         )
 
@@ -690,7 +690,7 @@ def study_order_rows(grind: Sequence[dict], neetcode: Sequence[dict]) -> List[di
         The interleaved unified rows.
     """
     merged = merge_tracks(grind, neetcode)
-    verify_merge_shape(merged)
+    verify_merge_shape(merged, neetcode)
     return interleave_study_order(merged, neetcode)
 
 
@@ -716,10 +716,10 @@ def amazon_overlap_lc_slugs(neetcode: Sequence[dict], amazon: Sequence[dict]) ->
     """
     lc_slugs = {entry["lcSlug"] for entry in neetcode}
     return {
-        entry["slug"][len(AMAZON_SLUG_PREFIX) :]
+        stripped
         for entry in amazon
         if entry["slug"].startswith(AMAZON_SLUG_PREFIX)
-        and entry["slug"][len(AMAZON_SLUG_PREFIX) :] in lc_slugs
+        and (stripped := entry["slug"].removeprefix(AMAZON_SLUG_PREFIX)) in lc_slugs
     }
 
 

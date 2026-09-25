@@ -752,6 +752,30 @@ def test_check_parsed_entry_requires_generator_owned_fragments(tmp_path, monkeyp
     assert gen.check([entry]) == 1
 
 
+def test_expected_parsed_entry_fragments_stay_prefixes_of_the_renderer_output():
+    entry = dict(UNPARSEABLE_ENTRY, slug="amazon-parsed", parse_status="parsed-with-cases")
+    fragments = gen.expected_scaffold_fragments(entry)
+    rendered = gen.render_all(entry, None, gen.unparsed_page_cases(entry["slug"]), "")
+    for path, fragment in fragments.items():
+        assert rendered[path].startswith(fragment), path
+
+
+def test_main_warns_when_bank_pages_are_absent_and_slugs_are_skipped(tmp_path, monkeypatch, capsys):
+    monkeypatch.setattr(gen, "DEFAULT_BANK_PAGES", [tmp_path / "absent" / "coding.md"])
+    manifest_path = tmp_path / "amazon_oa_manifest.json"
+    manifest_path.write_text(
+        json.dumps([UNPARSEABLE_ENTRY], indent=2) + "\n", encoding="utf-8"
+    )
+    monkeypatch.setattr(gen, "MANIFEST_PATH", manifest_path)
+    redirect_check_paths(tmp_path, monkeypatch)
+    write_scaffold_set(tmp_path, UNPARSEABLE_ENTRY)
+    (gen.DOCS_DIR / "index.md").write_text(gen.render_index([UNPARSEABLE_ENTRY]), encoding="utf-8")
+    assert gen.main([]) == 0
+    out = capsys.readouterr().out
+    assert "amazon-gone" in out
+    assert "warning:" in out
+
+
 def test_main_check_falls_back_to_committed_manifest_without_bank_pages(tmp_path, monkeypatch):
     monkeypatch.setattr(gen, "DEFAULT_BANK_PAGES", [tmp_path / "absent" / "coding.md"])
     manifest_path = tmp_path / "amazon_oa_manifest.json"

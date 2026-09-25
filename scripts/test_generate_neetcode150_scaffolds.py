@@ -1083,6 +1083,23 @@ def test_cases_exact_wording_still_yields_cases_without_any_order():
     assert result.cases
 
 
+def test_cases_from_parsed_reports_the_metadata_reason_when_metadata_is_none():
+    result = gen.cases_from_parsed(
+        {"statement": "", "examples": [], "constraints": [], "follow_up": ""},
+        None,
+        "nullish_problem",
+    )
+    assert result.cases == []
+    assert result.skip_reason == "metadata did not parse for nullish_problem"
+
+
+def test_cases_from_parsed_treats_a_none_parsed_description_as_empty():
+    metadata = gen.parse_metadata(CLEAN_METADATA)
+    result = gen.cases_from_parsed(None, metadata, "empty_description_problem")
+    assert result.cases == []
+    assert result.skip_reason == "no examples in the description for empty_description_problem"
+
+
 def test_cases_multi_output_word_search_shape_yields_empty_cases():
     metadata = dict(
         gen.parse_metadata(CLEAN_METADATA),

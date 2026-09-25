@@ -255,6 +255,15 @@ def cell(line, column):
     return line.split("|")[column + 1].strip()
 
 
+PROBLEM_COLUMN = 0
+DIFFICULTY_COLUMN = 1
+TIME_COLUMN = 5
+PRACTICE_AT_COLUMN = 3
+AMAZON_UPDATED_COLUMN = 1
+AMAZON_PRACTICE_AT_COLUMN = 2
+AMAZON_TIME_COLUMN = 3
+
+
 def unified_row_lc_slug(line):
     """Parse the LeetCode slug from a row's Problem cell link.
 
@@ -263,7 +272,7 @@ def unified_row_lc_slug(line):
     converts back per the repo-wide dirSlug = lcSlug.replace("-", "_")
     convention.
     """
-    problem_cell = cell(line, gen.PROBLEM_COLUMN)
+    problem_cell = cell(line, PROBLEM_COLUMN)
     url = problem_cell.rpartition("](")[2].rstrip(")")
     return url.rstrip("/").removesuffix(".md").replace("_", "-")
 
@@ -1008,6 +1017,18 @@ def test_committed_merge_yields_the_expected_universe_split():
     assert gen.UNIQUE_PROBLEM_COUNT == gen.GRIND_ROW_COUNT + gen.NEETCODE_ONLY_COUNT
 
 
+def test_verify_merge_shape_rejects_a_drifted_premium_nc_slug():
+    neetcode = gen.load_neetcode_manifest(NEETCODE_MANIFEST_PATH)
+    rows = gen.merge_tracks(gen.load_grind_table(GRIND_TABLE_PATH), neetcode)
+    drifted = [dict(entry) for entry in neetcode]
+    for i, entry in enumerate(drifted):
+        if entry.get("leetcodePremium"):
+            drifted[i] = dict(entry, ncSlug="drifted-neetcode-page")
+            break
+    with pytest.raises(gen.SourceError, match="EXPECTED_PREMIUM_NC_SLUGS"):
+        gen.verify_merge_shape(rows, drifted)
+
+
 def committed_section():
     """Render the unified section from the committed data sources.
 
@@ -1143,8 +1164,8 @@ def test_render_unified_section_orders_the_premium_fixture_row_into_its_section(
 def test_committed_unified_section_swaps_exactly_the_seven_premium_rows():
     rows = unified_table_rows(committed_section())
     neetcode_practice = [
-        cell(row, gen.PRACTICE_AT_COLUMN) for row in rows
-        if gen.PRACTICE_NEETCODE in cell(row, gen.PRACTICE_AT_COLUMN)
+        cell(row, PRACTICE_AT_COLUMN) for row in rows
+        if gen.PRACTICE_NEETCODE in cell(row, PRACTICE_AT_COLUMN)
     ]
     assert len(neetcode_practice) == len(gen.EXPECTED_PREMIUM_NC_SLUGS)
     for practice_cell in neetcode_practice:
@@ -1156,11 +1177,11 @@ def test_committed_unified_section_practice_at_resolves_every_row():
     rows = unified_table_rows(committed_section())
     assert len(rows) == gen.UNIQUE_PROBLEM_COUNT
     leetcode_count = sum(
-        f"({gen.LEETCODE_PROBLEM_URL}" in cell(row, gen.PRACTICE_AT_COLUMN)
+        f"({gen.LEETCODE_PROBLEM_URL}" in cell(row, PRACTICE_AT_COLUMN)
         for row in rows
     )
     neetcode_count = sum(
-        f"({gen.NEETCODE_PROBLEM_URL}" in cell(row, gen.PRACTICE_AT_COLUMN)
+        f"({gen.NEETCODE_PROBLEM_URL}" in cell(row, PRACTICE_AT_COLUMN)
         for row in rows
     )
     assert leetcode_count == gen.UNIQUE_PROBLEM_COUNT - len(gen.EXPECTED_PREMIUM_NC_SLUGS)
@@ -1171,7 +1192,7 @@ def test_committed_unified_section_practice_at_links_match_the_leetcode_slug_pat
     rows = unified_table_rows(committed_section())
     pattern = f"({gen.LEETCODE_PROBLEM_URL}"
     for row in rows:
-        practice_cell = cell(row, gen.PRACTICE_AT_COLUMN)
+        practice_cell = cell(row, PRACTICE_AT_COLUMN)
         if pattern not in practice_cell:
             continue
         link = practice_cell[practice_cell.index(pattern) + 1 :].split(")")[0]
@@ -1189,7 +1210,7 @@ def test_committed_unified_section_tracks_cells_link_the_track_list_pages():
 
 def committed_unified_time_cell(row):
     """One committed unified row's Time cell text."""
-    return cell(row, gen.TIME_COLUMN)
+    return cell(row, TIME_COLUMN)
 
 
 def test_committed_unified_section_leaves_no_empty_time_cells():
@@ -1219,7 +1240,7 @@ def test_committed_unified_section_estimates_the_neetcode_only_minutes():
     for row in rows:
         if unified_row_lc_slug(row) in grind_slugs:
             continue
-        difficulty = cell(row, gen.DIFFICULTY_COLUMN)
+        difficulty = cell(row, DIFFICULTY_COLUMN)
         assert committed_unified_time_cell(row) == gen.estimated_time_cell(difficulty), row
         checked += 1
     assert checked == gen.NEETCODE_ONLY_COUNT
@@ -1301,11 +1322,11 @@ def test_committed_amazon_section_fills_every_time_cell_from_the_writeup_headers
     amazon = gen.load_amazon_manifest(AMAZON_MANIFEST_PATH)
     section = gen.render_amazon_section(amazon)
     rows = unified_table_rows(section)
-    empty = sum(not cell(row, gen.AMAZON_TIME_COLUMN) for row in rows)
+    empty = sum(not cell(row, AMAZON_TIME_COLUMN) for row in rows)
     assert empty == 0
     for entry, row in zip(amazon, rows):
         difficulty = gen.amazon_writeup_difficulty(entry["slug"])
-        assert cell(row, gen.AMAZON_TIME_COLUMN) == gen.estimated_time_cell(difficulty), (
+        assert cell(row, AMAZON_TIME_COLUMN) == gen.estimated_time_cell(difficulty), (
             entry["slug"]
         )
 
@@ -1320,8 +1341,8 @@ def test_committed_amazon_section_header_orders_the_columns():
         "Time",
     ]
     row = unified_table_rows(section)[0]
-    assert cell(row, gen.AMAZON_UPDATED_COLUMN).count("-") == 2
-    assert f"[{gen.PRACTICE_FASTPREP}]" in cell(row, gen.AMAZON_PRACTICE_AT_COLUMN)
+    assert cell(row, AMAZON_UPDATED_COLUMN).count("-") == 2
+    assert f"[{gen.PRACTICE_FASTPREP}]" in cell(row, AMAZON_PRACTICE_AT_COLUMN)
 
 
 def test_render_amazon_section_links_rows_landing_relative():

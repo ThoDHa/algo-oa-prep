@@ -592,7 +592,7 @@ def cases_from_metadata(metadata: Optional[dict], dir_slug: str) -> CasesResult:
 
 
 def cases_from_parsed(
-    parsed: Optional[dict], metadata: dict, dir_slug: str
+    parsed: Optional[dict], metadata: Optional[dict], dir_slug: str
 ) -> CasesResult:
     """Convert a parsed description into harness cases under the contract.
 
@@ -605,13 +605,16 @@ def cases_from_parsed(
     Args:
         parsed: The `parse_description` result (statement, examples,
             constraints, follow_up); None means the description was empty.
-        metadata: The parsed metadata record (starter code is read here).
+        metadata: The parsed metadata record (starter code is read here),
+            or None when unparseable, which yields the metadata skip reason.
         dir_slug: The problem's dirSlug, for skip-reason naming.
 
     Returns:
         A CasesResult with the function name, the cases, and a skip reason
         (None) exactly when at least one case exists.
     """
+    if metadata is None:
+        return unparseable_cases(dir_slug, "metadata did not parse")
     if parsed is None:
         parsed = {"statement": "", "examples": [], "constraints": [], "follow_up": ""}
     signature = starter_signature(metadata)
@@ -633,8 +636,6 @@ def cases_from_parsed(
         )
     function_name = signature.name
 
-    if parsed is None:
-        parsed = parse_description(str(metadata.get("description") or ""))
     if not parsed["examples"]:
         return unparseable_cases(dir_slug, "no examples in the description")
     if declares_any_order(parsed):
@@ -1246,7 +1247,7 @@ def check(entries: Sequence[dict]) -> int:
         dir_slug = entry["dirSlug"]
         metadata = fetch_problem_metadata(entry["ncSlug"], delay=False, network=False)
         parsed = parse_description(str((metadata or {}).get("description") or ""))
-        parsed_cases = cases_from_parsed(parsed, metadata or {}, dir_slug)
+        parsed_cases = cases_from_parsed(parsed, metadata, dir_slug)
         for path, expected in render_all(entry, metadata, parsed_cases, parsed).items():
             if not path.exists() or path.read_text(encoding="utf-8") != expected:
                 try:
