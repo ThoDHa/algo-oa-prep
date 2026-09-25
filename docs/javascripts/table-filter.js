@@ -246,12 +246,12 @@ const buildSelect = (label, allOptionLabel, optionLabels) => {
   const select = document.createElement("select");
   select.className = "md-input";
   select.setAttribute("aria-label", label);
-  for (const optionLabel of [allOptionLabel, ...optionLabels]) {
+  [allOptionLabel, ...optionLabels].forEach((optionLabel, index) => {
     const option = document.createElement("option");
-    option.value = optionLabel === allOptionLabel ? ALL_OPTION_VALUE : optionLabel;
+    option.value = index === 0 ? ALL_OPTION_VALUE : optionLabel;
     option.textContent = optionLabel;
     select.append(option);
-  }
+  });
   return select;
 };
 
