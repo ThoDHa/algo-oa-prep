@@ -1503,7 +1503,7 @@ def test_committed_landing_page_satisfies_the_check_gate():
 # ---------------------------------------------------------------------------
 
 
-def expected_nav_text(merged):
+def expected_nav_text(merged, amazon):
     """Render the expected Problems nav block for the merged rows."""
     lines = [
         gen.NAV_PROBLEMS_MARKER,
@@ -1513,6 +1513,11 @@ def expected_nav_text(merged):
     for row in merged:
         lines.append(f'      - "{row["title"]}": problems/{row["dirSlug"]}.md\n')
     lines.append(gen.NAV_AMAZON_HEADER)
+    lines.append(gen.NAV_AMAZON_INDEX_ENTRY)
+    for entry in amazon:
+        lines.append(
+            f'      - "{entry["title"]}": problems/amazon_oa/{entry["slug"]}.md\n'
+        )
     return "".join(lines)
 
 
@@ -1536,27 +1541,61 @@ def committed_nav_rows():
     )
 
 
+def committed_amazon_entries():
+    """The validated Amazon OA manifest from the committed data source."""
+    return gen.load_amazon_manifest(AMAZON_MANIFEST_PATH)
+
+
 def test_render_problems_nav_emits_landing_parent_and_two_subsections():
-    nav = gen.render_problems_nav(committed_nav_rows())
+    amazon = committed_amazon_entries()
+    nav = gen.render_problems_nav(committed_nav_rows(), amazon)
     assert nav.startswith("  - Problems:\n")
     assert "    - problems/index.md\n" in nav
     assert nav.index("    - problems/index.md\n") < nav.index('    - "LeetCode":\n')
-    assert nav.index('    - "LeetCode":\n') < nav.index(
-        '    - "Amazon OA": problems/amazon_oa/index.md\n'
+    assert nav.index('    - "LeetCode":\n') < nav.index(gen.NAV_AMAZON_HEADER)
+    first_amazon = amazon[0]
+    last_amazon = amazon[-1]
+    assert (
+        gen.NAV_AMAZON_HEADER
+        + gen.NAV_AMAZON_INDEX_ENTRY
+        + f'      - "{first_amazon["title"]}": problems/amazon_oa/{first_amazon["slug"]}.md\n'
+    ) in nav
+    assert nav.rstrip().endswith(
+        f'      - "{last_amazon["title"]}": problems/amazon_oa/{last_amazon["slug"]}.md'
     )
-    assert nav.rstrip().endswith('    - "Amazon OA": problems/amazon_oa/index.md')
 
 
 def test_render_problems_nav_lists_all_rows_at_one_level_in_study_order():
     rows = committed_nav_rows()
-    nav = gen.render_problems_nav(rows)
+    nav = gen.render_problems_nav(rows, committed_amazon_entries())
     lines = nav.splitlines()
-    amazon_line = '    - "Amazon OA": problems/amazon_oa/index.md'
-    children = lines[lines.index('      - "Two Sum": problems/two_sum.md') : lines.index(amazon_line)]
+    children = lines[lines.index('      - "Two Sum": problems/two_sum.md') : lines.index(gen.NAV_AMAZON_HEADER.rstrip("\n"))]
     assert len(children) == gen.UNIQUE_PROBLEM_COUNT
     assert children == [
         f'      - "{row["title"]}": problems/{row["dirSlug"]}.md' for row in rows
     ]
+
+
+def test_render_problems_nav_lists_all_amazon_entries_at_one_level_under_the_index():
+    amazon = committed_amazon_entries()
+    nav = gen.render_problems_nav(committed_nav_rows(), amazon)
+    lines = nav.splitlines()
+    index_at = lines.index(gen.NAV_AMAZON_INDEX_ENTRY.rstrip("\n"))
+    children = lines[index_at + 1 :]
+    assert len(children) == gen.AMAZON_ROW_COUNT
+    assert children == [
+        f'      - "{entry["title"]}": problems/amazon_oa/{entry["slug"]}.md'
+        for entry in amazon
+    ]
+
+
+def test_render_problems_nav_orders_amazon_children_most_recently_updated_first():
+    amazon = committed_amazon_entries()
+    nav = gen.render_problems_nav(committed_nav_rows(), amazon)
+    slugs = gen.nav_amazon_children(nav)
+    assert slugs == [entry["slug"] for entry in amazon]
+    updated_dates = [entry["updated"] for entry in amazon]
+    assert updated_dates == sorted(updated_dates, reverse=True)
 
 
 def test_write_problems_nav_replaces_a_flat_or_legacy_problems_section(tmp_path):
@@ -1572,7 +1611,9 @@ def test_write_problems_nav_replaces_a_flat_or_legacy_problems_section(tmp_path)
     changed = gen.write_problems_nav(mkdocs_path=mkdocs_path)
     assert changed is True
     text = mkdocs_path.read_text(encoding="utf-8")
-    assert expected_nav_text(committed_nav_rows()) in text
+    assert expected_nav_text(
+        committed_nav_rows(), committed_amazon_entries()
+    ) in text
     assert '"NeetCode 150"' not in text
     assert text.count("  - Problems:\n") == 1
 
@@ -1637,7 +1678,9 @@ def test_check_problems_nav_fails_when_the_amazon_subsection_is_gone(tmp_path):
     mkdocs_path = mkdocs_shell(tmp_path)
     gen.write_problems_nav(mkdocs_path=mkdocs_path)
     text = mkdocs_path.read_text(encoding="utf-8")
-    text = text.replace('    - "Amazon OA": problems/amazon_oa/index.md\n', "")
+    text = text.replace(gen.NAV_AMAZON_HEADER, "").replace(
+        gen.NAV_AMAZON_INDEX_ENTRY, ""
+    )
     mkdocs_path.write_text(text, encoding="utf-8")
     assert gen.check_problems_nav(mkdocs_path=mkdocs_path) == 1
 
@@ -1666,6 +1709,96 @@ def test_committed_nav_follows_the_interleaved_study_order():
     assert children == [slug.replace("-", "_") for slug in EXPECTED_STUDY_ORDER]
 
 
+def test_committed_nav_amazon_subsection_holds_350_unique_pages_at_one_level():
+    mkdocs_text = gen.MKDOCS_PATH.read_text(encoding="utf-8")
+    children = gen.nav_amazon_children(mkdocs_text)
+    assert len(children) == gen.AMAZON_ROW_COUNT
+    assert len(set(children)) == len(children)
+
+
+def test_committed_nav_amazon_subsection_follows_the_manifest_order():
+    amazon = committed_amazon_entries()
+    mkdocs_text = gen.MKDOCS_PATH.read_text(encoding="utf-8")
+    assert gen.nav_amazon_children(mkdocs_text) == [entry["slug"] for entry in amazon]
+
+
+def test_committed_nav_amazon_subsection_links_the_bank_index_as_its_own_page():
+    mkdocs_text = gen.MKDOCS_PATH.read_text(encoding="utf-8")
+    assert gen.NAV_AMAZON_HEADER in mkdocs_text
+    assert gen.NAV_AMAZON_INDEX_ENTRY in mkdocs_text
+    header_at = mkdocs_text.index(gen.NAV_AMAZON_HEADER)
+    index_at = mkdocs_text.index(
+        gen.NAV_AMAZON_INDEX_ENTRY, header_at + len(gen.NAV_AMAZON_HEADER)
+    )
+    assert index_at == header_at + len(gen.NAV_AMAZON_HEADER)
+    leetcode_at = mkdocs_text.index(gen.NAV_LEETCODE_HEADER)
+    leetcode_last = mkdocs_text.index(
+        '      - "Maximum Frequency Stack": problems/maximum_frequency_stack.md\n'
+    )
+    assert leetcode_at < leetcode_last < header_at
+
+
+def test_committed_nav_amazon_children_resolve_to_committed_writeup_pages():
+    amazon_dir = SCRIPTS_DIR.parent / "docs" / "problems" / "amazon_oa"
+    mkdocs_text = gen.MKDOCS_PATH.read_text(encoding="utf-8")
+    for slug in gen.nav_amazon_children(mkdocs_text):
+        assert (amazon_dir / f"{slug}.md").exists(), slug
+
+
+def test_nav_amazon_children_returns_empty_without_the_amazon_header():
+    assert gen.nav_amazon_children("  - Problems:\n    - problems/index.md\n") == []
+
+
+def test_nav_amazon_children_returns_empty_without_the_index_entry():
+    text = (
+        "  - Problems:\n"
+        '    - "Amazon OA":\n'
+        '      - "One": problems/amazon_oa/amazon-one.md\n'
+    )
+    assert gen.nav_amazon_children(text) == []
+
+
+def test_nav_amazon_children_scan_stops_at_the_first_non_child_line():
+    text = (
+        "  - Problems:\n"
+        '    - "Amazon OA":\n'
+        "      - problems/amazon_oa/index.md\n"
+        '      - "One": problems/amazon_oa/amazon-one.md\n'
+        "  - Blog:\n"
+        '      - "Leaked": problems/amazon_oa/amazon-leaked.md\n'
+    )
+    assert gen.nav_amazon_children(text) == ["amazon-one"]
+
+
+def test_nav_amazon_children_extracts_the_bank_slugs_in_file_order():
+    nav = gen.render_problems_nav(committed_nav_rows(), committed_amazon_entries())
+    amazon = committed_amazon_entries()
+    assert gen.nav_amazon_children(nav) == [entry["slug"] for entry in amazon]
+
+
+def test_check_problems_nav_fails_on_an_extra_amazon_child(tmp_path):
+    mkdocs_path = mkdocs_shell(tmp_path)
+    gen.write_problems_nav(mkdocs_path=mkdocs_path)
+    text = mkdocs_path.read_text(encoding="utf-8")
+    text = text.replace(
+        gen.NAV_AMAZON_INDEX_ENTRY,
+        gen.NAV_AMAZON_INDEX_ENTRY + '      - "Rogue": problems/amazon_oa/amazon-rogue.md\n',
+    )
+    mkdocs_path.write_text(text, encoding="utf-8")
+    assert gen.check_problems_nav(mkdocs_path=mkdocs_path) == 1
+
+
+def test_check_problems_nav_fails_when_an_amazon_child_drifts_in_order(tmp_path):
+    mkdocs_path = mkdocs_shell(tmp_path)
+    gen.write_problems_nav(mkdocs_path=mkdocs_path)
+    text = mkdocs_path.read_text(encoding="utf-8")
+    lines = text.splitlines(keepends=True)
+    index_at = lines.index(gen.NAV_AMAZON_INDEX_ENTRY)
+    lines[index_at + 1], lines[index_at + 2] = lines[index_at + 2], lines[index_at + 1]
+    mkdocs_path.write_text("".join(lines), encoding="utf-8")
+    assert gen.check_problems_nav(mkdocs_path=mkdocs_path) == 1
+
+
 def test_main_emits_landing_sections_and_nav(tmp_path, monkeypatch, capsys):
     landing_path = fresh_landing(tmp_path)
     mkdocs_path = mkdocs_shell(tmp_path)
@@ -1673,9 +1806,9 @@ def test_main_emits_landing_sections_and_nav(tmp_path, monkeypatch, capsys):
     monkeypatch.setattr(gen, "MKDOCS_PATH", mkdocs_path)
     assert gen.main([]) == 0
     assert gen.UNIFIED_SECTION_START in landing_path.read_text(encoding="utf-8")
-    assert expected_nav_text(committed_nav_rows()) in mkdocs_path.read_text(
-        encoding="utf-8"
-    )
+    assert expected_nav_text(
+        committed_nav_rows(), committed_amazon_entries()
+    ) in mkdocs_path.read_text(encoding="utf-8")
     assert "sections written" in capsys.readouterr().out
 
 
