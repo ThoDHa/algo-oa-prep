@@ -8,6 +8,7 @@ table separately, and credits the list sources. Run with:
     cd practice && uv run pytest ../scripts/
 """
 
+import collections
 import datetime
 import json
 from pathlib import Path
@@ -459,10 +460,71 @@ def test_merge_tracks_keeps_grind_metadata_for_overlap_rows():
     assert min_stack["time"] == "20 minutes"
 
 
-def test_merge_tracks_leaves_time_empty_for_neetcode_only_rows():
+def test_merge_tracks_estimates_time_for_neetcode_only_rows():
     rows = gen.merge_tracks(fixture_grind(), fixture_neetcode())
     jump_game = next(row for row in rows if row["slug"] == "jump-game")
-    assert jump_game["time"] == ""
+    assert jump_game["time"] == "25 minutes"
+
+
+# ---------------------------------------------------------------------------
+# The Time estimates
+# ---------------------------------------------------------------------------
+
+
+def test_estimated_time_cell_maps_each_difficulty_to_its_minutes():
+    assert gen.estimated_time_cell("Easy") == "15 minutes"
+    assert gen.estimated_time_cell("Medium") == "25 minutes"
+    assert gen.estimated_time_cell("Hard") == "40 minutes"
+
+
+def test_estimated_time_cell_marks_unknown_difficulty_with_the_dash_marker():
+    assert gen.estimated_time_cell(None) == "-"
+
+
+EXPECTED_AMAZON_DIFFICULTY_SAMPLES = {
+    "amazon-transfer-chain-endpoints": "Easy",
+    "amazon-aggressive-cows": "Medium",
+    "amazon-trapping-rain-water": "Hard",
+    "amazon-count-similar-string-groups": None,
+}
+
+
+def test_amazon_writeup_difficulty_parses_the_pinned_committed_header_samples():
+    for slug, difficulty in EXPECTED_AMAZON_DIFFICULTY_SAMPLES.items():
+        assert gen.amazon_writeup_difficulty(slug) == difficulty, slug
+
+
+def test_amazon_writeup_difficulty_reads_every_committed_header_offline():
+    amazon = gen.load_amazon_manifest(AMAZON_MANIFEST_PATH)
+    assert len(amazon) == gen.AMAZON_ROW_COUNT
+    counts = collections.Counter(
+        gen.amazon_writeup_difficulty(entry["slug"]) for entry in amazon
+    )
+    assert counts == collections.Counter(
+        {"Easy": 67, "Medium": 180, "Hard": 79, None: 24}
+    )
+
+
+def test_amazon_writeup_difficulty_rejects_a_missing_writeup(tmp_path):
+    with pytest.raises(gen.SourceError, match="not found"):
+        gen.amazon_writeup_difficulty("amazon-absent", docs_dir=tmp_path)
+
+
+def test_amazon_writeup_difficulty_rejects_a_header_without_a_difficulty_group(tmp_path):
+    (tmp_path / "amazon-headerless.md").write_text(
+        "# [Headerless](https://example.com)\n\nno bold group here\n", encoding="utf-8"
+    )
+    with pytest.raises(gen.SourceError, match=r"no \*\*difficulty\*\* header"):
+        gen.amazon_writeup_difficulty("amazon-headerless", docs_dir=tmp_path)
+
+
+def test_amazon_writeup_difficulty_rejects_a_non_canonical_difficulty(tmp_path):
+    (tmp_path / "amazon-odd.md").write_text(
+        "# [Odd](https://example.com)\n\n**Tricky** | **NN minutes** | **Topics**\n",
+        encoding="utf-8",
+    )
+    with pytest.raises(gen.SourceError, match="Tricky"):
+        gen.amazon_writeup_difficulty("amazon-odd", docs_dir=tmp_path)
 
 
 def test_merge_tracks_uses_the_neetcode_section_as_category_for_neetcode_only_rows():
@@ -965,6 +1027,13 @@ def test_committed_unified_section_states_the_merge_counts():
     assert str(gen.OVERLAP_COUNT) in section
 
 
+def test_committed_unified_section_rewords_the_time_intro():
+    section = committed_section()
+    assert "Time carries the Grind 75 suggested minutes where published" in section
+    assert "difficulty-based estimates elsewhere" in section
+    assert "stays empty for NeetCode-only problems" not in section
+
+
 def test_committed_unified_section_describes_the_interleaved_study_order():
     section = committed_section()
     assert "interleaved study order" in section
@@ -1035,7 +1104,7 @@ def test_render_unified_section_formats_the_neetcode_only_row():
         "| [Jump Game](jump_game.md) | Medium | Greedy "
         f"| [{gen.PRACTICE_LEETCODE}]({gen.LEETCODE_PROBLEM_URL}jump-game/) "
         f"| [{gen.NEETCODE_TRACK}]({gen.NEETCODE_TRACK_URL})"
-        " |  |"
+        " | 25 minutes |"
     )
 
 
@@ -1118,6 +1187,44 @@ def test_committed_unified_section_tracks_cells_link_the_track_list_pages():
     assert neetcode_links == gen.OVERLAP_COUNT + gen.NEETCODE_ONLY_COUNT
 
 
+def committed_unified_time_cell(row):
+    """One committed unified row's Time cell text."""
+    return cell(row, gen.TIME_COLUMN)
+
+
+def test_committed_unified_section_leaves_no_empty_time_cells():
+    rows = unified_table_rows(committed_section())
+    assert len(rows) == gen.UNIQUE_PROBLEM_COUNT
+    for row in rows:
+        assert committed_unified_time_cell(row), row
+
+
+def test_committed_unified_section_keeps_the_grind_minutes_unchanged():
+    grind_times = {row["slug"]: row["time"] for row in gen.load_grind_table(GRIND_TABLE_PATH)}
+    rows = unified_table_rows(committed_section())
+    checked = 0
+    for row in rows:
+        slug = unified_row_lc_slug(row)
+        if slug not in grind_times:
+            continue
+        assert committed_unified_time_cell(row) == grind_times[slug], row
+        checked += 1
+    assert checked == gen.GRIND_ROW_COUNT
+
+
+def test_committed_unified_section_estimates_the_neetcode_only_minutes():
+    grind_slugs = {row["slug"] for row in gen.load_grind_table(GRIND_TABLE_PATH)}
+    rows = unified_table_rows(committed_section())
+    checked = 0
+    for row in rows:
+        if unified_row_lc_slug(row) in grind_slugs:
+            continue
+        difficulty = cell(row, gen.DIFFICULTY_COLUMN)
+        assert committed_unified_time_cell(row) == gen.estimated_time_cell(difficulty), row
+        checked += 1
+    assert checked == gen.NEETCODE_ONLY_COUNT
+
+
 def test_render_unified_section_appends_the_amazon_marker_to_overlapping_rows():
     amazon = fixture_amazon() + [amazon_entry_for("min-stack")]
     section = render_fixture_section(amazon=amazon)
@@ -1158,14 +1265,14 @@ def test_render_unified_section_carries_the_amazon_legend():
     assert "(amazon_oa/index.md)" in section
 
 
-def test_render_amazon_section_emits_the_three_column_table():
+def test_render_amazon_section_emits_the_four_column_table():
     section = gen.render_amazon_section(fixture_amazon())
     assert section.startswith(gen.AMAZON_SECTION_START)
     assert section.rstrip().endswith(gen.AMAZON_SECTION_END)
     assert "## Amazon OA Problems" in section
     assert gen.AMAZON_TABLE_HEADER in section
     assert "| #" not in section
-    assert "|---|---------|---------|" in section
+    assert "|---|---------|---------|------|" in section
 
 
 def test_render_amazon_section_links_rows_to_fastprep():
@@ -1177,7 +1284,7 @@ def test_render_amazon_section_links_rows_to_fastprep():
         " | 2026-09-19"
         f" | [{gen.PRACTICE_FASTPREP}]"
         "(https://www.fastprep.io/problems/amazon-maximize-adjacent-difference-with-one-reversal)"
-        " |"
+        " | 40 minutes |"
     )
 
 
@@ -1188,6 +1295,26 @@ def test_committed_amazon_section_gives_every_row_a_fastprep_link():
     assert len(rows) == gen.AMAZON_ROW_COUNT
     for entry, row in zip(amazon, rows):
         assert f"[{gen.PRACTICE_FASTPREP}]({entry['url']})" in row, entry["slug"]
+
+
+def test_committed_amazon_section_fills_every_time_cell_from_the_writeup_headers():
+    amazon = gen.load_amazon_manifest(AMAZON_MANIFEST_PATH)
+    section = gen.render_amazon_section(amazon)
+    rows = unified_table_rows(section)
+    empty = sum(not cell(row, gen.AMAZON_TIME_COLUMN) for row in rows)
+    assert empty == 0
+    for entry, row in zip(amazon, rows):
+        difficulty = gen.amazon_writeup_difficulty(entry["slug"])
+        assert cell(row, gen.AMAZON_TIME_COLUMN) == gen.estimated_time_cell(difficulty), (
+            entry["slug"]
+        )
+
+
+def test_committed_amazon_section_time_column_sits_between_updated_and_practice_at():
+    section = gen.render_amazon_section(gen.load_amazon_manifest(AMAZON_MANIFEST_PATH))
+    row = unified_table_rows(section)[0]
+    assert cell(row, gen.AMAZON_UPDATED_COLUMN).count("-") == 2
+    assert f"[{gen.PRACTICE_FASTPREP}]" in cell(row, gen.AMAZON_PRACTICE_AT_COLUMN)
 
 
 def test_render_amazon_section_links_rows_landing_relative():

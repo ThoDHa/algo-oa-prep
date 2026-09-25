@@ -127,15 +127,32 @@ EXPECTED_PREMIUM_NC_SLUGS = {
 
 UNIFIED_TABLE_HEADER = "| Problem | Difficulty | Category | Practice at | Tracks | Time |"
 UNIFIED_TABLE_SEPARATOR = "|---|---------|------------|----------|--------|------|"
-AMAZON_TABLE_HEADER = "| Problem | Updated | Practice at |"
-AMAZON_TABLE_SEPARATOR = "|---|---------|---------|"
+AMAZON_TABLE_HEADER = "| Problem | Updated | Practice at | Time |"
+AMAZON_TABLE_SEPARATOR = "|---|---------|---------|------|"
 PROBLEM_COLUMN = 0
+DIFFICULTY_COLUMN = 1
+TIME_COLUMN = 5
 PRACTICE_AT_COLUMN = 3
+AMAZON_PROBLEM_COLUMN = 0
+AMAZON_UPDATED_COLUMN = 1
+AMAZON_PRACTICE_AT_COLUMN = 2
+AMAZON_TIME_COLUMN = 3
 AMAZON_MARKER = "· Amazon OA"
 AMAZON_LEGEND = (
     f"Rows marked {AMAZON_MARKER} also appear in the"
     " [Amazon OA bank](amazon_oa/index.md)."
 )
+
+# Difficulty-based Time estimates shared by every bank: the write-up
+# header convention (Easy 15 / Medium 25 / Hard 40 minutes). The unknown
+# marker mirrors the scaffold generator's header when FastPrep publishes
+# no difficulty; its Time cell falls back to the hand-table's "-" filler.
+ESTIMATED_MINUTES_BY_DIFFICULTY = {"Easy": 15, "Medium": 25, "Hard": 40}
+UNKNOWN_DIFFICULTY_MARKER = "unknown difficulty"
+UNKNOWN_TIME_CELL = "-"
+AMAZON_WRITEUP_DIR = REPO_ROOT / "docs" / "problems" / "amazon_oa"
+AMAZON_WRITEUP_DIFFICULTY_LINE = 3
+AMAZON_WRITEUP_HEADER_PATTERN = re.compile(r"^\*\*(.+?)\*\* \| ")
 
 # The interleave anchor tables pin how each NeetCode section attaches to
 # the Grind 75 backbone. Resolution per section, in track order:
@@ -387,6 +404,33 @@ def validate_amazon_manifest(entries: Sequence[dict]) -> None:
 
 
 # ---------------------------------------------------------------------------
+# Time estimates
+# ---------------------------------------------------------------------------
+
+
+def estimated_time_cell(difficulty: Optional[str]) -> str:
+    """Render the difficulty-based Time cell used wherever no minutes are
+    published.
+
+    The estimate reuses the write-up header convention: Easy 15,
+    Medium 25, Hard 40 minutes. A difficulty outside that mapping (the
+    Amazon write-ups' unknown-difficulty marker, or None) falls back to
+    the hand-table's "-" filler.
+
+    Args:
+        difficulty: The canonical difficulty name, the unknown-difficulty
+            marker, or None.
+
+    Returns:
+        The Time cell text ("NN minutes" or "-").
+    """
+    minutes = ESTIMATED_MINUTES_BY_DIFFICULTY.get(difficulty) if difficulty else None
+    if minutes is None:
+        return UNKNOWN_TIME_CELL
+    return f"{minutes} minutes"
+
+
+# ---------------------------------------------------------------------------
 # Track merger
 # ---------------------------------------------------------------------------
 
@@ -396,12 +440,14 @@ def merge_tracks(grind: Sequence[dict], neetcode: Sequence[dict]) -> List[dict]:
 
     Grind 75 rows keep their hand-table metadata verbatim and come first in
     hand-table order; NeetCode-only problems follow in track order with the
-    section as category and an empty Time cell (NeetCode publishes no
-    minutes). Overlaps merge by lcSlug into one row carrying both track
-    names, keeping the Grind 75 metadata. Every row records which NeetCode
-    section it belongs to (None for Grind 75 rows) and whether the NeetCode
-    track flags it as LeetCode premium (only NeetCode-only rows can be);
-    the study order and the Practice-at column consume both.
+    section as category and a difficulty-based Time estimate (NeetCode
+    publishes no minutes; the estimate reuses the write-up header
+    convention via `estimated_time_cell`). Overlaps merge by lcSlug into
+    one row carrying both track names, keeping the Grind 75 metadata.
+    Every row records which NeetCode section it belongs to (None for
+    Grind 75 rows) and whether the NeetCode track flags it as LeetCode
+    premium (only NeetCode-only rows can be); the study order and the
+    Practice-at column consume both.
 
     Args:
         grind: The validated grind75_table.json rows.
@@ -439,7 +485,7 @@ def merge_tracks(grind: Sequence[dict], neetcode: Sequence[dict]) -> List[dict]:
                 "difficulty": entry["difficulty"],
                 "category": entry["section"],
                 "tracks": NEETCODE_TRACK,
-                "time": "",
+                "time": estimated_time_cell(entry["difficulty"]),
                 "section": entry["section"],
                 "premium": entry["leetcodePremium"] is True,
             }
@@ -678,6 +724,59 @@ def amazon_overlap_lc_slugs(neetcode: Sequence[dict], amazon: Sequence[dict]) ->
     }
 
 
+def amazon_writeup_difficulty(slug: str, docs_dir: Optional[Path] = None) -> Optional[str]:
+    """Parse one Amazon OA write-up's difficulty from its committed header.
+
+    The write-up's scaffold layout pins the metadata line at line 3:
+    ``**<Difficulty>** | **NN minutes** | **<Topics>**``. The header's
+    minutes are a literal placeholder, so the difficulty is the only
+    parseable field; the unknown-difficulty marker maps to None and the
+    Time column falls back to "-". Reading the committed tree keeps the
+    whole pipeline offline and deterministic.
+
+    Args:
+        slug: The manifest slug (the write-up file name without .md).
+        docs_dir: Overrides the docs/problems/amazon_oa directory
+            (default: module constant).
+
+    Returns:
+        The canonical difficulty, or None when the header carries the
+        unknown-difficulty marker.
+
+    Raises:
+        SourceError: When the write-up is missing, the header line does
+            not match the scaffold layout, or the difficulty is not
+            canonical.
+    """
+    docs_dir = docs_dir if docs_dir is not None else AMAZON_WRITEUP_DIR
+    writeup_path = docs_dir / f"{slug}.md"
+    if not writeup_path.exists():
+        raise SourceError(f"Amazon OA write-up not found: {writeup_path}")
+    lines = writeup_path.read_text(encoding="utf-8").splitlines()
+    if len(lines) < AMAZON_WRITEUP_DIFFICULTY_LINE:
+        raise SourceError(
+            f"Amazon OA write-up {slug} has no **difficulty** header at line"
+            f" {AMAZON_WRITEUP_DIFFICULTY_LINE}: {writeup_path}"
+        )
+    header = lines[AMAZON_WRITEUP_DIFFICULTY_LINE - 1]
+    match = AMAZON_WRITEUP_HEADER_PATTERN.match(header)
+    if match is None:
+        raise SourceError(
+            f"Amazon OA write-up {slug} has no **difficulty** header at line"
+            f" {AMAZON_WRITEUP_DIFFICULTY_LINE}: {writeup_path}"
+        )
+    difficulty = match.group(1)
+    if difficulty == UNKNOWN_DIFFICULTY_MARKER:
+        return None
+    if difficulty not in DIFFICULTIES:
+        raise SourceError(
+            f"Amazon OA write-up {slug} header difficulty must be one of"
+            f" {', '.join(DIFFICULTIES)} or {UNKNOWN_DIFFICULTY_MARKER!r}:"
+            f" got {difficulty!r} in {writeup_path}"
+        )
+    return difficulty
+
+
 # ---------------------------------------------------------------------------
 # Renderers
 # ---------------------------------------------------------------------------
@@ -737,8 +836,9 @@ def render_unified_section(rows: Sequence[dict], overlap: set) -> str:
     Time |`; rows carry no sequence numbers. `Problem` links the write-up,
     `Practice at` links where the problem lives (LeetCode, or the NeetCode
     page for premium problems), and `Tracks` links each curator's list.
-    Rows in the overlap set carry the Amazon OA marker in the Tracks cell,
-    with a legend under the table.
+    `Time` carries the Grind 75 suggested minutes where published and
+    difficulty-based estimates elsewhere. Rows in the overlap set carry
+    the Amazon OA marker in the Tracks cell, with a legend under the table.
 
     Args:
         rows: The interleaved unified rows.
@@ -761,7 +861,8 @@ def render_unified_section(rows: Sequence[dict], overlap: set) -> str:
         " Practice at links where the problem lives:"
         f" {PRACTICE_LEETCODE} for free problems, {PRACTICE_NEETCODE} for LeetCode-premium ones."
         " Tracks names the plan(s) a problem belongs to and links each curator's list;"
-        " Time carries the Grind 75 suggested minutes and stays empty for NeetCode-only problems.",
+        " Time carries the Grind 75 suggested minutes where published and"
+        " difficulty-based estimates elsewhere (Easy 15 / Medium 25 / Hard 40 minutes).",
         "",
         UNIFIED_TABLE_HEADER,
         UNIFIED_TABLE_SEPARATOR,
@@ -786,8 +887,10 @@ def render_amazon_section(entries: Sequence[dict]) -> str:
     """Render the marker-bounded Amazon OA table section.
 
     Separate from the LeetCode tables: columns `| Problem | Updated |
-    Practice at |`, most recently updated first, `Problem` linking the
-    write-up page and `Practice at` linking the problem's FastPrep page.
+    Practice at | Time |`, most recently updated first, `Problem` linking
+    the write-up page, `Practice at` linking the problem's FastPrep page,
+    and `Time` carrying the difficulty-based estimate parsed from the
+    committed write-up's header.
 
     Args:
         entries: The validated Amazon OA manifest entries.
@@ -808,7 +911,8 @@ def render_amazon_section(entries: Sequence[dict]) -> str:
         " [problems/amazon_oa/index.md](amazon_oa/index.md);"
         " practice stubs live under the"
         " [`practice/amazon_oa/`](https://github.com/ThoDHa/algo-oa-prep/tree/main/practice/amazon_oa)"
-        " workspace.",
+        " workspace. Time carries the difficulty-based estimates"
+        " (Easy 15 / Medium 25 / Hard 40 minutes) parsed from each write-up's header.",
         "",
         AMAZON_TABLE_HEADER,
         AMAZON_TABLE_SEPARATOR,
@@ -816,7 +920,8 @@ def render_amazon_section(entries: Sequence[dict]) -> str:
     for entry in entries:
         problem = f"[{entry['title']}](amazon_oa/{entry['slug']}.md)"
         practice = f"[{PRACTICE_FASTPREP}]({entry['url']})"
-        lines.append(f"| {problem} | {entry['updated']} | {practice} |")
+        time_cell = estimated_time_cell(amazon_writeup_difficulty(entry["slug"]))
+        lines.append(f"| {problem} | {entry['updated']} | {practice} | {time_cell} |")
     lines.append(AMAZON_SECTION_END)
     return "\n".join(lines) + "\n"
 
