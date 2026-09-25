@@ -1245,9 +1245,9 @@ def nav_child_drift_detail(problems_text: str) -> str:
     actual_amazon = nav_amazon_children(problems_text)
     expected_amazon = [entry["slug"] for entry in _amazon]
     detail = []
-    for label, actual, expected in (
-        ("LeetCode", actual_leetcode, expected_leetcode),
-        ("Amazon OA", actual_amazon, expected_amazon),
+    for label, source, actual, expected in (
+        ("LeetCode", "unified table", actual_leetcode, expected_leetcode),
+        ("Amazon OA", "manifest table", actual_amazon, expected_amazon),
     ):
         if len(actual) != len(set(actual)):
             dupes = sorted({slug for slug in actual if actual.count(slug) > 1})
@@ -1259,7 +1259,7 @@ def nav_child_drift_detail(problems_text: str) -> str:
         if missing:
             detail.append(f"{label} missing: {', '.join(missing[:5])}")
         if not detail and actual != expected:
-            detail.append(f"{label} child order drifts from the manifest table")
+            detail.append(f"{label} child order drifts from the {source}")
     if not detail:
         if NAV_LANDING_ENTRY not in problems_text:
             detail.append("no problems/index.md landing parent")
