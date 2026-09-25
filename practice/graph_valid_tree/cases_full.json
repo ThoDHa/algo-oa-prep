@@ -1,0 +1,284 @@
+[
+  {
+    "id": "single_node",
+    "args": [
+      1,
+      []
+    ],
+    "expected": true
+  },
+  {
+    "id": "two_nodes_no_edge",
+    "args": [
+      2,
+      []
+    ],
+    "expected": false
+  },
+  {
+    "id": "two_nodes_connected",
+    "args": [
+      2,
+      [
+        [
+          0,
+          1
+        ]
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "right_edge_count_but_disconnected",
+    "args": [
+      4,
+      [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    ],
+    "expected": false
+  },
+  {
+    "id": "triangle_edge_count_overfull",
+    "args": [
+      3,
+      [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    ],
+    "expected": false
+  },
+  {
+    "id": "cycle_hidden_by_edge_count",
+    "args": [
+      5,
+      [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    ],
+    "expected": false
+  },
+  {
+    "id": "late_cycle_after_full_union",
+    "args": [
+      6,
+      [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          0,
+          3
+        ]
+      ]
+    ],
+    "expected": false
+  },
+  {
+    "id": "path_of_six",
+    "args": [
+      6,
+      [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "star_of_five",
+    "args": [
+      5,
+      [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ]
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "two_component_then_bridge",
+    "args": [
+      6,
+      [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "path_of_ten",
+    "args": [
+      10,
+      [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          9
+        ]
+      ]
+    ],
+    "expected": true
+  },
+  {
+    "id": "star_extra_leaf_edge_rejected_by_count",
+    "args": [
+      5,
+      [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ]
+      ]
+    ],
+    "expected": false
+  }
+]

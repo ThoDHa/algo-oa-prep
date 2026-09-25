@@ -1,0 +1,320 @@
+[
+  {
+    "id": "triangle",
+    "args": [
+      [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          1
+        ]
+      ]
+    ],
+    "expected": [
+      3,
+      1
+    ]
+  },
+  {
+    "id": "cycle_forms_at_last_edge_of_long_path",
+    "args": [
+      [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          1
+        ]
+      ]
+    ],
+    "expected": [
+      5,
+      1
+    ]
+  },
+  {
+    "id": "two_branches_joined_by_redundant_edge",
+    "args": [
+      [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ]
+    ],
+    "expected": [
+      2,
+      4
+    ]
+  },
+  {
+    "id": "redundant_edge_within_one_branch",
+    "args": [
+      [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          1
+        ]
+      ]
+    ],
+    "expected": [
+      3,
+      1
+    ]
+  },
+  {
+    "id": "star_with_extra_leaf_to_leaf",
+    "args": [
+      [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ]
+      ]
+    ],
+    "expected": [
+      2,
+      4
+    ]
+  },
+  {
+    "id": "six_nodes_two_chains_joined_twice",
+    "args": [
+      [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          1
+        ]
+      ]
+    ],
+    "expected": [
+      6,
+      1
+    ]
+  },
+  {
+    "id": "redundant_edge_appears_first_in_input",
+    "args": [
+      [
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ]
+    ],
+    "expected": [
+      1,
+      4
+    ]
+  },
+  {
+    "id": "deep_path_with_late_cross_edge",
+    "args": [
+      [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          3,
+          6
+        ]
+      ]
+    ],
+    "expected": [
+      3,
+      6
+    ]
+  },
+  {
+    "id": "ten_nodes_cycle_through_center",
+    "args": [
+      [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          5,
+          9
+        ]
+      ]
+    ],
+    "expected": [
+      5,
+      9
+    ]
+  },
+  {
+    "id": "cycle_edge_midlist_with_later_edges_unprocessed",
+    "args": [
+      [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ]
+      ]
+    ],
+    "expected": [
+      3,
+      1
+    ]
+  }
+]

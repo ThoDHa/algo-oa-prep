@@ -1,0 +1,252 @@
+[
+  {
+    "id": "single_ticket",
+    "args": [
+      [
+        [
+          "JFK",
+          "AAA"
+        ]
+      ]
+    ],
+    "expected": [
+      "JFK",
+      "AAA"
+    ]
+  },
+  {
+    "id": "linear_path",
+    "args": [
+      [
+        [
+          "JFK",
+          "BBB"
+        ],
+        [
+          "BBB",
+          "CCC"
+        ],
+        [
+          "CCC",
+          "DDD"
+        ]
+      ]
+    ],
+    "expected": [
+      "JFK",
+      "BBB",
+      "CCC",
+      "DDD"
+    ]
+  },
+  {
+    "id": "smallest_destination_is_wrong_greedily",
+    "args": [
+      [
+        [
+          "JFK",
+          "AAA"
+        ],
+        [
+          "AAA",
+          "JFK"
+        ],
+        [
+          "JFK",
+          "BBB"
+        ],
+        [
+          "BBB",
+          "JFK"
+        ]
+      ]
+    ],
+    "expected": [
+      "JFK",
+      "AAA",
+      "JFK",
+      "BBB",
+      "JFK"
+    ]
+  },
+  {
+    "id": "backtracking_required",
+    "args": [
+      [
+        [
+          "JFK",
+          "SFO"
+        ],
+        [
+          "JFK",
+          "ATL"
+        ],
+        [
+          "SFO",
+          "ATL"
+        ],
+        [
+          "ATL",
+          "JFK"
+        ],
+        [
+          "ATL",
+          "SFO"
+        ]
+      ]
+    ],
+    "expected": [
+      "JFK",
+      "ATL",
+      "JFK",
+      "SFO",
+      "ATL",
+      "SFO"
+    ]
+  },
+  {
+    "id": "reverse_order_input",
+    "args": [
+      [
+        [
+          "DDD",
+          "CCC"
+        ],
+        [
+          "CCC",
+          "BBB"
+        ],
+        [
+          "BBB",
+          "AAA"
+        ],
+        [
+          "JFK",
+          "DDD"
+        ]
+      ]
+    ],
+    "expected": [
+      "JFK",
+      "DDD",
+      "CCC",
+      "BBB",
+      "AAA"
+    ]
+  },
+  {
+    "id": "duplicate_tickets",
+    "args": [
+      [
+        [
+          "JFK",
+          "AAA"
+        ],
+        [
+          "AAA",
+          "JFK"
+        ],
+        [
+          "JFK",
+          "AAA"
+        ],
+        [
+          "AAA",
+          "JFK"
+        ]
+      ]
+    ],
+    "expected": [
+      "JFK",
+      "AAA",
+      "JFK",
+      "AAA",
+      "JFK"
+    ]
+  },
+  {
+    "id": "dead_end_splice",
+    "args": [
+      [
+        [
+          "JFK",
+          "KKK"
+        ],
+        [
+          "KKK",
+          "JFK"
+        ],
+        [
+          "JFK",
+          "MMM"
+        ]
+      ]
+    ],
+    "expected": [
+      "JFK",
+      "KKK",
+      "JFK",
+      "MMM"
+    ]
+  },
+  {
+    "id": "ten_tickets_two_loops",
+    "args": [
+      [
+        [
+          "JFK",
+          "AXA"
+        ],
+        [
+          "AXA",
+          "JFK"
+        ],
+        [
+          "JFK",
+          "BXB"
+        ],
+        [
+          "BXB",
+          "JFK"
+        ],
+        [
+          "JFK",
+          "AXA"
+        ],
+        [
+          "AXA",
+          "CXI"
+        ],
+        [
+          "CXI",
+          "JFK"
+        ],
+        [
+          "JFK",
+          "BXB"
+        ],
+        [
+          "BXB",
+          "AXA"
+        ],
+        [
+          "AXA",
+          "JFK"
+        ]
+      ]
+    ],
+    "expected": [
+      "JFK",
+      "AXA",
+      "CXI",
+      "JFK",
+      "AXA",
+      "JFK",
+      "BXB",
+      "AXA",
+      "JFK",
+      "BXB",
+      "JFK"
+    ]
+  }
+]

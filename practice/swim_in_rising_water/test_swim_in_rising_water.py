@@ -5,7 +5,7 @@ The worked approaches live in ../../docs/problems/swim_in_rising_water.md.
 
 import pytest
 
-from harness import NotSolved, load_solution
+from harness import NotSolved, load_cases, load_solution
 
 CASES = [
     {
@@ -78,3 +78,12 @@ def test_solution(case):
         _check(solution.Solution().swimInWater, case)
     except NotSolved:
         pytest.skip("solution.py not implemented yet")
+
+FULL = CASES + load_cases(__file__, "cases_full.json")
+
+reference = load_solution(__file__, "reference.py")
+
+
+@pytest.mark.parametrize("case", FULL, ids=_ids(FULL))
+def test_reference_cases(case):
+    _check(reference.Solution().swimInWater, case)
