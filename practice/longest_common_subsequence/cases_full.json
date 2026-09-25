@@ -1,0 +1,98 @@
+[
+  {
+    "id": "single_char_match",
+    "args": [
+      "a",
+      "a"
+    ],
+    "expected": 1
+  },
+  {
+    "id": "single_char_mismatch",
+    "args": [
+      "a",
+      "b"
+    ],
+    "expected": 0
+  },
+  {
+    "id": "identical_strings",
+    "args": [
+      "abcdefghijklmnopqrstuvwxyz",
+      "abcdefghijklmnopqrstuvwxyz"
+    ],
+    "expected": 26
+  },
+  {
+    "id": "disjoint_alphabets",
+    "args": [
+      "aaaa",
+      "bbbb"
+    ],
+    "expected": 0
+  },
+  {
+    "id": "one_char_in_long",
+    "args": [
+      "zzzzzzzzzzzz",
+      "zb"
+    ],
+    "expected": 1
+  },
+  {
+    "id": "subsequence_not_substring",
+    "args": [
+      "abcde",
+      "ace"
+    ],
+    "expected": 3
+  },
+  {
+    "id": "gaps_both_sides",
+    "args": [
+      "bsbininm",
+      "jmjkbkjkv"
+    ],
+    "expected": 1
+  },
+  {
+    "id": "interleaved_repeat_letters",
+    "args": [
+      "abcbdab",
+      "bdcaba"
+    ],
+    "expected": 4
+  },
+  {
+    "id": "reversed_each_other",
+    "args": [
+      "abcdefg",
+      "gfedcba"
+    ],
+    "expected": 1
+  },
+  {
+    "id": "one_repeats_inside_other",
+    "args": [
+      "aaaaaa",
+      "a"
+    ],
+    "expected": 1
+  },
+  {
+    "id": "prefix_of_longer",
+    "args": [
+      "aggtab",
+      "gxtxayb"
+    ],
+    "expected": 4
+  },
+  {
+    "id": "length_1000_upper_bound",
+    "args": [
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    ],
+    "expected": 100
+  }
+]

@@ -1,0 +1,137 @@
+[
+  {
+    "id": "all_empty",
+    "args": [
+      "",
+      "",
+      ""
+    ],
+    "expected": true
+  },
+  {
+    "id": "s3_empty_others_not",
+    "args": [
+      "a",
+      "b",
+      ""
+    ],
+    "expected": false
+  },
+  {
+    "id": "s1_only",
+    "args": [
+      "abc",
+      "",
+      "abc"
+    ],
+    "expected": true
+  },
+  {
+    "id": "s2_only",
+    "args": [
+      "",
+      "abc",
+      "abc"
+    ],
+    "expected": true
+  },
+  {
+    "id": "s1_only_wrong",
+    "args": [
+      "abc",
+      "",
+      "abd"
+    ],
+    "expected": false
+  },
+  {
+    "id": "length_mismatch_gate",
+    "args": [
+      "a",
+      "b",
+      "ab"
+    ],
+    "expected": true
+  },
+  {
+    "id": "length_mismatch_gate_fail",
+    "args": [
+      "aa",
+      "b",
+      "ab"
+    ],
+    "expected": false
+  },
+  {
+    "id": "same_letter_two_sources",
+    "args": [
+      "aab",
+      "aac",
+      "aaaac"
+    ],
+    "expected": false
+  },
+  {
+    "id": "same_letter_two_sources_true",
+    "args": [
+      "aab",
+      "aac",
+      "aaabac"
+    ],
+    "expected": true
+  },
+  {
+    "id": "classic_aadbbcbcac",
+    "args": [
+      "aabcc",
+      "dbbca",
+      "aadbbcbcac"
+    ],
+    "expected": true
+  },
+  {
+    "id": "classic_aadbbbaccc",
+    "args": [
+      "aabcc",
+      "dbbca",
+      "aadbbbaccc"
+    ],
+    "expected": false
+  },
+  {
+    "id": "alternating_single_chars",
+    "args": [
+      "abc",
+      "def",
+      "adbecf"
+    ],
+    "expected": true
+  },
+  {
+    "id": "greedy_trap",
+    "args": [
+      "ab",
+      "ac",
+      "aabc"
+    ],
+    "expected": true
+  },
+  {
+    "id": "identical_strings_overlap",
+    "args": [
+      "aaa",
+      "aaa",
+      "aaaaaa"
+    ],
+    "expected": true
+  },
+  {
+    "id": "identical_too_short",
+    "args": [
+      "aaa",
+      "aaa",
+      "aaaaa"
+    ],
+    "expected": false
+  }
+]

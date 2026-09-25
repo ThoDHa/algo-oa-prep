@@ -1,0 +1,133 @@
+[
+  {
+    "id": "amount_zero",
+    "args": [
+      0,
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "amount_zero_no_coins",
+    "args": [
+      0,
+      [
+        7
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "single_coin_exact",
+    "args": [
+      5,
+      [
+        5
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "single_coin_overshoot",
+    "args": [
+      3,
+      [
+        5
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "single_coin_repeats",
+    "args": [
+      10,
+      [
+        2
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "coin_one_every_amount",
+    "args": [
+      6,
+      [
+        1
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "odd_amount_even_coins",
+    "args": [
+      999,
+      [
+        2,
+        4,
+        6
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "two_coins_overlaps",
+    "args": [
+      5,
+      [
+        2,
+        3
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "classic_169",
+    "args": [
+      10,
+      [
+        10
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "large_amount_small_coins",
+    "args": [
+      500,
+      [
+        3,
+        7,
+        11
+      ]
+    ],
+    "expected": 564
+  },
+  {
+    "id": "coin_bigger_than_amount_ignored",
+    "args": [
+      4,
+      [
+        1,
+        2,
+        100
+      ]
+    ],
+    "expected": 3
+  },
+  {
+    "id": "no_coin_one_still_possible",
+    "args": [
+      12,
+      [
+        3,
+        4,
+        5
+      ]
+    ],
+    "expected": 3
+  }
+]

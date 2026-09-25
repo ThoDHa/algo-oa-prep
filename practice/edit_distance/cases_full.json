@@ -1,0 +1,114 @@
+[
+  {
+    "id": "both_empty",
+    "args": [
+      "",
+      ""
+    ],
+    "expected": 0
+  },
+  {
+    "id": "word1_empty",
+    "args": [
+      "",
+      "abc"
+    ],
+    "expected": 3
+  },
+  {
+    "id": "word2_empty",
+    "args": [
+      "abc",
+      ""
+    ],
+    "expected": 3
+  },
+  {
+    "id": "identical_single",
+    "args": [
+      "a",
+      "a"
+    ],
+    "expected": 0
+  },
+  {
+    "id": "single_replace",
+    "args": [
+      "a",
+      "b"
+    ],
+    "expected": 1
+  },
+  {
+    "id": "identical_words",
+    "args": [
+      "same",
+      "same"
+    ],
+    "expected": 0
+  },
+  {
+    "id": "pure_insert",
+    "args": [
+      "a",
+      "abc"
+    ],
+    "expected": 2
+  },
+  {
+    "id": "pure_delete",
+    "args": [
+      "abc",
+      "a"
+    ],
+    "expected": 2
+  },
+  {
+    "id": "full_replace_length_equal",
+    "args": [
+      "abc",
+      "xyz"
+    ],
+    "expected": 3
+  },
+  {
+    "id": "prefix_shared",
+    "args": [
+      "prefixSuffix",
+      "prefixOther"
+    ],
+    "expected": 6
+  },
+  {
+    "id": "reverse_needs_half_replaces",
+    "args": [
+      "abcd",
+      "dcba"
+    ],
+    "expected": 4
+  },
+  {
+    "id": "classic_intention",
+    "args": [
+      "intention",
+      "execution"
+    ],
+    "expected": 5
+  },
+  {
+    "id": "classic_horse",
+    "args": [
+      "horse",
+      "ros"
+    ],
+    "expected": 3
+  },
+  {
+    "id": "one_hundred_replaces",
+    "args": [
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    ],
+    "expected": 100
+  }
+]

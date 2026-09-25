@@ -1,0 +1,148 @@
+[
+  {
+    "id": "single_day",
+    "args": [
+      [
+        3
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "two_days_rising",
+    "args": [
+      [
+        1,
+        2
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "two_days_falling",
+    "args": [
+      [
+        2,
+        1
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "strictly_increasing",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    ],
+    "expected": 4
+  },
+  {
+    "id": "strictly_decreasing",
+    "args": [
+      [
+        5,
+        4,
+        3,
+        2,
+        1
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "cooldown_gap_lowers_total",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        0,
+        2
+      ]
+    ],
+    "expected": 3
+  },
+  {
+    "id": "cooldown_gap_v_shape",
+    "args": [
+      [
+        2,
+        1
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "sell_then_forced_wait_then_buy",
+    "args": [
+      [
+        1,
+        4,
+        1,
+        4
+      ]
+    ],
+    "expected": 3
+  },
+  {
+    "id": "equal_prices_never_profit",
+    "args": [
+      [
+        3,
+        3,
+        3,
+        3
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "valley_between_peaks",
+    "args": [
+      [
+        6,
+        1,
+        3,
+        2,
+        4,
+        7
+      ]
+    ],
+    "expected": 6
+  },
+  {
+    "id": "hold_through_dip_beats_two_trades",
+    "args": [
+      [
+        1,
+        3,
+        2,
+        4
+      ]
+    ],
+    "expected": 3
+  },
+  {
+    "id": "alternating_peaks_with_cooldown",
+    "args": [
+      [
+        1,
+        2,
+        4,
+        2,
+        5,
+        7,
+        2,
+        4,
+        9,
+        0
+      ]
+    ],
+    "expected": 11
+  }
+]

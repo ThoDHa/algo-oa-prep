@@ -1,0 +1,98 @@
+[
+  {
+    "id": "t_equals_s",
+    "args": [
+      "abc",
+      "abc"
+    ],
+    "expected": 1
+  },
+  {
+    "id": "t_longer_than_s",
+    "args": [
+      "ab",
+      "abc"
+    ],
+    "expected": 0
+  },
+  {
+    "id": "single_char_hit",
+    "args": [
+      "abc",
+      "a"
+    ],
+    "expected": 1
+  },
+  {
+    "id": "single_char_two_hits",
+    "args": [
+      "aba",
+      "a"
+    ],
+    "expected": 2
+  },
+  {
+    "id": "single_char_miss",
+    "args": [
+      "abc",
+      "d"
+    ],
+    "expected": 0
+  },
+  {
+    "id": "t_disjoint_alphabet",
+    "args": [
+      "aaa",
+      "b"
+    ],
+    "expected": 0
+  },
+  {
+    "id": "adjacent_duplicates",
+    "args": [
+      "aabb",
+      "ab"
+    ],
+    "expected": 4
+  },
+  {
+    "id": "classic_rabbit",
+    "args": [
+      "rabbbit",
+      "rabbit"
+    ],
+    "expected": 3
+  },
+  {
+    "id": "classic_babgbag",
+    "args": [
+      "babgbag",
+      "bag"
+    ],
+    "expected": 5
+  },
+  {
+    "id": "all_same_letters",
+    "args": [
+      "aaaa",
+      "aa"
+    ],
+    "expected": 6
+  },
+  {
+    "id": "t_repeats_single_letter",
+    "args": [
+      "abab",
+      "ab"
+    ],
+    "expected": 3
+  },
+  {
+    "id": "target_at_ends_only",
+    "args": [
+      "axa",
+      "aa"
+    ],
+    "expected": 1
+  }
+]

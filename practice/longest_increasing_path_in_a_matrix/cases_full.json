@@ -1,0 +1,223 @@
+[
+  {
+    "id": "single_cell",
+    "args": [
+      [
+        [
+          0
+        ]
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "single_cell_large",
+    "args": [
+      [
+        [
+          1000000000
+        ]
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "single_row_increasing",
+    "args": [
+      [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ]
+    ],
+    "expected": 4
+  },
+  {
+    "id": "single_row_decreasing",
+    "args": [
+      [
+        [
+          4,
+          3,
+          2,
+          1
+        ]
+      ]
+    ],
+    "expected": 4
+  },
+  {
+    "id": "single_column_mixed",
+    "args": [
+      [
+        [
+          9
+        ],
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          2
+        ]
+      ]
+    ],
+    "expected": 2
+  },
+  {
+    "id": "all_equal_flat",
+    "args": [
+      [
+        [
+          5,
+          5,
+          5
+        ],
+        [
+          5,
+          5,
+          5
+        ]
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "no_increasing_neighbors",
+    "args": [
+      [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "two_cell_rise",
+    "args": [
+      [
+        [
+          1,
+          2
+        ]
+      ]
+    ],
+    "expected": 2
+  },
+  {
+    "id": "serpentine_path",
+    "args": [
+      [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          6,
+          5,
+          4
+        ],
+        [
+          7,
+          8,
+          9
+        ]
+      ]
+    ],
+    "expected": 9
+  },
+  {
+    "id": "peak_in_center",
+    "args": [
+      [
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          9,
+          2
+        ],
+        [
+          1,
+          2,
+          1
+        ]
+      ]
+    ],
+    "expected": 3
+  },
+  {
+    "id": "valley_entry_from_all_sides",
+    "args": [
+      [
+        [
+          4,
+          3,
+          4
+        ],
+        [
+          3,
+          1,
+          3
+        ],
+        [
+          4,
+          3,
+          4
+        ]
+      ]
+    ],
+    "expected": 3
+  },
+  {
+    "id": "snake_rows_full_length",
+    "args": [
+      [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          8,
+          7,
+          6,
+          5
+        ]
+      ]
+    ],
+    "expected": 8
+  },
+  {
+    "id": "zero_is_valid_start",
+    "args": [
+      [
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    ],
+    "expected": 4
+  }
+]
