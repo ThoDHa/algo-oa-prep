@@ -1,0 +1,184 @@
+[
+  {
+    "id": "example_1_positive",
+    "args": [
+      1234
+    ],
+    "expected": 4321
+  },
+  {
+    "id": "example_2_negative",
+    "args": [
+      -1234
+    ],
+    "expected": -4321
+  },
+  {
+    "id": "example_3_overflow",
+    "args": [
+      1234236467
+    ],
+    "expected": 0
+  },
+  {
+    "id": "x_zero",
+    "args": [
+      0
+    ],
+    "expected": 0
+  },
+  {
+    "id": "single_digit",
+    "args": [
+      7
+    ],
+    "expected": 7
+  },
+  {
+    "id": "single_negative_digit",
+    "args": [
+      -7
+    ],
+    "expected": -7
+  },
+  {
+    "id": "trailing_zero",
+    "args": [
+      1200
+    ],
+    "expected": 21
+  },
+  {
+    "id": "trailing_zero_negative",
+    "args": [
+      -1200
+    ],
+    "expected": -21
+  },
+  {
+    "id": "leading_zero_result",
+    "args": [
+      100
+    ],
+    "expected": 1
+  },
+  {
+    "id": "exact_no_overflow_boundary",
+    "args": [
+      1463847412
+    ],
+    "expected": 2147483641
+  },
+  {
+    "id": "int_max_overflow",
+    "args": [
+      2147483647
+    ],
+    "expected": 0
+  },
+  {
+    "id": "int_min_overflow",
+    "args": [
+      -2147483648
+    ],
+    "expected": 0
+  },
+  {
+    "id": "int_min_negative_overflow",
+    "args": [
+      -1563847412
+    ],
+    "expected": 0
+  },
+  {
+    "id": "classic_lc_321",
+    "args": [
+      321
+    ],
+    "expected": 123
+  },
+  {
+    "id": "classic_lc_neg321",
+    "args": [
+      -321
+    ],
+    "expected": -123
+  },
+  {
+    "id": "three_digit_901",
+    "args": [
+      901
+    ],
+    "expected": 109
+  },
+  {
+    "id": "two_billions_overflow",
+    "args": [
+      1999999999
+    ],
+    "expected": 0
+  },
+  {
+    "id": "round_million",
+    "args": [
+      6000000
+    ],
+    "expected": 6
+  },
+  {
+    "id": "random_int32_1",
+    "args": [
+      -511012255
+    ],
+    "expected": -552210115
+  },
+  {
+    "id": "random_int32_2",
+    "args": [
+      1777401080
+    ],
+    "expected": 801047771
+  },
+  {
+    "id": "random_int32_3",
+    "args": [
+      816613560
+    ],
+    "expected": 65316618
+  },
+  {
+    "id": "random_int32_4",
+    "args": [
+      227888720
+    ],
+    "expected": 27888722
+  },
+  {
+    "id": "random_int32_5",
+    "args": [
+      328255612
+    ],
+    "expected": 216552823
+  },
+  {
+    "id": "random_int32_6",
+    "args": [
+      1207785888
+    ],
+    "expected": 0
+  },
+  {
+    "id": "random_int32_7",
+    "args": [
+      1457273915
+    ],
+    "expected": 0
+  },
+  {
+    "id": "random_int32_8",
+    "args": [
+      958506432
+    ],
+    "expected": 234605859
+  }
+]

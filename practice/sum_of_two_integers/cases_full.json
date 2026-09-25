@@ -1,0 +1,202 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      1,
+      1
+    ],
+    "expected": 2
+  },
+  {
+    "id": "example_2",
+    "args": [
+      4,
+      7
+    ],
+    "expected": 11
+  },
+  {
+    "id": "zero_zero",
+    "args": [
+      0,
+      0
+    ],
+    "expected": 0
+  },
+  {
+    "id": "zero_left",
+    "args": [
+      0,
+      5
+    ],
+    "expected": 5
+  },
+  {
+    "id": "zero_right",
+    "args": [
+      5,
+      0
+    ],
+    "expected": 5
+  },
+  {
+    "id": "carry_chain_1111",
+    "args": [
+      15,
+      1
+    ],
+    "expected": 16
+  },
+  {
+    "id": "carry_chain_reverse",
+    "args": [
+      1,
+      15
+    ],
+    "expected": 16
+  },
+  {
+    "id": "opposites_cancel",
+    "args": [
+      7,
+      -7
+    ],
+    "expected": 0
+  },
+  {
+    "id": "neg_neg",
+    "args": [
+      -12,
+      -8
+    ],
+    "expected": -20
+  },
+  {
+    "id": "neg_pos",
+    "args": [
+      12,
+      -8
+    ],
+    "expected": 4
+  },
+  {
+    "id": "pos_neg",
+    "args": [
+      -12,
+      8
+    ],
+    "expected": -4
+  },
+  {
+    "id": "cap_max",
+    "args": [
+      1000,
+      1000
+    ],
+    "expected": 2000
+  },
+  {
+    "id": "cap_min",
+    "args": [
+      -1000,
+      -1000
+    ],
+    "expected": -2000
+  },
+  {
+    "id": "cap_span",
+    "args": [
+      -1000,
+      1000
+    ],
+    "expected": 0
+  },
+  {
+    "id": "one_minus",
+    "args": [
+      5,
+      -1
+    ],
+    "expected": 4
+  },
+  {
+    "id": "random_pair_1",
+    "args": [
+      -975,
+      -39
+    ],
+    "expected": -1014
+  },
+  {
+    "id": "random_pair_2",
+    "args": [
+      -770,
+      564
+    ],
+    "expected": -206
+  },
+  {
+    "id": "random_pair_3",
+    "args": [
+      -196,
+      -712
+    ],
+    "expected": -908
+  },
+  {
+    "id": "random_pair_4",
+    "args": [
+      400,
+      -912
+    ],
+    "expected": -512
+  },
+  {
+    "id": "random_pair_5",
+    "args": [
+      -716,
+      946
+    ],
+    "expected": 230
+  },
+  {
+    "id": "random_pair_6",
+    "args": [
+      -770,
+      96
+    ],
+    "expected": -674
+  },
+  {
+    "id": "random_pair_7",
+    "args": [
+      -526,
+      457
+    ],
+    "expected": -69
+  },
+  {
+    "id": "random_pair_8",
+    "args": [
+      551,
+      -715
+    ],
+    "expected": -164
+  },
+  {
+    "id": "random_pair_9",
+    "args": [
+      -699,
+      516
+    ],
+    "expected": -183
+  },
+  {
+    "id": "random_pair_10",
+    "args": [
+      -933,
+      356
+    ],
+    "expected": -577
+  }
+]

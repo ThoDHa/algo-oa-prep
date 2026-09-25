@@ -1,0 +1,163 @@
+[
+  {
+    "id": "n_zero",
+    "args": [
+      0
+    ],
+    "expected": 0
+  },
+  {
+    "id": "n_one",
+    "args": [
+      1
+    ],
+    "expected": 1
+  },
+  {
+    "id": "example_1_value_23",
+    "args": [
+      23
+    ],
+    "expected": 4
+  },
+  {
+    "id": "example_2_value_2147483645",
+    "args": [
+      2147483645
+    ],
+    "expected": 30
+  },
+  {
+    "id": "lowest_power_of_two",
+    "args": [
+      1073741824
+    ],
+    "expected": 1
+  },
+  {
+    "id": "all_ones_31_bits",
+    "args": [
+      2147483647
+    ],
+    "expected": 31
+  },
+  {
+    "id": "alternating_bits",
+    "args": [
+      1431655765
+    ],
+    "expected": 16
+  },
+  {
+    "id": "two_low_bits",
+    "args": [
+      3
+    ],
+    "expected": 2
+  },
+  {
+    "id": "low_run_six_ones",
+    "args": [
+      63
+    ],
+    "expected": 6
+  },
+  {
+    "id": "sparse_high_bits",
+    "args": [
+      1073807361
+    ],
+    "expected": 3
+  },
+  {
+    "id": "lc_classic_11",
+    "args": [
+      11
+    ],
+    "expected": 3
+  },
+  {
+    "id": "lc_classic_128",
+    "args": [
+      128
+    ],
+    "expected": 1
+  },
+  {
+    "id": "pow_15",
+    "args": [
+      32768
+    ],
+    "expected": 1
+  },
+  {
+    "id": "random_31bit_1",
+    "args": [
+      1735072617
+    ],
+    "expected": 18
+  },
+  {
+    "id": "random_31bit_2",
+    "args": [
+      1635320116
+    ],
+    "expected": 12
+  },
+  {
+    "id": "random_31bit_3",
+    "args": [
+      859317502
+    ],
+    "expected": 16
+  },
+  {
+    "id": "random_31bit_4",
+    "args": [
+      767950141
+    ],
+    "expected": 20
+  },
+  {
+    "id": "random_31bit_5",
+    "args": [
+      988970880
+    ],
+    "expected": 17
+  },
+  {
+    "id": "random_31bit_6",
+    "args": [
+      1067004398
+    ],
+    "expected": 19
+  },
+  {
+    "id": "random_31bit_7",
+    "args": [
+      572280320
+    ],
+    "expected": 9
+  },
+  {
+    "id": "random_31bit_8",
+    "args": [
+      371851742
+    ],
+    "expected": 13
+  },
+  {
+    "id": "random_31bit_9",
+    "args": [
+      1078685359
+    ],
+    "expected": 16
+  },
+  {
+    "id": "random_31bit_10",
+    "args": [
+      1645262724
+    ],
+    "expected": 12
+  }
+]
