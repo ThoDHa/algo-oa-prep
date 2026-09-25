@@ -1,37 +1,37 @@
 # Study Plan and Schedule
 
-Working through 75 problems without a plan stalls around problem 30, when the novelty wears off and the problems stop being easy. This page turns the list into a budget: how many hours the preparation really takes, which style fits the time you have, and a week-by-week schedule that places the foundations and all 75 problems into the eight weeks the repository promises.
+Working through a problem bank without a plan stalls around problem 30, when the novelty wears off and the problems stop being easy. This page turns the bank into a budget: how many hours the preparation really takes, which style fits the time you have, and a week-by-week schedule that places the foundations and the Grind 75 track's canonical 75 into the eight weeks the repository promises. The NeetCode-only problems slot into the same weeks beside their closest Grind 75 topic; the [Amazon OA](../problems/amazon_oa/index.md) bank is its own track, paced by its own section.
 
 ## How much time this takes
 
 The honest arithmetic:
 
-- The 75 problems carry a target time each (the Time column in the
+- The Grind 75 track's problems carry a target time each (the Time column in the
   [problem list](../index.md)). Summed, they come to about 32 hours of first-pass solving.
 - Nobody solves everything on the first pass. Between struggles, re-reading
   pattern guides, and spaced reviews, a realistic budget is two to three times the first-pass figure: roughly 65 to 100 hours total.
 - Add the [Foundations](../foundations/index.md) (about an hour), behavioral
   preparation (about three hours, see [Behavioral Interviews](behavioral.md)), and two to four [mock interviews](mock_interviews.md).
 
-As rough anchors: about 30 hours of focused work is the bare minimum to get through the list meaningfully; about 100 hours leaves you well prepared. Eight weeks at 8 to 12 hours per week lands inside that band, which is why the schedule below is built on eight weeks.
+As rough anchors: about 30 hours of focused work is the bare minimum to get through the core track meaningfully; about 100 hours leaves you well prepared. Eight weeks at 8 to 12 hours per week lands inside that band, which is why the schedule below is built on eight weeks.
 
 **Estimate conservatively.** Plan for your worst realistic week, not your best one. A plan you keep beats an ambitious one you abandon in week three; if the schedule below feels tight, stretch it to ten or twelve weeks rather than cramming. Burnout late in the plan costs more than a slower start.
 
-## Three ways to work through the list
+## Three ways to work through the bank
 
 | Style | Shape | Choose it when |
 |-------|-------|----------------|
-| Breadth-first | Work the list in order, touching every topic as it appears | You have a month or more and no glaringly weak topic. This is the default the schedule below uses |
+| Breadth-first | Work the catalog in order, touching every topic as it appears | You have a month or more and no glaringly weak topic. This is the default the schedule below uses |
 | Depth-first | Stay on one topic until it is exhausted, then move to the next | You have very little time, or an interview next week on a specific topic |
-| Depth-then-breadth | Shore up your weakest topics first, then sweep the whole list | You have more than a month and you already know where you are weak |
+| Depth-then-breadth | Shore up your weakest topics first, then sweep the whole bank | You have more than a month and you already know where you are weak |
 
-Breadth-first and depth-then-breadth are usually better than pure depth-first: topics you touched early come back before you forget them, which is the same instinct the practice tracker's spaced-repetition queue automates. In this list, breadth-first works naturally because the ordering already revisits every topic several times.
+Breadth-first and depth-then-breadth are usually better than pure depth-first: topics you touched early come back before you forget them, which is the same instinct the practice tracker's spaced-repetition queue automates. In the unified study order, breadth-first works naturally because the ordering already revisits every topic several times.
 
 ## The 8-week schedule
 
-The [problem list](../index.md) is ordered by increasing difficulty with related problem types grouped together, so the weeks derive straight from it: problems 1 through 30 in the first three weeks (ten each, while problems are short), then nine per week as they lengthen, ending with the nine hard problems in week 8. Every problem appears exactly once. The weekly schedule interleaves the [pattern groups](../patterns/index.md) in that problem order; to follow the pattern curriculum instead, read each group straight through.
+The schedule paces the Grind 75 track in its canonical order, which moves from easier to harder problems with related problem types grouped together, so the weeks derive straight from that order: problems 1 through 30 in the first three weeks (ten each, while problems are short), then nine per week as they lengthen, ending with the nine hard problems in week 8. In the [problem list](../index.md) the NeetCode-only problems sit beside that backbone, slotted next to their closest Grind 75 topic; do each in the week its neighbors land in. The weekly schedule interleaves the [pattern groups](../patterns/index.md) in the same problem order; to follow the pattern curriculum instead, read each group straight through.
 
-First-pass time is the sum of each problem's Time column: one clean attempt each. It is a lower bound, not the plan.
+First-pass time is the sum of the Time column: one clean attempt each. It is a lower bound, not the plan.
 
 | Week | Problems | First-pass time | Focus |
 |------|----------|-----------------|-------|

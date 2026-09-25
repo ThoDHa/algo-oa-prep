@@ -1,6 +1,6 @@
 # Interview Prep: Start Here
 
-The rest of this site teaches the material: foundations, 75 problems in study order, and the pattern guides behind them. This section is the plan around the material: how to budget your preparation time, which pace fits the time you have, how to pick and keep an interview language, and what the rounds beyond the coding problem (format, evaluation, behavioral, mocks) actually look like.
+The rest of this site teaches the material: foundations, the problem bank (the Grind 75 and NeetCode 150 lists in one interleaved study order, plus Amazon OA), and the pattern guides behind them. This section is the plan around the material: how to budget your preparation time, which pace fits the time you have, how to pick and keep an interview language, and what the rounds beyond the coding problem (format, evaluation, behavioral, mocks) actually look like.
 
 If you have never done algorithm interviews before, read this page once, then let the [study plan](study_plan.md) drive the rest.
 
@@ -11,10 +11,10 @@ Seven steps, in the order you do them. Each maps onto something in this repo.
 1. **Pick one language and commit to it.** Use the same language for every
    problem you solve. Switching mid-plan costs more than any language difference ever adds. See [Choosing a Language](language.md).
 2. **Budget your time before you start.** Decide how many weeks and how many
-   hours per week you can honestly give. The list takes roughly 32 hours at one clean pass per problem; nobody passes everything cleanly, so plan for two to three times that. See [Study Plan and Schedule](study_plan.md).
+   hours per week you can honestly give. The Grind 75 track takes roughly 32 hours at one clean pass per problem; nobody passes everything cleanly, so plan for two to three times that. See [Study Plan and Schedule](study_plan.md).
 3. **Learn the prerequisites, then study and practice each topic together.**
    Read the [Foundations](../foundations/index.md) first (about an hour), then for each new topic: read the [pattern guide](../patterns/index.md), solve the problems that use it, and only then move on.
-4. **Work the 75 problems in order.** For each one: read the problem page,
+4. **Work the problems in study order.** For each one: read the problem page,
    open its linked pattern guide, attempt it yourself in the [`practice/`](https://github.com/ThoDHa/algo-oa-prep/tree/main/practice) workspace, then compare with the solution ladder, baseline first.
 5. **Review what fades.** Rate every solve with the practice tracker
    (`progress.py rate`) and clear the `due` review queue weekly. Spaced repetition is what turns "I did that problem once" into a skill.
