@@ -6,8 +6,11 @@
 // filter panel between the row and the table:
 // a case-insensitive problem-name search input, a Difficulty select (on the
 // Amazon OA table the Time cell is the difficulty source, so its select
-// offers the estimate-derived Unknown), and a Tracks select where that
-// column exists, plus a Clear button. Escape inside the panel empties every
+// offers the estimate-derived Unknown), a Category select where that
+// column exists (its options are the distinct tags the column's
+// comma-separated cells contain, and a row matches on exact tag equality
+// after split and trim), and a Tracks select where that column exists,
+// plus a Clear button. Escape inside the panel empties every
 // filter and closes it. The funnel carries a small dot badge while any
 // filter is non-default. A table counts as filterable when its header row
 // has a Problem column and a Difficulty or Time column - the columns the
@@ -88,6 +91,7 @@ const columnMap = (table) => {
   const columns = {
     problem: -1,
     difficulty: -1,
+    category: -1,
     tracks: -1,
     time: -1,
   };
@@ -115,6 +119,9 @@ const requiredColumns = (columns) => {
   if (columns.tracks !== -1) {
     indices.push(columns.tracks);
   }
+  if (columns.category !== -1) {
+    indices.push(columns.category);
+  }
   return indices;
 };
 
@@ -131,6 +138,32 @@ const difficultyOf = (row, columns) => {
     return cellText(row, columns.difficulty);
   }
   return TIME_TO_DIFFICULTY[cellText(row, columns.time)] ?? UNKNOWN_DIFFICULTY;
+};
+
+/** The row's Category cell split into its trimmed, non-empty tags. */
+const categoryTagsOf = (row, columns) =>
+  cellText(row, columns.category)
+    .split(",")
+    .map((tag) => tag.trim())
+    .filter((tag) => tag !== "");
+
+/** Distinct Category tags across the rows, sorted case-insensitively. */
+const categoryOptionsOf = (table, columns) => {
+  const tags = new Set();
+  const requiredIndices = requiredColumns(columns);
+  for (const body of table.tBodies) {
+    for (const row of body.rows) {
+      if (!rowCoversColumns(row, requiredIndices)) {
+        continue;
+      }
+      for (const tag of categoryTagsOf(row, columns)) {
+        tags.add(tag);
+      }
+    }
+  }
+  return [...tags].sort((left, right) =>
+    left.localeCompare(right, undefined, { sensitivity: "base" })
+  );
 };
 
 /** Builds an inline CSP-safe icon from Feather geometry via createElementNS. */
@@ -270,6 +303,7 @@ const isFilterActive = (controls) =>
 const applyFilters = (table, controls) => {
   const query = controls.text.value.trim().toLowerCase();
   const difficulty = controls.difficulty ? controls.difficulty.value : "";
+  const category = controls.category ? controls.category.value : "";
   const track = controls.tracks ? controls.tracks.value.toLowerCase() : "";
   const requiredIndices = requiredColumns(controls.columns);
   for (const body of table.tBodies) {
@@ -277,10 +311,12 @@ const applyFilters = (table, controls) => {
       if (!rowCoversColumns(row, requiredIndices)) {
         continue;
       }
+      const rowCategoryTags = category ? categoryTagsOf(row, controls.columns) : [];
       const matches =
         (!query ||
           cellText(row, controls.columns.problem).toLowerCase().includes(query)) &&
         (!difficulty || difficultyOf(row, controls.columns) === difficulty) &&
+        (!category || rowCategoryTags.includes(category)) &&
         (!track ||
           cellText(row, controls.columns.tracks).toLowerCase().includes(track));
       row.style.display = matches ? "" : "none";
@@ -345,6 +381,7 @@ const installFilterControls = (table, columns) => {
     columns,
     text: buildTextInput(),
     difficulty: null,
+    category: null,
     tracks: null,
     selects: [],
     funnelButton: null,
@@ -360,6 +397,14 @@ const installFilterControls = (table, columns) => {
       optionLabels
     );
     controls.selects.push(controls.difficulty);
+  }
+  if (columns.category !== -1) {
+    controls.category = buildSelect(
+      "Filter by category",
+      ALL_OPTION_LABEL,
+      categoryOptionsOf(table, columns)
+    );
+    controls.selects.push(controls.category);
   }
   if (columns.tracks !== -1) {
     controls.tracks = buildSelect("Filter by tracks", ALL_OPTION_LABEL, TRACK_OPTIONS);
