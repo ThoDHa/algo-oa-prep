@@ -1,0 +1,10 @@
+[
+  {"id": "single_char_k_zero", "args": ["A", 0], "expected": 1},
+  {"id": "whole_string_one_letter_k_zero", "args": ["AAAA", 0], "expected": 4},
+  {"id": "alternating_k_zero", "args": ["ABAB", 0], "expected": 1},
+  {"id": "alternating_k_two", "args": ["ABAB", 2], "expected": 4},
+  {"id": "all_distinct_k_one", "args": ["ABCDE", 1], "expected": 2},
+  {"id": "trailing_best_window", "args": ["AABABBA", 1], "expected": 4},
+  {"id": "k_equal_length", "args": ["ABC", 3], "expected": 3},
+  {"id": "runs_never_merge", "args": ["AABBBCC", 1], "expected": 4}
+]

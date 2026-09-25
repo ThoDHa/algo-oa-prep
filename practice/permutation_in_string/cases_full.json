@@ -1,0 +1,10 @@
+[
+  {"id": "equal_strings", "args": ["ab", "ab"], "expected": true},
+  {"id": "single_letter_match", "args": ["a", "ba"], "expected": true},
+  {"id": "needle_longer_than_haystack", "args": ["ab", "a"], "expected": false},
+  {"id": "permutation_at_end", "args": ["hello", "xyzzyolleh"], "expected": true},
+  {"id": "scattered_letters_no_window", "args": ["ab", "eidboaoo"], "expected": false},
+  {"id": "same_letter_never_enough", "args": ["aa", "aaa"], "expected": true},
+  {"id": "reversed_pattern", "args": ["abc", "cba"], "expected": true},
+  {"id": "near_miss_window", "args": ["ab", "acbb"], "expected": false}
+]
