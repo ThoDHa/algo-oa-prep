@@ -1,0 +1,147 @@
+[
+  {
+    "id": "example_1",
+    "args": [
+      [
+        [0, 1, 1, 0, 1],
+        [1, 0, 1, 0, 1],
+        [0, 1, 1, 0, 1],
+        [0, 1, 0, 0, 1]
+      ]
+    ],
+    "expected": 6
+  },
+  {
+    "id": "single_land_cell",
+    "args": [[[1]]],
+    "expected": 1
+  },
+  {
+    "id": "single_water_cell",
+    "args": [[[0]]],
+    "expected": 0
+  },
+  {
+    "id": "no_land_row",
+    "args": [[[0, 0, 0, 0]]],
+    "expected": 0
+  },
+  {
+    "id": "no_land_column",
+    "args": [[[0], [0], [0]]],
+    "expected": 0
+  },
+  {
+    "id": "whole_grid_one_island",
+    "args": [
+      [
+        [1, 1],
+        [1, 1]
+      ]
+    ],
+    "expected": 4
+  },
+  {
+    "id": "all_water_rectangular",
+    "args": [
+      [
+        [0, 0, 0],
+        [0, 0, 0]
+      ]
+    ],
+    "expected": 0
+  },
+  {
+    "id": "diagonal_cells_not_connected",
+    "args": [
+      [
+        [1, 0, 1],
+        [0, 1, 0],
+        [1, 0, 1]
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "diagonal_island_cells_isolated",
+    "args": [
+      [
+        [1, 0, 0, 0, 0],
+        [0, 1, 0, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 0, 1, 0],
+        [0, 0, 0, 0, 1]
+      ]
+    ],
+    "expected": 1
+  },
+  {
+    "id": "snake_island_last_cell",
+    "args": [
+      [
+        [0, 0, 0],
+        [1, 1, 0],
+        [0, 1, 0],
+        [0, 1, 1]
+      ]
+    ],
+    "expected": 5
+  },
+  {
+    "id": "first_island_larger",
+    "args": [
+      [
+        [1, 1, 0, 0],
+        [1, 1, 0, 1],
+        [0, 0, 0, 1],
+        [0, 0, 0, 1]
+      ]
+    ],
+    "expected": 4
+  },
+  {
+    "id": "last_island_larger",
+    "args": [
+      [
+        [1, 1, 0, 0],
+        [1, 1, 0, 0],
+        [0, 0, 1, 1],
+        [0, 0, 1, 1]
+      ]
+    ],
+    "expected": 4
+  },
+  {
+    "id": "tie_islands",
+    "args": [
+      [
+        [1, 0, 1],
+        [1, 0, 1]
+      ]
+    ],
+    "expected": 2
+  },
+  {
+    "id": "single_row_strip",
+    "args": [[[1, 1, 1, 1, 1]]],
+    "expected": 5
+  },
+  {
+    "id": "single_column_strip",
+    "args": [[[1], [1], [1], [1]]],
+    "expected": 4
+  },
+  {
+    "id": "large_blob_with_tendril",
+    "args": [
+      [
+        [1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1],
+        [1, 1, 0, 0, 1, 1],
+        [0, 0, 0, 0, 1, 1],
+        [0, 0, 0, 0, 1, 0]
+      ]
+    ],
+    "expected": 19
+  }
+]
