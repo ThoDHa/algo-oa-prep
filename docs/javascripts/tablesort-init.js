@@ -89,8 +89,9 @@ const installResetControl = (table) => {
   resetButton.className = "md-button";
   resetButton.textContent = "Reset sort";
   resetButton.setAttribute("aria-controls", table.id);
-  // Filterable tables fold this action into their filter toolbar and drop
-  // this standalone button; the marker is how the toolbar finds it.
+  // Filterable tables fold this action into their header-integrated
+  // filters and drop this standalone button; the marker is how the filter
+  // module finds it.
   resetButton.setAttribute("data-tablesort-reset", "");
   resetButton.addEventListener("click", () => resetTablesortState(table));
   table.before(resetButton);
