@@ -1,5 +1,7 @@
 # Sliding Window: Pattern Intuition Guide
 
+**Reference:** [Sliding window](https://usaco.guide/gold/sliding-window)
+
 > *"The window is a moving lens of attention: it forgets the past to focus on what matters now."*
 
 ---

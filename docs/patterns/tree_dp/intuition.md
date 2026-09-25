@@ -1,5 +1,7 @@
 # Tree DP - Intuition Guide
 
+**Reference:** [Dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming)
+
 ## The Mental Model: A Family Inheritance Decision
 
 Imagine a family tree where each person has some wealth. You're the family advisor helping them make inheritance decisions, but there's a catch: **if a parent takes an inheritance, their children can't, and vice versa** (they're too proud to both claim it).
@@ -14,7 +16,7 @@ Your job: maximize the total wealth the family keeps.
 Son ($1) Daughter ($3) Cousin ($1)
 ```
 
-You can't just be greedy and pick the richest. If you pick Dad ($4), you lose access to Grandpa ($3) and both kids ($1 + $3). Sometimes skipping a node unlocks better options.
+You can't just be greedy and pick the richest. If you pick Dad (\$4), you lose access to Grandpa (\$3) and both kids (\$1 + \$3). Sometimes skipping a node unlocks better options.
 
 This is **Tree DP**: making optimal decisions at each node based on subtree outcomes.
 

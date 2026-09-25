@@ -30,7 +30,7 @@ Plain-language definitions of the terms that recur across the problem pages and 
 
 **Greedy**: solving a problem by repeatedly taking the best-looking local choice and never reconsidering it. Correct only when local choices provably lead to a global optimum. See the [Greedy guide](../patterns/greedy_core/intuition.md).
 
-**In-degree**: the number of edges pointing *into* a node in a directed graph. Counting in-degrees is the heart of [topological sort](../patterns/topological_sort/intuition.md) by Kahn's algorithm.
+**In-degree**: the number of edges pointing *into* a node in a directed graph. Counting in-degrees is the heart of [topological sort](../patterns/topological_sort/intuition.md) by [Kahn's algorithm](https://en.wikipedia.org/wiki/Topological_sorting#Kahn%27s_algorithm).
 
 **In-place**: an algorithm that transforms its input using only a constant amount of extra memory, rather than building a separate copy. Uses `O(1)` extra space.
 
