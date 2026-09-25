@@ -1,0 +1,128 @@
+[
+  {
+    "id": "single_char",
+    "args": [
+      "a"
+    ],
+    "expected": 1
+  },
+  {
+    "id": "two_distinct",
+    "args": [
+      "ab"
+    ],
+    "expected": 2
+  },
+  {
+    "id": "two_equal",
+    "args": [
+      "aa"
+    ],
+    "expected": 3
+  },
+  {
+    "id": "pivot_palindrome",
+    "args": [
+      "aba"
+    ],
+    "expected": 4
+  },
+  {
+    "id": "nested_palindrome",
+    "args": [
+      "abcba"
+    ],
+    "expected": 7
+  },
+  {
+    "id": "even_center_palindrome",
+    "args": [
+      "abba"
+    ],
+    "expected": 6
+  },
+  {
+    "id": "alternating",
+    "args": [
+      "abab"
+    ],
+    "expected": 6
+  },
+  {
+    "id": "all_distinct",
+    "args": [
+      "abcd"
+    ],
+    "expected": 4
+  },
+  {
+    "id": "run_then_different",
+    "args": [
+      "aab"
+    ],
+    "expected": 4
+  },
+  {
+    "id": "two_runs",
+    "args": [
+      "aabb"
+    ],
+    "expected": 6
+  },
+  {
+    "id": "all_same_four",
+    "args": [
+      "aaaa"
+    ],
+    "expected": 10
+  },
+  {
+    "id": "all_same_five",
+    "args": [
+      "aaaaa"
+    ],
+    "expected": 15
+  },
+  {
+    "id": "odd_long_palindrome",
+    "args": [
+      "racecar"
+    ],
+    "expected": 10
+  },
+  {
+    "id": "overlapping_palindromes",
+    "args": [
+      "ababa"
+    ],
+    "expected": 9
+  },
+  {
+    "id": "center_spike",
+    "args": [
+      "aaabaaa"
+    ],
+    "expected": 16
+  },
+  {
+    "id": "repeated_block",
+    "args": [
+      "abcabc"
+    ],
+    "expected": 6
+  },
+  {
+    "id": "max_all_same",
+    "args": [
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    ],
+    "expected": 500500
+  },
+  {
+    "id": "max_all_distinct_pattern",
+    "args": [
+      "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijkl"
+    ],
+    "expected": 1000
+  }
+]
