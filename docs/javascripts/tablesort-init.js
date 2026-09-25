@@ -1,10 +1,15 @@
-// Sortable problem tables.
+// Sortable problem tables, scoped to the problems landing page.
 //
-// Material 9.7.6 free ships no table sorting, so the problem tables use
-// tristen/tablesort, loaded from the unpkg entry above this file in
-// mkdocs.yml. Per the theme's customization guidance, per-page JavaScript
-// subscribes to the document$ observable so it re-runs on every page swap
-// under navigation.instant.
+// Material 9.7.6 free ships no table sorting, so the two problem tables on
+// the problems landing (docs/problems/index.md) use tristen/tablesort,
+// loaded from the unpkg entry above this file in mkdocs.yml. Per the
+// theme's customization guidance, per-page JavaScript subscribes to the
+// document$ observable so it re-runs on every page swap under
+// navigation.instant. The subscription is gated on the current page being
+// the landing itself: the pathname check runs inside the subscription
+// because instant navigation swaps the pathname per page, and other pages
+// (pattern guides, write-ups, the bank index) keep plain, unsortable
+// markdown tables.
 //
 // Tablesort's default comparator treats "-" as an ordinary string, so dash
 // cells (an unknown Time or Difficulty) sort first ascending. The "minutes"
@@ -97,8 +102,16 @@ const installResetControl = (table) => {
   table.before(resetButton);
 };
 
+// True when the current page is the problems landing: directory URLs end
+// the path with /problems/, while servers without them append index.html,
+// and the deployed site prefixes a base path, so all three shapes pass.
+const isProblemsLandingPage = () =>
+  window.location.pathname
+    .replace(/index\.html$/, "")
+    .endsWith("/problems/");
+
 document$.subscribe(() => {
-  if (typeof Tablesort === "undefined") {
+  if (typeof Tablesort === "undefined" || !isProblemsLandingPage()) {
     return;
   }
   for (const table of document.querySelectorAll("article table:not([data-tablesort])")) {
