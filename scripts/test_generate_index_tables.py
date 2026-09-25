@@ -1310,8 +1310,15 @@ def test_committed_amazon_section_fills_every_time_cell_from_the_writeup_headers
         )
 
 
-def test_committed_amazon_section_time_column_sits_between_updated_and_practice_at():
+def test_committed_amazon_section_header_orders_the_columns():
     section = gen.render_amazon_section(gen.load_amazon_manifest(AMAZON_MANIFEST_PATH))
+    header_line = next(line for line in section.splitlines() if line.startswith("| Problem"))
+    assert [name.strip() for name in header_line.strip("|").split("|")] == [
+        "Problem",
+        "Updated",
+        "Practice at",
+        "Time",
+    ]
     row = unified_table_rows(section)[0]
     assert cell(row, gen.AMAZON_UPDATED_COLUMN).count("-") == 2
     assert f"[{gen.PRACTICE_FASTPREP}]" in cell(row, gen.AMAZON_PRACTICE_AT_COLUMN)

@@ -27,9 +27,9 @@ Pipeline:
      (the bank index). --check verifies the nav shape, so the subsections
      stay generator-owned and refreshable.
 
-Offline contract: the committed JSON sources are the only inputs; nothing
-is fetched, and the marker-bounded spans (plus the nav's Problems section)
-are the only text ever rewritten.
+Offline contract: the committed sources (JSON manifests and write-up
+headers) are the only inputs; nothing is fetched, and the marker-bounded
+spans (plus the nav's Problems section) are the only text ever rewritten.
 
 Usage (from the repository root):
   cd practice && uv run pytest ../scripts/          # run the generator tests
@@ -133,7 +133,6 @@ PROBLEM_COLUMN = 0
 DIFFICULTY_COLUMN = 1
 TIME_COLUMN = 5
 PRACTICE_AT_COLUMN = 3
-AMAZON_PROBLEM_COLUMN = 0
 AMAZON_UPDATED_COLUMN = 1
 AMAZON_PRACTICE_AT_COLUMN = 2
 AMAZON_TIME_COLUMN = 3
@@ -861,7 +860,8 @@ def render_unified_section(rows: Sequence[dict], overlap: set) -> str:
         f" {PRACTICE_LEETCODE} for free problems, {PRACTICE_NEETCODE} for LeetCode-premium ones."
         " Tracks names the plan(s) a problem belongs to and links each curator's list;"
         " Time carries the Grind 75 suggested minutes where published and"
-        " difficulty-based estimates elsewhere (Easy 15 / Medium 25 / Hard 40 minutes).",
+        " difficulty-based estimates elsewhere (Easy 15 / Medium 25 / Hard 40 minutes,"
+        " a dash where the difficulty is unknown).",
         "",
         UNIFIED_TABLE_HEADER,
         UNIFIED_TABLE_SEPARATOR,
@@ -911,7 +911,8 @@ def render_amazon_section(entries: Sequence[dict]) -> str:
         " practice stubs live under the"
         " [`practice/amazon_oa/`](https://github.com/ThoDHa/algo-oa-prep/tree/main/practice/amazon_oa)"
         " workspace. Time carries the difficulty-based estimates"
-        " (Easy 15 / Medium 25 / Hard 40 minutes) parsed from each write-up's header.",
+        " (Easy 15 / Medium 25 / Hard 40 minutes, a dash where the difficulty"
+        " is unknown) parsed from each write-up's header.",
         "",
         AMAZON_TABLE_HEADER,
         AMAZON_TABLE_SEPARATOR,

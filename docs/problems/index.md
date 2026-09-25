@@ -11,7 +11,7 @@ Use the navigation sidebar or the tables below.
 <!-- unified-leetcode:start -->
 ## Problem List
 
-The unified LeetCode problem set across the [Grind 75](https://www.techinterviewhandbook.org/grind75) and the [NeetCode 150](https://neetcode.io/practice/practice/neetcode150): 168 unique problems, 59 on both tracks and credited to each. Rows follow one interleaved study order: the Grind 75 sequence as the backbone, with each NeetCode-only problem slotted next to its closest Grind 75 topic. Practice at links where the problem lives: LeetCode for free problems, NeetCode for LeetCode-premium ones. Tracks names the plan(s) a problem belongs to and links each curator's list; Time carries the Grind 75 suggested minutes where published and difficulty-based estimates elsewhere (Easy 15 / Medium 25 / Hard 40 minutes).
+The unified LeetCode problem set across the [Grind 75](https://www.techinterviewhandbook.org/grind75) and the [NeetCode 150](https://neetcode.io/practice/practice/neetcode150): 168 unique problems, 59 on both tracks and credited to each. Rows follow one interleaved study order: the Grind 75 sequence as the backbone, with each NeetCode-only problem slotted next to its closest Grind 75 topic. Practice at links where the problem lives: LeetCode for free problems, NeetCode for LeetCode-premium ones. Tracks names the plan(s) a problem belongs to and links each curator's list; Time carries the Grind 75 suggested minutes where published and difficulty-based estimates elsewhere (Easy 15 / Medium 25 / Hard 40 minutes, a dash where the difficulty is unknown).
 
 | Problem | Difficulty | Category | Practice at | Tracks | Time |
 |---|---------|------------|----------|--------|------|
@@ -190,7 +190,7 @@ Rows marked · Amazon OA also appear in the [Amazon OA bank](amazon_oa/index.md)
 <!-- amazon-oa:start -->
 ## Amazon OA Problems
 
-The Amazon OA coding bank, separate from the LeetCode tables above: 350 Amazon-tagged online-assessment problems, most recently updated first. The problems come from [perixtar/Tech-OA-Interview-Questions](https://github.com/perixtar/Tech-OA-Interview-Questions) with statement pages on [FastPrep](https://www.fastprep.io). The full bank index with companies lives at [problems/amazon_oa/index.md](amazon_oa/index.md); practice stubs live under the [`practice/amazon_oa/`](https://github.com/ThoDHa/algo-oa-prep/tree/main/practice/amazon_oa) workspace. Time carries the difficulty-based estimates (Easy 15 / Medium 25 / Hard 40 minutes) parsed from each write-up's header.
+The Amazon OA coding bank, separate from the LeetCode tables above: 350 Amazon-tagged online-assessment problems, most recently updated first. The problems come from [perixtar/Tech-OA-Interview-Questions](https://github.com/perixtar/Tech-OA-Interview-Questions) with statement pages on [FastPrep](https://www.fastprep.io). The full bank index with companies lives at [problems/amazon_oa/index.md](amazon_oa/index.md); practice stubs live under the [`practice/amazon_oa/`](https://github.com/ThoDHa/algo-oa-prep/tree/main/practice/amazon_oa) workspace. Time carries the difficulty-based estimates (Easy 15 / Medium 25 / Hard 40 minutes, a dash where the difficulty is unknown) parsed from each write-up's header.
 
 | Problem | Updated | Practice at | Time |
 |---|---------|---------|------|
