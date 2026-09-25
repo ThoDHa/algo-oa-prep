@@ -584,10 +584,10 @@ def cases_from_metadata(metadata: Optional[dict], dir_slug: str) -> CasesResult:
         A CasesResult with the function name, the cases, and a skip reason
         (None) exactly when at least one case exists.
     """
-    if metadata is None:
-        return unparseable_cases(dir_slug, "metadata did not parse")
     return cases_from_parsed(
-        parse_description(str(metadata.get("description") or "")), metadata, dir_slug
+        parse_description(str((metadata or {}).get("description") or "")),
+        metadata,
+        dir_slug,
     )
 
 
