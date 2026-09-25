@@ -1,37 +1,39 @@
-// Header-integrated filtering for the problem tables.
+// Control-row filtering for the problem tables.
 //
 // Companion to tablesort-init.js: the two problem tables on the problems
-// landing get their filters folded into their header cells - a search icon
-// in the Problem header expanding an inline case-insensitive text input, a
-// caret-styled native select on the Difficulty header (the Time header on
-// the Amazon OA table, whose Time cell is the difficulty source) and on
-// Tracks where that column exists, a small caption line under the table
-// announcing the visible row count, an icon clear button in the Problem
-// header shown only while a filter is active, and the reset-sort action
-// folded in as an icon in the last header. A table counts as filterable
-// when its header row has a Problem column and a Difficulty or Time column
-// - the columns the filters can actually work on - so every other article
-// table (pattern guides, sources, the Amazon OA bank index, whose
-// Problem/Updated/Companies header offers no difficulty source) stays
-// untouched. Like tablesort-init.js, per-page work subscribes to document$
-// for instant navigation: each swap delivers fresh tables, and the data
-// attribute guard keeps repeat emissions from stacking duplicate controls
-// over the same DOM. Because the controls live inside the table's header
-// cells and its caption, a swap replaces them together with the table, so
-// filter state resets on navigation instead of persisting.
+// landing get a slim control row directly above the table - the live visible
+// count on the left, a funnel toggle and a reset-sort icon on the right -
+// and the funnel drops a compact filter panel between the row and the table:
+// a case-insensitive problem-name search input, a Difficulty select (on the
+// Amazon OA table the Time cell is the difficulty source, so its select
+// offers the estimate-derived Unknown), and a Tracks select where that
+// column exists, plus a Clear button. Escape inside the panel empties every
+// filter and closes it. The funnel carries a small dot badge while any
+// filter is non-default. A table counts as filterable when its header row
+// has a Problem column and a Difficulty or Time column - the columns the
+// filters can actually work on - so every other article table (pattern
+// guides, sources, the Amazon OA bank index, whose Problem/Updated/Companies
+// header offers no difficulty source) stays untouched. Like
+// tablesort-init.js, per-page work subscribes to document$ for instant
+// navigation: each swap delivers fresh tables, and the data attribute guard
+// keeps repeat emissions from stacking duplicate control rows over the same
+// DOM. The control row and the panel live in the article DOM next to the
+// table, not inside it, so a swap replaces them together with the table: a
+// fresh page always starts with the panel closed and the filters at their
+// defaults.
 //
-// Tablesort binds its sort toggle to clicks on the header cell itself, so
-// every interactive element added to a header stops click propagation from
-// itself only; clicks on the header text still sort, and the cells are
-// augmented in place, never reordered or removed, leaving the sort cycle
-// and aria-sort handling alone.
+// Because every control sits outside the table, header cells stay plain
+// sortable text and Tablesort's header-click sort binding needs no
+// cooperation from this file.
 //
 // Filterable tables supersede tablesort-init's standalone "Reset sort"
 // button: at install time that button is still the table's previous sibling
 // (the sort module's subscription runs first), so it is removed by its
-// marker attribute and rebuilt as a header icon bound to the same
-// resetTablesortState. Tables without filters keep the standalone button,
-// and both files degrade independently when the other is absent.
+// marker attribute and rebuilt as the control-row icon bound to the same
+// resetTablesortState, gated on the default-order stamps as before (unstamped
+// rows would be reordered into a scrambled, NaN-driven order). Tables
+// without filters keep the standalone button, and both files degrade
+// independently when the other is absent.
 //
 // Filtering only toggles row visibility, never row order, so Tablesort keeps
 // working on the DOM it sees: hidden rows move with a sort but stay hidden,
@@ -51,28 +53,33 @@ const DIFFICULTY_OPTIONS = ["Easy", "Medium", "Hard"];
 const TRACK_OPTIONS = ["Grind 75", "NeetCode 150", "Amazon OA"];
 const ALL_OPTION_VALUE = "";
 const ALL_OPTION_LABEL = "All";
-const PROBLEM_INPUT_WIDTH = "14rem";
-const HEADER_CONTROL_GAP = "0.15rem";
-const CAPTION_TOP_PADDING = "0.4rem";
-const CAPTION_FONT_SIZE = "0.64rem";
-const CAPTION_OPACITY = "0.75";
+const CONTROL_ROW_FONT_SIZE = "0.64rem";
+const CONTROL_ROW_GAP = "0.6rem";
+const BUTTON_GAP = "0.4rem";
+const MUTED_OPACITY = "0.75";
+const PROBLEM_INPUT_WIDTH = "12rem";
+const PANEL_GAP = "0.6rem";
+const PANEL_PADDING = "0.4rem 0.6rem";
+const PANEL_MARGIN_TOP = "0.2rem";
+const BADGE_SIZE = "0.4em";
+const BADGE_OFFSET = "-0.2em";
 const SVG_NAMESPACE = "http://www.w3.org/2000/svg";
 
 // Feather icon geometry (MIT-licensed set), drawn through createElementNS so
-// the headers gain icons without an icon font dependency or CSP-hostile
+// the control row gains icons without an icon font dependency or CSP-hostile
 // markup.
-const SEARCH_ICON = [
-  ["circle", { cx: "11", cy: "11", r: "8" }],
-  ["line", { x1: "21", y1: "21", x2: "16.65", y2: "16.65" }],
-];
-const CLOSE_ICON = [
-  ["line", { x1: "18", y1: "6", x2: "6", y2: "18" }],
-  ["line", { x1: "6", y1: "6", x2: "18", y2: "18" }],
+const FILTER_ICON = [
+  ["polygon", { points: "22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" }],
 ];
 const RESET_ICON = [
   ["polyline", { points: "1 4 1 10 7 10" }],
   ["path", { d: "M3.51 15a9 9 0 1 0 2.13-9.36L1 10" }],
 ];
+
+// Module scope so panel ids survive instant navigation: a counter reset per
+// document$ emission could hand out an id already held by a cached table on
+// another page.
+let filterPanelCount = 0;
 
 /** First header row of a table, whether or not it has a thead. */
 const headerRowOf = (table) => (table.tHead ? table.tHead.rows[0] : table.rows[0]);
@@ -153,23 +160,42 @@ const buildIcon = (drawing) => {
   return svg;
 };
 
-/** Builds a borderless header icon button; its clicks stop at the button so tablesort's header-click sort never fires from a filter control. */
-const buildHeaderIconButton = (label, drawing) => {
+/** Applies the borderless chrome-control look the control row and panel share; font: inherit because native buttons keep the browser default font otherwise. */
+const styleAsChromeControl = (element) => {
+  element.style.backgroundColor = "transparent";
+  element.style.border = "none";
+  element.style.color = "inherit";
+  element.style.cursor = "pointer";
+  element.style.padding = "0";
+  element.style.font = "inherit";
+};
+
+/** Builds a borderless control-row icon button styled to inherit the theme colors. */
+const buildIconButton = (label, drawing) => {
   const button = document.createElement("button");
   button.type = "button";
   button.setAttribute("aria-label", label);
   button.append(buildIcon(drawing));
-  button.style.backgroundColor = "transparent";
-  button.style.border = "none";
-  button.style.color = "inherit";
-  button.style.cursor = "pointer";
-  button.style.padding = "0";
+  styleAsChromeControl(button);
   button.style.display = "inline-flex";
   button.style.alignItems = "center";
-  button.addEventListener("click", (event) => {
-    event.stopPropagation();
-  });
+  button.style.position = "relative";
   return button;
+};
+
+/** Builds the hidden dot shown on the funnel while any filter is non-default. */
+const buildActiveBadge = () => {
+  const badge = document.createElement("span");
+  badge.setAttribute("aria-hidden", "true");
+  badge.style.position = "absolute";
+  badge.style.top = BADGE_OFFSET;
+  badge.style.right = BADGE_OFFSET;
+  badge.style.width = BADGE_SIZE;
+  badge.style.height = BADGE_SIZE;
+  badge.style.borderRadius = "50%";
+  badge.style.backgroundColor = "currentColor";
+  badge.style.display = "none";
+  return badge;
 };
 
 /** Builds the case-insensitive problem-name text input. */
@@ -186,6 +212,7 @@ const buildTextInput = () => {
 /** Builds a filter select: an all-option with an empty value followed by one option per label. */
 const buildSelect = (label, allOptionLabel, optionLabels) => {
   const select = document.createElement("select");
+  select.className = "md-input";
   select.setAttribute("aria-label", label);
   for (const optionLabel of [allOptionLabel, ...optionLabels]) {
     const option = document.createElement("option");
@@ -196,16 +223,23 @@ const buildSelect = (label, allOptionLabel, optionLabels) => {
   return select;
 };
 
-/** Builds the caption-style line attached under the table announcing how many rows are visible. */
-const buildCountCaption = () => {
-  const caption = document.createElement("caption");
-  caption.style.captionSide = "bottom";
-  caption.style.textAlign = "left";
-  caption.style.paddingTop = CAPTION_TOP_PADDING;
-  caption.style.fontSize = CAPTION_FONT_SIZE;
-  caption.style.opacity = CAPTION_OPACITY;
-  caption.setAttribute("aria-live", "polite");
-  return caption;
+/** Builds the aria-live span announcing how many rows are visible. */
+const buildCountLabel = () => {
+  const count = document.createElement("span");
+  count.setAttribute("aria-live", "polite");
+  count.style.opacity = MUTED_OPACITY;
+  return count;
+};
+
+/** Builds the small clear button emptying every control without touching sort state. */
+const buildClearButton = (table, controls) => {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.textContent = "Clear";
+  button.setAttribute("aria-label", "Clear filters");
+  styleAsChromeControl(button);
+  button.addEventListener("click", () => clearFilters(table, controls));
+  return button;
 };
 
 /** True when tablesort-init stamped the rows with their default order. */
@@ -214,7 +248,7 @@ const isDefaultOrderStamped = (table) => {
   return firstRow !== undefined && firstRow.dataset.defaultIndex !== undefined;
 };
 
-/** Builds the reset-sort header icon restoring default row order and sort state; null when the sort module is absent or the table carries no default-order stamps (unstamped rows would be reordered into a scrambled, NaN-driven order). */
+/** Builds the reset-sort icon restoring default row order and sort state; null when the sort module is absent or the table carries no default-order stamps (unstamped rows would be reordered into a scrambled, NaN-driven order). */
 const buildResetButton = (table) => {
   if (
     typeof resetTablesortState !== "function" ||
@@ -222,13 +256,13 @@ const buildResetButton = (table) => {
   ) {
     return null;
   }
-  const button = buildHeaderIconButton("Reset sort", RESET_ICON);
+  const button = buildIconButton("Reset sort", RESET_ICON);
   button.setAttribute("aria-controls", table.id);
   button.addEventListener("click", () => resetTablesortState(table));
   return button;
 };
 
-/** Removes tablesort-init's standalone reset button; the header icon supersedes it here. */
+/** Removes tablesort-init's standalone reset button; the control-row icon supersedes it here. */
 const removeStandaloneReset = (table) => {
   const standalone = table.previousElementSibling;
   if (standalone?.matches("button[data-tablesort-reset]")) {
@@ -241,7 +275,7 @@ const isFilterActive = (controls) =>
   controls.text.value.trim() !== "" ||
   controls.selects.some((select) => select.value !== ALL_OPTION_VALUE);
 
-/** Hides non-matching rows, updates the live count, and mirrors the clear icon's visibility. */
+/** Hides non-matching rows, updates the live count, and mirrors the funnel badge. */
 const applyFilters = (table, controls) => {
   const query = controls.text.value.trim().toLowerCase();
   const difficulty = controls.difficulty ? controls.difficulty.value : "";
@@ -266,105 +300,61 @@ const applyFilters = (table, controls) => {
     }
   }
   controls.count.textContent = `${visible} of ${controls.total} problems`;
-  controls.clearButton.style.display = isFilterActive(controls)
-    ? "inline-flex"
-    : "none";
+  controls.badge.style.display = isFilterActive(controls) ? "block" : "none";
 };
 
-/** Reveals the problem input, marks the search toggle expanded, and focuses the input. */
-const expandInput = (controls) => {
-  controls.text.style.display = "";
-  controls.searchButton.setAttribute("aria-expanded", "true");
-  controls.text.focus();
-};
-
-/** Collapses the problem input and marks the search toggle collapsed. */
-const condenseInput = (controls) => {
-  controls.text.style.display = "none";
-  controls.searchButton.setAttribute("aria-expanded", "false");
-};
-
-/** Empties every filter control, collapses the input, and reapplies, leaving sort state untouched. */
+/** Empties every filter control and reapplies, leaving sort state untouched. */
 const clearFilters = (table, controls) => {
   controls.text.value = "";
-  condenseInput(controls);
   for (const select of controls.selects) {
     select.value = ALL_OPTION_VALUE;
   }
   applyFilters(table, controls);
 };
 
-/** Augments the Problem th with the search toggle, the expanding input, and the conditional clear icon. */
-const installProblemControls = (table, headerRow, controls) => {
-  const searchButton = buildHeaderIconButton("Search problems", SEARCH_ICON);
-  searchButton.setAttribute("aria-expanded", "false");
-  searchButton.setAttribute("aria-controls", table.id);
-  const clearButton = buildHeaderIconButton("Clear filters", CLOSE_ICON);
-  clearButton.setAttribute("aria-controls", table.id);
-  clearButton.style.display = "none";
-  controls.text.style.display = "none";
-  const cluster = document.createElement("span");
-  cluster.style.display = "inline-flex";
-  cluster.style.alignItems = "center";
-  cluster.style.gap = HEADER_CONTROL_GAP;
-  // Filter chrome, not header text: clicks anywhere in the cluster,
-  // including the gap strip between controls, must not reach the header's
-  // sort toggle.
-  cluster.addEventListener("click", (event) => {
-    event.stopPropagation();
-  });
-  cluster.append(searchButton, controls.text, clearButton);
-  headerRow.cells[controls.columns.problem].append(cluster);
+/** True when the funnel reports its panel as open. */
+const isPanelOpen = (controls) =>
+  controls.funnelButton.getAttribute("aria-expanded") === "true";
 
-  searchButton.addEventListener("click", () => expandInput(controls));
-  controls.text.addEventListener("input", () => applyFilters(table, controls));
-  controls.text.addEventListener("blur", () => {
-    if (controls.text.value) {
-      return;
-    }
-    // Deferred past the in-flight click: collapsing synchronously on blur
-    // shrinks the cluster between mousedown and mouseup, which can retarget
-    // the click onto the header and fire a sort from the gap strip.
-    window.setTimeout(() => {
-      if (!controls.text.value) {
-        condenseInput(controls);
-      }
-    }, 0);
-  });
-  controls.text.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      clearFilters(table, controls);
-      searchButton.focus();
-    }
-  });
-  clearButton.addEventListener("click", () => clearFilters(table, controls));
-  controls.searchButton = searchButton;
-  controls.clearButton = clearButton;
+/** Reveals the panel, marks the funnel expanded, and moves focus into the search input. */
+const openPanel = (controls) => {
+  controls.panel.style.display = "flex";
+  controls.funnelButton.setAttribute("aria-expanded", "true");
+  controls.text.focus();
 };
 
-/** Folds a filter select into its header cell, styled to read as header text plus the native caret. */
-const installHeaderSelect = (table, headerRow, controls, select, columnIndex) => {
-  select.style.font = "inherit";
-  select.style.color = "inherit";
-  select.style.backgroundColor = "transparent";
-  select.style.border = "none";
-  select.style.padding = "0";
-  select.style.cursor = "pointer";
-  headerRow.cells[columnIndex].append(select);
-  select.addEventListener("click", (event) => {
-    event.stopPropagation();
-  });
-  select.addEventListener("change", () => applyFilters(table, controls));
-  select.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      clearFilters(table, controls);
-    }
-  });
+/** Hides the panel, marks the funnel collapsed, and returns focus to the funnel. */
+const closePanel = (controls) => {
+  controls.panel.style.display = "none";
+  controls.funnelButton.setAttribute("aria-expanded", "false");
+  controls.funnelButton.focus();
 };
 
-/** Inserts the header controls, the count caption, and the event wiring. */
+/** Builds the compact card holding the filter controls, dropped under the control row. */
+const buildFilterPanel = (table, controls) => {
+  const panel = document.createElement("div");
+  filterPanelCount += 1;
+  panel.id = `filter-panel-${filterPanelCount}`;
+  panel.style.display = "none";
+  panel.style.flexWrap = "wrap";
+  panel.style.alignItems = "center";
+  panel.style.gap = PANEL_GAP;
+  panel.style.padding = PANEL_PADDING;
+  panel.style.marginTop = PANEL_MARGIN_TOP;
+  panel.style.border = "1px solid currentColor";
+  panel.style.borderRadius = "0.2rem";
+  panel.append(controls.text, ...controls.selects, buildClearButton(table, controls));
+  panel.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      clearFilters(table, controls);
+      closePanel(controls);
+    }
+  });
+  return panel;
+};
+
+/** Inserts the control row, the filter panel, and the event wiring above the table. */
 const installFilterControls = (table, columns) => {
-  const headerRow = headerRowOf(table);
   let total = 0;
   for (const body of table.tBodies) {
     total += body.rows.length;
@@ -376,37 +366,63 @@ const installFilterControls = (table, columns) => {
     difficulty: null,
     tracks: null,
     selects: [],
-    count: buildCountCaption(),
-    searchButton: null,
-    clearButton: null,
+    count: buildCountLabel(),
+    funnelButton: null,
+    badge: null,
+    panel: null,
   };
-  installProblemControls(table, headerRow, controls);
   if (columns.difficulty !== -1 || columns.time !== -1) {
     const optionLabels =
       columns.difficulty === -1 ? [...DIFFICULTY_OPTIONS, UNKNOWN_DIFFICULTY] : DIFFICULTY_OPTIONS;
-    const difficultyColumnIndex =
-      columns.difficulty !== -1 ? columns.difficulty : columns.time;
     controls.difficulty = buildSelect(
       "Filter by difficulty",
       ALL_OPTION_LABEL,
       optionLabels
     );
     controls.selects.push(controls.difficulty);
-    installHeaderSelect(table, headerRow, controls, controls.difficulty, difficultyColumnIndex);
   }
   if (columns.tracks !== -1) {
     controls.tracks = buildSelect("Filter by tracks", ALL_OPTION_LABEL, TRACK_OPTIONS);
     controls.selects.push(controls.tracks);
-    installHeaderSelect(table, headerRow, controls, controls.tracks, columns.tracks);
   }
+  controls.funnelButton = buildIconButton("Toggle filters", FILTER_ICON);
+  controls.funnelButton.setAttribute("aria-expanded", "false");
+  controls.badge = buildActiveBadge();
+  controls.funnelButton.append(controls.badge);
+  controls.panel = buildFilterPanel(table, controls);
+  controls.funnelButton.setAttribute("aria-controls", controls.panel.id);
+  controls.funnelButton.addEventListener("click", () => {
+    if (isPanelOpen(controls)) {
+      closePanel(controls);
+    } else {
+      openPanel(controls);
+    }
+  });
+  controls.text.addEventListener("input", () => applyFilters(table, controls));
+  for (const select of controls.selects) {
+    select.addEventListener("change", () => applyFilters(table, controls));
+  }
+
+  const buttons = document.createElement("span");
+  buttons.style.display = "inline-flex";
+  buttons.style.alignItems = "center";
+  buttons.style.gap = BUTTON_GAP;
   const resetButton = buildResetButton(table);
   if (resetButton) {
-    headerRow.cells[headerRow.cells.length - 1].append(resetButton);
+    buttons.append(resetButton);
   }
+  buttons.append(controls.funnelButton);
+
+  const row = document.createElement("div");
+  row.style.display = "flex";
+  row.style.alignItems = "center";
+  row.style.justifyContent = "space-between";
+  row.style.gap = CONTROL_ROW_GAP;
+  row.style.fontSize = CONTROL_ROW_FONT_SIZE;
+  row.append(controls.count, buttons);
+
   removeStandaloneReset(table);
-  // Content model order: a table's caption belongs first, even when styled
-  // to render along the bottom edge.
-  table.prepend(controls.count);
+  table.before(row, controls.panel);
   applyFilters(table, controls);
 };
 
