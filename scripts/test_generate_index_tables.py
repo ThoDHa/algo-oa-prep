@@ -1555,7 +1555,7 @@ def test_render_unified_section_carries_the_amazon_legend():
 
 
 def test_render_amazon_section_emits_the_four_column_table():
-    section = gen.render_amazon_section(fixture_amazon())
+    section = gen.render_amazon_section(fixture_amazon(), {})
     assert section.startswith(gen.AMAZON_SECTION_START)
     assert section.rstrip().endswith(gen.AMAZON_SECTION_END)
     assert "## Amazon OA Problems" in section
@@ -1565,7 +1565,7 @@ def test_render_amazon_section_emits_the_four_column_table():
 
 
 def test_render_amazon_section_links_rows_to_fastprep():
-    section = gen.render_amazon_section(fixture_amazon())
+    section = gen.render_amazon_section(fixture_amazon(), {})
     row = [line for line in section.splitlines() if "amazon-maximize" in line][0]
     assert row == (
         "| [Maximize Adjacent Difference With One Reversal]"
@@ -1579,7 +1579,9 @@ def test_render_amazon_section_links_rows_to_fastprep():
 
 def test_committed_amazon_section_gives_every_row_a_fastprep_link():
     amazon = gen.load_amazon_manifest(AMAZON_MANIFEST_PATH)
-    section = gen.render_amazon_section(amazon)
+    section = gen.render_amazon_section(
+        amazon, gen.load_amazon_difficulty_overrides(AMAZON_OVERRIDES_PATH)
+    )
     rows = unified_table_rows(section)
     assert len(rows) == gen.AMAZON_ROW_COUNT
     for entry, row in zip(amazon, rows):
@@ -1588,19 +1590,27 @@ def test_committed_amazon_section_gives_every_row_a_fastprep_link():
 
 def test_committed_amazon_section_fills_every_time_cell_from_the_writeup_headers():
     amazon = gen.load_amazon_manifest(AMAZON_MANIFEST_PATH)
-    section = gen.render_amazon_section(amazon)
+    section = gen.render_amazon_section(
+        amazon, gen.load_amazon_difficulty_overrides(AMAZON_OVERRIDES_PATH)
+    )
     rows = unified_table_rows(section)
     empty = sum(not cell(row, AMAZON_TIME_COLUMN) for row in rows)
     assert empty == 0
+    overrides = gen.load_amazon_difficulty_overrides(AMAZON_OVERRIDES_PATH)
     for entry, row in zip(amazon, rows):
-        difficulty = gen.amazon_writeup_difficulty(entry["slug"])
+        difficulty = overrides.get(entry["slug"]) or gen.amazon_writeup_difficulty(
+            entry["slug"]
+        )
         assert cell(row, AMAZON_TIME_COLUMN) == gen.estimated_time_cell(difficulty), (
             entry["slug"]
         )
 
 
 def test_committed_amazon_section_header_orders_the_columns():
-    section = gen.render_amazon_section(gen.load_amazon_manifest(AMAZON_MANIFEST_PATH))
+    section = gen.render_amazon_section(
+        gen.load_amazon_manifest(AMAZON_MANIFEST_PATH),
+        gen.load_amazon_difficulty_overrides(AMAZON_OVERRIDES_PATH),
+    )
     header_line = next(line for line in section.splitlines() if line.startswith("| Problem"))
     assert [name.strip() for name in header_line.strip("|").split("|")] == [
         "Problem",
@@ -1614,7 +1624,7 @@ def test_committed_amazon_section_header_orders_the_columns():
 
 
 def test_render_amazon_section_links_rows_landing_relative():
-    section = gen.render_amazon_section(fixture_amazon())
+    section = gen.render_amazon_section(fixture_amazon(), {})
     assert "(amazon_oa/index.md)" in section
     assert "](problems/" not in section
 

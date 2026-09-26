@@ -838,10 +838,10 @@ def load_amazon_difficulty_overrides(
 
     FastPrep publishes no difficulty on 24 bank pages, so their write-up
     headers carry the unknown-difficulty marker and their table rows dash.
-    This file, populated from FastPrep's own pages as it become available,
-    is consulted before the header parse. An absent file is the empty
-    mapping (the revert path: deleting it and regenerating restores the
-    old dashes); anything present must be one JSON object.
+    This file, populated from FastPrep's own pages as they become
+    available, is consulted before the header parse. An absent file is
+    the empty mapping (the revert path: deleting it and regenerating
+    restores the old dashes); anything present must be one JSON object.
 
     Args:
         path: Path to amazon_difficulty_overrides.json (default: module
@@ -1006,7 +1006,7 @@ def render_unified_section(rows: Sequence[dict], overlap: AbstractSet[str]) -> s
     return "\n".join(lines) + "\n"
 
 
-def render_amazon_section(entries: Sequence[dict], overrides: Optional[dict] = None) -> str:
+def render_amazon_section(entries: Sequence[dict], overrides: Optional[dict]) -> str:
     """Render the marker-bounded Amazon OA table section.
 
     Separate from the LeetCode tables: columns `| Problem | Updated |
@@ -1021,7 +1021,8 @@ def render_amazon_section(entries: Sequence[dict], overrides: Optional[dict] = N
     Args:
         entries: The validated Amazon OA manifest entries.
         overrides: Slug -> difficulty consulted before each write-up's
-            header parse (default: none).
+            header parse; pass the loader's result, or an empty mapping
+            when no overrides apply.
 
     Returns:
         The section text: start marker through end marker, trailing newline.
@@ -1031,7 +1032,6 @@ def render_amazon_section(entries: Sequence[dict], overrides: Optional[dict] = N
             non-canonical difficulty, or a write-up header fails its
             parse.
     """
-    overrides = overrides if overrides is not None else {}
     validate_amazon_difficulty_overrides(overrides, entries)
     lines = [
         AMAZON_SECTION_START,
@@ -1057,10 +1057,8 @@ def render_amazon_section(entries: Sequence[dict], overrides: Optional[dict] = N
     for entry in entries:
         problem = f"[{entry['title']}](amazon_oa/{entry['slug']}.md)"
         practice = f"[{PRACTICE_FASTPREP}]({entry['url']})"
-        difficulty = (
-            overrides[entry["slug"]]
-            if entry["slug"] in overrides
-            else amazon_writeup_difficulty(entry["slug"])
+        difficulty = overrides.get(entry["slug"]) or amazon_writeup_difficulty(
+            entry["slug"]
         )
         time_cell = estimated_time_cell(difficulty)
         lines.append(f"| {problem} | {entry['updated']} | {practice} | {time_cell} |")
