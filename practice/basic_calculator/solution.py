@@ -19,8 +19,33 @@ class Solution:
         Time:  O(?):
         Space: O(?):
         """
-        raise NotSolved
+        result = 0
+        number = 0
+        sign = 1
+        signs = [1]
 
+        for c in s:
+            if c.isdigit():
+                number = number * 10 + int(c)
+            elif c == "+":
+                result += sign * number
+                number = 0
+                sign = signs[-1]
+            elif c == "-":
+                result += sign * number
+                number = 0
+                sign = -signs[-1]
+            elif c == "(":
+                signs.append(sign)
+                sign = signs[-1]
+            elif c == ")":
+                result += sign * number
+                number = 0
+                signs.pop()
+                sign = signs[-1]
+
+        result += sign * number
+        return result
 
 if __name__ == "__main__":
     # Debug playground: set a breakpoint in calculate above, then run this file.
