@@ -24,7 +24,27 @@ class Solution:
         Time:  O(?):
         Space: O(?):
         """
-        raise NotSolved
+        size = len(startTime)
+        jobs = sorted(zip(endTime, startTime, profit))
+
+        best = [0] * (size + 1)
+
+        for i in range(1, size + 1):
+            end, start, gain = jobs[i - 1]
+
+            low, high = 0, i - 1
+            while low < high:
+                mid = low + (high - low) // 2
+                if jobs[mid][0] <= start:
+                    low = mid + 1
+                else:
+                    high = mid
+            j = low
+
+            take = best[j] + gain
+            best[i] = max(best[i - 1], take)
+
+        return best[size]
 
 
 if __name__ == "__main__":
