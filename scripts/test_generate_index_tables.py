@@ -1083,36 +1083,103 @@ def test_committed_merge_starts_and_ends_per_the_study_order():
 # ---------------------------------------------------------------------------
 
 
-def test_category_canonical_pins_the_plural_section_names_to_their_singular_forms():
-    assert gen.CATEGORY_CANONICAL == {"Trees": "Tree", "Graphs": "Graph", "Tries": "Trie"}
+CATEGORY_CANONICAL_MAP = {
+    "Trees": "Tree",
+    "Graphs": "Graph",
+    "Tries": "Trie",
+    "Arrays & Hashing": "Array, Hash Table",
+    "Heap / Priority Queue": "Heap",
+    "1-D Dynamic Programming": "Dynamic Programming",
+    "2-D Dynamic Programming": "Dynamic Programming",
+    "Advanced Graphs": "Graph",
+    "Math & Geometry": "Math",
+}
+
+NEETCODE_SECTION_NAMES = frozenset(
+    {
+        "Arrays & Hashing",
+        "Heap / Priority Queue",
+        "1-D Dynamic Programming",
+        "2-D Dynamic Programming",
+        "Advanced Graphs",
+        "Math & Geometry",
+    }
+)
+
+EXPECTED_MERGED_CATEGORY_COUNTS = {
+    "Array": 16,
+    "Hash Table": 7,
+    "Heap": 7,
+    "Dynamic Programming": 23,
+    "Graph": 20,
+    "Math": 7,
+    "Tree": 15,
+    "Trie": 3,
+}
 
 
-def test_committed_unified_section_carries_no_plural_category_tags():
+def test_category_canonical_pins_the_neetcode_sections_to_the_grind_vocabulary():
+    assert gen.CATEGORY_CANONICAL == CATEGORY_CANONICAL_MAP
+
+
+def test_category_canonical_decomposes_arrays_and_hashing_into_both_tags():
+    assert gen.canonical_category_cell("Arrays & Hashing") == "Array, Hash Table"
+
+
+def test_category_canonical_subsumes_the_compound_sections_into_one_tag():
+    assert gen.canonical_category_cell("Heap / Priority Queue") == "Heap"
+    assert gen.canonical_category_cell("Advanced Graphs") == "Graph"
+    assert gen.canonical_category_cell("Math & Geometry") == "Math"
+
+
+def test_category_canonical_merges_both_dp_dimensions_into_one_tag():
+    assert gen.canonical_category_cell("1-D Dynamic Programming") == "Dynamic Programming"
+    assert gen.canonical_category_cell("2-D Dynamic Programming") == "Dynamic Programming"
+
+
+def test_canonical_category_cell_keeps_unknown_tags_verbatim():
+    assert gen.canonical_category_cell("-") == "-"
+    assert gen.canonical_category_cell("Array, Dynamic Programming") == (
+        "Array, Dynamic Programming"
+    )
+
+
+def test_committed_unified_section_carries_no_neetcode_section_names():
     rows = unified_table_rows(committed_section())
     assert len(rows) == gen.UNIQUE_PROBLEM_COUNT
     for row in rows:
         tags = gen.category_tags(cell(row, CATEGORY_COLUMN))
-        assert not (set(tags) & set(gen.CATEGORY_CANONICAL)), row
-    # The compound section names are distinct groupings by design and stay
-    # verbatim: the plural check matches whole tags, not substrings.
-    assert any(
-        "Advanced Graphs" in cell(row, CATEGORY_COLUMN) for row in rows
-    )
+        assert not (set(tags) & NEETCODE_SECTION_NAMES), row
 
 
 EXPECTED_CANONICAL_CATEGORY_SAMPLES = {
     "same-tree": "Tree",
     "max-area-of-island": "Graph",
     "implement-trie-prefix-tree": "Trie",
+    "group-anagrams": "Array, Hash Table",
+    "rotate-image": "Math",
+    "edit-distance": "Dynamic Programming",
 }
 
 
-def test_committed_unified_section_canonicalizes_the_plural_sample_rows():
+def test_committed_unified_section_canonicalizes_the_sample_rows():
     rows_by_lc_slug = {
         unified_row_lc_slug(row): row for row in unified_table_rows(committed_section())
     }
     for lc_slug, expected_category in EXPECTED_CANONICAL_CATEGORY_SAMPLES.items():
         assert cell(rows_by_lc_slug[lc_slug], CATEGORY_COLUMN) == expected_category, lc_slug
+
+
+def test_committed_unified_section_merges_the_topic_counts():
+    rows = unified_table_rows(committed_section())
+    assert len(rows) == gen.UNIQUE_PROBLEM_COUNT
+    counts = collections.Counter(
+        tag
+        for row in rows
+        for tag in gen.category_tags(cell(row, CATEGORY_COLUMN))
+    )
+    for topic, expected_count in EXPECTED_MERGED_CATEGORY_COUNTS.items():
+        assert counts[topic] == expected_count, topic
 
 
 # ---------------------------------------------------------------------------

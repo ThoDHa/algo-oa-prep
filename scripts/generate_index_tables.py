@@ -108,13 +108,24 @@ AMAZON_MANIFEST_FIELDS = (
 DIFFICULTIES = ("Easy", "Medium", "Hard")
 
 # One category vocabulary for the unified table's emitted cells: the
-# NeetCode track names its sections in the plural (Trees, Graphs, Tries)
-# while the Grind 75 hand table tags the same topics in the singular, so
-# the unmerged vocabulary splits each topic into two filter options.
-# Compound section names (Arrays & Hashing, Advanced Graphs, 1-D Dynamic
-# Programming, ...) are distinct groupings, not duplicates, and stay
-# verbatim; so does the dash filler.
-CATEGORY_CANONICAL = {"Trees": "Tree", "Graphs": "Graph", "Tries": "Trie"}
+# Grind 75 category names are the canonical tag set, and NeetCode
+# section names that differ map onto them. A value may carry several
+# comma-separated tags ("Arrays & Hashing" -> "Array, Hash Table"),
+# decomposing the row so it matches every topic filter it belongs to;
+# NeetCode's section granularity stays queryable in
+# scripts/neetcode150_manifest.json. Unknown tags (the dash filler) pass
+# through verbatim.
+CATEGORY_CANONICAL = {
+    "Trees": "Tree",
+    "Graphs": "Graph",
+    "Tries": "Trie",
+    "Arrays & Hashing": "Array, Hash Table",
+    "Heap / Priority Queue": "Heap",
+    "1-D Dynamic Programming": "Dynamic Programming",
+    "2-D Dynamic Programming": "Dynamic Programming",
+    "Advanced Graphs": "Graph",
+    "Math & Geometry": "Math",
+}
 
 AMAZON_SLUG_PREFIX = "amazon-"
 LEETCODE_PROBLEM_URL = "https://leetcode.com/problems/"
@@ -566,9 +577,10 @@ def category_tags(category: str) -> tuple:
 def canonical_category_cell(category: str) -> str:
     """Canonicalize one Category cell against CATEGORY_CANONICAL.
 
-    Each comma-separated tag maps through the pinned vocabulary; unknown
-    tags (the compound section names, the dash filler) pass through
-    verbatim.
+    Each comma-separated tag maps through the pinned vocabulary; a
+    replacement value may itself carry several comma-separated tags and
+    is split back into individual tags. Unknown tags (the dash filler)
+    pass through verbatim.
 
     Args:
         category: The comma-separated category string as stored on the row.
@@ -576,9 +588,13 @@ def canonical_category_cell(category: str) -> str:
     Returns:
         The canonical category string for the emitted cell.
     """
-    return ", ".join(
-        CATEGORY_CANONICAL.get(tag, tag) for tag in category_tags(category)
-    )
+    canonical: List[str] = []
+    for tag in category_tags(category):
+        canonical.extend(
+            replacement.strip()
+            for replacement in CATEGORY_CANONICAL.get(tag, tag).split(",")
+        )
+    return ", ".join(canonical)
 
 
 def _section_anchor_slug(
