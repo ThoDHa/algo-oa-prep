@@ -107,6 +107,15 @@ AMAZON_MANIFEST_FIELDS = (
 )
 DIFFICULTIES = ("Easy", "Medium", "Hard")
 
+# One category vocabulary for the unified table's emitted cells: the
+# NeetCode track names its sections in the plural (Trees, Graphs, Tries)
+# while the Grind 75 hand table tags the same topics in the singular, so
+# the unmerged vocabulary splits each topic into two filter options.
+# Compound section names (Arrays & Hashing, Advanced Graphs, 1-D Dynamic
+# Programming, ...) are distinct groupings, not duplicates, and stay
+# verbatim; so does the dash filler.
+CATEGORY_CANONICAL = {"Trees": "Tree", "Graphs": "Graph", "Tries": "Trie"}
+
 AMAZON_SLUG_PREFIX = "amazon-"
 LEETCODE_PROBLEM_URL = "https://leetcode.com/problems/"
 NEETCODE_PROBLEM_URL = "https://neetcode.io/problems/"
@@ -554,6 +563,24 @@ def category_tags(category: str) -> tuple:
     return tuple(tag.strip() for tag in category.split(","))
 
 
+def canonical_category_cell(category: str) -> str:
+    """Canonicalize one Category cell against CATEGORY_CANONICAL.
+
+    Each comma-separated tag maps through the pinned vocabulary; unknown
+    tags (the compound section names, the dash filler) pass through
+    verbatim.
+
+    Args:
+        category: The comma-separated category string as stored on the row.
+
+    Returns:
+        The canonical category string for the emitted cell.
+    """
+    return ", ".join(
+        CATEGORY_CANONICAL.get(tag, tag) for tag in category_tags(category)
+    )
+
+
 def _section_anchor_slug(
     section: str, backbone: Sequence[dict], section_members: dict
 ) -> Optional[str]:
@@ -836,7 +863,9 @@ def render_unified_section(rows: Sequence[dict], overlap: AbstractSet[str]) -> s
     """Render the marker-bounded unified LeetCode table section.
 
     Columns `| Problem | Difficulty | Category | Practice at | Tracks |
-    Time |`; rows carry no sequence numbers. `Problem` links the write-up,
+    Time |`; rows carry no sequence numbers. `Category` renders through
+    `canonical_category_cell` so both tracks share one topic vocabulary.
+    `Problem` links the write-up,
     `Practice at` links where the problem lives (LeetCode, or the NeetCode
     page for premium problems), and `Tracks` links each curator's list.
     `Time` carries the Grind 75 suggested minutes where published and
@@ -873,12 +902,13 @@ def render_unified_section(rows: Sequence[dict], overlap: AbstractSet[str]) -> s
     ]
     for row in rows:
         problem = f"[{row['title']}]({row['dirSlug']}.md)"
+        category = canonical_category_cell(row["category"])
         tracks = tracks_cell(row)
         if row["slug"] in overlap:
             tracks = f"{tracks} {AMAZON_MARKER}"
         lines.append(
             f"| {problem} | {row['difficulty']}"
-            f" | {row['category']} | {practice_at_cell(row)} | {tracks} | {row['time']} |"
+            f" | {category} | {practice_at_cell(row)} | {tracks} | {row['time']} |"
         )
     if any(row["slug"] in overlap for row in rows):
         lines.append("")
