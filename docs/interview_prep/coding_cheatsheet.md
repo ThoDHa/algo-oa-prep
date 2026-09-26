@@ -108,6 +108,32 @@ q = deque(); q.popleft()          # O(1) queue for BFS; list.pop(0) is O(n), nev
 parts.append(chunk); "".join(parts)  # build strings as a list, join once at the end
 ```
 
+### Initialization one-liners
+
+Build the container before the loop, one line each:
+
+| One-liner | What you get |
+|-----------|--------------|
+| `[0] * n`, `[x] * n` | 1-D list, n slots of one immutable fill |
+| `[f(i) for i in range(n)]` | 1-D list built elementwise |
+| `[[0] * cols for _ in range(rows)]` | **The 2-D array**: a fresh row per `_`, so rows stay independent |
+| `[[0] * cols] * rows` | **The 2-D trap**: one row shared `rows` times; writing any cell rewrites every row |
+| `[[[0] * k for _ in range(cols)] for _ in range(rows)]` | 3-D: nest the comprehension one level deeper per dimension |
+| `{}`, `dict()` | empty dict |
+| `d.get(key, default)` | read with a fallback, no membership branch (quick-ref above) |
+| `d.setdefault(key, []).append(x)` | fetch-or-create and mutate in one call |
+| `defaultdict(int)` | counter that works from the very first touch |
+| `defaultdict(list)` | buckets and stacks of work: `graph[u].append(v)` builds the adjacency list (the Graph BFS/DFS card above) |
+| `defaultdict(set)`, `defaultdict(deque)` | per-key membership, per-key O(1) queue |
+| `Counter(s)`, `Counter("mississippi").most_common(k)` | frequency map in one call, ranked top k |
+| `set()`, `{1, 2, 3}` | empty set and literal set; `{}` alone is a dict |
+| `set(xs)` | dedupe; `frozenset(xs)` when the set itself must hash |
+| `heap = []; heapq.heappush(heap, x)` | min-heap on a plain list; `heapify(xs)` converts in place; negate for max per the heapq quick-ref above |
+| `deque()`, `deque(xs)` | O(1) queue (quick-ref above); `maxlen=k` caps it: a full deque evicts from the far end |
+| `parts = []` | string builder: append chunks, `"".join(parts)` once (the join quick-ref above) |
+| `()`, `(x,)` | empty tuple, one-element tuple; the comma carries it |
+| `[list(line) for line in lines]` | grid of characters from input lines; `[line.split() for line in lines]` for token rows |
+
 ## The stuck protocol
 
 1. **Say the brute force out loud**, with its complexity. It is a floor, not a failure, and often where the interviewer starts steering.

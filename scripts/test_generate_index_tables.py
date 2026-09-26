@@ -295,34 +295,6 @@ def test_committed_grind_table_carries_77_rows_numbered_1_to_75():
     assert numbered == list(range(1, 76))
 
 
-def test_committed_grind_table_rows_match_the_hand_table_verbatim():
-    rows = gen.load_grind_table(GRIND_TABLE_PATH)
-    assert rows[0] == {
-        "number": 1,
-        "slug": "two-sum",
-        "title": "Two Sum",
-        "difficulty": "Easy",
-        "category": "Array, Hash Table",
-        "time": "15 minutes",
-    }
-    assert rows[37] == {
-        "number": 38,
-        "slug": "min-stack",
-        "title": "Minimum Stack",
-        "difficulty": "Medium",
-        "category": "Stack",
-        "time": "20 minutes",
-    }
-    assert rows[-1] == {
-        "number": None,
-        "slug": "maximum-frequency-stack",
-        "title": "Maximum Frequency Stack",
-        "difficulty": "Hard",
-        "category": "Hash Table, Stack, Design",
-        "time": "40 minutes",
-    }
-
-
 EXPECTED_GRIND_EXTRA_ROWS = {
     "binary-tree-maximum-path-sum": {
         "number": None,
@@ -341,6 +313,27 @@ EXPECTED_GRIND_EXTRA_ROWS = {
         "time": "40 minutes",
     },
 }
+
+
+def test_committed_grind_table_rows_match_the_hand_table_verbatim():
+    rows = gen.load_grind_table(GRIND_TABLE_PATH)
+    assert rows[0] == {
+        "number": 1,
+        "slug": "two-sum",
+        "title": "Two Sum",
+        "difficulty": "Easy",
+        "category": "Array, Hash Table",
+        "time": "15 minutes",
+    }
+    assert rows[37] == {
+        "number": 38,
+        "slug": "min-stack",
+        "title": "Minimum Stack",
+        "difficulty": "Medium",
+        "category": "Stack",
+        "time": "20 minutes",
+    }
+    assert rows[-1] == EXPECTED_GRIND_EXTRA_ROWS["maximum-frequency-stack"]
 
 
 def test_committed_grind_table_fills_the_unnumbered_extra_rows():
@@ -1265,6 +1258,12 @@ def test_category_canonical_subsumes_the_compound_sections_into_one_tag():
     assert gen.canonical_category_cell("Heap / Priority Queue") == "Heap"
     assert gen.canonical_category_cell("Advanced Graphs") == "Graph"
     assert gen.canonical_category_cell("Math & Geometry") == "Math"
+    # The section names stay verbatim on the row data: canonicalization is
+    # a whole-tag lookup keyed by the exact compound name, so a compound
+    # name must never lose its identity to a partial match.
+    for section in ("Heap / Priority Queue", "Advanced Graphs", "Math & Geometry"):
+        assert gen.CATEGORY_CANONICAL.get(section) is not None, section
+    assert gen.canonical_category_cell("Priority Queue") == "Priority Queue"
 
 
 def test_category_canonical_merges_both_dp_dimensions_into_one_tag():
@@ -1280,11 +1279,17 @@ def test_canonical_category_cell_keeps_unknown_tags_verbatim():
 
 
 def test_committed_unified_section_carries_no_neetcode_section_names():
-    rows = unified_table_rows(committed_section())
+    rows = committed_section_rows()
     assert len(rows) == gen.UNIQUE_PROBLEM_COUNT
     for row in rows:
         tags = gen.category_tags(cell(row, CATEGORY_COLUMN))
         assert not (set(tags) & NEETCODE_SECTION_NAMES), row
+    # The compound groupings stay verbatim on the row data (they are
+    # subsumed only at canonicalization time), so the whole-tag check
+    # above is exactly as narrow as intended: no compound name leaks into
+    # an emitted cell, and no emitted tag is a fragment of one either.
+    for row in rows:
+        assert cell(row, CATEGORY_COLUMN) not in NEETCODE_SECTION_NAMES, row
 
 
 EXPECTED_CANONICAL_CATEGORY_SAMPLES = {
@@ -1297,12 +1302,28 @@ EXPECTED_CANONICAL_CATEGORY_SAMPLES = {
 }
 
 
-def test_committed_unified_section_canonicalizes_the_sample_rows():
+def committed_section_rows():
+    """The committed unified table's row lines."""
+    return unified_table_rows(committed_section())
+
+
+def committed_row_by_lc_slug(lc_slug):
+    """One committed unified row, addressed by its LeetCode slug.
+
+    Asserts the slug's presence explicitly so a vanished sample slug fails
+    with a named assertion instead of a bare KeyError.
+    """
     rows_by_lc_slug = {
-        unified_row_lc_slug(row): row for row in unified_table_rows(committed_section())
+        unified_row_lc_slug(row): row for row in committed_section_rows()
     }
+    assert lc_slug in rows_by_lc_slug, lc_slug
+    return rows_by_lc_slug[lc_slug]
+
+
+def test_committed_unified_section_canonicalizes_the_sample_rows():
     for lc_slug, expected_category in EXPECTED_CANONICAL_CATEGORY_SAMPLES.items():
-        assert cell(rows_by_lc_slug[lc_slug], CATEGORY_COLUMN) == expected_category, lc_slug
+        row = committed_row_by_lc_slug(lc_slug)
+        assert cell(row, CATEGORY_COLUMN) == expected_category, lc_slug
 
 
 def test_committed_unified_section_merges_the_topic_counts():
@@ -1317,19 +1338,18 @@ def test_committed_unified_section_merges_the_topic_counts():
         assert counts[topic] == expected_count, topic
 
 
+# The unified cells of the two filled Grind 75 extra rows derive from the
+# pinned hand-table rows so the fixture has one source of truth.
 EXPECTED_UNIFIED_FILL_ROWS = {
-    "binary-tree-maximum-path-sum": ("Hard", "Dynamic Programming, Tree, DFS", "40 minutes"),
-    "maximum-frequency-stack": ("Hard", "Hash Table, Stack, Design", "40 minutes"),
+    slug: (row["difficulty"], row["category"], row["time"])
+    for slug, row in EXPECTED_GRIND_EXTRA_ROWS.items()
 }
 
 
 def test_committed_unified_section_fills_the_former_dash_rows():
-    rows_by_lc_slug = {
-        unified_row_lc_slug(row): row for row in unified_table_rows(committed_section())
-    }
-    assert len(rows_by_lc_slug) == gen.UNIQUE_PROBLEM_COUNT
+    assert len(committed_section_rows()) == gen.UNIQUE_PROBLEM_COUNT
     for lc_slug, (difficulty, category, time_cell) in EXPECTED_UNIFIED_FILL_ROWS.items():
-        row = rows_by_lc_slug[lc_slug]
+        row = committed_row_by_lc_slug(lc_slug)
         assert cell(row, DIFFICULTY_COLUMN) == difficulty, lc_slug
         assert cell(row, CATEGORY_COLUMN) == category, lc_slug
         assert cell(row, TIME_COLUMN) == time_cell, lc_slug
@@ -1810,7 +1830,7 @@ def committed_nav_rows():
 
 
 def committed_amazon_entries():
-    """The validated Amazon OA manifest from the committed data source."""
+    """The loaded Amazon OA manifest from the committed data source."""
     return gen.load_amazon_manifest(AMAZON_MANIFEST_PATH)
 
 
