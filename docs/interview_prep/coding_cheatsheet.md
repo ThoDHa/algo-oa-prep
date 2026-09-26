@@ -20,7 +20,7 @@ One page for the minutes before an online assessment or a live coding round: rem
 | `n <= 10^7` | O(n) | one clean pass |
 | bigger | O(log n) or O(1) | math, binary search |
 
-The same mapping with the reasoning behind it lives in [Big-O Notation](../foundations/big_o.md).
+The thresholds above are a conservative version of the mapping in [Big-O Notation](../foundations/big_o.md), with the reasoning behind it.
 
 ## Pattern flash-cards
 
@@ -46,7 +46,7 @@ The same mapping with the reasoning behind it lives in [Big-O Notation](../found
 | [Linked-list in-place reversal](../patterns/linked_list_in_place_reversal/intuition.md) | reverse a list or a segment with no extra memory | three pointers: save next, flip `curr.next`, step prev and curr forward | [Reverse Linked List](../problems/reverse_linked_list.md) | save `curr.next` before flipping it away, and return `prev`, not `head` |
 | [Tree DFS recursion](../patterns/tree/intuition.md) | tree property from subtrees: depth, diameter, balance | recurse on children, combine at the node (postorder thinking) | [Maximum Depth of Binary Tree](../problems/maximum_depth_of_binary_tree.md) | return the single-branch value (`1 + max`); through-node answers also need a global update |
 
-## The edge-case shotgun
+## The corner-case shotgun
 
 Run every finished solution past this list, out loud, before announcing you are done:
 
@@ -54,8 +54,10 @@ Run every finished solution past this list, out loud, before announcing you are 
 - **Single element**: loops, windows, and pointer pairs must survive `n = 1`.
 - **All elements equal**: dedup logic, strict versus non-strict comparisons, window invariants.
 - **All negative**: running sums and max products, sliding-window monotonicity assumptions.
+- **Zeros**: division and product tricks break on zeros, and a target sum of 0 collides with the empty prefix.
 - **Duplicates**: does the hash map overwrite when it should count? Do pointer skips skip too much?
 - **Overflow risk**: sums of large values. Python ints are safe; in fixed-width languages prefix sums overflow even when elements fit.
+- **Deep recursion**: Python's default ~1000 recursion limit kills an otherwise-correct DFS on chain-shaped inputs, and LeetCode raises it while many OA sandboxes do not.
 - **Sorted versus unsorted**: two pointers and binary search are void on unsorted input unless you sort first.
 - **Whitespace and unicode in strings**: `"a"` versus `"A"`, spaces, accents. Normalize deliberately or not at all.
 
