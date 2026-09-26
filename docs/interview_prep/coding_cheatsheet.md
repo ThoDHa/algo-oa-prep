@@ -48,17 +48,17 @@ The thresholds above are a conservative version of the mapping in [Big-O Notatio
 
 ## Warm-up set
 
-One problem per pattern family from the cards above, loosely escalating from warm fingers to full flow: fifteen problems, about 45 minutes total at warm-up pace (roughly 3 minutes a row).
+One problem per pattern family from the cards above, loosely escalating from warm fingers to full flow: fifteen problems, each carrying its write-up's cold-solve target. Short on time? The five starred rows are the time-boxed core: their targets total 75 minutes; the full set totals 320 minutes.
 
 Rule of thumb: redo each from a blank file, no peeking; if a solve takes more than 2x its target, re-read that flash-card before moving on.
 
 | Problem | Pattern it drills | Target | The check |
 |---------|-------------------|--------|-----------|
-| [Single Number](../problems/single_number.md) | Bit tricks | 15 min | Did you fold everything with XOR and let the pairs cancel? |
-| [Maximum Depth of Binary Tree](../problems/maximum_depth_of_binary_tree.md) | Tree DFS recursion | 15 min | Did you return `1 + max` over the children? |
-| [Two Sum](../problems/two_sum.md) | Hashing | 15 min | Did you query the complement *before* storing `x`? |
-| [Valid Palindrome](../problems/valid_palindrome.md) | Two pointers | 15 min | Did you loop on `left < right`, not `<=`? |
-| [Kth Largest Element In a Stream](../problems/kth_largest_element_in_a_stream.md) | Heap / top-K | 15 min | Did you keep a size-k min-heap whose root is the answer? |
+| [Single Number](../problems/single_number.md) ★ | Bit tricks | 15 min | Did you fold everything with XOR and let the pairs cancel? |
+| [Maximum Depth of Binary Tree](../problems/maximum_depth_of_binary_tree.md) ★ | Tree DFS recursion | 15 min | Did you return `1 + max` over the children? |
+| [Two Sum](../problems/two_sum.md) ★ | Hashing | 15 min | Did you query the complement *before* storing `x`? |
+| [Valid Palindrome](../problems/valid_palindrome.md) ★ | Two pointers | 15 min | Did you loop on `left < right`, not `<=`? |
+| [Kth Largest Element In a Stream](../problems/kth_largest_element_in_a_stream.md) ★ | Heap / top-K | 15 min | Did you keep a size-k min-heap whose root is the answer? |
 | [Valid Parentheses](../problems/valid_parentheses.md) | Stack | 20 min | Did you pop-match every closer and require an empty stack at the end? |
 | [Reverse Linked List](../problems/reverse_linked_list.md) | Linked-list in-place reversal | 20 min | Did you save `curr.next` before flipping it away? |
 | [Find Minimum In Rotated Sorted Array](../problems/find_minimum_in_rotated_sorted_array.md) | Rotated-array binary search | 25 min | Did you identify the sorted half before discarding the other? |
