@@ -11,8 +11,8 @@ all the linked lists into one sorted linked list and return its head.
 
 from typing import List, Optional
 
-from harness import NotSolved, ListNode, build_linked_list, linked_list_to_list, pick_case
-
+from harness import (ListNode, NotSolved, build_linked_list,
+                     linked_list_to_list, pick_case)
 
 # Definition for singly-linked list.
 # class ListNode:
@@ -28,7 +28,34 @@ class Solution:
         Time:  O(?):
         Space: O(?):
         """
-        raise NotSolved
+        if not lists:
+            return None
+
+        def merge_list(l1: Optional[ListNode], l2: Optional[ListNode]) -> ListNode:
+            dummy = ListNode(0)
+            current = dummy
+
+            while l1 and l2:
+                if l1.val <= l2.val:
+                    current.next = l1
+                    l1 = l1.next
+                else:
+                    current.next = l2
+                    l2 = l2.next
+                current = current.next
+
+            current.next = l1 or l2
+            return dummy.next
+
+        while len(lists) > 1:
+            merged_lists = []
+
+            for i in range(0, len(lists), 2):
+                l1 = lists[i]
+                l2 = lists[i + 1] if i + 1 < len(lists) else None
+                merged_lists.append(merge_list(l1, l2))
+            lists = merged_lists
+        return lists[0] if lists else None
 
 
 if __name__ == "__main__":
