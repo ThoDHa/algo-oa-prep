@@ -10,6 +10,7 @@ no such sequence exists.
   uv run python word_ladder/solution.py     # debug one case (see CASE below)
   uv run pytest word_ladder/                # run the test sets
 """
+from collections import deque
 
 from typing import List
 
@@ -23,8 +24,32 @@ class Solution:
         Time:  O(?):
         Space: O(?):
         """
-        raise NotSolved
+        if endWord not in wordList:
+            return 0
 
+        word_set = set(wordList)
+
+        visited = {beginWord}
+
+        queue = deque([(beginWord, 1)])
+
+        while queue:
+            current_word, length  = queue.popleft()
+
+            for i in range(len(current_word)):
+                for c in "abcdefghijklmnopqrstuvwxyz":
+                    if c == current_word[i]:
+                        continue
+
+                    new_word = current_word[:i] + c + current_word[i+1:]
+
+                    if new_word == endWord:
+                        return length + 1
+
+                    if new_word in word_set and new_word not in visited:
+                        visited.add(new_word)
+                        queue.append((new_word, length + 1))
+        return 0
 
 if __name__ == "__main__":
     # Debug playground: set a breakpoint in ladderLength above, then run this file.
