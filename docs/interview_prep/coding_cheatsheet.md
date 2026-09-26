@@ -46,6 +46,30 @@ The thresholds above are a conservative version of the mapping in [Big-O Notatio
 | [Linked-list in-place reversal](../patterns/linked_list_in_place_reversal/intuition.md) | reverse a list or a segment with no extra memory | three pointers: save next, flip `curr.next`, step prev and curr forward | [Reverse Linked List](../problems/reverse_linked_list.md) | save `curr.next` before flipping it away, and return `prev`, not `head` |
 | [Tree DFS recursion](../patterns/tree/intuition.md) | tree property from subtrees: depth, diameter, balance | recurse on children, combine at the node (postorder thinking) | [Maximum Depth of Binary Tree](../problems/maximum_depth_of_binary_tree.md) | return the single-branch value (`1 + max`); through-node answers also need a global update |
 
+## Warm-up set
+
+One problem per pattern family from the cards above, loosely escalating from warm fingers to full flow: fifteen problems, about 45 minutes total at warm-up pace (roughly 3 minutes a row).
+
+Rule of thumb: redo each from a blank file, no peeking; if a solve takes more than 2x its target, re-read that flash-card before moving on.
+
+| Problem | Pattern it drills | Target | The check |
+|---------|-------------------|--------|-----------|
+| [Single Number](../problems/single_number.md) | Bit tricks | 15 min | Did you fold everything with XOR and let the pairs cancel? |
+| [Maximum Depth of Binary Tree](../problems/maximum_depth_of_binary_tree.md) | Tree DFS recursion | 15 min | Did you return `1 + max` over the children? |
+| [Two Sum](../problems/two_sum.md) | Hashing | 15 min | Did you query the complement *before* storing `x`? |
+| [Valid Palindrome](../problems/valid_palindrome.md) | Two pointers | 15 min | Did you loop on `left < right`, not `<=`? |
+| [Kth Largest Element In a Stream](../problems/kth_largest_element_in_a_stream.md) | Heap / top-K | 15 min | Did you keep a size-k min-heap whose root is the answer? |
+| [Valid Parentheses](../problems/valid_parentheses.md) | Stack | 20 min | Did you pop-match every closer and require an empty stack at the end? |
+| [Reverse Linked List](../problems/reverse_linked_list.md) | Linked-list in-place reversal | 20 min | Did you save `curr.next` before flipping it away? |
+| [Find Minimum In Rotated Sorted Array](../problems/find_minimum_in_rotated_sorted_array.md) | Rotated-array binary search | 25 min | Did you identify the sorted half before discarding the other? |
+| [Number of Islands](../problems/number_of_islands.md) | Graph BFS/DFS | 25 min | Did you count traversal starts, marking visited when pushing? |
+| [Course Schedule II](../problems/course_schedule_ii.md) | Topological sort | 25 min | Did you orient every edge prerequisite-first (`[1, 0]` means `0 → 1`)? |
+| [Graph Valid Tree](../problems/graph_valid_tree.md) | Union-find | 25 min | Did you check both n-1 edges and one component? |
+| [Subsets II](../problems/subsets_ii.md) | Backtracking | 25 min | Did you sort first, then skip `nums[i] == nums[i-1]` when `i > start`? |
+| [House Robber](../problems/house_robber.md) | 1-D DP | 25 min | Did you keep the skip branch (`max(dp[i-1], dp[i-2] + nums[i])`)? |
+| [Edit Distance](../problems/edit_distance.md) | 2-D DP | 25 min | Did you seed the empty row and column before filling the grid? |
+| [Merge Intervals](../problems/merge_intervals.md) | Merge intervals | 30 min | Did you sort by start and merge each interval into the last output one? |
+
 ## The corner-case shotgun
 
 Run every finished solution past this list, out loud, before announcing you are done:

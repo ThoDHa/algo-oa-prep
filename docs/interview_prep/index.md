@@ -61,7 +61,7 @@ The foundations section carries a full [coding interview rubric](../foundations/
 - Already solving problems: skim the
   [study plan](study_plan.md) to place yourself in it, and put [mock interviews](mock_interviews.md) on the calendar for the 60% mark.
 - Minutes before an online assessment or a live round: keep the
-  [coding cheatsheet](coding_cheatsheet.md) open for the 30-second checklist, the pattern flash-cards, and the corner-case shotgun.
+  [coding cheatsheet](coding_cheatsheet.md) open for the 30-second checklist, the pattern flash-cards, the warm-up set, and the corner-case shotgun.
 
 ---
 
