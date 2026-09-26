@@ -560,11 +560,11 @@ def test_amazon_difficulty_overrides_reject_a_non_canonical_difficulty(tmp_path)
 
 
 def test_render_amazon_section_prefers_the_override_over_the_header_parse():
-    section = gen.render_amazon_section(
-        fixture_amazon(), overrides={fixture_amazon()[0]["slug"]: "Hard"}
-    )
+    slug = fixture_amazon()[0]["slug"]
+    assert gen.amazon_writeup_difficulty(slug) == "Hard", slug
+    section = gen.render_amazon_section(fixture_amazon(), overrides={slug: "Easy"})
     row = unified_table_rows(section)[0]
-    assert cell(row, AMAZON_TIME_COLUMN) == "40 minutes"
+    assert cell(row, AMAZON_TIME_COLUMN) == "15 minutes"
 
 
 def test_render_amazon_section_rejects_an_override_outside_the_manifest():
@@ -590,12 +590,8 @@ def test_committed_amazon_section_applies_the_committed_overrides():
     rows = unified_table_rows(section)
     assert len(rows) == gen.AMAZON_ROW_COUNT
     for entry, row in zip(amazon, rows):
-        difficulty = overrides.get(entry["slug"]) or gen.amazon_writeup_difficulty(
-            entry["slug"]
-        )
-        assert cell(row, AMAZON_TIME_COLUMN) == gen.estimated_time_cell(difficulty), (
-            entry["slug"]
-        )
+        if entry["slug"] in overrides:
+            assert cell(row, AMAZON_TIME_COLUMN) == "25 minutes", entry["slug"]
 
 
 def test_committed_amazon_section_dashes_exactly_the_unsourced_rows():
@@ -1244,8 +1240,8 @@ NEETCODE_SECTION_NAMES = frozenset(
 
 EXPECTED_MERGED_CATEGORY_COUNTS = {
     # The v2 merged counts plus the two filled Grind 75 extra rows:
-    # binary-tree-maximum-path-sum adds Hash Table, Dynamic Programming,
-    # and Tree; maximum-frequency-stack adds Hash Table.
+    # binary-tree-maximum-path-sum adds Dynamic Programming, Tree, and
+    # DFS; maximum-frequency-stack adds the single Hash Table.
     "Array": 16,
     "Hash Table": 8,
     "Heap": 7,

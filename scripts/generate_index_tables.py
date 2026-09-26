@@ -45,7 +45,7 @@ import json
 import re
 import sys
 from pathlib import Path
-from typing import AbstractSet, List, Optional, Sequence
+from typing import AbstractSet, List, Mapping, Optional, Sequence
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 GRIND_TABLE_PATH = REPO_ROOT / "scripts" / "grind75_table.json"
@@ -1006,7 +1006,9 @@ def render_unified_section(rows: Sequence[dict], overlap: AbstractSet[str]) -> s
     return "\n".join(lines) + "\n"
 
 
-def render_amazon_section(entries: Sequence[dict], overrides: Optional[dict]) -> str:
+def render_amazon_section(
+    entries: Sequence[dict], overrides: Mapping[str, str]
+) -> str:
     """Render the marker-bounded Amazon OA table section.
 
     Separate from the LeetCode tables: columns `| Problem | Updated |
