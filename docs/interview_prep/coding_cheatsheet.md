@@ -121,31 +121,48 @@ s, xs, lines = "mississippi", [1, 2, 2, 3], ["abc", "de"]
 n, rows, cols, k, x = 3, 2, 3, 2, 0
 f, key, default, chunk = abs, "a", 0, "ab"
 
-[0] * n; [x] * n                   # 1-D list, n slots of one immutable fill
-[f(i) for i in range(n)]           # 1-D list built elementwise
+# 1-D: n slots of one immutable fill
+[0] * n; [x] * n
+# built elementwise
+[f(i) for i in range(n)]
 # THE 2-D ARRAY: a fresh row per _, so rows stay independent
 [[0] * cols for _ in range(rows)]
 # THE TRAP: one row shared rows times; writing any cell rewrites every row
 [[0] * cols] * rows
-# 3-D: nest the comprehension one level deeper per dimension
+# 3-D: nest one level deeper per dimension
 [[[0] * k for _ in range(cols)] for _ in range(rows)]
-d = {}                             # empty dict; dict() is the same thing
-d.get(key, default)                # read with a fallback, no membership branch (quick-ref above)
-d.setdefault(key, []).append(x)    # fetch-or-create and mutate in one call
-defaultdict(int)                   # counter that works from the very first touch
-# buckets and stacks of work: graph[u].append(v) builds the adjacency list (the Graph BFS/DFS card above)
+
+# empty dict; dict() is the same thing
+d = {}
+# read with a fallback, no membership branch
+d.get(key, default)
+# fetch-or-create and mutate in one call
+d.setdefault(key, []).append(x)
+# counter that works from the very first touch
+defaultdict(int)
+# graph[u].append(v) builds the adjacency list
 graph = defaultdict(list)
-defaultdict(set); defaultdict(deque)  # per-key membership, per-key O(1) queue
-Counter(s); Counter("mississippi").most_common(k)  # frequency map in one call, ranked top k
-set(); {1, 2, 3}                   # empty set and literal set; {} alone is a dict
-set(xs); frozenset(xs)             # dedupe; frozenset(xs) when the set itself must hash
-# min-heap on a plain list; heapify(xs) converts in place; negate for max per the heapq quick-ref above
+# per-key membership, per-key O(1) queue
+defaultdict(set); defaultdict(deque)
+# frequency map in one call, ranked top k
+Counter(s); Counter("mississippi").most_common(k)
+
+# empty set and literal set; {} alone is a dict
+set(); {1, 2, 3}
+# dedupe; frozenset when the set itself must hash
+set(xs); frozenset(xs)
+
+# min-heap on a plain list; heapify(xs) converts in place; negate for a max-heap
 heap = []; heapq.heappush(heap, x)
-deque(); deque(xs)                # O(1) queue (quick-ref above); maxlen=k caps it: a full deque evicts from the far end
-# string builder: append chunks, "".join(parts) once (the join quick-ref above)
+# O(1) queue; maxlen=k caps it: a full deque evicts from the far end
+deque(); deque(xs)
+
+# append chunks, "".join(parts) once
 parts = []; parts.append(chunk); "".join(parts)
-(); (x,)                           # empty tuple, one-element tuple; the comma carries it
-# grid of characters from input lines; [line.split() for line in lines] for token rows
+
+# the comma makes the tuple
+(); (x,)
+# grid of characters; [line.split() for line in lines] for token rows
 [list(line) for line in lines]
 ```
 
