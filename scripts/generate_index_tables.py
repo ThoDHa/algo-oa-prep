@@ -1416,7 +1416,7 @@ def nav_child_drift_detail(
     return "; ".join(detail)
 
 
-def bounded_nav_children(text: str, child_pattern: "re.Pattern[str]") -> List[str]:
+def bounded_nav_children(text: str, child_pattern: re.Pattern) -> List[str]:
     """Collect the child slugs a nav child pattern matches, line by line.
 
     Shared by both subsection scanners: the bounded scan starts at the
