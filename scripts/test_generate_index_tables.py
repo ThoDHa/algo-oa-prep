@@ -21,6 +21,7 @@ SCRIPTS_DIR = Path(__file__).resolve().parent
 GRIND_TABLE_PATH = SCRIPTS_DIR / "grind75_table.json"
 NEETCODE_MANIFEST_PATH = SCRIPTS_DIR / "neetcode150_manifest.json"
 AMAZON_MANIFEST_PATH = SCRIPTS_DIR / "amazon_oa_manifest.json"
+AMAZON_OVERRIDES_PATH = SCRIPTS_DIR / "amazon_difficulty_overrides.json"
 
 
 # ---------------------------------------------------------------------------
@@ -316,10 +317,38 @@ def test_committed_grind_table_rows_match_the_hand_table_verbatim():
         "number": None,
         "slug": "maximum-frequency-stack",
         "title": "Maximum Frequency Stack",
-        "difficulty": "-",
-        "category": "-",
-        "time": "-",
+        "difficulty": "Hard",
+        "category": "Hash Table, Stack, Design",
+        "time": "40 minutes",
     }
+
+
+EXPECTED_GRIND_EXTRA_ROWS = {
+    "binary-tree-maximum-path-sum": {
+        "number": None,
+        "slug": "binary-tree-maximum-path-sum",
+        "title": "Binary Tree Maximum Path Sum",
+        "difficulty": "Hard",
+        "category": "Dynamic Programming, Tree, DFS",
+        "time": "40 minutes",
+    },
+    "maximum-frequency-stack": {
+        "number": None,
+        "slug": "maximum-frequency-stack",
+        "title": "Maximum Frequency Stack",
+        "difficulty": "Hard",
+        "category": "Hash Table, Stack, Design",
+        "time": "40 minutes",
+    },
+}
+
+
+def test_committed_grind_table_fills_the_unnumbered_extra_rows():
+    rows = gen.load_grind_table(GRIND_TABLE_PATH)
+    extras = [row for row in rows if row["number"] is None]
+    assert len(extras) == 2
+    for row in extras:
+        assert row == EXPECTED_GRIND_EXTRA_ROWS[row["slug"]], row["slug"]
 
 
 def test_committed_grind_table_slugs_derive_their_writeup_paths():
@@ -489,6 +518,104 @@ def test_estimated_time_cell_maps_each_difficulty_to_its_minutes():
 
 def test_estimated_time_cell_marks_unknown_difficulty_with_the_dash_marker():
     assert gen.estimated_time_cell(None) == "-"
+
+
+# ---------------------------------------------------------------------------
+# The Amazon difficulty overrides
+# ---------------------------------------------------------------------------
+
+
+def test_load_amazon_difficulty_overrides_returns_an_empty_mapping_when_absent(tmp_path):
+    assert gen.load_amazon_difficulty_overrides(tmp_path / "absent.json") == {}
+
+
+def test_load_amazon_difficulty_overrides_reads_the_committed_json_object():
+    overrides = gen.load_amazon_difficulty_overrides(AMAZON_OVERRIDES_PATH)
+    assert isinstance(overrides, dict)
+    assert overrides
+
+
+def test_load_amazon_difficulty_overrides_rejects_a_non_json_object(tmp_path):
+    path = write_json(tmp_path, "overrides.json", [{"slug": "amazon-odd"}])
+    with pytest.raises(gen.SourceError, match="JSON object"):
+        gen.load_amazon_difficulty_overrides(path)
+
+
+def test_amazon_difficulty_overrides_validate_against_the_committed_manifest():
+    overrides = gen.load_amazon_difficulty_overrides(AMAZON_OVERRIDES_PATH)
+    amazon = gen.load_amazon_manifest(AMAZON_MANIFEST_PATH)
+    gen.validate_amazon_difficulty_overrides(overrides, amazon)
+
+
+def test_amazon_difficulty_overrides_reject_an_unknown_slug(tmp_path):
+    overrides = {"amazon-not-in-the-manifest": "Easy"}
+    with pytest.raises(gen.SourceError, match="unknown slug"):
+        gen.validate_amazon_difficulty_overrides(overrides, valid_amazon())
+
+
+def test_amazon_difficulty_overrides_reject_a_non_canonical_difficulty(tmp_path):
+    overrides = {valid_amazon()[0]["slug"]: "Tricky"}
+    with pytest.raises(gen.SourceError, match="Tricky"):
+        gen.validate_amazon_difficulty_overrides(overrides, valid_amazon())
+
+
+def test_render_amazon_section_prefers_the_override_over_the_header_parse():
+    section = gen.render_amazon_section(
+        fixture_amazon(), overrides={fixture_amazon()[0]["slug"]: "Hard"}
+    )
+    row = unified_table_rows(section)[0]
+    assert cell(row, AMAZON_TIME_COLUMN) == "40 minutes"
+
+
+def test_render_amazon_section_rejects_an_override_outside_the_manifest():
+    with pytest.raises(gen.SourceError, match="unknown slug"):
+        gen.render_amazon_section(fixture_amazon(), overrides={"amazon-absent": "Easy"})
+
+
+EXPECTED_AMAZON_OVERRIDES = {
+    "amazon-minimum-operations-to-sort-permutation": "Medium",
+}
+
+
+def test_committed_amazon_overrides_pin_the_externally_sourced_difficulties():
+    assert gen.load_amazon_difficulty_overrides(AMAZON_OVERRIDES_PATH) == (
+        EXPECTED_AMAZON_OVERRIDES
+    )
+
+
+def test_committed_amazon_section_applies_the_committed_overrides():
+    amazon = gen.load_amazon_manifest(AMAZON_MANIFEST_PATH)
+    overrides = gen.load_amazon_difficulty_overrides(AMAZON_OVERRIDES_PATH)
+    section = gen.render_amazon_section(amazon, overrides)
+    rows = unified_table_rows(section)
+    assert len(rows) == gen.AMAZON_ROW_COUNT
+    for entry, row in zip(amazon, rows):
+        difficulty = overrides.get(entry["slug"]) or gen.amazon_writeup_difficulty(
+            entry["slug"]
+        )
+        assert cell(row, AMAZON_TIME_COLUMN) == gen.estimated_time_cell(difficulty), (
+            entry["slug"]
+        )
+
+
+def test_committed_amazon_section_dashes_exactly_the_unsourced_rows():
+    amazon = gen.load_amazon_manifest(AMAZON_MANIFEST_PATH)
+    overrides = gen.load_amazon_difficulty_overrides(AMAZON_OVERRIDES_PATH)
+    section = gen.render_amazon_section(amazon, overrides)
+    rows = unified_table_rows(section)
+    dashed = [
+        entry["slug"]
+        for entry, row in zip(amazon, rows)
+        if cell(row, AMAZON_TIME_COLUMN) == gen.UNKNOWN_TIME_CELL
+    ]
+    assert len(dashed) == 23
+    # The three dead-link pages (unfetchable or under maintenance) must stay
+    # dashed rather than guessed.
+    assert {
+        "amazon-find-minimum-possible-variance",
+        "amazon-get-min-cost-book",
+        "amazon-find-minimum-number-of-operations",
+    } <= set(dashed)
 
 
 EXPECTED_AMAZON_DIFFICULTY_SAMPLES = {
@@ -835,16 +962,6 @@ EXPECTED_STUDY_ORDER = [
     "binary-tree-right-side-view",
     "longest-palindromic-substring",
     "unique-paths",
-    "longest-common-subsequence",
-    "best-time-to-buy-and-sell-stock-with-cooldown",
-    "coin-change-ii",
-    "target-sum",
-    "interleaving-string",
-    "longest-increasing-path-in-a-matrix",
-    "distinct-subsequences",
-    "edit-distance",
-    "burst-balloons",
-    "regular-expression-matching",
     "construct-binary-tree-from-preorder-and-inorder-traversal",
     "container-with-most-water",
     "letter-combinations-of-a-phone-number",
@@ -859,17 +976,27 @@ EXPECTED_STUDY_ORDER = [
     "trapping-rain-water",
     "find-median-from-data-stream",
     "word-ladder",
+    "basic-calculator",
+    "maximum-profit-in-job-scheduling",
+    "merge-k-sorted-lists",
+    "largest-rectangle-in-histogram",
+    "binary-tree-maximum-path-sum",
+    "longest-common-subsequence",
+    "best-time-to-buy-and-sell-stock-with-cooldown",
+    "coin-change-ii",
+    "target-sum",
+    "interleaving-string",
+    "longest-increasing-path-in-a-matrix",
+    "distinct-subsequences",
+    "edit-distance",
+    "burst-balloons",
+    "regular-expression-matching",
     "network-delay-time",
     "reconstruct-itinerary",
     "min-cost-to-connect-all-points",
     "swim-in-rising-water",
     "alien-dictionary",
     "cheapest-flights-within-k-stops",
-    "basic-calculator",
-    "maximum-profit-in-job-scheduling",
-    "merge-k-sorted-lists",
-    "largest-rectangle-in-histogram",
-    "binary-tree-maximum-path-sum",
     "maximum-frequency-stack",
 ]
 
@@ -951,11 +1078,20 @@ def test_committed_interleave_puts_math_and_geometry_after_spiral_matrix():
 
 
 def test_committed_interleave_puts_2d_dp_after_the_last_dynamic_programming_row():
-    assert_precedes("unique-paths", "longest-common-subsequence")
+    # The filled binary-tree-maximum-path-sum row sits between the Grind 75
+    # DP block and the 2-D DP section rows.
+    order = committed_study_order()
+    assert order.index("unique-paths") < order.index("binary-tree-maximum-path-sum")
+    assert_precedes("binary-tree-maximum-path-sum", "longest-common-subsequence")
 
 
 def test_committed_interleave_puts_advanced_graphs_after_the_graph_block():
-    assert_precedes("word-ladder", "network-delay-time")
+    # The filled basic-calculator..binary-tree-maximum-path-sum Grind 75
+    # extras sit between the Graphs section rows and the Advanced Graphs
+    # section rows; word-ladder (a Grind 75 Graph row) still precedes them.
+    order = committed_study_order()
+    assert order.index("word-ladder") < order.index("basic-calculator")
+    assert order.index("regular-expression-matching") < order.index("network-delay-time")
 
 
 def test_committed_interleave_puts_intervals_after_the_greedy_block():
@@ -1107,13 +1243,16 @@ NEETCODE_SECTION_NAMES = frozenset(
 )
 
 EXPECTED_MERGED_CATEGORY_COUNTS = {
+    # The v2 merged counts plus the two filled Grind 75 extra rows:
+    # binary-tree-maximum-path-sum adds Hash Table, Dynamic Programming,
+    # and Tree; maximum-frequency-stack adds Hash Table.
     "Array": 16,
-    "Hash Table": 7,
+    "Hash Table": 8,
     "Heap": 7,
-    "Dynamic Programming": 23,
+    "Dynamic Programming": 24,
     "Graph": 20,
     "Math": 7,
-    "Tree": 15,
+    "Tree": 16,
     "Trie": 3,
 }
 
@@ -1180,6 +1319,24 @@ def test_committed_unified_section_merges_the_topic_counts():
     )
     for topic, expected_count in EXPECTED_MERGED_CATEGORY_COUNTS.items():
         assert counts[topic] == expected_count, topic
+
+
+EXPECTED_UNIFIED_FILL_ROWS = {
+    "binary-tree-maximum-path-sum": ("Hard", "Dynamic Programming, Tree, DFS", "40 minutes"),
+    "maximum-frequency-stack": ("Hard", "Hash Table, Stack, Design", "40 minutes"),
+}
+
+
+def test_committed_unified_section_fills_the_former_dash_rows():
+    rows_by_lc_slug = {
+        unified_row_lc_slug(row): row for row in unified_table_rows(committed_section())
+    }
+    assert len(rows_by_lc_slug) == gen.UNIQUE_PROBLEM_COUNT
+    for lc_slug, (difficulty, category, time_cell) in EXPECTED_UNIFIED_FILL_ROWS.items():
+        row = rows_by_lc_slug[lc_slug]
+        assert cell(row, DIFFICULTY_COLUMN) == difficulty, lc_slug
+        assert cell(row, CATEGORY_COLUMN) == category, lc_slug
+        assert cell(row, TIME_COLUMN) == time_cell, lc_slug
 
 
 # ---------------------------------------------------------------------------

@@ -603,16 +603,16 @@
     "number": null,
     "slug": "binary-tree-maximum-path-sum",
     "title": "Binary Tree Maximum Path Sum",
-    "difficulty": "-",
-    "category": "-",
-    "time": "-"
+    "difficulty": "Hard",
+    "category": "Dynamic Programming, Tree, DFS",
+    "time": "40 minutes"
   },
   {
     "number": null,
     "slug": "maximum-frequency-stack",
     "title": "Maximum Frequency Stack",
-    "difficulty": "-",
-    "category": "-",
-    "time": "-"
+    "difficulty": "Hard",
+    "category": "Hash Table, Stack, Design",
+    "time": "40 minutes"
   }
 ]

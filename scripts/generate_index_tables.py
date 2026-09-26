@@ -51,6 +51,9 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 GRIND_TABLE_PATH = REPO_ROOT / "scripts" / "grind75_table.json"
 NEETCODE_MANIFEST_PATH = REPO_ROOT / "scripts" / "neetcode150_manifest.json"
 AMAZON_MANIFEST_PATH = REPO_ROOT / "scripts" / "amazon_oa_manifest.json"
+AMAZON_DIFFICULTY_OVERRIDES_PATH = (
+    REPO_ROOT / "scripts" / "amazon_difficulty_overrides.json"
+)
 PROBLEMS_INDEX_PATH = REPO_ROOT / "docs" / "problems" / "index.md"
 MKDOCS_PATH = REPO_ROOT / "mkdocs.yml"
 
@@ -824,6 +827,76 @@ def amazon_writeup_difficulty(slug: str, docs_dir: Optional[Path] = None) -> Opt
 
 
 # ---------------------------------------------------------------------------
+# Amazon difficulty overrides
+# ---------------------------------------------------------------------------
+
+
+def load_amazon_difficulty_overrides(
+    path: Path = AMAZON_DIFFICULTY_OVERRIDES_PATH,
+) -> dict:
+    """Load the committed slug -> difficulty overrides for the Amazon rows.
+
+    FastPrep publishes no difficulty on 24 bank pages, so their write-up
+    headers carry the unknown-difficulty marker and their table rows dash.
+    This file, populated from FastPrep's own pages as it become available,
+    is consulted before the header parse. An absent file is the empty
+    mapping (the revert path: deleting it and regenerating restores the
+    old dashes); anything present must be one JSON object.
+
+    Args:
+        path: Path to amazon_difficulty_overrides.json (default: module
+            constant).
+
+    Returns:
+        The slug -> difficulty mapping, empty when the file is absent.
+
+    Raises:
+        SourceError: When the file is unreadable, invalid JSON, or not a
+            JSON object.
+    """
+    if not path.exists():
+        return {}
+    try:
+        overrides = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, UnicodeDecodeError) as error:
+        raise SourceError(f"Amazon difficulty overrides {path} is not valid JSON: {error}") from error
+    if not isinstance(overrides, dict):
+        raise SourceError(f"Amazon difficulty overrides {path} must be a JSON object")
+    return overrides
+
+
+def validate_amazon_difficulty_overrides(
+    overrides: dict, amazon: Sequence[dict]
+) -> None:
+    """Check the overrides against the manifest they decorate.
+
+    The contract: every slug is a manifest slug (the override addresses a
+    real bank row) and every difficulty is canonical (it feeds the Time
+    estimate and the filter's Difficulty select directly).
+
+    Args:
+        overrides: The slug -> difficulty mapping.
+        amazon: The validated Amazon OA manifest entries.
+
+    Raises:
+        SourceError: When a slug is absent from the manifest or a
+            difficulty is not canonical.
+    """
+    slugs = {entry["slug"] for entry in amazon}
+    for slug, difficulty in overrides.items():
+        if slug not in slugs:
+            raise SourceError(
+                f"Amazon difficulty override names an unknown slug {slug!r};"
+                f" the manifest carries {len(slugs)} slugs"
+            )
+        if difficulty not in DIFFICULTIES:
+            raise SourceError(
+                f"Amazon difficulty override for {slug!r} must be one of"
+                f" {', '.join(DIFFICULTIES)}: got {difficulty!r}"
+            )
+
+
+# ---------------------------------------------------------------------------
 # Renderers
 # ---------------------------------------------------------------------------
 
@@ -933,21 +1006,33 @@ def render_unified_section(rows: Sequence[dict], overlap: AbstractSet[str]) -> s
     return "\n".join(lines) + "\n"
 
 
-def render_amazon_section(entries: Sequence[dict]) -> str:
+def render_amazon_section(entries: Sequence[dict], overrides: Optional[dict] = None) -> str:
     """Render the marker-bounded Amazon OA table section.
 
     Separate from the LeetCode tables: columns `| Problem | Updated |
     Practice at | Time |`, most recently updated first, `Problem` linking
     the write-up page, `Practice at` linking the problem's FastPrep page,
-    and `Time` carrying the difficulty-based estimate parsed from the
-    committed write-up's header.
+    and `Time` carrying the difficulty-based estimate. The difficulty
+    comes from the slug -> difficulty overrides when one addresses the
+    row (FastPrep publishes none on some pages; the committed
+    amazon_difficulty_overrides.json fills them) and the write-up header
+    parse otherwise.
 
     Args:
         entries: The validated Amazon OA manifest entries.
+        overrides: Slug -> difficulty consulted before each write-up's
+            header parse (default: none).
 
     Returns:
         The section text: start marker through end marker, trailing newline.
+
+    Raises:
+        SourceError: When an override names an unknown slug or a
+            non-canonical difficulty, or a write-up header fails its
+            parse.
     """
+    overrides = overrides if overrides is not None else {}
+    validate_amazon_difficulty_overrides(overrides, entries)
     lines = [
         AMAZON_SECTION_START,
         "## Amazon OA Problems",
@@ -963,7 +1048,8 @@ def render_amazon_section(entries: Sequence[dict]) -> str:
         " [`practice/amazon_oa/`](https://github.com/ThoDHa/algo-oa-prep/tree/main/practice/amazon_oa)"
         " workspace. Time carries difficulty-based estimates"
         " (Easy 15 / Medium 25 / Hard 40 minutes, a dash where the difficulty"
-        " is unknown), parsed from each write-up's difficulty header.",
+        " is unknown), from the committed difficulty overrides where present"
+        " and each write-up's difficulty header otherwise.",
         "",
         AMAZON_TABLE_HEADER,
         AMAZON_TABLE_SEPARATOR,
@@ -971,7 +1057,12 @@ def render_amazon_section(entries: Sequence[dict]) -> str:
     for entry in entries:
         problem = f"[{entry['title']}](amazon_oa/{entry['slug']}.md)"
         practice = f"[{PRACTICE_FASTPREP}]({entry['url']})"
-        time_cell = estimated_time_cell(amazon_writeup_difficulty(entry["slug"]))
+        difficulty = (
+            overrides[entry["slug"]]
+            if entry["slug"] in overrides
+            else amazon_writeup_difficulty(entry["slug"])
+        )
+        time_cell = estimated_time_cell(difficulty)
         lines.append(f"| {problem} | {entry['updated']} | {practice} | {time_cell} |")
     lines.append(AMAZON_SECTION_END)
     return "\n".join(lines) + "\n"
@@ -1045,7 +1136,12 @@ def render_sections() -> List[tuple]:
             UNIFIED_SECTION_END,
             render_unified_section(merged, overlap),
         ),
-        ("amazon-oa", AMAZON_SECTION_START, AMAZON_SECTION_END, render_amazon_section(amazon)),
+        (
+            "amazon-oa",
+            AMAZON_SECTION_START,
+            AMAZON_SECTION_END,
+            render_amazon_section(amazon, load_amazon_difficulty_overrides()),
+        ),
         ("sources", SOURCES_SECTION_START, SOURCES_SECTION_END, render_sources_section()),
     ]
 
