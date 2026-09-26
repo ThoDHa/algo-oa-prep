@@ -11,7 +11,8 @@
 // comma-separated cells contain, and a row matches on exact tag equality
 // after split and trim), and a Tracks select where that column exists,
 // plus a Clear button. Escape inside the panel empties every
-// filter and closes it. The funnel carries a small dot badge while any
+// filter and closes it, and Escape on the funnel closes an open panel. The
+// funnel carries a small dot badge while any
 // filter is non-default. A table counts as filterable when its header row
 // has a Problem column and a Difficulty or Time column - the columns the
 // filters can actually work on - so every other article table (pattern
@@ -63,6 +64,10 @@ const PROBLEM_INPUT_WIDTH = "12rem";
 const PANEL_GAP = "0.6rem";
 const PANEL_PADDING = "0.4rem 0.6rem";
 const PANEL_MARGIN_TOP = "0.2rem";
+const PANEL_BORDER = "1px solid currentColor";
+const PANEL_BORDER_RADIUS = "0.2rem";
+const PANEL_ROLE = "group";
+const PANEL_LABEL = "Filters";
 const BADGE_SIZE = "0.4em";
 const BADGE_OFFSET = "-0.2em";
 const SVG_NAMESPACE = "http://www.w3.org/2000/svg";
@@ -211,7 +216,6 @@ const buildIconButton = (label, drawing) => {
   styleAsChromeControl(button);
   button.style.display = "inline-flex";
   button.style.alignItems = "center";
-  button.style.position = "relative";
   return button;
 };
 
@@ -266,11 +270,13 @@ const buildClearButton = (table, controls) => {
   return button;
 };
 
-/** True when tablesort-init stamped the rows with their default order. */
-const isDefaultOrderStamped = (table) => {
-  const firstRow = table.tBodies[0]?.rows[0];
-  return firstRow !== undefined && firstRow.dataset.defaultIndex !== undefined;
-};
+/** True when tablesort-init stamped every body's rows with their default order. */
+const isDefaultOrderStamped = (table) =>
+  table.tBodies.length > 0 &&
+  Array.from(table.tBodies).every(
+    (body) =>
+      body.rows.length > 0 && body.rows[0].dataset.defaultIndex !== undefined
+  );
 
 /** Builds the reset-sort icon restoring default row order and sort state; null when the sort module is absent or the table carries no default-order stamps (unstamped rows would be reordered into a scrambled, NaN-driven order). */
 const buildResetButton = (table) => {
@@ -302,7 +308,7 @@ const isFilterActive = (controls) =>
 /** Hides non-matching rows and mirrors the funnel badge. */
 const applyFilters = (table, controls) => {
   const query = controls.text.value.trim().toLowerCase();
-  const difficulty = controls.difficulty ? controls.difficulty.value : "";
+  const difficulty = controls.difficulty.value;
   const category = controls.category ? controls.category.value : "";
   const track = controls.tracks ? controls.tracks.value.toLowerCase() : "";
   const requiredIndices = requiredColumns(controls.columns);
@@ -357,14 +363,16 @@ const buildFilterPanel = (table, controls) => {
   const panel = document.createElement("div");
   filterPanelCount += 1;
   panel.id = `filter-panel-${filterPanelCount}`;
+  panel.setAttribute("role", PANEL_ROLE);
+  panel.setAttribute("aria-label", PANEL_LABEL);
   panel.style.display = "none";
   panel.style.flexWrap = "wrap";
   panel.style.alignItems = "center";
   panel.style.gap = PANEL_GAP;
   panel.style.padding = PANEL_PADDING;
   panel.style.marginTop = PANEL_MARGIN_TOP;
-  panel.style.border = "1px solid currentColor";
-  panel.style.borderRadius = "0.2rem";
+  panel.style.border = PANEL_BORDER;
+  panel.style.borderRadius = PANEL_BORDER_RADIUS;
   panel.append(controls.text, ...controls.selects, buildClearButton(table, controls));
   panel.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
@@ -411,6 +419,7 @@ const installFilterControls = (table, columns) => {
     controls.selects.push(controls.tracks);
   }
   controls.funnelButton = buildIconButton("Toggle filters", FILTER_ICON);
+  controls.funnelButton.style.position = "relative";
   controls.funnelButton.setAttribute("aria-expanded", "false");
   controls.badge = buildActiveBadge();
   controls.funnelButton.append(controls.badge);
@@ -421,6 +430,11 @@ const installFilterControls = (table, columns) => {
       closePanel(controls);
     } else {
       openPanel(controls);
+    }
+  });
+  controls.funnelButton.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && isPanelOpen(controls)) {
+      closePanel(controls);
     }
   });
   controls.text.addEventListener("input", () => applyFilters(table, controls));
