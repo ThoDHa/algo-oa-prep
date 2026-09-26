@@ -257,6 +257,7 @@ def cell(line, column):
 
 PROBLEM_COLUMN = 0
 DIFFICULTY_COLUMN = 1
+CATEGORY_COLUMN = 2
 TIME_COLUMN = 5
 PRACTICE_AT_COLUMN = 3
 AMAZON_UPDATED_COLUMN = 1
@@ -1075,6 +1076,43 @@ def test_committed_merge_starts_and_ends_per_the_study_order():
     assert rows[0]["slug"] == "two-sum"
     assert rows[-1]["slug"] == "maximum-frequency-stack"
     assert rows[-1]["tracks"] == gen.GRIND_TRACK
+
+
+# ---------------------------------------------------------------------------
+# The canonical Category vocabulary
+# ---------------------------------------------------------------------------
+
+
+def test_category_canonical_pins_the_plural_section_names_to_their_singular_forms():
+    assert gen.CATEGORY_CANONICAL == {"Trees": "Tree", "Graphs": "Graph", "Tries": "Trie"}
+
+
+def test_committed_unified_section_carries_no_plural_category_tags():
+    rows = unified_table_rows(committed_section())
+    assert len(rows) == gen.UNIQUE_PROBLEM_COUNT
+    for row in rows:
+        tags = gen.category_tags(cell(row, CATEGORY_COLUMN))
+        assert not (set(tags) & set(gen.CATEGORY_CANONICAL)), row
+    # The compound section names are distinct groupings by design and stay
+    # verbatim: the plural check matches whole tags, not substrings.
+    assert any(
+        "Advanced Graphs" in cell(row, CATEGORY_COLUMN) for row in rows
+    )
+
+
+EXPECTED_CANONICAL_CATEGORY_SAMPLES = {
+    "same-tree": "Tree",
+    "max-area-of-island": "Graph",
+    "implement-trie-prefix-tree": "Trie",
+}
+
+
+def test_committed_unified_section_canonicalizes_the_plural_sample_rows():
+    rows_by_lc_slug = {
+        unified_row_lc_slug(row): row for row in unified_table_rows(committed_section())
+    }
+    for lc_slug, expected_category in EXPECTED_CANONICAL_CATEGORY_SAMPLES.items():
+        assert cell(rows_by_lc_slug[lc_slug], CATEGORY_COLUMN) == expected_category, lc_slug
 
 
 # ---------------------------------------------------------------------------
