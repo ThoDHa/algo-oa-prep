@@ -21,7 +21,28 @@ class Solution:
         Time:  O(?):
         Space: O(?):
         """
-        raise NotSolved
+
+
+        def maxArea(left: int, right: int) -> int:
+
+            if right <= left: 
+                return 0
+
+            minimium_height_index: int = left
+            current = left
+            while current < right:
+                if heights[current] < heights[minimium_height_index]:
+                    minimium_height_index = current
+                current += 1
+            width = right - left
+            max_area = heights[minimium_height_index] * width
+
+            max_area_left = maxArea(left, minimium_height_index)
+            max_area_right = maxArea(minimium_height_index + 1, right)
+
+            return max(max_area, max_area_left, max_area_right)
+
+        return maxArea(0, len(heights)) 
 
 
 if __name__ == "__main__":
