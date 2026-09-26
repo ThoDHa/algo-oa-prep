@@ -21,13 +21,13 @@ Pipeline:
      unified LeetCode table, the separate Amazon OA table, and the Sources
      credits. --check compares the marker spans against a fresh render, so
      the tables stay generator-owned and refreshable.
-   5. Emit the mkdocs.yml Problems nav: the landing page as section parent
-      (navigation.indexes) with two subsections, LeetCode (all 168 problem
-      pages at one level, in the same interleaved study order) and Amazon
-      OA (a section-with-page: the bank index is the section's own entry,
-      with all 350 problem pages at one level beneath it, most recently
-      updated first). --check verifies the nav shape, so the subsections
-      stay generator-owned and refreshable.
+  5. Emit the mkdocs.yml Problems nav: the landing page as section parent
+     (navigation.indexes) with two subsections, LeetCode (all 168 problem
+     pages at one level, in the same interleaved study order) and Amazon
+     OA (a section-with-page: the bank index is the section's own entry,
+     with all 350 problem pages at one level beneath it, most recently
+     updated first). --check verifies the nav shape, so the subsections
+     stay generator-owned and refreshable.
 
 Offline contract: the committed sources (JSON manifests and write-up
 headers) are the only inputs; nothing is fetched, and the marker-bounded
@@ -1354,7 +1354,9 @@ def check_problems_nav(mkdocs_path: Optional[Path] = None) -> int:
             break
         if text[at:next_top_at] != fresh:
             stale.append(
-                "mkdocs.yml (Problems nav drift: " + nav_child_drift_detail(text[at:]) + ")"
+                "mkdocs.yml (Problems nav drift: "
+                + nav_child_drift_detail(text[at:], merged, _amazon)
+                + ")"
             )
     if stale:
         print(f"--check: {len(stale)} nav audit finding(s):")
@@ -1368,7 +1370,9 @@ def check_problems_nav(mkdocs_path: Optional[Path] = None) -> int:
     return 0
 
 
-def nav_child_drift_detail(problems_text: str) -> str:
+def nav_child_drift_detail(
+    problems_text: str, merged: Sequence[dict], amazon: Sequence[dict]
+) -> str:
     """Describe how one Problems nav span drifts from a fresh render.
 
     Compares both subsections' children against the fresh renders of the
@@ -1376,16 +1380,18 @@ def nav_child_drift_detail(problems_text: str) -> str:
 
     Args:
         problems_text: The mkdocs.yml text starting at the Problems marker.
+        merged: The merged rows from the committed sources (the LeetCode
+            subsection's expected children).
+        amazon: The Amazon OA manifest entries (the Amazon subsection's
+            expected children).
 
     Returns:
         A short human-readable drift summary.
     """
-    _grind, _neetcode, _amazon = load_validated_sources()
-    merged = study_order_rows(_grind, _neetcode)
     actual_leetcode = nav_leetcode_children(problems_text)
     expected_leetcode = [row["dirSlug"] for row in merged]
     actual_amazon = nav_amazon_children(problems_text)
-    expected_amazon = [entry["slug"] for entry in _amazon]
+    expected_amazon = [entry["slug"] for entry in amazon]
     detail = []
     for label, source, actual, expected in (
         ("LeetCode", "unified table", actual_leetcode, expected_leetcode),
@@ -1410,6 +1416,32 @@ def nav_child_drift_detail(problems_text: str) -> str:
     return "; ".join(detail)
 
 
+def bounded_nav_children(text: str, child_pattern: "re.Pattern[str]") -> List[str]:
+    """Collect the child slugs a nav child pattern matches, line by line.
+
+    Shared by both subsection scanners: the bounded scan starts at the
+    beginning of `text` and stops at the first line the pattern does not
+    match, so a span ending at the next top-level nav entry or the end of
+    file cannot leak trailing entries into the list.
+
+    Args:
+        text: The mkdocs.yml text starting just after the subsection's
+            anchor (the subsection header, or the bank index entry).
+        child_pattern: The child line pattern; match group 2 carries the
+            child slug.
+
+    Returns:
+        The child slugs in file order; empty when none match.
+    """
+    children: List[str] = []
+    for line in text.splitlines():
+        match = child_pattern.match(line)
+        if match is None:
+            break
+        children.append(match.group(2))
+    return children
+
+
 def nav_leetcode_children(problems_text: str) -> List[str]:
     """Extract the LeetCode subsection's dirSlugs in file order.
 
@@ -1423,23 +1455,17 @@ def nav_leetcode_children(problems_text: str) -> List[str]:
     header_at = problems_text.find(NAV_LEETCODE_HEADER)
     if header_at == -1:
         return []
-    children: List[str] = []
-    for line in problems_text[header_at + len(NAV_LEETCODE_HEADER) :].splitlines():
-        match = NAV_LEETCODE_CHILD_PATTERN.match(line)
-        if match is None:
-            break
-        children.append(match.group(2))
-    return children
+    return bounded_nav_children(
+        problems_text[header_at + len(NAV_LEETCODE_HEADER) :],
+        NAV_LEETCODE_CHILD_PATTERN,
+    )
 
 
 def nav_amazon_children(problems_text: str) -> List[str]:
     """Extract the Amazon OA subsection's bank slugs in file order.
 
     The subsection opens with the bank index entry (the subsection's own
-    link); the bounded child scan starts after it and stops at the first
-    line that does not match an Amazon child, so the Problems span ending
-    at the next top-level nav entry or the end of file cannot leak
-    trailing entries into the list.
+    link); the bounded child scan starts after it.
 
     Args:
         problems_text: The mkdocs.yml text starting at the Problems marker.
@@ -1455,13 +1481,10 @@ def nav_amazon_children(problems_text: str) -> List[str]:
     body_at = header_at + len(NAV_AMAZON_HEADER)
     if not problems_text.startswith(NAV_AMAZON_INDEX_ENTRY, body_at):
         return []
-    children: List[str] = []
-    for line in problems_text[body_at + len(NAV_AMAZON_INDEX_ENTRY) :].splitlines():
-        match = NAV_AMAZON_CHILD_PATTERN.match(line)
-        if match is None:
-            break
-        children.append(match.group(2))
-    return children
+    return bounded_nav_children(
+        problems_text[body_at + len(NAV_AMAZON_INDEX_ENTRY) :],
+        NAV_AMAZON_CHILD_PATTERN,
+    )
 
 
 # ---------------------------------------------------------------------------
